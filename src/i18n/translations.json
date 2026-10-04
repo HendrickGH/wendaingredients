@@ -1,0 +1,1674 @@
+{
+  "common": {
+    "es": {
+      "language": {
+        "title": "Idioma / Language",
+        "select": "Seleccionar idioma"
+      }
+    },
+    "en": {
+      "language": {
+        "title": "Language / Idioma",
+        "select": "Select language"
+      }
+    },
+    "zh": {
+      "language": {
+        "title": "语言 / Language",
+        "select": "选择语言"
+      }
+    }
+  },
+  "meta": {
+    "es": {
+      "title": "Wenda Ingredients | Ingredientes Funcionales Especializados & Soluciones Alimentarias",
+      "description": "Líder global en ingredientes funcionales para la industria alimentaria: Cárnicos, Panificación, Suplementos, Colores de Origen Natural, Tripas VICEL y Maquinaria RIBON. Certificaciones GFSI-BRCGS Grado A, Halal y Star-K Kosher."
+    },
+    "en": {
+      "title": "Wenda Ingredients | Specialized Functional Ingredients & Food Solutions",
+      "description": "Global leader in functional food ingredients: Meat, Bakery, Supplements, Natural Colors, VICEL Casings, and RIBON Machinery. GFSI-BRCGS Grade A, Halal, and Star-K Kosher certified."
+    },
+    "zh": {
+      "title": "Wenda Ingredients | 特种功能性食品原料与技术解决方案",
+      "description": "全球领先的肉类、烘焙、营养补充剂、天然色素、VICEL肠衣及RIBON机械功能性食品原料供应商。具备GFSI-BRCGS A级、清真Halal及犹太Star-K Kosher认证。"
+    }
+  },
+  "navbar": {
+    "es": {
+      "network": "Red Global Wenda",
+      "openMenu": "Abrir menú",
+      "selectedRegion": "Región Seleccionada:",
+      "links": {
+        "about": "Acerca de",
+        "categories": "Categorías",
+        "brands": "Marcas",
+        "science": "WNDA Science",
+        "indent": "Wenda Indent",
+        "contact": "Contacto"
+      },
+      "portfolio": {
+        "title": "Portafolio de Soluciones",
+        "items": [
+          { "name": "Meat & Poultry", "desc": "Textura, rendimiento y retención de jugos" },
+          { "name": "Bakery & Panificación", "desc": "Volumen, suavidad y tolerancia de masa" },
+          { "name": "Suplementos & Bienestar", "desc": "Aminoácidos instantizados y nutrición funcional" },
+          { "name": "From Nature (Colores)", "desc": "Pigmentos botánicos puros termoestables" },
+          { "name": "Tripas VICEL & Maquinaria", "desc": "Casings de celulosa y líneas continuas" }
+        ]
+      },
+      "cta": {
+        "short": "Conecta con Soporte",
+        "full": "Conecta con Soporte Técnico",
+        "mobile": "Conectar con Equipo Técnico"
+      }
+    },
+    "en": {
+      "network": "Wenda Global Network",
+      "openMenu": "Open menu",
+      "selectedRegion": "Selected Region:",
+      "links": {
+        "about": "About Us",
+        "categories": "Categories",
+        "brands": "Brands",
+        "science": "WNDA Science",
+        "indent": "Wenda Indent",
+        "contact": "Contact"
+      },
+      "portfolio": {
+        "title": "Solutions Portfolio",
+        "items": [
+          { "name": "Meat & Poultry", "desc": "Texture, yield, and juice retention" },
+          { "name": "Bakery & Baking", "desc": "Volume, softness, and dough tolerance" },
+          { "name": "Supplements & Wellness", "desc": "Instantized amino acids and functional nutrition" },
+          { "name": "From Nature (Colors)", "desc": "Pure heat-stable botanical pigments" },
+          { "name": "VICEL Casings & Machinery", "desc": "Cellulose casings and continuous processing lines" }
+        ]
+      },
+      "cta": {
+        "short": "Technical Support",
+        "full": "Connect with Technical Support",
+        "mobile": "Connect with Technical Team"
+      }
+    },
+    "zh": {
+      "network": "文达全球网络",
+      "openMenu": "打开菜单",
+      "selectedRegion": "已选区域：",
+      "links": {
+        "about": "关于我们",
+        "categories": "产品品类",
+        "brands": "旗下品牌",
+        "science": "WNDA Science",
+        "indent": "文达直供 Indent",
+        "contact": "联系我们"
+      },
+      "portfolio": {
+        "title": "解决方案矩阵",
+        "items": [
+          { "name": "肉类与家禽 (Meat & Poultry)", "desc": "改善质构、保水保汁与出程率" },
+          { "name": "烘焙与面制品 (Bakery)", "desc": "提升体积、柔软度与面团耐揉性" },
+          { "name": "营养补充剂 (Supplements)", "desc": "速溶氨基酸与功能性营养原料" },
+          { "name": "天然色素 (From Nature)", "desc": "纯天然耐热植物萃取色素" },
+          { "name": "VICEL肠衣与RIBON机械", "desc": "纤维素肠衣与连续化加工生产线" }
+        ]
+      },
+      "cta": {
+        "short": "联系技术支持",
+        "full": "联系技术支持团队",
+        "mobile": "立即对接技术团队"
+      }
+    }
+  },
+  "countrySelector": {
+    "es": {
+      "ariaLabel": "Seleccionar país o región",
+      "title": "Páginas Espejo & Red Internacional",
+      "subtitle": "Selecciona tu región para ver formulaciones, inventario y soporte técnico local.",
+      "activeHub": "Sede activa: {{name}}"
+    },
+    "en": {
+      "ariaLabel": "Select country or region",
+      "title": "Mirror Sites & International Network",
+      "subtitle": "Select your region for local formulations, inventory, and technical support.",
+      "activeHub": "Active Hub: {{name}}"
+    },
+    "zh": {
+      "ariaLabel": "选择国家或地区",
+      "title": "镜像站点与国际服务网络",
+      "subtitle": "选择您的业务区域，获取本地化配方、库存与技术支持服务。",
+      "activeHub": "当前活动服务中心：{{name}}"
+    }
+  },
+  "hero": {
+    "es": {
+      "badge": "Innovación & Ciencia Aplicada a Alimentos",
+      "title": "Ingredientes funcionales especializados que hacen más",
+      "subtitle": "Creamos formulaciones e ingredientes que optimizan textura, rendimiento, vida de anaquel y perfil clean label para la industria alimentaria mundial.",
+      "playAria": "Reproducir video de presentación de Wenda Ingredients",
+      "play": "Reproducir vídeo",
+      "exploreAria": "Explorar categorías y fórmulas técnicas",
+      "explore": "Explorar Categorías",
+      "quote": "“We listen, reach out and we deliver”",
+      "quoteCite": "Lema institucional de Wenda Ingredients",
+      "statsAria": "Indicadores globales clave de Wenda Ingredients",
+      "stats": {
+        "years": "Años Trayectoria",
+        "countries": "Países Red Directa",
+        "rd": "Centros R&D",
+        "labs": "Labs Cárnicos"
+      },
+      "pauseBackground": "Pausar video de fondo",
+      "resumeBackground": "Reanudar video de fondo",
+      "modal": {
+        "aria": "Video institucional de Wenda Ingredients",
+        "close": "Cerrar reproductor de video",
+        "unsupported": "Tu navegador no soporta reproducción de video HTML5.",
+        "eyebrow": "Planta Piloto & Centro de Innovación",
+        "title": "Wenda Ingredients: Ciencia, Proceso & Formulación Industrial",
+        "clipLab": "Laboratorio R&D",
+        "clipCulinary": "Formulación Culinaria"
+      }
+    },
+    "en": {
+      "badge": "Applied Science & Food Innovation",
+      "title": "Specialized functional ingredients that do more",
+      "subtitle": "We create formulations and ingredients that optimize texture, yield, shelf life, and clean label profiles for the global food industry.",
+      "playAria": "Play Wenda Ingredients overview video",
+      "play": "Play Video",
+      "exploreAria": "Explore categories and technical formulas",
+      "explore": "Explore Categories",
+      "quote": "“We listen, reach out and we deliver”",
+      "quoteCite": "Wenda Ingredients corporate motto",
+      "statsAria": "Wenda Ingredients key global metrics",
+      "stats": {
+        "years": "Years of Experience",
+        "countries": "Countries Direct Network",
+        "rd": "R&D Centers",
+        "labs": "Meat Labs"
+      },
+      "pauseBackground": "Pause background video",
+      "resumeBackground": "Resume background video",
+      "modal": {
+        "aria": "Wenda Ingredients corporate video",
+        "close": "Close video player",
+        "unsupported": "Your browser does not support HTML5 video playback.",
+        "eyebrow": "Pilot Plant & Innovation Center",
+        "title": "Wenda Ingredients: Science, Process & Industrial Formulation",
+        "clipLab": "R&D Laboratory",
+        "clipCulinary": "Culinary Formulation"
+      }
+    },
+    "zh": {
+      "badge": "应用科学与食品创新",
+      "title": "卓越效能的特种功能性食品原料",
+      "subtitle": "我们致力于研发与制造高品质功能性配方及原料，为全球食品工业优化质构、出程率、保质期及清洁标签 (Clean Label) 属性。",
+      "playAria": "播放文达原料介绍视频",
+      "play": "播放视频",
+      "exploreAria": "探索产品品类与技术配方",
+      "explore": "浏览产品品类",
+      "quote": "“倾听客户、深入协作、精准交付”",
+      "quoteCite": "Wenda Ingredients 企业格言",
+      "statsAria": "文达全球核心运营指标",
+      "stats": {
+        "years": "年行业深耕",
+        "countries": "个国家直营网络",
+        "rd": "大研发中心",
+        "labs": "大肉类应用实验室"
+      },
+      "pauseBackground": "暂停背景视频",
+      "resumeBackground": "播放背景视频",
+      "modal": {
+        "aria": "文达原料企业宣传视频",
+        "close": "关闭视频播放器",
+        "unsupported": "您的浏览器不支持 HTML5 视频播放。",
+        "eyebrow": "中试车间与创新中心",
+        "title": "Wenda Ingredients：科学、工艺与工业化配方",
+        "clipLab": "研发实验室",
+        "clipCulinary": "食品应用配方"
+      }
+    }
+  },
+  "about": {
+    "es": {
+      "badge": "Acerca de Wenda Ingredients",
+      "title": "Expertos en convertir oportunidades de formulación en ventajas competitivas",
+      "lead": "Desde 1995, en Wenda Ingredients anticipamos la evolución de la industria alimentaria y desarrollamos ingredientes funcionales que responden a sus desafíos más complejos.",
+      "body": "Combinamos conocimiento científico, experiencia en aplicaciones y visión comercial para ayudar a nuestros clientes a mejorar sus productos, optimizar sus procesos y generar mayor valor en el mercado. No somos únicamente un proveedor de ingredientes: somos el aliado técnico que entiende la formulación, el proceso y el resultado que cada negocio necesita alcanzar.",
+      "quote": "“We listen, reach out and we deliver”",
+      "purpose": {
+        "tag": "Propósito & Filosofía Wenda",
+        "title": "Tecnología de ingredientes que pone la calidad y a las personas primero",
+        "body": "Nuestros desarrollos no se limitan a suministrar una materia prima. Analizamos la reología de su emulsión, la cinética de deshidratación en horno o la estabilidad lumínica del pigmento para entregar formulaciones que optimizan costos sin sacrificar la etiqueta limpia.",
+        "cert": "Certificaciones GFSI-BRCGS Grado A",
+        "cta": "Contactar a un Ingeniero"
+      },
+      "pillars": {
+        "tag": "Cinco Pilares Diferenciadores",
+        "title": "¿Por qué confiar en Wenda como socio estratégico?"
+      },
+      "differentiators": [
+        {
+          "title": "Innovación y Ciencia",
+          "description": "Desarrollamos soluciones con un propósito concreto: mejorar el desempeño del producto y generar valor real en su aplicación."
+        },
+        {
+          "title": "Soporte Técnico Cercano",
+          "description": "Nuestros especialistas comprenden el reto, prueban alternativas en planta piloto y acompañan la implementación hasta el resultado esperado."
+        },
+        {
+          "title": "Alcance Internacional",
+          "description": "Nuestra presencia global y conocimiento local nos permiten responder con agilidad a mercados, regulaciones y procesos diversos."
+        },
+        {
+          "title": "Calidad sin Concesiones",
+          "description": "Trabajamos con sistemas rigurosos de evaluación, control y trazabilidad continua para brindar consistencia y confianza absoluta."
+        },
+        {
+          "title": "Relaciones que Perduran",
+          "description": "Construimos alianzas basadas en la transparencia, la integridad y el beneficio mutuo a largo plazo con clientes y proveedores."
+        }
+      ],
+      "support": "Soporte integral en formulación y planta piloto",
+      "scienceLink": "Conoce WNDA Science →",
+      "infra": {
+        "eyebrow": "Infraestructura global",
+        "title": "Experiencia Global. Conocimiento Aplicado Localmente."
+      },
+      "leader": {
+        "alt": "Mr. Wei - Presidente & Fundador de Wenda Ingredients",
+        "role": "Fundador & Presidente de Wenda Ingredients"
+      },
+      "message": {
+        "badge": "Mensaje Institucional & Visión Global",
+        "title": "Impulsando la evolución de los alimentos con ciencia, integridad y compromiso humano",
+        "quote1": "“Nacimos en 1995 con la convicción de que los ingredientes alimentarios no son solo materias primas: son el núcleo de la nutrición, el rendimiento y la seguridad de las familias que los consumen en todo el planeta.”",
+        "quote2": "“Nuestra promesa de marca <strong text-slate-900>Trust in Food®</strong> resume tres décadas de rigor científico: cada lote validado en nuestros 6 laboratorios cárnicos y 4 centros de R&D debe entregar tranquilidad al procesador y bienestar al consumidor.”"
+      },
+      "points": [
+        {
+          "title": "30+ Años de Trayectoria",
+          "desc": "Innovación continua en ingredientes funcionales desde 1995."
+        },
+        {
+          "title": "Presencia en 10+ Países",
+          "desc": "Equipos técnicos locales y soporte regulatorio directo."
+        },
+        {
+          "title": "Planta Piloto & 6 Labs",
+          "desc": "Evaluación sensorial, textura y reología aplicada in-situ."
+        },
+        {
+          "title": "Inocuidad Certificada",
+          "desc": "Estándares globales GFSI, BRCGS, Kosher y Halal."
+        }
+      ]
+    },
+    "en": {
+      "badge": "About Wenda Ingredients",
+      "title": "Experts in turning formulation opportunities into competitive advantages",
+      "lead": "Since 1995, at Wenda Ingredients we anticipate the evolution of the food industry and develop functional ingredients that answer its most complex challenges.",
+      "body": "We combine scientific knowledge, application experience, and commercial vision to help our clients improve their products, optimize processes, and generate greater market value. We are not just an ingredient supplier: we are your technical partner understanding formulation, processing, and required outcomes.",
+      "quote": "“We listen, reach out and we deliver”",
+      "purpose": {
+        "tag": "Wenda Purpose & Philosophy",
+        "title": "Ingredient technology putting quality and people first",
+        "body": "Our developments go beyond delivering raw materials. We analyze emulsion rheology, baking kinetics, or pigment light stability to deliver formulations that optimize costs without sacrificing clean label attributes.",
+        "cert": "GFSI-BRCGS Grade A Certifications",
+        "cta": "Contact an Engineer"
+      },
+      "pillars": {
+        "tag": "Five Core Pillars",
+        "title": "Why trust Wenda as a strategic partner?"
+      },
+      "differentiators": [
+        {
+          "title": "Innovation & Science",
+          "description": "We develop solutions with a clear purpose: enhancing product performance and adding tangible value."
+        },
+        {
+          "title": "Dedicated Technical Support",
+          "description": "Our specialists understand your challenge, test alternatives in pilot plants, and guide implementation to expected results."
+        },
+        {
+          "title": "International Reach",
+          "description": "Our global presence and local expertise allow us to respond swiftly to diverse markets, regulations, and processes."
+        },
+        {
+          "title": "Uncompromised Quality",
+          "description": "We work under rigorous evaluation, control, and continuous traceability systems for total consistency and trust."
+        },
+        {
+          "title": "Enduring Relationships",
+          "description": "We build partnerships based on transparency, integrity, and long-term mutual growth with clients and suppliers."
+        }
+      ],
+      "support": "End-to-end formulation & pilot plant support",
+      "scienceLink": "Discover WNDA Science →",
+      "infra": {
+        "eyebrow": "Global Infrastructure",
+        "title": "Global Expertise. Locally Applied Knowledge."
+      },
+      "leader": {
+        "alt": "Mr. Wei - President & Founder of Wenda Ingredients",
+        "role": "Founder & President of Wenda Ingredients"
+      },
+      "message": {
+        "badge": "Institutional Message & Global Vision",
+        "title": "Driving the evolution of food with science, integrity, and human commitment",
+        "quote1": "“We were born in 1995 with the conviction that food ingredients are not merely commodities: they are the core of nutrition, performance, and safety for families around the world.”",
+        "quote2": "“Our brand promise <strong text-slate-900>Trust in Food®</strong> summarizes three decades of scientific rigor: every batch validated in our 6 meat labs and 4 R&D centers delivers peace of mind to processors and wellbeing to consumers.”"
+      },
+      "points": [
+        {
+          "title": "30+ Years of History",
+          "desc": "Continuous innovation in functional ingredients since 1995."
+        },
+        {
+          "title": "Presence in 10+ Countries",
+          "desc": "Local technical teams and direct regulatory support."
+        },
+        {
+          "title": "Pilot Plant & 6 Labs",
+          "desc": "Sensory evaluation, texture, and applied rheology on site."
+        },
+        {
+          "title": "Certified Food Safety",
+          "desc": "Global standards: GFSI, BRCGS, Kosher, and Halal."
+        }
+      ]
+    },
+    "zh": {
+      "badge": "关于文达 (Wenda Ingredients)",
+      "title": "将配方创新转化为竞争优势的专家",
+      "lead": "自1995年成立以来，文达原料始终前瞻食品工业发展，研发功能性原料以应对最复杂的工艺挑战。",
+      "body": "我们融合前沿科学知识、应用经验与商业视野，助力客户提升产品品质、优化工艺流程并创造更高市场价值。我们不仅是原料供应商，更是懂配方、懂工艺、懂终端效果的技术合作伙伴。",
+      "quote": "“倾听客户、深入协作、精准交付”",
+      "purpose": {
+        "tag": "文达使命与理念",
+        "title": "以品质与人为本的食品原料科技",
+        "body": "我们的研发远不止于供应原材料。我们深入分析乳化流变学、烘焙脱水动力学以及色素光稳定性，在保持清洁标签的同时为客户降本增效。",
+        "cert": "GFSI-BRCGS A级体系认证",
+        "cta": "联系技术工程师"
+      },
+      "pillars": {
+        "tag": "五大核心优势",
+        "title": "为什么选择文达作为战略合作伙伴？"
+      },
+      "differentiators": [
+        {
+          "title": "创新与科学",
+          "description": "我们以明确目标研发解决方案：改善产品性能，在实际应用中创造切实的商业价值。"
+        },
+        {
+          "title": "紧密的技术支持",
+          "description": "我们的专家深入了解工艺痛点，在中试车间测试方案，并全程指导工厂上线落地。"
+        },
+        {
+          "title": "国际化服务网络",
+          "description": "全球化布局与本地化专长相结合，使我们能快速响应不同市场、法规与加工工艺需求。"
+        },
+        {
+          "title": "严格把控质量",
+          "description": "建立严谨的评估、品控与全程可追溯体系，确保每批次产品的高度一致与绝对可靠。"
+        },
+        {
+          "title": "持久共赢关系",
+          "description": "基于透明、诚信与长期互惠共赢的原则，与全球客户及供应商建立深厚的合作关系。"
+        }
+      ],
+      "support": "提供配方研发与中试车间全方位技术支持",
+      "scienceLink": "了解 WNDA Science 科技 →",
+      "infra": {
+        "eyebrow": "全球化基础设施",
+        "title": "全球化经验，本地化落地"
+      },
+      "leader": {
+        "alt": "魏先生 - 文达原料创始人兼董事长",
+        "role": "文达原料 (Wenda Ingredients) 创始人兼董事长"
+      },
+      "message": {
+        "badge": "企业致辞与全球愿景",
+        "title": "以科学、诚信与人文承诺推动食品行业不断演进",
+        "quote1": "“我们始于1995年，深信食品原料绝非普通大宗商品：它们是全球亿万家庭膳食营养、口感品质与食品安全的核心所在。”",
+        "quote2": "“我们的品牌承诺 <strong text-slate-900>Trust in Food® (食品安全信任)</strong> 凝结了三十年的严谨科研：在6个肉类实验室和4个研发中心验证的每一个批次，都致力于让加工商放心，让消费者安心。”"
+      },
+      "points": [
+        {
+          "title": "30+ 年行业深耕",
+          "desc": "自1995年起持续深耕功能性食品原料创新。"
+        },
+        {
+          "title": "覆盖 10+ 国家和地区",
+          "desc": "本地化技术团队与直营法规支持。"
+        },
+        {
+          "title": "中试车间与 6 大实验室",
+          "desc": "现场感官评估、质构分析与流变学测试。"
+        },
+        {
+          "title": "权威食品安全认证",
+          "desc": "全球认可：GFSI、BRCGS、清真Halal及犹太Kosher。"
+        }
+      ]
+    }
+  },
+  "services": {
+    "es": {
+      "header": {
+        "badge": "Soluciones Especializadas de Alto Desempeño",
+        "title": "Desde sistemas ligantes cárnicos hasta biotecnología clean label, hacemos que suceda.",
+        "subtitle": "Inspirados en la precisión científica y el acompañamiento técnico continuo, transformamos retos de textura, rendimiento y vida útil en resultados medibles en cada lote."
+      },
+      "evidence": "Evidencia & Ensayos Técnicos",
+      "tapToInspect": "Toca para inspeccionar",
+      "clickToInspect": "Click para inspeccionar",
+      "directSupport": "Soporte Técnico Directo Disponible",
+      "requestSample": "Solicitar Muestra",
+      "pillars": [
+        {
+          "category": "Cárnicos & Embutidos",
+          "title": "Sistemas ligantes, transglutaminasa WBS y bioprotección SafePlate®",
+          "subtitle": "Rendimiento, textura y retención de jugos sin sinéresis.",
+          "description": "Optimizamos la retención de agua, firmeza al corte y estabilidad durante tratamientos térmicos severos. Reducimos mermas de cocción hasta en un 35% mientras garantizamos rebanabilidad impecable en jamones y embutidos emulsionados.",
+          "metricLabel": "Reducción de Mermas de Cocción",
+          "badge": "Solución Cárnica Avanzada",
+          "specs": ["WBS Transglutaminasa libre de alérgenos", "SafePlate® antimicrobiano natural", "Wenda Phos retención de humedad"],
+          "ctaText": "Explorar soluciones cárnicas",
+          "images": [
+            { "title": "Emulsión & Rebanabilidad al Frío", "tag": "SafePlate® Bio", "caption": "Estabilidad de emulsiones finas sin sinéresis ni separación grasa." },
+            { "title": "Retención de Humedad en Cortes", "tag": "WBS Ligantes", "caption": "Mejora de rendimiento y mordida en piezas enteras y marinados." }
+          ]
+        },
+        {
+          "category": "Panificación & Miga",
+          "title": "Acondicionadores enzimáticos y bio-conservadores para panificación",
+          "subtitle": "Volumen superior, miga elástica y frescura prolongada.",
+          "description": "Formulaciones diseñadas para soportar procesos de alta velocidad y congelación de masas sin perder volumen ni esponjosidad. Extiende la vida útil en anaquel hasta 21 días manteniendo suavidad y resiliencia organoléptica.",
+          "metricLabel": "Salto de Horno & Volumen",
+          "badge": "Bio-ingeniería Panadera",
+          "specs": ["Complejos enzimáticos de volumen", "Sistemas antiextrusión y congelado", "Clean label sin bromato ni emulsificantes sintéticos"],
+          "ctaText": "Ver portafolio panificación",
+          "images": [
+            { "title": "Tolerancia Mecánica al Amasado", "tag": "Bio-acondicionador", "caption": "Refuerzo del gluten para masas de alta hidratación y líneas continuas." },
+            { "title": "Alveolado & Estructura de Miga", "tag": "Enzimas de Miga", "caption": "Conservación de frescura y miga esponjosa hasta por 21 días." }
+          ]
+        },
+        {
+          "category": "Colores de la Naturaleza",
+          "title": "Pigmentos botánicos puros termoestables y resistentes a la luz",
+          "subtitle": "Coloraciones vibrantes sin aditivos artificiales ni sabor residual.",
+          "description": "Extraídos de cúrcuma, betabel, clorofila y páprika mediante tecnología de microencapsulación que protege el tono cromático durante pasteurización y extrusión continua, logrando etiquetas 100% limpias.",
+          "metricLabel": "Origen Botánico Certificado",
+          "badge": "Clean Label Pigments",
+          "specs": ["Resistencia a procesos térmicos > 120°C", "7 familias espectrales estables", "Certificación Kosher y Halal por lote"],
+          "ctaText": "Descubrir tonos botánicos",
+          "images": [
+            { "title": "Microencapsulado Grado Alimentario", "tag": "Clean Label", "caption": "Protección contra oxidación térmica y degradación por luz UV." },
+            { "title": "Extractos Espectrales de Cúrcuma", "tag": "100% Botánico", "caption": "Tonos amarillos y dorados estables con solubilidad instantánea." }
+          ]
+        },
+        {
+          "category": "WNDA Science & Indent",
+          "title": "Nutracéuticos, aminoácidos certificados y cadena de suministro global",
+          "subtitle": "Trazabilidad documental lote a lote con entrega directa garantizada.",
+          "description": "Acceso directo a más de 100 principios activos y excipientes de grado farmacéutico y alimentario con soporte técnico in situ y logística puerta a puerta desde nuestras 10 filiales internacionales.",
+          "metricLabel": "Países con Red Logística Directa",
+          "badge": "Infraestructura Global",
+          "specs": ["CoA y espectrometría por lote", "4 centros R&D y 6 laboratorios cárnicos", "Suministro continuo con stock local"],
+          "ctaText": "Consultar WNDA Science",
+          "images": [
+            { "title": "Pureza Química & Ensayos HPLC", "tag": "Grado Farma", "caption": "Espectrometría de masas y certificados analíticos (CoA) por lote." },
+            { "title": "Líneas de Grado Aséptico ISO", "tag": "Cadena Global", "caption": "Auditorías de calidad internacionales y distribución refrigerada." }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "header": {
+        "badge": "Specialized High-Performance Solutions",
+        "title": "From meat binding systems to clean label biotechnology, we make it happen.",
+        "subtitle": "Driven by scientific precision and continuous technical guidance, we transform texture, yield, and shelf-life challenges into measurable results in every batch."
+      },
+      "evidence": "Evidence & Technical Trials",
+      "tapToInspect": "Tap to inspect",
+      "clickToInspect": "Click to inspect",
+      "directSupport": "Direct Technical Support Available",
+      "requestSample": "Request Sample",
+      "pillars": [
+        {
+          "category": "Meat & Poultry",
+          "title": "Binding systems, WBS transglutaminase & SafePlate® bioprotection",
+          "subtitle": "Yield, texture, and juice retention without syneresis.",
+          "description": "We optimize water retention, slice firmness, and thermal stability. We reduce cooking loss by up to 35% while ensuring flawless sliceability in hams and emulsified meats.",
+          "metricLabel": "Cooking Loss Reduction",
+          "badge": "Advanced Meat Solution",
+          "specs": ["Allergen-free WBS Transglutaminase", "Natural antimicrobial SafePlate®", "Moisture-retention Wenda Phos"],
+          "ctaText": "Explore meat solutions",
+          "images": [
+            { "title": "Emulsion & Cold Sliceability", "tag": "SafePlate® Bio", "caption": "Fine emulsion stability without syneresis or fat separation." },
+            { "title": "Moisture Retention in Cuts", "tag": "WBS Binders", "caption": "Improved yield and bite in whole muscle and marinated cuts." }
+          ]
+        },
+        {
+          "category": "Bakery & Crumb",
+          "title": "Enzyme conditioners & bio-preservatives for baking",
+          "subtitle": "Superior volume, elastic crumb, and extended freshness.",
+          "description": "Formulations engineered to endure high-speed processing and frozen dough stress without losing volume or fluffiness. Extends shelf life up to 21 days with organoleptic softness.",
+          "metricLabel": "Oven Spring & Volume",
+          "badge": "Baking Bio-Engineering",
+          "specs": ["Volume enzyme complexes", "Anti-extrusion & freezing systems", "Clean label: bromate-free & synth-emulsifier free"],
+          "ctaText": "View bakery portfolio",
+          "images": [
+            { "title": "Mechanical Mixing Tolerance", "tag": "Bio-Conditioner", "caption": "Gluten reinforcement for high-hydration doughs & continuous lines." },
+            { "title": "Crumb Structure & Aeration", "tag": "Crumb Enzymes", "caption": "Freshness retention & fluffy crumb for up to 21 days." }
+          ]
+        },
+        {
+          "category": "Nature's Colors",
+          "title": "Pure botanical pigments: heat & light stable",
+          "subtitle": "Vibrant colors without artificial additives or off-flavors.",
+          "description": "Extracted from turmeric, beet, chlorophyll, and paprika via microencapsulation technology that shields shade during pasteurization and continuous extrusion for 100% clean labels.",
+          "metricLabel": "Certified Botanical Origin",
+          "badge": "Clean Label Pigments",
+          "specs": ["Thermal resistance > 120°C", "7 stable spectral families", "Kosher & Halal certified per batch"],
+          "ctaText": "Discover botanical shades",
+          "images": [
+            { "title": "Food-Grade Microencapsulation", "tag": "Clean Label", "caption": "Protection against thermal oxidation & UV degradation." },
+            { "title": "Spectral Turmeric Extracts", "tag": "100% Botanical", "caption": "Stable yellow and golden shades with instant solubility." }
+          ]
+        },
+        {
+          "category": "WNDA Science & Indent",
+          "title": "Nutraceuticals, certified amino acids & global supply chain",
+          "subtitle": "Batch-to-batch traceability with guaranteed direct delivery.",
+          "description": "Direct access to 100+ active ingredients and excipients of pharmaceutical and food grade, backed by on-site technical support and door-to-door logistics from 10 international subsidiaries.",
+          "metricLabel": "Countries Direct Logistics Network",
+          "badge": "Global Infrastructure",
+          "specs": ["CoA & spectrometry per batch", "4 R&D centers & 6 meat labs", "Continuous supply with local stock"],
+          "ctaText": "Consult WNDA Science",
+          "images": [
+            { "title": "Chemical Purity & HPLC Testing", "tag": "Pharma Grade", "caption": "Mass spectrometry & CoA certificates per batch." },
+            { "title": "ISO Aseptic Processing Lines", "tag": "Global Chain", "caption": "International quality audits & refrigerated distribution." }
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "header": {
+        "badge": "高性能特种解决方案",
+        "title": "从肉类粘合系统到清洁标签生物技术，助您实现卓越产出。",
+        "subtitle": "基于严谨的科学精度与全程技术陪伴，我们致力于将质构、出程率与保质期挑战转化为每批次的量化结果。"
+      },
+      "evidence": "技术测试与验证证据",
+      "tapToInspect": "点击查看详情",
+      "clickToInspect": "点击放大检验",
+      "directSupport": "提供直营技术团队支持",
+      "requestSample": "索取样品",
+      "pillars": [
+        {
+          "category": "肉类与家禽加工",
+          "title": "蛋白粘合系统、WBS谷氨酰胺转氨酶与SafePlate®生物防腐",
+          "subtitle": "提升出程率与口感质构，防止析水 (Syneresis)。",
+          "description": "优化保水性、切片紧实度及高温热处理稳定性。在确保火腿与乳化香肠完美切片性的同时，降低蒸煮损失高达 35%。",
+          "metricLabel": "蒸煮损失降低率",
+          "badge": "先进肉类解决方案",
+          "specs": ["无过敏原 WBS 谷氨酰胺转氨酶 (TG酶)", "SafePlate® 天然生物抑菌剂", "Wenda Phos 高效保水磷酸盐"],
+          "ctaText": "探索肉制品解决方案",
+          "images": [
+            { "title": "乳化与冷切片性能", "tag": "SafePlate® 生物防腐", "caption": "细乳化体系稳定，无析水及油脂分离。" },
+            { "title": "原切肉块保水保汁", "tag": "WBS 粘合剂", "caption": "提升大肉块与注射滚揉产品的出程率与咀嚼感。" }
+          ]
+        },
+        {
+          "category": "烘焙与面制品",
+          "title": "烘焙专用酶制剂改良剂与生物防腐剂",
+          "subtitle": "显著提升体积、赋予组织弹性并延长保鲜期。",
+          "description": "专为高强度高速打面及冷冻面团工艺设计，入炉胀发力强，保持松软口感。在保持感官风味的同时将保质期延长至21天。",
+          "metricLabel": "入炉胀发与体积提升",
+          "badge": "烘焙生物工程",
+          "specs": ["体积优化酶制剂复合配方", "抗挤压与冷冻损伤保护体系", "清洁标签：无溴酸盐与合成乳化剂"],
+          "ctaText": "查看烘焙产品矩阵",
+          "images": [
+            { "title": "机械打面耐揉性", "tag": "生物改良剂", "caption": "强化面筋网络，适应高吸水量与连续化生产线。" },
+            { "title": "气孔组织与心部结构", "tag": "心部质构酶", "caption": "保持面包心部柔软蓬松，保鲜期长达21天。" }
+          ]
+        },
+        {
+          "category": "天然色素萃取",
+          "title": "纯天然耐热耐光植物萃取色素",
+          "subtitle": "鲜艳自然着色，无人工添加剂与不良异味。",
+          "description": "采用微胶囊包埋技术从姜黄、红甜菜、叶绿素及红辣椒中萃取，在巴氏杀菌与连续挤压加工中有效保护色泽，打造 100% 清洁标签。",
+          "metricLabel": "认证植物来源",
+          "badge": "清洁标签色素",
+          "specs": ["耐受 120°C 以上高温热处理", "7 大稳定光谱色系", "每批次均具备 Kosher 及 Halal 认证"],
+          "ctaText": "探索天然植物色系",
+          "images": [
+            { "title": "食品级微胶囊包埋", "tag": "清洁标签", "caption": "有效抵御热氧化及紫外光线照射引发的褪色。" },
+            { "title": "姜黄光谱萃取物", "tag": "100% 植物萃取", "caption": "稳定明亮黄/金黄色调，具备速溶特性。" }
+          ]
+        },
+        {
+          "category": "WNDA Science 与文达直供",
+          "title": "膳食补充剂、认证氨基酸与全球供应链",
+          "subtitle": "逐批可追溯，保障工厂直供与交货期。",
+          "description": "直连 100+ 种医药级与食品级活性成分及辅料，由全球 10 家直属子公司提供现场技术支持与门到门物流保障。",
+          "metricLabel": "直营物流网络覆盖国家",
+          "badge": "全球化基础设施",
+          "specs": ["每批次均附带 CoA 及质谱检测报告", "4 大研发中心与 6 大肉类实验室", "本地化常备库存保障持续供货"],
+          "ctaText": "咨询 WNDA Science",
+          "images": [
+            { "title": "化学纯度与 HPLC 检验", "tag": "医药级", "caption": "质谱分析与批次质量检验合格证 (CoA)。" },
+            { "title": "ISO 无菌加工生产线", "tag": "全球供应链", "caption": "国际质量审计标准与全程冷链运输。" }
+          ]
+        }
+      ]
+    }
+  },
+  "categoryShowcase": {
+    "es": {
+      "header": {
+        "badge": "Categorías de Formulación Especializada",
+        "title": "Una categoría, múltiples desafíos. Una solución desarrollada para ti.",
+        "subtitle": "Transformamos la ciencia de los ingredientes en soluciones industriales con resultados reproducibles en cada lote."
+      },
+      "consultFor": "Consultar formulación para {{name}}",
+      "seeChallenges": "Ver {{count}} Desafíos de Formulación",
+      "briefing": {
+        "eyebrow": "Solución Industrial Especializada",
+        "title": "Desempeño comprobado en línea de producción",
+        "body": "Nuestras formulaciones integran ingredientes de grado industrial con soporte in situ, diseñadas para resolver mermas, consistencia y textura lote a lote."
+      },
+      "applications": "Aplicaciones Desarrolladas en Planta:",
+      "benefits": "Beneficios Clave Comprobados:",
+      "brands": "Sistemas y Marcas Formuladas:",
+      "challengeSheet": "Ver Ficha de Desafíos ({{count}})",
+      "requestSample": "Solicitar Muestra",
+      "modal": {
+        "eyebrow": "Ficha Técnica de Formulación",
+        "title": "{{title}} — Desafíos y Parámetros en Planta",
+        "subtitle": "Explora las especificaciones técnicas formuladas para cada reto operativo.",
+        "closeAria": "Cerrar modal",
+        "selectPillar": "Selecciona el desafío técnico que deseas evaluar:",
+        "progress": "{{current}} de {{total}}",
+        "focus": "Enfoque Técnico 0{{n}}",
+        "params": "Parámetros Comprobados y Resultados en Lote:",
+        "spectrumEyebrow": "Espectro Cromático Botánico",
+        "spectrumTitle": "Gama de Pigmentos Naturales Microfinos",
+        "cleanLabel": "100% Clean Label",
+        "onsiteQuestion": "¿Requiere acompañamiento en planta?",
+        "onsiteBody": "Nuestros ingenieros evalúan tu formulación in situ.",
+        "close": "Cerrar",
+        "requestSampleTrial": "Solicitar Muestra / Prueba"
+      }
+    },
+    "en": {
+      "header": {
+        "badge": "Specialized Formulation Categories",
+        "title": "One category, multiple challenges. One tailored solution.",
+        "subtitle": "We turn ingredient science into industrial solutions with reproducible results in every batch."
+      },
+      "consultFor": "Consult formulation for {{name}}",
+      "seeChallenges": "View {{count}} Formulation Challenges",
+      "briefing": {
+        "eyebrow": "Specialized Industrial Solution",
+        "title": "Proven performance on production lines",
+        "body": "Our formulations combine industrial-grade ingredients with on-site support, engineered to solve cooking loss, consistency, and texture batch after batch."
+      },
+      "applications": "Plant-Proven Applications:",
+      "benefits": "Proven Key Benefits:",
+      "brands": "Formulated Brands & Systems:",
+      "challengeSheet": "View Challenge Sheet ({{count}})",
+      "requestSample": "Request Sample",
+      "modal": {
+        "eyebrow": "Technical Formulation Sheet",
+        "title": "{{title}} — Plant Parameters & Challenges",
+        "subtitle": "Explore technical specifications formulated for each operational challenge.",
+        "closeAria": "Close modal",
+        "selectPillar": "Select the technical challenge to evaluate:",
+        "progress": "{{current}} of {{total}}",
+        "focus": "Technical Focus 0{{n}}",
+        "params": "Verified Parameters & Batch Results:",
+        "spectrumEyebrow": "Botanical Color Spectrum",
+        "spectrumTitle": "Microfine Natural Pigment Range",
+        "cleanLabel": "100% Clean Label",
+        "onsiteQuestion": "Need on-site plant support?",
+        "onsiteBody": "Our engineers evaluate your formulation on site.",
+        "close": "Close",
+        "requestSampleTrial": "Request Sample / Trial"
+      }
+    },
+    "zh": {
+      "header": {
+        "badge": "特种配方品类",
+        "title": "专注行业痛点，定制专属解决方案",
+        "subtitle": "我们将原料科学转化为工业化生产方案，保障每批次产品的高度重现性。"
+      },
+      "consultFor": "咨询 {{name}} 技术配方",
+      "seeChallenges": "查看 {{count}} 大工艺痛点",
+      "briefing": {
+        "eyebrow": "特种工业解决方案",
+        "title": "生产线实测验证性能",
+        "body": "我们的配方融合工业级原料与现场技术指导，旨在逐批解决损耗、一致性与质构难题。"
+      },
+      "applications": "工厂实测应用领域：",
+      "benefits": "核心性能优势：",
+      "brands": "相关系统与品牌：",
+      "challengeSheet": "查看技术痛点清单 ({{count}})",
+      "requestSample": "索取样品",
+      "modal": {
+        "eyebrow": "配方技术规格书",
+        "title": "{{title}} — 工厂应用痛点与参数",
+        "subtitle": "探索针对各项生产挑战专门制定的技术参数规格。",
+        "closeAria": "关闭弹窗",
+        "selectPillar": "选择您希望评估的技术痛点：",
+        "progress": "{{current}} / {{total}}",
+        "focus": "技术焦点 0{{n}}",
+        "params": "实测参数与批次效果：",
+        "spectrumEyebrow": "植物色素光谱",
+        "spectrumTitle": "超细天然色素系列",
+        "cleanLabel": "100% 清洁标签",
+        "onsiteQuestion": "需要工厂现场技术支持？",
+        "onsiteBody": "我们的技术工程师可前往您的工厂进行现场评估。",
+        "close": "关闭",
+        "requestSampleTrial": "索取样品 / 安排测试"
+      }
+    }
+  },
+  "contact": {
+    "es": {
+      "eyebrow": "Hablemos de su próxima formulación",
+      "title": "Tu próximo gran producto comienza con el ingrediente correcto.",
+      "intro": "¿Interesado en mejorar rendimiento, textura o vida útil? Llena este formulario y nuestro equipo de ingenieros de alimentos te responderá de inmediato. Sin intermediarios, con asesoría técnica directa.",
+      "office": {
+        "title": "Sede Técnica: {{name}}",
+        "address": "Dirección:",
+        "phone": "Teléfono Directo:",
+        "email": "Correo Oficial:"
+      },
+      "response": "Respuesta < 24h",
+      "samples": "Muestras para planta piloto",
+      "nda": "Tratamos todas sus fórmulas y procesos con estricto acuerdo de confidencialidad (NDA). Su propiedad intelectual está 100% protegida.",
+      "success": {
+        "title": "¡Solicitud Enviada con Éxito!",
+        "body": "Hemos canalizado su requerimiento con el equipo técnico de <strong>{{country}}</strong>. Un ingeniero especializado en {{category}} le contactará en menos de 24 horas.",
+        "again": "Enviar otra consulta"
+      },
+      "form": {
+        "title": "Solicitud de Muestras & Asesoría Técnica",
+        "subtitle": "Indique los detalles de su proyecto y nuestro equipo le proporcionará la ficha técnica y la muestra recomendada.",
+        "name": "Nombre Completo *",
+        "namePh": "Ej. Ing. Carlos Mendoza",
+        "company": "Empresa / Razón Social *",
+        "companyPh": "Ej. Alimentos del Norte S.A.",
+        "email": "Correo Corporativo *",
+        "emailPh": "carlos@empresa.com",
+        "phone": "Teléfono / WhatsApp *",
+        "phonePh": "+52 55 1234 5678",
+        "category": "Área de Aplicación / Categoría:",
+        "message": "Detalle del Desafío Técnico o Muestra Requerida:",
+        "messagePh": "Describa su producto, proceso actual (ej. embutido cocido, pan molde, bebida) y objetivo (ej. reducir mermas, mejorar textura, alargar vida de anaquel)...",
+        "loading": "Procesando requerimiento...",
+        "submit": "Solicitar Asesoría & Muestras Técnicas"
+      },
+      "topics": {
+        "meat": "Meat & Poultry",
+        "bakery": "Bakery & Panificación",
+        "nature": "Colores de la Naturaleza",
+        "science": "WNDA Science",
+        "vicel": "Tripas VICEL & Maquinaria",
+        "indent": "Wenda Indent (Materias Primas)"
+      }
+    },
+    "en": {
+      "eyebrow": "Let's Talk About Your Next Formulation",
+      "title": "Your next great product starts with the right ingredient.",
+      "intro": "Looking to improve yield, texture, or shelf life? Fill out this form and our food engineering team will reply promptly. Direct technical advice without intermediaries.",
+      "office": {
+        "title": "Technical Hub: {{name}}",
+        "address": "Address:",
+        "phone": "Direct Phone:",
+        "email": "Official Email:"
+      },
+      "response": "Response < 24h",
+      "samples": "Pilot plant samples",
+      "nda": "We handle all formulas under strict Non-Disclosure Agreements (NDA). Your intellectual property is 100% protected.",
+      "success": {
+        "title": "Request Submitted Successfully!",
+        "body": "We routed your inquiry to the technical team at <strong>{{country}}</strong>. An engineer specialized in {{category}} will contact you in under 24 hours.",
+        "again": "Submit another inquiry"
+      },
+      "form": {
+        "title": "Sample & Technical Consultation Request",
+        "subtitle": "Provide your project details and our team will prepare technical data sheets and sample recommendations.",
+        "name": "Full Name *",
+        "namePh": "e.g. John Smith",
+        "company": "Company / Organization *",
+        "companyPh": "e.g. Acme Foods Inc.",
+        "email": "Corporate Email *",
+        "emailPh": "john@company.com",
+        "phone": "Phone / WhatsApp *",
+        "phonePh": "+1 630 456 7890",
+        "category": "Application Area / Category:",
+        "message": "Technical Challenge or Sample Details:",
+        "messagePh": "Describe your product, current process (e.g. cooked sausage, loaf bread, beverage) and goal (e.g. reduce yield loss, enhance texture, extend shelf life)...",
+        "loading": "Processing request...",
+        "submit": "Request Consultation & Samples"
+      },
+      "topics": {
+        "meat": "Meat & Poultry",
+        "bakery": "Bakery & Baking",
+        "nature": "Nature's Colors",
+        "science": "WNDA Science",
+        "vicel": "VICEL Casings & Machinery",
+        "indent": "Wenda Indent (Raw Materials)"
+      }
+    },
+    "zh": {
+      "eyebrow": "探讨您的下一个配方项目",
+      "title": "卓越产品始于高品质原料",
+      "intro": "希望降低出程损耗、改善质构或延长保质期？填写此表单，我们的食品工程师团队将第一时间与您联系，提供专业直接的技术指导。",
+      "office": {
+        "title": "技术服务中心：{{name}}",
+        "address": "地址：",
+        "phone": "直通电话：",
+        "email": "官方邮箱："
+      },
+      "response": "24小时内极速响应",
+      "samples": "提供中试样品支持",
+      "nda": "我们对所有配方与工艺严格保密并签订保密协议 (NDA)，全面保护您的核心知识产权。",
+      "success": {
+        "title": "需求提交成功！",
+        "body": "我们已将您的需求转交至 <strong>{{country}}</strong> 技术团队。负责 {{category}} 领域的专业工程师将在 24 小时内与您联系。",
+        "again": "提交其他咨询"
+      },
+      "form": {
+        "title": "索取样品与技术咨询",
+        "subtitle": "填写您的项目需求，我们的团队将为您推荐合适的产品规格与样品。",
+        "name": "姓名 *",
+        "namePh": "例如：张工程师",
+        "company": "公司名称 *",
+        "companyPh": "例如：某某食品有限公司",
+        "email": "企业邮箱 *",
+        "emailPh": "zhang@company.com",
+        "phone": "联系电话 / 微信 *",
+        "phonePh": "+86 138 0000 0000",
+        "category": "应用领域 / 产品品类：",
+        "message": "技术挑战或所需样品说明：",
+        "messagePh": "请简述您的产品、现有工艺（如西式火腿、吐司面包、功能饮料等）以及改善目标（如降低蒸煮损失、改善咬劲、延长保鲜期等）...",
+        "loading": "提交中...",
+        "submit": "提交技术咨询与样品申请"
+      },
+      "topics": {
+        "meat": "肉类与家禽 (Meat & Poultry)",
+        "bakery": "烘焙与面制品 (Bakery)",
+        "nature": "天然色素 (Nature's Colors)",
+        "science": "WNDA Science 科技",
+        "vicel": "VICEL 肠衣与机械设备",
+        "indent": "文达直供原料 (Wenda Indent)"
+      }
+    }
+  },
+  "countries": {
+    "es": {
+      "items": [
+        {
+          "name": "México & Latinoamérica",
+          "tagline": "Hub de operaciones técnicas, formulación local y centros cárnicos especializados",
+          "presenceText": "Sede central de Wenda Ingredients Latam en Guadalajara y Ciudad de México, con laboratorios de pruebas en corte, embutidos y panificación.",
+          "contactOffice": {
+            "address": "Parque Industrial Zapopan Norte, Jalisco, México",
+            "focus": "Formulación cárnica, Clean Label, importación directa y soporte técnico local"
+          }
+        },
+        {
+          "name": "United States & Canada",
+          "tagline": "North America Corporate & Applications Technology Center",
+          "presenceText": "Direct support for North American meat processors, functional bakeries, and sports nutraceutical brands.",
+          "contactOffice": {
+            "address": "Naperville / Chicago Tech Corridor, Illinois, USA",
+            "focus": "Clean Label antimicrobials, protein binding systems & VICEL casing distributions"
+          }
+        },
+        {
+          "name": "Cono Sur & Región Andina",
+          "tagline": "Red de distribución y consultoría técnica en alimentos procesados",
+          "presenceText": "Conexión integral con plantas procesadoras de Colombia, Brasil, Chile y Perú con inventario garantizado.",
+          "contactOffice": {
+            "address": "Bogotá D.C. & São Paulo Regional Hubs",
+            "focus": "Optimización de costos, rendimientos y soluciones a medida"
+          }
+        },
+        {
+          "name": "Europe & Turkey",
+          "tagline": "European Regulatory Compliance, Food Safety & Ribon Tech Integration",
+          "presenceText": "Alianzas estratégicas con procesadores europeos e integración de equipos de procesamiento Ribon.",
+          "contactOffice": {
+            "address": "Frankfurt am Main, Germany / Istanbul, Turkey",
+            "focus": "BRCGS Grade A compliance, halal certification & engineering lines"
+          }
+        },
+        {
+          "name": "Asia-Pacific & Global R&D",
+          "tagline": "4 Centros de I+D Especializados y Plantas de Síntesis Biotecnológica",
+          "presenceText": "Centros de I+D en Dalian, Shanghai, Kunshan y Chengdu para el desarrollo de transglutaminasa y activos naturales.",
+          "contactOffice": {
+            "address": "Dalian High-Tech Industrial Zone, Liaoning, China",
+            "focus": "Investigación biomolecular, síntesis de ingredientes y certificación global"
+          }
+        }
+      ]
+    },
+    "en": {
+      "items": [
+        {
+          "name": "Mexico & Latin America",
+          "tagline": "Technical Operations Hub, Local Formulations & Meat Science Centers",
+          "presenceText": "Latin America Headquarters in Guadalajara and Mexico City, with pilot testing labs for meat cuts, sausages, and baking.",
+          "contactOffice": {
+            "address": "Zapopan Industrial Park, Jalisco, Mexico",
+            "focus": "Meat formulation, Clean Label, direct importation & local technical support"
+          }
+        },
+        {
+          "name": "United States & Canada",
+          "tagline": "North America Corporate & Applications Technology Center",
+          "presenceText": "Direct support for North American meat processors, functional bakeries, and sports nutraceutical brands.",
+          "contactOffice": {
+            "address": "Naperville / Chicago Tech Corridor, Illinois, USA",
+            "focus": "Clean Label antimicrobials, protein binding systems & VICEL casing distributions"
+          }
+        },
+        {
+          "name": "Southern Cone & Andean Region",
+          "tagline": "Processed Food Distribution Network & Technical Consulting",
+          "presenceText": "Comprehensive support for processing plants in Colombia, Brazil, Chile, and Peru with inventory guarantee.",
+          "contactOffice": {
+            "address": "Bogotá D.C. & São Paulo Regional Hubs",
+            "focus": "Cost optimization, yields, and tailored ingredient solutions"
+          }
+        },
+        {
+          "name": "Europe & Turkey",
+          "tagline": "European Regulatory Compliance, Food Safety & Ribon Tech Integration",
+          "presenceText": "Strategic partnerships with European processors and integration of Ribon processing equipment.",
+          "contactOffice": {
+            "address": "Frankfurt am Main, Germany / Istanbul, Turkey",
+            "focus": "BRCGS Grade A compliance, halal certification & engineering lines"
+          }
+        },
+        {
+          "name": "Asia-Pacific & Global R&D",
+          "tagline": "4 Specialized R&D Centers & Biotech Synthesis Facilities",
+          "presenceText": "R&D centers in Dalian, Shanghai, Kunshan, and Chengdu developing transglutaminase and botanical bioactives.",
+          "contactOffice": {
+            "address": "Dalian High-Tech Industrial Zone, Liaoning, China",
+            "focus": "Biomolecular research, ingredient synthesis & global certification"
+          }
+        }
+      ]
+    },
+    "zh": {
+      "items": [
+        {
+          "name": "墨西哥与拉丁美洲",
+          "tagline": "技术运营中心、本地化配方与肉类应用实验室",
+          "presenceText": "拉美总部设于瓜达拉哈拉与墨西哥城，配备肉类分割、香肠加工与烘焙中试实验室。",
+          "contactOffice": {
+            "address": "Parque Industrial Zapopan Norte, Jalisco, México",
+            "focus": "肉制品配方、清洁标签、原装进口与本地技术支持"
+          }
+        },
+        {
+          "name": "美国与加拿大",
+          "tagline": "北美总部与应用技术中心",
+          "presenceText": "为北美肉类加工商、功能性烘焙企业及运动营养品牌提供直接技术与产品支持。",
+          "contactOffice": {
+            "address": "Naperville / Chicago Tech Corridor, Illinois, USA",
+            "focus": "清洁标签天然防腐、蛋白粘合系统及 VICEL 肠衣分销"
+          }
+        },
+        {
+          "name": "南锥体与安第斯大区",
+          "tagline": "食品加工分销网络与技术咨询中心",
+          "presenceText": "深度服务哥伦比亚、巴西、智利与秘鲁等国的食品加工企业，常备现货保障。",
+          "contactOffice": {
+            "address": "Bogotá D.C. & São Paulo Regional Hubs",
+            "focus": "成本优化、提升出程率与定制化配方服务"
+          }
+        },
+        {
+          "name": "欧洲与土耳其",
+          "tagline": "欧洲法规合规、食品安全与 Ribon 机械设备整合",
+          "presenceText": "与欧洲食品加工商建立战略联盟，整合 Ribon 肉类加工自动化机械设备。",
+          "contactOffice": {
+            "address": "Frankfurt am Main, Germany / Istanbul, Turkey",
+            "focus": "BRCGS A级合规、清真Halal认证与自动化工程线"
+          }
+        },
+        {
+          "name": "亚太与全球研发总部",
+          "tagline": "4大专业研发中心与生物合成生产基地",
+          "presenceText": "在座落于大连、上海、昆山及成都的4大研发中心，致力于谷氨酰胺转氨酶与天然植物提取物的深加工。",
+          "contactOffice": {
+            "address": "中国辽宁省大连高新技术产业园区",
+            "focus": "生物分子研究、原料合成与全球质量认证"
+          }
+        }
+      ]
+    }
+  },
+  "stats": {
+    "es": {
+      "items": [
+        {
+          "label": "Año de Fundación",
+          "sublabel": "Iniciada en Dalian, dedicada a la innovación y producción de ingredientes"
+        },
+        {
+          "label": "Países con Red Directa",
+          "sublabel": "Presencia en Norteamérica, Latam, Europa, Turquía y Asia"
+        },
+        {
+          "label": "Centros de R&D",
+          "sublabel": "Dalian, Shanghai, Kunshan y Chengdu con tecnología de punta"
+        },
+        {
+          "label": "Laboratorios Cárnicos",
+          "sublabel": "Propios y en colaboración: Asia, Europa, EE. UU., México y Australia"
+        },
+        {
+          "label": "Profesionales Globales",
+          "sublabel": "Científicos, ingenieros en alimentos y especialistas comerciales"
+        },
+        {
+          "label": "Especialistas en I+D",
+          "sublabel": "Dedicados exclusivamente a formulación y soporte técnico"
+        }
+      ]
+    },
+    "en": {
+      "items": [
+        {
+          "label": "Founding Year",
+          "sublabel": "Started in Dalian, dedicated to ingredient innovation and manufacturing"
+        },
+        {
+          "label": "Countries Direct Network",
+          "sublabel": "Direct presence across North America, Latam, Europe, Turkey, and Asia"
+        },
+        {
+          "label": "R&D Centers",
+          "sublabel": "Dalian, Shanghai, Kunshan, and Chengdu equipped with state-of-the-art tech"
+        },
+        {
+          "label": "Meat Applications Labs",
+          "sublabel": "Owned and collaborative: Asia, Europe, USA, Mexico, and Australia"
+        },
+        {
+          "label": "Global Professionals",
+          "sublabel": "Food scientists, application engineers, and commercial specialists"
+        },
+        {
+          "label": "R&D Specialists",
+          "sublabel": "Exclusively dedicated to formulation and technical support"
+        }
+      ]
+    },
+    "zh": {
+      "items": [
+        {
+          "label": "成立年份",
+          "sublabel": "创立于大连，致力于功能性食品原料的创新与研发生产"
+        },
+        {
+          "label": "国家直营服务网络",
+          "sublabel": "业务覆盖北美、拉美、欧洲、土耳其及亚洲等主要市场"
+        },
+        {
+          "label": "大研发中心",
+          "sublabel": "大连、上海、昆山及成都研发中心，配置前沿实验仪器"
+        },
+        {
+          "label": "大肉类应用实验室",
+          "sublabel": "自主及合作中心遍布亚洲、欧洲、美国、墨西哥与澳大利亚"
+        },
+        {
+          "label": "全球专业团队",
+          "sublabel": "汇聚食品科学家、应用工程师与国际贸易专家"
+        },
+        {
+          "label": "专职研发人员",
+          "sublabel": "专注于食品配方攻关与现场技术落地支持"
+        }
+      ]
+    }
+  },
+  "brandsSection": {
+    "es": {
+      "badge": "Marcas y sistemas patentados",
+      "title": "Sistemas e Ingredientes con Claims Técnicos Validados",
+      "subtitle": "Marcas registradas desarrolladas para resolver desafíos críticos de textura, retención de agua, vida de anaquel y optimización de costos.",
+      "reservedTitle": "Portafolio Técnico Reservado",
+      "reservedBody": "Mostramos los claims principales y origen de ingredientes. Las especificaciones y formulaciones detalladas se suministran bajo consulta directa con nuestro laboratorio.",
+      "carouselAria": "Carrusel de marcas y sistemas patentados",
+      "trackTitle": "Progreso de marcas registradas",
+      "prevAria": "Marca anterior",
+      "nextAria": "Siguiente marca",
+      "scienceTag": "Nueva división especializada",
+      "scienceTitle": "WNDA Science",
+      "scienceDesc": "Biotecnología y nutrición funcional de alto desempeño para suplementos.",
+      "indentTag": "Abastecimiento internacional",
+      "indentTitle": "Wenda Indent",
+      "indentDesc": "Conectamos industrias con fabricantes certificados e importación segura."
+    },
+    "en": {
+      "badge": "Proprietary Brands & Systems",
+      "title": "Systems & Ingredients with Validated Technical Claims",
+      "subtitle": "Registered trademarks engineered to solve critical challenges in texture, moisture retention, shelf life, and cost optimization.",
+      "reservedTitle": "Reserved Technical Portfolio",
+      "reservedBody": "We display main claims and ingredient origins. Detailed specs and formulations are provided via direct technical consultation.",
+      "carouselAria": "Proprietary brands carousel",
+      "trackTitle": "Brands progress track",
+      "prevAria": "Previous brand",
+      "nextAria": "Next brand",
+      "scienceTag": "New specialized division",
+      "scienceTitle": "WNDA Science",
+      "scienceDesc": "Biotechnology and high-performance functional nutrition for supplements.",
+      "indentTag": "International sourcing",
+      "indentTitle": "Wenda Indent",
+      "indentDesc": "Connecting industries with certified manufacturers and reliable supply."
+    },
+    "zh": {
+      "badge": "旗下专利品牌与技术",
+      "title": "经过验证的技术指标与特种原料体系",
+      "subtitle": "注册商标品牌，旨在解决质构、保水、保质期及成本优化方面的核心痛点。",
+      "reservedTitle": "专有技术产品矩阵",
+      "reservedBody": "本页面展示核心功能与原料来源。详细配方及技术规格请联系实验室进行一对一咨询。",
+      "carouselAria": "旗下品牌轮播展示",
+      "trackTitle": "品牌轮播进度",
+      "prevAria": "上一个品牌",
+      "nextAria": "下一个品牌",
+      "scienceTag": "全新特种科技事业部",
+      "scienceTitle": "WNDA Science 科技",
+      "scienceDesc": "专注于营养补充剂的高性能生物技术与功能营养。",
+      "indentTag": "国际原料直供",
+      "indentTitle": "文达直供 (Wenda Indent)",
+      "indentDesc": "高效链接全球认证生产商，保障原装进口与稳定供货。"
+    }
+  },
+  "quality": {
+    "es": {
+      "badge": "ESTÁNDARES INTERNACIONALES GFSI",
+      "title": "Calidad Comprobable en Cada Ingrediente. Confianza en Cada Aplicación.",
+      "subtitle": "La calidad no es únicamente una característica del producto: es un sistema integral que acompaña desde la validación de materias primas hasta el desempeño en tu línea continua de producción.",
+      "brcgs": {
+        "title": "BRCGS Food Safety Grado A",
+        "desc": "Todas las plantas de producción e instalaciones internacionales cuentan con certificación GFSI-BRC Grado A para exportación y consumo seguro.",
+        "tag": "Global Standard for Food Safety"
+      },
+      "halal": {
+        "title": "Certificación Halal Internacional",
+        "desc": "Ingredientes evaluados y conformes con las leyes dietéticas islámicas para el mercado de Oriente Medio, Asia y consumo multicultural.",
+        "tag": "Conformidad Halal Verificada"
+      },
+      "kosher": {
+        "title": "Certificación Star-K Kosher",
+        "desc": "Auditorías rabínicas permanentes de pureza, procesos limpios y trazabilidad estricta sin contacto con materias incompatibles.",
+        "tag": "Star-K Kosher Certified"
+      },
+      "pillars": [
+        "Controles internos de lote y retención de contramuestras",
+        "Certificados de Análisis (CoA) detallados y expeditos",
+        "Laboratorios cárnicos con planta piloto a escala",
+        "Respaldo de marca registrada Trust in Food®"
+      ]
+    },
+    "en": {
+      "badge": "GFSI INTERNATIONAL STANDARDS",
+      "title": "Verifiable Quality in Every Ingredient. Trust in Every Application.",
+      "subtitle": "Quality is not just a product attribute: it is a comprehensive system accompanying raw material verification to continuous production line performance.",
+      "brcgs": {
+        "title": "BRCGS Food Safety Grade A",
+        "desc": "All international production plants and facilities carry GFSI-BRCGS Grade A certification for global export and safe consumption.",
+        "tag": "Global Standard for Food Safety"
+      },
+      "halal": {
+        "title": "International Halal Certification",
+        "desc": "Ingredients audited and compliant with Islamic dietary laws for Middle East, Asian, and multicultural markets.",
+        "tag": "Verified Halal Compliance"
+      },
+      "kosher": {
+        "title": "Star-K Kosher Certification",
+        "desc": "Ongoing rabbinical audits ensuring purity, clean processes, and strict traceability.",
+        "tag": "Star-K Kosher Certified"
+      },
+      "pillars": [
+        "Batch quality control & retains retention",
+        "Detailed & fast Certificates of Analysis (CoA)",
+        "Meat application labs with scaled pilot plants",
+        "Backed by Trust in Food® registered trademark"
+      ]
+    },
+    "zh": {
+      "badge": "GFSI 国际食品安全标准",
+      "title": "原料品质有据可查，应用效果值得信赖",
+      "subtitle": "质量不仅是产品的单一属性，更是涵盖从原料入厂把控到工厂生产线卓越性能的全流程体系。",
+      "brcgs": {
+        "title": "BRCGS 食品安全 A 级认证",
+        "desc": "全球所有生产基地与工厂均通过 GFSI 认可的 BRCGS A 级认证，保障出口品质与食品安全。",
+        "tag": "食品安全全球标准"
+      },
+      "halal": {
+        "title": "国际清真 Halal 认证",
+        "desc": "产品经严格审核，符合伊斯兰膳食法规，适用于中东、东南亚及全球多元文化市场。",
+        "tag": "清真 Halal 合规认证"
+      },
+      "kosher": {
+        "title": "Star-K 犹太 Kosher 认证",
+        "desc": "拉比常年驻厂审计，确保纯净无污染生产及严格的批次可追溯性。",
+        "tag": "Star-K 犹太认证"
+      },
+      "pillars": [
+        "严格的批次品控与留样备查制度",
+        "快速出具详细的分析合格证 (CoA)",
+        "配备工业级中试生产线的肉类实验室",
+        "Trust in Food® (食品安全信任) 注册商标背书"
+      ]
+    }
+  },
+  "timelineIntro": {
+    "es": {
+      "lead": "Evolución & Liderazgo Científico",
+      "title": "Conoce nuestra trayectoria",
+      "subtitle": "Tres décadas redefiniendo el rendimiento, la inocuidad y la textura en la industria global de alimentos.",
+      "body1": "Desde nuestros comienzos en 1995 en el puerto marítimo de Dalian hasta convertirnos en un socio biotecnológico estratégico con presencia en más de 40 países, nuestro recorrido ha estado impulsado por el rigor científico y la promesa inquebrantable de <strong text-white font-medium>Trust in Food®</strong>.",
+      "body2": "A continuación, te invitamos a explorar los hitos decisivos que marcaron nuestra expansión internacional, la fundación de laboratorios de aplicación y el desarrollo de ingredientes funcionales de nueva generación.",
+      "cta": "Explorar Cronología Histórica",
+      "pillars": [
+        {
+          "tag": "Desde 1995",
+          "desc": "Pioneros en comercio portuario e importación de materias primas alimentarias de alta pureza."
+        },
+        {
+          "tag": "6 Labs & I+D",
+          "desc": "Desarrollo de enzimas, fermentados limpios y centros de aplicación cárnica en múltiples continentes."
+        },
+        {
+          "tag": "40+ Mercados",
+          "desc": "Red logística global con certificaciones GFSI, BRCGS, Halal y Kosher para máxima tranquilidad."
+        }
+      ]
+    },
+    "en": {
+      "lead": "Evolution & Scientific Leadership",
+      "title": "Discover Our History",
+      "subtitle": "Three decades redefining yield, safety, and texture in the global food industry.",
+      "body1": "From our beginnings in 1995 at the seaport of Dalian to becoming a strategic biotech partner present in over 40 countries, our journey has been driven by scientific rigor and our commitment to <strong text-white font-medium>Trust in Food®</strong>.",
+      "body2": "We invite you to explore the milestones that marked our international expansion, application labs foundation, and next-generation functional ingredients development.",
+      "cta": "Explore Historical Timeline",
+      "pillars": [
+        {
+          "tag": "Since 1995",
+          "desc": "Pioneers in port trade and high-purity food raw materials supply."
+        },
+        {
+          "tag": "6 Labs & R&D",
+          "desc": "Enzyme development, clean fermentations, and meat technology centers across continents."
+        },
+        {
+          "tag": "40+ Markets",
+          "desc": "Global logistics network certified GFSI, BRCGS, Halal, and Kosher."
+        }
+      ]
+    },
+    "zh": {
+      "lead": "发展历程与科技引领",
+      "title": "了解文达发展历程",
+      "subtitle": "三十载深耕，重塑全球食品工业的出程率、食品安全与质构体验。",
+      "body1": "从1995年在大连港口启航，到如今业务遍布全球40多个国家和地区，我们的发展始终由严谨的科研与 <strong text-white font-medium>Trust in Food®</strong> 的庄严承诺所驱动。",
+      "body2": "接下来，邀请您一同探索文达全球化扩张、应用实验室建立及新一代功能性原料研发的里程碑时刻。",
+      "cta": "浏览发展历史画卷",
+      "pillars": [
+        {
+          "tag": "始于 1995 年",
+          "desc": "港口贸易与高纯度食品级原料供应的先行者。"
+        },
+        {
+          "tag": "6大实验室与研发",
+          "desc": "酶制剂、清洁发酵及跨国肉类应用技术中心。"
+        },
+        {
+          "tag": "40+ 全球市场",
+          "desc": "具备 GFSI、BRCGS、Halal 及 Kosher 认证的全球供应链。"
+        }
+      ]
+    }
+  },
+  "timelineChronicle": {
+    "es": {
+      "impactLabel": "Impacto Técnico",
+      "locationLabel": "Ubicación & Enfoque",
+      "railLabel": "Trayectoria",
+      "ariaMilestone": "Ver hito {{year}}"
+    },
+    "en": {
+      "impactLabel": "Technical Impact",
+      "locationLabel": "Location & Focus",
+      "railLabel": "Timeline",
+      "ariaMilestone": "View {{year}} milestone"
+    },
+    "zh": {
+      "impactLabel": "技术突破与影响",
+      "locationLabel": "地理位置与业务焦点",
+      "railLabel": "发展历程",
+      "ariaMilestone": "查看 {{year}} 年里程碑"
+    }
+  },
+  "visualGallery": {
+    "es": {
+      "badge": "GALERÍA VISUAL DE APLICACIONES",
+      "title": "La Ciencia de los Alimentos en Acción Real",
+      "subtitle": "Resultados tangibles desarrollados en colaboración con nuestros clientes en más de 10 países: desde embutidos de alta velocidad hasta panadería artesanal y bio-suplementos.",
+      "cta": "Ver todas las aplicaciones",
+      "ariaCarousel": "Carrusel de aplicaciones alimentarias",
+      "trackTitle": "Progreso de visualización",
+      "prevAria": "Aplicación anterior",
+      "nextAria": "Siguiente aplicación",
+      "viewFormulation": "Ver formulación",
+      "consultAria": "Consultar formulación para {{title}}",
+      "items": [
+        { "title": "Embutidos & Charcutería Fina", "category": "Cárnicos", "tag": "Transglutaminasa WBS", "claim": "Cohesión estructural perfecta y rebanabilidad sin rotura" },
+        { "title": "Panadería Rústica & Fermentación", "category": "Panificación", "tag": "Volumen & Miga", "claim": "Alvéolos homogéneos y conservación prolongada de humedad" },
+        { "title": "Pigmentos Puros de Cúrcuma & Remolacha", "category": "From Nature", "tag": "100% Botánico", "claim": "Termorresistencia en horneado y pasteurización" },
+        { "title": "Análisis Molecular & Control de Pureza", "category": "WNDA Science", "tag": "Validación CoA", "claim": "Confirmación de concentración activa y microbiología cero" },
+        { "title": "Líneas Automatizadas de Acero Inoxidable", "category": "Tecnología", "tag": "Maquinaria RIBON", "claim": "Hornos de cocción y tumblers de alto rendimiento" },
+        { "title": "Cortes Magros & Inyección de Salmuera", "category": "Cárnicos", "tag": "Fosfatos WendaPhos", "claim": "Menor sinéresis en anaquel y reducción directa de mermas" },
+        { "title": "Bollería Dorada & Baguettes", "category": "Panificación", "tag": "Tolerancia Bake-off", "claim": "Excelente estabilidad en masas congeladas industriales" },
+        { "title": "Nutrición Deportiva & Polvos Instantáneos", "category": "Suplementos", "tag": "Instantización", "claim": "Dispersión instantánea en agua fría sin grumos" }
+      ]
+    },
+    "en": {
+      "badge": "APPLICATION VISUAL GALLERY",
+      "title": "Food Science in Real Action",
+      "subtitle": "Tangible results developed in collaboration with clients across 10+ countries: from high-speed sausages to artisan bakery and bio-supplements.",
+      "cta": "View all applications",
+      "ariaCarousel": "Food applications carousel",
+      "trackTitle": "Gallery scroll progress",
+      "prevAria": "Previous application",
+      "nextAria": "Next application",
+      "viewFormulation": "View formulation",
+      "consultAria": "Consult formulation for {{title}}",
+      "items": [
+        { "title": "Sausages & Fine Charcuterie", "category": "Meat & Poultry", "tag": "Transglutaminase WBS", "claim": "Perfect structural cohesion and clean sliceability" },
+        { "title": "Rustic Bakery & Fermentation", "category": "Bakery", "tag": "Volume & Crumb", "claim": "Homogeneous alveolation and extended moisture retention" },
+        { "title": "Pure Turmeric & Beetroot Pigments", "category": "From Nature", "tag": "100% Botanical", "claim": "Heat stability during baking and pasteurization" },
+        { "title": "Molecular Analysis & Purity Control", "category": "WNDA Science", "tag": "CoA Validation", "claim": "Active concentration confirmation and zero microbiology" },
+        { "title": "Automated Stainless Steel Lines", "category": "Technology", "tag": "RIBON Machinery", "claim": "Cooking ovens and high-yield tumblers" },
+        { "title": "Lean Cuts & Brine Injection", "category": "Meat & Poultry", "tag": "WendaPhos Phosphates", "claim": "Reduced shelf syneresis and direct drip loss minimization" },
+        { "title": "Golden Pastries & Baguettes", "category": "Bakery", "tag": "Bake-off Tolerance", "claim": "Excellent stability in industrial frozen doughs" },
+        { "title": "Sports Nutrition & Instant Powders", "category": "Supplements", "tag": "Instantization", "claim": "Instant cold water dispersion without clumping" }
+      ]
+    },
+    "zh": {
+      "badge": "食品应用视觉画廊",
+      "title": "食品科技的真实应用场景",
+      "subtitle": "与全球 10 多个国家的客户合作开发的真实成果：从高速化香肠加工到匠心烘焙与生物营养补充剂。",
+      "cta": "查看全部应用领域",
+      "ariaCarousel": "食品应用轮播展示",
+      "trackTitle": "浏览进度",
+      "prevAria": "上一个应用场景",
+      "nextAria": "下一个应用场景",
+      "viewFormulation": "查看技术配方",
+      "consultAria": "咨询 {{title}} 配方",
+      "items": [
+        { "title": "灌肠与精制肉制品", "category": "肉类与家禽", "tag": "WBS 谷氨酰胺转氨酶", "claim": "完美的结构切片性与高致密度" },
+        { "title": "乡村烘焙与发酵面团", "category": "烘焙与面制品", "tag": "体积与气孔结构", "claim": "气孔均匀且具备持久的长效保水性" },
+        { "title": "姜黄与甜菜根纯天然色素", "category": "天然色素", "tag": "100% 植物萃取", "claim": "耐高温烘焙与巴氏杀菌" },
+        { "title": "分子分析与纯度控制", "category": "WNDA 科学", "tag": "CoA 合格验证", "claim": "有效成分活性确认与微生物零检出" },
+        { "title": "自动化不锈钢加工生产线", "category": "机械设备", "tag": "RIBON 机械", "claim": "高效蒸煮炉与高出程真空滚揉机" },
+        { "title": "精肉注射与盐水滚揉", "category": "肉类与家禽", "tag": "WendaPhos 复合磷酸盐", "claim": "降低货架期渗液，直接减少保水损耗" },
+        { "title": "金黄法棍与起酥面包", "category": "烘焙与面制品", "tag": "烘烤耐受性", "claim": "在工业冷冻面团中具备卓越的耐冻稳定性" },
+        { "title": "运动营养与速溶粉剂", "category": "营养补充剂", "tag": "速溶造粒", "claim": "冷水瞬间分散且无结块" }
+      ]
+    }
+  },
+  "wndaScience": {
+    "es": {
+      "badge": "División WNDA Science",
+      "eyebrow": "Innovación Biomolecular",
+      "title": "Conectando Conocimiento Científico, Tecnología Aplicada e Ingredientes de Alto Desempeño",
+      "subtitle": "Es la marca especializada de Wenda Ingredients dirigida a empresas que buscan diferenciar sus productos en la industria de suplementos, longevidad y nutrición deportiva.",
+      "tagline": "Pureza comprobada y desempeño funcional para formulaciones avanzadas",
+      "alt": "WNDA Science Laboratory Research",
+      "supportEyebrow": "Soporte Documental Completo",
+      "supportTitle": "Validación Analítica Lote por Lote",
+      "supportDesc": "Certificados de análisis, confirmación de identidad, concentración de activo, microbiología y control estricto de metales pesados.",
+      "customEyebrow": "Desarrollos a Medida:",
+      "customDesc": "Formulaciones personalizadas para polvos, cápsulas y bebidas funcionales listas para envasar.",
+      "cta": "Consultar con Especialista WNDA",
+      "capabilities": [
+        {
+          "title": "Aminoácidos Instantizados",
+          "desc": "Humectación inmediata y dispersión total en agua fría sin apelmazamiento ni grumos."
+        },
+        {
+          "title": "Vitaminas Dispersables",
+          "desc": "Tratamientos de superficie para estabilidad prolongada y distribución homogénea en mezclas secas."
+        },
+        {
+          "title": "Control Riguroso de Calidad",
+          "desc": "Verificación de pureza por lote, límites estrictos de metales pesados y Certificados CoA."
+        },
+        {
+          "title": "Extractos Botánicos Estandarizados",
+          "desc": "Potencia activa garantizada por cromatografía HPLC para suplementos de alta gama."
+        }
+      ]
+    },
+    "en": {
+      "badge": "WNDA Science Division",
+      "eyebrow": "Biomolecular Innovation",
+      "title": "Bridging Scientific Knowledge, Applied Technology, and High-Performance Ingredients",
+      "subtitle": "Wenda Ingredients' specialized division for brands seeking differentiation in dietary supplements, longevity, and sports nutrition.",
+      "tagline": "Verified purity and functional performance for advanced formulations",
+      "alt": "WNDA Science Laboratory Research",
+      "supportEyebrow": "Comprehensive Documentation Support",
+      "supportTitle": "Batch-by-Batch Analytical Validation",
+      "supportDesc": "Certificates of Analysis, identity testing, active concentration, microbiology, and strict heavy metal controls.",
+      "customEyebrow": "Custom Formulations:",
+      "customDesc": "Tailored formulations for powders, capsules, and ready-to-mix functional beverages.",
+      "cta": "Consult WNDA Specialist",
+      "capabilities": [
+        {
+          "title": "Instantized Amino Acids",
+          "desc": "Immediate wetting and complete cold-water dispersion without caking or clumping."
+        },
+        {
+          "title": "Dispersible Vitamins",
+          "desc": "Surface treatments for extended stability and homogeneous dry blend distribution."
+        },
+        {
+          "title": "Rigorous Quality Control",
+          "desc": "Batch purity verification, strict heavy metal limits, and CoA documentation."
+        },
+        {
+          "title": "Standardized Botanical Extracts",
+          "desc": "Active potency guaranteed by HPLC chromatography for premium nutraceuticals."
+        }
+      ]
+    },
+    "zh": {
+      "badge": "WNDA Science 科技事业部",
+      "eyebrow": "生物分子创新",
+      "title": "融汇前沿科学知识、应用技术与高性能原料",
+      "subtitle": "文达原料旗下专为膳食补充剂、抗衰长寿及运动营养企业打造的特种原料品牌。",
+      "tagline": "严谨验证的纯度与卓越性能，赋能高端配方创新",
+      "alt": "WNDA Science 实验室科研",
+      "supportEyebrow": "完善的文件合规支持",
+      "supportTitle": "逐批分析检测报告 (CoA)",
+      "supportDesc": "成分鉴别、活性含量、微生物指标及严格的重金属检测分析报告。",
+      "customEyebrow": "定制化研发：",
+      "customDesc": "针对固体饮料、胶囊及即饮功能性饮料提供定制配方。",
+      "cta": "咨询 WNDA 专家团队",
+      "capabilities": [
+        {
+          "title": "速溶氨基酸系列",
+          "desc": "具备瞬间润湿性，在冷水中迅速完全分散，无结块。"
+        },
+        {
+          "title": "高分散维生素",
+          "desc": "经过特殊表面处理，保障长期稳定性及在干粉复配中的均匀度。"
+        },
+        {
+          "title": "严格品质控制",
+          "desc": "逐批纯度检测，严格控制重金属指标，随货提供 CoA 报告。"
+        },
+        {
+          "title": "标准化植物提取物",
+          "desc": "通过高效液相色谱 (HPLC) 测定活性成分含量，品质稳定。"
+        }
+      ]
+    }
+  },
+  "wendaIndent": {
+    "es": {
+      "badge": "Abastecimiento Wenda Indent",
+      "subBadge": "Suministro Global & Importación Segura",
+      "title": "Conectamos las necesidades de cada industria con fabricantes internacionales certificados",
+      "subtitle": "En alianza con fabricantes mundiales que cumplen los más altos estándares de calidad y certificación internacional, ponemos a tu alcance materias primas, ingredientes y soluciones técnicas con suministro confiable y disponibilidad local.",
+      "ctaQuote": "Solicitar Cotización de Importación",
+      "diagramBadge": "Diagrama Escalonado de Suministro",
+      "diagramTitle": "El Modelo de Abastecimiento Wenda Indent",
+      "deliverableLabel": "Entregable Clave",
+      "catalogEyebrow": "Catálogo Multidisciplinario",
+      "catalogTitle": "Soluciones por Industria",
+      "catalogSubtitle": "Materias primas puras, sistemas funcionales y soporte técnico directo de fabricante a fabricante.",
+      "sectorLabel": "Sector Especializado",
+      "rawMaterialsCount": "{{count}} Materias Catalogadas",
+      "keySolutionsLabel": "Principales Soluciones e Ingredientes",
+      "moreItems": "+{{count}} materias primas adicionales en catálogo...",
+      "viewFullCatalog": "Ver Catálogo Completo"
+    },
+    "en": {
+      "badge": "Wenda Indent Sourcing",
+      "subBadge": "Global Supply & Reliable Imports",
+      "title": "Connecting industry demands with certified international manufacturers",
+      "subtitle": "In partnership with global manufacturers complying with the highest quality standards and international certifications, we deliver raw materials, ingredients, and technical solutions with dependable supply and local stock.",
+      "ctaQuote": "Request Import Quote",
+      "diagramBadge": "Stepped Supply Diagram",
+      "diagramTitle": "The Wenda Indent Supply Model",
+      "deliverableLabel": "Key Deliverable",
+      "catalogEyebrow": "Multidisciplinary Catalog",
+      "catalogTitle": "Industry Solutions",
+      "catalogSubtitle": "Pure raw materials, functional systems, and direct technical support from manufacturer to manufacturer.",
+      "sectorLabel": "Specialized Sector",
+      "rawMaterialsCount": "{{count}} Cataloged Raw Materials",
+      "keySolutionsLabel": "Key Solutions & Ingredients",
+      "moreItems": "+{{count}} additional raw materials in catalog...",
+      "viewFullCatalog": "View Full Catalog"
+    },
+    "zh": {
+      "badge": "文达直供 Indent 业务",
+      "subBadge": "全球采购与无忧进口服务",
+      "title": "高效链接工业采购需求与全球高标准认证生产商",
+      "subtitle": "携手符合全球食品安全最高标准的国际化制造商，为您提供高品质原材料、特种功能性原料及技术解决方案，保障现货与稳定交期。",
+      "ctaQuote": "索取大货进口报价",
+      "diagramBadge": "阶梯式采购示意图",
+      "diagramTitle": "文达直供 (Wenda Indent) 供应链模式",
+      "deliverableLabel": "核心交付物",
+      "catalogEyebrow": "全品类原料目录",
+      "catalogTitle": "按行业划分的解决方案",
+      "catalogSubtitle": "高纯度原材料、功能性复配体系以及厂家对厂家的直营技术支持。",
+      "sectorLabel": "专业工业领域",
+      "rawMaterialsCount": "已收录 {{count}} 种高纯度原料",
+      "keySolutionsLabel": "核心产品与原料列表",
+      "moreItems": "目录中尚有 +{{count}} 种其他原料产品...",
+      "viewFullCatalog": "查看完整产品目录"
+    }
+  },
+  "footer": {
+    "es": {
+      "accreditations": "Acreditaciones Globales de Inocuidad & Calidad",
+      "about": "Desde 1995, creamos ingredientes funcionales especializados que mejoran el desempeño, la calidad y el valor de cada aplicación en la industria alimentaria mundial.",
+      "activeHub": "Sede Activa: {{name}}",
+      "directLine": "Línea directa: {{phone}}",
+      "cols": {
+        "categories": "Categorías",
+        "brands": "Marcas Registradas",
+        "network": "Red Internacional"
+      },
+      "tagline": "Trust in Food®",
+      "networkText": "Wenda Ingredients Global Network",
+      "ndaText": "Confidencialidad Garantizada (NDA)",
+      "copyright": "© 1995-2026 Wenda Ingredients. Todos los derechos reservados."
+    },
+    "en": {
+      "accreditations": "Global Food Safety & Quality Accreditations",
+      "about": "Since 1995, we manufacture specialized functional ingredients that enhance performance, quality, and value in every application across the global food industry.",
+      "activeHub": "Active Hub: {{name}}",
+      "directLine": "Direct line: {{phone}}",
+      "cols": {
+        "categories": "Categories",
+        "brands": "Registered Brands",
+        "network": "International Network"
+      },
+      "tagline": "Trust in Food®",
+      "networkText": "Wenda Ingredients Global Network",
+      "ndaText": "Guaranteed Confidentiality (NDA)",
+      "copyright": "© 1995-2026 Wenda Ingredients. All rights reserved."
+    },
+    "zh": {
+      "accreditations": "全球食品安全与质量认证标准",
+      "about": "自1995年以来，我们专注于研发制造特种功能性食品原料，赋能全球食品工业，提升每一项应用的产品性能与附加值。",
+      "activeHub": "当前活动服务中心：{{name}}",
+      "directLine": "直通电话：{{phone}}",
+      "cols": {
+        "categories": "产品品类",
+        "brands": "旗下注册商标",
+        "network": "国际服务网络"
+      },
+      "tagline": "Trust in Food® (食品安全信任)",
+      "networkText": "文达原料全球服务网络",
+      "ndaText": "严格商业保密保障 (NDA)",
+      "copyright": "© 1995-2026 Wenda Ingredients. 版权所有。"
+    }
+  },
+  "technicalModal": {
+    "es": {
+      "brandBadge": "Ficha Técnica de Marca",
+      "industryBadge": "Catálogo de Industria",
+      "descTitle": "Descripción Funcional & Origen:",
+      "claimsTitle": "Claims & Propiedades Técnicas Validadas:",
+      "ndaTitle": "Nota de Formulación Confidencial:",
+      "ndaBody": "Los parámetros exactos de adición (% de dosificación, curvas de temperatura y sinergias con matrices cárnicas o vegetales) se proporcionan mediante asesoría técnica directa bajo acuerdo confidencial con nuestro laboratorio.",
+      "validatedTitle": "Soluciones Validadas en Planta:",
+      "availableTitle": "Ingredientes & Químicos Disponibles para Suministro:",
+      "close": "Cerrar",
+      "request": "Solicitar Muestra o Cotización para {{title}}"
+    },
+    "en": {
+      "brandBadge": "Brand Technical Sheet",
+      "industryBadge": "Industry Catalog",
+      "descTitle": "Functional Description & Origin:",
+      "claimsTitle": "Validated Technical Claims & Features:",
+      "ndaTitle": "Confidential Formulation Note:",
+      "ndaBody": "Exact dosage parameters (% addition, temperature curves, and synergies with meat or plant matrices) are provided via direct technical consultation under Non-Disclosure Agreements with our laboratory.",
+      "validatedTitle": "Plant-Validated Solutions:",
+      "availableTitle": "Ingredients & Chemical Raw Materials Available:",
+      "close": "Close",
+      "request": "Request Sample or Quote for {{title}}"
+    },
+    "zh": {
+      "brandBadge": "品牌技术规格书",
+      "industryBadge": "行业产品目录",
+      "descTitle": "功能描述与来源说明：",
+      "claimsTitle": "经验证的技术指标与特性：",
+      "ndaTitle": "保密配方说明：",
+      "ndaBody": "具体添加比例、温度曲线以及与肉类/植物基基质的协同参数，需通过与我司实验室签订保密协议后提供一对一技术咨询服务。",
+      "validatedTitle": "工厂实测验证解决方案：",
+      "availableTitle": "可子供货的食品原料与精细化学品：",
+      "close": "关闭",
+      "request": "索取 {{title}} 样品或报价"
+    }
+  }
+}
