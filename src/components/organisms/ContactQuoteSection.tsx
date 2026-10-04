@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import confetti from "canvas-confetti";
+import { useTranslation, Trans } from "react-i18next";
 import { CountryFlag } from "../atoms/CountryFlag";
 import { CountryMirror } from "@/data/siteContent";
 import {
@@ -21,19 +22,35 @@ interface ContactQuoteSectionProps {
   defaultTopic?: string;
 }
 
+// Language-neutral topic ids; their labels live in translations.json ("contact.topics")
+const TOPIC_IDS = ["meat", "bakery", "nature", "science", "vicel", "indent"];
+
 export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
   currentCountry,
   defaultTopic = ""
 }) => {
+  const { t } = useTranslation("contact");
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
     phone: "",
-    category: defaultTopic || "Meat & Poultry",
+    category: defaultTopic || "meat",
     volume: "1 a 5 Toneladas / mes",
     message: ""
   });
+
+  // Keep the form in sync when a CTA elsewhere on the page preselects a topic
+  useEffect(() => {
+    if (defaultTopic) {
+      setFormData((prev) => ({ ...prev, category: defaultTopic }));
+    }
+  }, [defaultTopic]);
+
+  // Unknown topics (e.g. a brand name) are shown as-is
+  const categoryLabel = TOPIC_IDS.includes(formData.category)
+    ? t(`topics.${formData.category}`)
+    : formData.category;
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -69,15 +86,15 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md text-[#D9E8BE] text-xs font-bold uppercase tracking-wider border border-white/10">
-                Hablemos de su próxima formulación
+                {t("eyebrow")}
               </div>
 
               <h2 className="heading-editorial-lg font-editorial text-white">
-                Tu próximo gran producto comienza con el ingrediente correcto.
+                {t("title")}
               </h2>
 
               <p className="text-base sm:text-lg text-emerald-100/90 leading-relaxed font-normal">
-                ¿Interesado en mejorar rendimiento, textura o vida útil? Llena este formulario y nuestro equipo de ingenieros de alimentos te responderá de inmediato. Sin intermediarios, con asesoría técnica directa.
+                {t("intro")}
               </p>
             </div>
 
@@ -87,7 +104,7 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                 <CountryFlag code={currentCountry.code} size="lg" />
                 <div>
                   <h4 className="text-base font-bold text-white">
-                    Sede Técnica: {currentCountry.name}
+                    {t("office.title", { name: currentCountry.name })}
                   </h4>
                   <p className="text-xs text-[#D9E8BE] font-semibold">
                     {currentCountry.tagline}
@@ -99,7 +116,7 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] text-emerald-200/80 uppercase font-semibold block">Dirección:</span>
+                    <span className="text-[11px] text-emerald-200/80 uppercase font-semibold block">{t("office.address")}</span>
                     <span>{currentCountry.contactOffice.address}</span>
                   </div>
                 </div>
@@ -107,7 +124,7 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                 <div className="flex items-start gap-3">
                   <PhoneCall className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] text-emerald-200/80 uppercase font-semibold block">Teléfono Directo:</span>
+                    <span className="text-[11px] text-emerald-200/80 uppercase font-semibold block">{t("office.phone")}</span>
                     <a href={`tel:${currentCountry.contactOffice.phone}`} className="hover:text-white font-bold underline">
                       {currentCountry.contactOffice.phone}
                     </a>
@@ -117,7 +134,7 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] text-emerald-200/80 uppercase font-semibold block">Correo Oficial:</span>
+                    <span className="text-[11px] text-emerald-200/80 uppercase font-semibold block">{t("office.email")}</span>
                     <a href={`mailto:${currentCountry.contactOffice.email}`} className="hover:text-white font-bold underline">
                       {currentCountry.contactOffice.email}
                     </a>
@@ -128,11 +145,11 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
               <div className="pt-4 border-t border-white/15 flex flex-col sm:flex-row gap-3 text-xs text-emerald-100">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-[#D9E8BE]" />
-                  <span>Respuesta &lt; 24h</span>
+                  <span>{t("response")}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <FileCheck2 className="w-4 h-4 text-[#D9E8BE]" />
-                  <span>Muestras para planta piloto</span>
+                  <span>{t("samples")}</span>
                 </div>
               </div>
             </div>
@@ -141,7 +158,7 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
             <div className="flex items-start gap-3 text-xs text-emerald-200/80">
               <ShieldCheck className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />
               <p>
-                Tratamos todas sus fórmulas y procesos con estricto acuerdo de confidencialidad (NDA). Su propiedad intelectual está 100% protegida.
+                {t("nda")}
               </p>
             </div>
           </div>
@@ -155,26 +172,31 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="heading-editorial-md font-editorial text-slate-900">
-                    ¡Solicitud Enviada con Éxito!
+                    {t("success.title")}
                   </h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Hemos canalizado su requerimiento con el equipo técnico de <strong>{currentCountry.name}</strong>. Un ingeniero especializado en {formData.category} le contactará en menos de 24 horas.
+                    <Trans
+                      t={t}
+                      i18nKey="success.body"
+                      values={{ country: currentCountry.name, category: categoryLabel }}
+                      components={{ strong: <strong /> }}
+                    />
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="btn-pill-secondary text-xs !py-2.5 !px-6 cursor-pointer"
                   >
-                    Enviar otra consulta
+                    {t("success.again")}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-editorial mb-1">
-                      Solicitud de Muestras & Asesoría Técnica
+                      {t("form.title")}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-500 font-normal">
-                      Indique los detalles de su proyecto y nuestro equipo le proporcionará la ficha técnica y la muestra recomendada.
+                      {t("form.subtitle")}
                     </p>
                   </div>
 
@@ -182,12 +204,12 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                        Nombre Completo *
+                        {t("form.name")}
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="Ej. Ing. Carlos Mendoza"
+                        placeholder={t("form.namePh")}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#F8FAF6] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#447D29] focus:bg-white transition-all"
@@ -196,12 +218,12 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
 
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                        Empresa / Razón Social *
+                        {t("form.company")}
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="Ej. Alimentos del Norte S.A."
+                        placeholder={t("form.companyPh")}
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#F8FAF6] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#447D29] focus:bg-white transition-all"
@@ -210,12 +232,12 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
 
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                        Correo Corporativo *
+                        {t("form.email")}
                       </label>
                       <input
                         type="email"
                         required
-                        placeholder="carlos@empresa.com"
+                        placeholder={t("form.emailPh")}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#F8FAF6] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#447D29] focus:bg-white transition-all"
@@ -224,12 +246,12 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
 
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                        Teléfono / WhatsApp *
+                        {t("form.phone")}
                       </label>
                       <input
                         type="tel"
                         required
-                        placeholder="+52 55 1234 5678"
+                        placeholder={t("form.phonePh")}
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#F8FAF6] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#447D29] focus:bg-white transition-all"
@@ -240,28 +262,21 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                   {/* Category Selection */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                      Área de Aplicación / Categoría:
+                      {t("form.category")}
                     </label>
                     <div className="flex flex-wrap gap-2">
-                      {[
-                        "Meat & Poultry",
-                        "Bakery & Panificación",
-                        "Colores de la Naturaleza",
-                        "WNDA Science",
-                        "Tripas VICEL & Maquinaria",
-                        "Wenda Indent (Materias Primas)"
-                      ].map((cat) => (
+                      {TOPIC_IDS.map((topicId) => (
                         <button
-                          key={cat}
+                          key={topicId}
                           type="button"
-                          onClick={() => setFormData({ ...formData, category: cat })}
+                          onClick={() => setFormData({ ...formData, category: topicId })}
                           className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer border ${
-                            formData.category === cat
+                            formData.category === topicId
                               ? "bg-[#447D29] text-white border-[#447D29] shadow-xs"
                               : "bg-[#F8FAF6] text-slate-700 hover:bg-slate-100 border-slate-200"
                           }`}
                         >
-                          {cat}
+                          {t(`topics.${topicId}`)}
                         </button>
                       ))}
                     </div>
@@ -270,11 +285,11 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                   {/* Message */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                      Detalle del Desafío Técnico o Muestra Requerida:
+                      {t("form.message")}
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Describa su producto, proceso actual (ej. embutido cocido, pan molde, bebida) y objetivo (ej. reducir mermas, mejorar textura, alargar vida de anaquel)..."
+                      placeholder={t("form.messagePh")}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-[#F8FAF6] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#447D29] focus:bg-white transition-all resize-none"
@@ -287,10 +302,10 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                     className="w-full btn-pill-primary !py-4 text-base font-bold shadow-md cursor-pointer group"
                   >
                     {loading ? (
-                      <span>Procesando requerimiento...</span>
+                      <span>{t("form.loading")}</span>
                     ) : (
                       <>
-                        <span>Solicitar Asesoría & Muestras Técnicas</span>
+                        <span>{t("form.submit")}</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                       </>
                     )}

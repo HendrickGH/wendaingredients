@@ -2,79 +2,32 @@
 
 import React from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import { Heading } from "../atoms/Heading";
 import { Camera, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEditorialCarousel } from "@/hooks/useEditorialCarousel";
 
-interface GalleryItem {
+const GALLERY_IMAGES = [
+  "/images/meat/charcuterie-board.jpg",
+  "/images/bakery/rustic-sourdough.jpg",
+  "/images/nature/turmeric-curcumin.jpg",
+  "/images/supplements/lab-glassware-pipette.jpg",
+  "/images/tech/clean-processing-lines.jpg",
+  "/images/meat/fresh-cuts.jpg",
+  "/images/bakery/fresh-baguettes.jpg",
+  "/images/supplements/supplement-scoop-pure.jpg"
+];
+
+interface GalleryItemData {
   title: string;
   category: string;
-  image: string;
   tag: string;
   claim: string;
 }
 
-const GALLERY_ITEMS: GalleryItem[] = [
-  {
-    title: "Embutidos & Charcutería Fina",
-    category: "Cárnicos",
-    image: "/images/meat/charcuterie-board.jpg",
-    tag: "Transglutaminasa WBS",
-    claim: "Cohesión estructural perfecta y rebanabilidad sin rotura"
-  },
-  {
-    title: "Panadería Rústica & Fermentación",
-    category: "Panificación",
-    image: "/images/bakery/rustic-sourdough.jpg",
-    tag: "Volumen & Miga",
-    claim: "Alvéolos homogéneos y conservación prolongada de humedad"
-  },
-  {
-    title: "Pigmentos Puros de Cúrcuma & Remolacha",
-    category: "From Nature",
-    image: "/images/nature/turmeric-curcumin.jpg",
-    tag: "100% Botánico",
-    claim: "Termorresistencia en horneado y pasteurización"
-  },
-  {
-    title: "Análisis Molecular & Control de Pureza",
-    category: "WNDA Science",
-    image: "/images/supplements/lab-glassware-pipette.jpg",
-    tag: "Validación CoA",
-    claim: "Confirmación de concentración activa y microbiología cero"
-  },
-  {
-    title: "Líneas Automatizadas de Acero Inoxidable",
-    category: "Tecnología",
-    image: "/images/tech/clean-processing-lines.jpg",
-    tag: "Maquinaria RIBON",
-    claim: "Hornos de cocción y tumblers de alto rendimiento"
-  },
-  {
-    title: "Cortes Magros & Inyección de Salmuera",
-    category: "Cárnicos",
-    image: "/images/meat/fresh-cuts.jpg",
-    tag: "Fosfatos WendaPhos",
-    claim: "Menor sinéresis en anaquel y reducción directa de mermas"
-  },
-  {
-    title: "Bollería Dorada & Baguettes",
-    category: "Panificación",
-    image: "/images/bakery/fresh-baguettes.jpg",
-    tag: "Tolerancia Bake-off",
-    claim: "Excelente estabilidad en masas congeladas industriales"
-  },
-  {
-    title: "Nutrición Deportiva & Polvos Instantáneos",
-    category: "Suplementos",
-    image: "/images/supplements/supplement-scoop-pure.jpg",
-    tag: "Instantización",
-    claim: "Dispersión instantánea en agua fría sin grumos"
-  }
-];
-
 export const VisualGallerySection: React.FC = () => {
+  const { t } = useTranslation("visualGallery");
   const {
     scrollRef,
     scrollProgress,
@@ -84,6 +37,14 @@ export const VisualGallerySection: React.FC = () => {
     scrollNext,
     seekToRatio
   } = useEditorialCarousel();
+
+  const rawItems = t("items", { returnObjects: true }) as GalleryItemData[];
+  const items = Array.isArray(rawItems)
+    ? rawItems.map((item, idx) => ({
+        ...item,
+        image: GALLERY_IMAGES[idx] || GALLERY_IMAGES[0]
+      }))
+    : [];
 
   const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -98,13 +59,13 @@ export const VisualGallerySection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-100 pb-8">
           <div className="space-y-3 max-w-2xl">
             <Badge variant="wenda" size="md" icon={<Camera className="w-3.5 h-3.5" />}>
-              GALERÍA VISUAL DE APLICACIONES
+              {t("badge")}
             </Badge>
             <Heading level={2} color="slate">
-              La Ciencia de los Alimentos en Acción Real
+              {t("title")}
             </Heading>
             <p className="text-base text-slate-600 font-normal">
-              Resultados tangibles desarrollados en colaboración con nuestros clientes en más de 10 países: desde embutidos de alta velocidad hasta panadería artesanal y bio-suplementos.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -112,7 +73,7 @@ export const VisualGallerySection: React.FC = () => {
             href="#contacto"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-700 hover:text-[#447D29] hover:border-[#447D29] transition-all text-xs font-bold tracking-wide w-fit self-start md:self-end hover:bg-[#F8FAF6]"
           >
-            <span>Ver todas las aplicaciones</span>
+            <span>{t("cta")}</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
@@ -121,10 +82,10 @@ export const VisualGallerySection: React.FC = () => {
         <div
           ref={scrollRef}
           tabIndex={0}
-          aria-label="Carrusel de aplicaciones alimentarias"
+          aria-label={t("ariaCarousel")}
           className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pt-2 pb-4 focus:outline-hidden"
         >
-          {GALLERY_ITEMS.map((item, idx) => (
+          {items.map((item, idx) => (
             <div
               key={idx}
               className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start group flex flex-col justify-between"
@@ -148,7 +109,7 @@ export const VisualGallerySection: React.FC = () => {
                   {/* Circular Arrow Button top-right */}
                   <a
                     href="#contacto"
-                    aria-label={`Consultar formulación para ${item.title}`}
+                    aria-label={t("consultAria", { title: item.title })}
                     className="absolute top-3 right-3 w-10 h-10 rounded-full bg-[#447D29] text-white flex items-center justify-center shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#2F591B] cursor-pointer"
                   >
                     <ArrowUpRight className="w-5 h-5" />
@@ -169,7 +130,7 @@ export const VisualGallerySection: React.FC = () => {
 
               {/* Action Note */}
               <div className="pt-3 mt-2 text-xs font-bold text-[#447D29] flex items-center gap-1.5 group-hover:text-[#2F591B] transition-colors">
-                <span>Ver formulación</span>
+                <span>{t("viewFormulation")}</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </div>
             </div>
@@ -182,7 +143,7 @@ export const VisualGallerySection: React.FC = () => {
           <div
             onClick={handleTrackClick}
             className="relative flex-1 h-[3px] bg-slate-200 rounded-full cursor-pointer overflow-hidden py-1 -my-1 group"
-            title="Progreso de visualización"
+            title={t("trackTitle")}
           >
             <div className="absolute inset-0 bg-slate-200 rounded-full" />
             <div
@@ -197,7 +158,7 @@ export const VisualGallerySection: React.FC = () => {
               type="button"
               onClick={scrollPrev}
               disabled={!canScrollLeft}
-              aria-label="Aplicación anterior"
+              aria-label={t("prevAria")}
               className={`p-2 text-slate-800 transition-all duration-200 cursor-pointer ${
                 canScrollLeft
                   ? "hover:text-[#447D29] hover:-translate-x-1 active:scale-95"
@@ -211,7 +172,7 @@ export const VisualGallerySection: React.FC = () => {
               type="button"
               onClick={scrollNext}
               disabled={!canScrollRight}
-              aria-label="Siguiente aplicación"
+              aria-label={t("nextAria")}
               className={`p-2 text-slate-800 transition-all duration-200 cursor-pointer ${
                 canScrollRight
                   ? "hover:text-[#447D29] hover:translate-x-1 active:scale-95"

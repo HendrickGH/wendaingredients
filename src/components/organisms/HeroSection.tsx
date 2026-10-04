@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 import {
   Play,
   Pause,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 
 export const HeroSection: React.FC = () => {
+  const { t } = useTranslation("hero");
   const [isPlaying, setIsPlaying] = useState(true);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [activeVideoSrc, setActiveVideoSrc] = useState("/videos/hero-food-science.mp4");
@@ -106,18 +108,18 @@ export const HeroSection: React.FC = () => {
         <div className="max-w-3xl space-y-8">
           <div className="space-y-5">
             <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#D9E8BE] text-xs font-bold uppercase tracking-wider">
-              Innovación & Ciencia Aplicada a Alimentos
+              {t("badge")}
             </div>
 
             <h1
               id="hero-title"
               className="text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.08] font-editorial max-w-2xl drop-shadow-md"
             >
-              Ingredientes funcionales especializados que hacen más
+              {t("title")}
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed max-w-xl drop-shadow-sm">
-              Creamos formulaciones e ingredientes que optimizan textura, rendimiento, vida de anaquel y perfil clean label para la industria alimentaria mundial.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -127,21 +129,21 @@ export const HeroSection: React.FC = () => {
             <button
               onClick={() => setIsVideoModalOpen(true)}
               className="inline-flex items-center justify-center gap-3 px-7 py-3.5 text-base font-bold rounded-full bg-[#D9E8BE] text-[#0F172A] hover:bg-white hover:shadow-lg transition-all duration-300 shadow-md active:scale-95 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              aria-label="Reproducir video de presentación de Wenda Ingredients"
+              aria-label={t("playAria")}
             >
               <span className="w-6 h-6 rounded-full bg-[#0F172A] text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Play className="w-3 h-3 fill-current ml-0.5" aria-hidden="true" />
               </span>
-              <span>Reproducir vídeo</span>
+              <span>{t("play")}</span>
             </button>
 
             {/* Secondary Action Button: Explorar Fórmulas */}
             <a
               href="#categorias"
               className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-semibold rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/25 transition-all duration-300 active:scale-95 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D9E8BE]"
-              aria-label="Explorar categorías y fórmulas técnicas"
+              aria-label={t("exploreAria")}
             >
-              <span>Explorar Categorías</span>
+              <span>{t("explore")}</span>
               <ChevronRight
                 className="w-4 h-4 motion-safe:group-hover:translate-x-1 transition-transform"
                 aria-hidden="true"
@@ -152,41 +154,41 @@ export const HeroSection: React.FC = () => {
           {/* Corporate Motto Pullquote */}
           <blockquote className="pl-4 border-l-2 border-[#D9E8BE] py-1 mt-6">
             <p className="text-base sm:text-lg font-bold text-white italic font-serif">
-              “We listen, reach out and we deliver”
+              {t("quote")}
             </p>
             <cite className="text-xs text-slate-300 not-italic block mt-0.5 font-medium">
-              Lema institucional de Wenda Ingredients
+              {t("quoteCite")}
             </cite>
           </blockquote>
 
           {/* Minimalist Operational Stats Strip */}
           <div
             className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/15 max-w-2xl"
-            aria-label="Indicadores globales clave de Wenda Ingredients"
+            aria-label={t("statsAria")}
           >
             <div>
               <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight block">
                 30+
               </span>
-              <span className="text-xs text-slate-300 font-medium">Años Trayectoria</span>
+              <span className="text-xs text-slate-300 font-medium">{t("stats.years")}</span>
             </div>
             <div>
               <span className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block">
                 10+
               </span>
-              <span className="text-xs text-slate-300 font-medium">Países Red Directa</span>
+              <span className="text-xs text-slate-300 font-medium">{t("stats.countries")}</span>
             </div>
             <div>
               <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight block">
                 4
               </span>
-              <span className="text-xs text-slate-300 font-medium">Centros R&D</span>
+              <span className="text-xs text-slate-300 font-medium">{t("stats.rd")}</span>
             </div>
             <div>
               <span className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block">
                 6
               </span>
-              <span className="text-xs text-slate-300 font-medium">Labs Cárnicos</span>
+              <span className="text-xs text-slate-300 font-medium">{t("stats.labs")}</span>
             </div>
           </div>
         </div>
@@ -197,8 +199,8 @@ export const HeroSection: React.FC = () => {
         <button
           onClick={togglePlay}
           className="p-2.5 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 transition-all cursor-pointer shadow-sm focus-visible:outline-2 focus-visible:outline-white"
-          title={isPlaying ? "Pausar video de fondo" : "Reanudar video de fondo"}
-          aria-label={isPlaying ? "Pausar video de fondo" : "Reanudar video de fondo"}
+          title={isPlaying ? t("pauseBackground") : t("resumeBackground")}
+          aria-label={isPlaying ? t("pauseBackground") : t("resumeBackground")}
         >
           {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
         </button>
@@ -209,14 +211,14 @@ export const HeroSection: React.FC = () => {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="Video institucional de Wenda Ingredients"
+          aria-label={t("modal.aria")}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg p-4 sm:p-8 animate-in fade-in duration-200"
         >
           {/* Close button */}
           <button
             onClick={() => setIsVideoModalOpen(false)}
             className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
-            aria-label="Cerrar reproductor de video"
+            aria-label={t("modal.close")}
           >
             <X className="w-6 h-6" />
           </button>
@@ -231,7 +233,7 @@ export const HeroSection: React.FC = () => {
                 poster="/images/hero/food-lab-scientist.jpg"
               >
                 <source src={activeVideoSrc} type="video/mp4" />
-                Tu navegador no soporta reproducción de video HTML5.
+                {t("modal.unsupported")}
               </video>
             </div>
 
@@ -239,10 +241,10 @@ export const HeroSection: React.FC = () => {
             <div className="p-4 sm:p-6 bg-[#162214] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-white/10">
               <div>
                 <span className="text-xs text-[#D9E8BE] font-bold uppercase tracking-wider block">
-                  Planta Piloto & Centro de Innovación
+                  {t("modal.eyebrow")}
                 </span>
                 <h4 className="text-lg font-bold text-white font-editorial">
-                  Wenda Ingredients: Ciencia, Proceso & Formulación Industrial
+                  {t("modal.title")}
                 </h4>
               </div>
 
@@ -256,7 +258,7 @@ export const HeroSection: React.FC = () => {
                       : "bg-white/10 text-white hover:bg-white/20"
                   }`}
                 >
-                  Laboratorio R&D
+                  {t("modal.clipLab")}
                 </button>
                 <button
                   onClick={() => setActiveVideoSrc("/videos/hero-culinary.mp4")}
@@ -266,7 +268,7 @@ export const HeroSection: React.FC = () => {
                       : "bg-white/10 text-white hover:bg-white/20"
                   }`}
                 >
-                  Formulación Culinaria
+                  {t("modal.clipCulinary")}
                 </button>
               </div>
             </div>

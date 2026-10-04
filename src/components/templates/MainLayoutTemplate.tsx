@@ -1,10 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { COUNTRIES, CountryMirror, BrandItem, IndentIndustry } from "@/data/siteContent";
+import { CountryMirror, BrandItem, IndentIndustry } from "@/data/siteContent";
+import { useSiteContent } from "@/i18n/useSiteContent";
 import { Navbar } from "../organisms/Navbar";
 import { HeroSection } from "../organisms/HeroSection";
-import { AboutUsSection } from "../organisms/AboutUsSection";
+import { AboutManifestoSection } from "../organisms/AboutManifestoSection";
+import { AboutInfrastructureSection } from "../organisms/AboutInfrastructureSection";
+import { AboutLeadershipSection } from "../organisms/AboutLeadershipSection";
+import { TimelineChronicle } from "../organisms/TimelineChronicle";
 import { StickyServicesSection } from "../organisms/StickyServicesSection";
 import { CategoryShowcase } from "../organisms/CategoryShowcase";
 import { VisualGallerySection } from "../organisms/VisualGallerySection";
@@ -16,22 +20,40 @@ import { ContactQuoteSection } from "../organisms/ContactQuoteSection";
 import { Footer } from "../organisms/Footer";
 import { TechnicalDetailModal } from "../organisms/TechnicalDetailModal";
 
+// Maps a category id to the language-neutral topic id used by the contact form
+const CATEGORY_TOPICS: Record<string, string> = {
+  "meat-poultry": "meat",
+  bakery: "bakery",
+  supplements: "science",
+  "from-nature": "nature",
+  tecnologia: "vicel"
+};
+
 export const MainLayoutTemplate: React.FC = () => {
-  const [currentCountry, setCurrentCountry] = useState<CountryMirror>(COUNTRIES[0]);
-  const [selectedBrand, setSelectedBrand] = useState<BrandItem | null>(null);
-  const [selectedIndustry, setSelectedIndustry] = useState<IndentIndustry | null>(null);
+  const { countries, brands, industries } = useSiteContent();
+
+  // Only stable identifiers live in state; localized objects are derived on every render
+  const [countryCode, setCountryCode] = useState<string>("MX");
+  const [selectedBrandName, setSelectedBrandName] = useState<string | null>(null);
+  const [selectedIndustryId, setSelectedIndustryId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [contactTopic, setContactTopic] = useState<string>("Meat & Poultry");
+  const [contactTopic, setContactTopic] = useState<string>("meat");
+
+  const currentCountry = countries.find((c) => c.code === countryCode) ?? countries[0];
+  const selectedBrand = brands.find((b) => b.name === selectedBrandName) ?? null;
+  const selectedIndustry = industries.find((i) => i.id === selectedIndustryId) ?? null;
+
+  const handleSelectCountry = (country: CountryMirror) => setCountryCode(country.code);
 
   const handleOpenBrandModal = (brand: BrandItem) => {
-    setSelectedBrand(brand);
-    setSelectedIndustry(null);
+    setSelectedBrandName(brand.name);
+    setSelectedIndustryId(null);
     setIsModalOpen(true);
   };
 
   const handleOpenIndustryModal = (industry: IndentIndustry) => {
-    setSelectedIndustry(industry);
-    setSelectedBrand(null);
+    setSelectedIndustryId(industry.id);
+    setSelectedBrandName(null);
     setIsModalOpen(true);
   };
 
@@ -48,36 +70,42 @@ export const MainLayoutTemplate: React.FC = () => {
       {/* Top Navigation */}
       <Navbar
         currentCountry={currentCountry}
-        onSelectCountry={setCurrentCountry}
+        onSelectCountry={handleSelectCountry}
       />
 
       {/* Main Content Sections */}
-      <main className="relative overflow-x-clip max-w-full">
+      <main className="relative max-w-full">
         <HeroSection />
 
-        <AboutUsSection />
+        <AboutManifestoSection />
+        <AboutInfrastructureSection />
+        <AboutLeadershipSection />
 
         <StickyServicesSection />
 
-        <CategoryShowcase
-          onConsultSolution={(cat) => handleRequestSample(cat)}
-        />
-
         <VisualGallerySection />
+
+        <CategoryShowcase
+          onConsultSolution={(categoryId) =>
+            handleRequestSample(CATEGORY_TOPICS[categoryId] ?? categoryId)
+          }
+        />
 
         <BrandsSection
           onOpenBrandDetails={handleOpenBrandModal}
         />
 
+        <WndaScienceSection
+          onConsultScience={() => handleRequestSample("science")}
+        />
+
         <QualityCertifications />
 
-        <WndaScienceSection
-          onConsultScience={() => handleRequestSample("WNDA Science")}
-        />
+        <TimelineChronicle />
 
         <WendaIndentSection
           onSelectIndustry={handleOpenIndustryModal}
-          onRequestQuote={(ind) => handleRequestSample(ind || "Wenda Indent")}
+          onRequestQuote={() => handleRequestSample("indent")}
         />
 
         <ContactQuoteSection
@@ -89,7 +117,7 @@ export const MainLayoutTemplate: React.FC = () => {
       {/* Global Footer */}
       <Footer
         currentCountry={currentCountry}
-        onSelectCountry={setCurrentCountry}
+        onSelectCountry={handleSelectCountry}
       />
 
       {/* Technical Detail Sheet Modal */}
@@ -98,7 +126,9 @@ export const MainLayoutTemplate: React.FC = () => {
         onClose={() => setIsModalOpen(false)}
         brand={selectedBrand}
         industry={selectedIndustry}
-        onRequestSample={handleRequestSample}
+        onRequestSample={(title) =>
+          handleRequestSample(selectedIndustry ? "indent" : selectedBrand?.name ?? title)
+        }
       />
     </div>
   );

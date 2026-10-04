@@ -1,21 +1,30 @@
+"use client";
+
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { useSiteContent } from "@/i18n/useSiteContent";
 import { Logo } from "../atoms/Logo";
 import { CountryFlag } from "../atoms/CountryFlag";
-import { COUNTRIES, CountryMirror } from "@/data/siteContent";
-import { ShieldCheck, Mail, Phone, MapPin, Globe, Award, CheckCircle2 } from "lucide-react";
+import { CountryMirror } from "@/data/siteContent";
+import { Award } from "lucide-react";
 
 export const Footer: React.FC<{
   currentCountry: CountryMirror;
   onSelectCountry: (c: CountryMirror) => void;
 }> = ({ currentCountry, onSelectCountry }) => {
+  const { t } = useTranslation("footer");
+  const { countries } = useSiteContent();
+
+  const activeCountry = countries.find((c) => c.code === currentCountry.code) || currentCountry;
+
   return (
     <footer className="bg-[#0B140B] text-gray-300 pt-16 pb-12 text-xs sm:text-sm border-t border-[#1C2E1A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
-        {/* Top Accreditation & Certifications Banner (Clarity footer_4_tech-wrap) */}
+        {/* Top Accreditation & Certifications Banner */}
         <div className="pb-8 border-b border-white/10 flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <span className="text-xs font-bold uppercase tracking-wider text-white">
-              Acreditaciones Globales de Inocuidad & Calidad
+              {t("accreditations")}
             </span>
           </div>
 
@@ -41,21 +50,23 @@ export const Footer: React.FC<{
           <div className="lg:col-span-2 space-y-5">
             <Logo variant="symbol" theme="dark" size="lg" />
             <p className="text-xs text-gray-400 leading-relaxed max-w-sm font-normal">
-              Desde 1995, creamos ingredientes funcionales especializados que mejoran el desempeño, la calidad y el valor de cada aplicación en la industria alimentaria mundial.
+              {t("about")}
             </p>
             <div className="pl-3.5 border-l-2 border-[#D9E8BE] text-xs max-w-sm space-y-1">
               <span className="font-bold text-[#D9E8BE] block uppercase tracking-wider text-[11px]">
-                Sede Activa: {currentCountry.name}
+                {t("activeHub", { name: activeCountry.name })}
               </span>
-              <p className="text-gray-300 font-normal">{currentCountry.contactOffice.address}</p>
-              <p className="text-gray-400 font-medium">Línea directa: {currentCountry.contactOffice.phone}</p>
+              <p className="text-gray-300 font-normal">{activeCountry.contactOffice.address}</p>
+              <p className="text-gray-400 font-medium">
+                {t("directLine", { phone: activeCountry.contactOffice.phone })}
+              </p>
             </div>
           </div>
 
           {/* Links: Categorías */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Categorías
+              {t("cols.categories")}
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
               <li>
@@ -89,7 +100,7 @@ export const Footer: React.FC<{
           {/* Links: Marcas Propias */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Marcas Registradas
+              {t("cols.brands")}
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
               <li>
@@ -123,10 +134,10 @@ export const Footer: React.FC<{
           {/* Red Internacional */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Red Internacional
+              {t("cols.network")}
             </h4>
             <div className="space-y-1 text-xs max-h-48 overflow-y-auto scrollbar-none pr-2">
-              {COUNTRIES.map((c) => (
+              {countries.map((c) => (
                 <button
                   key={c.code}
                   onClick={() => onSelectCountry(c)}
@@ -147,14 +158,14 @@ export const Footer: React.FC<{
         {/* Certifications and copyright */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-[#D9E8BE] font-bold">Trust in Food®</span>
+            <span className="text-[#D9E8BE] font-bold">{t("tagline")}</span>
             <span className="w-1 h-1 rounded-full bg-gray-600" />
-            <span>Wenda Ingredients Global Network</span>
+            <span>{t("networkText")}</span>
             <span className="w-1 h-1 rounded-full bg-gray-600" />
-            <span>Confidencialidad Garantizada (NDA)</span>
+            <span>{t("ndaText")}</span>
           </div>
 
-          <p>© 1995-2026 Wenda Ingredients. Todos los derechos reservados.</p>
+          <p>{t("copyright")}</p>
         </div>
       </div>
     </footer>

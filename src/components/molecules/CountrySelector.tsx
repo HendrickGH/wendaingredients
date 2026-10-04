@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { COUNTRIES, CountryMirror } from "@/data/siteContent";
+import { CountryMirror } from "@/data/siteContent";
+import { useSiteContent } from "@/i18n/useSiteContent";
 import { CountryFlag } from "../atoms/CountryFlag";
+import { useTranslation } from "react-i18next";
 import { Globe, MapPin, Phone, Mail, CheckCircle2, ChevronDown } from "lucide-react";
 
 interface CountrySelectorProps {
@@ -16,6 +18,8 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
   onSelectCountry,
   theme = "light"
 }) => {
+  const { t } = useTranslation("countrySelector");
+  const { countries } = useSiteContent();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -27,11 +31,11 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
             ? "bg-white/10 hover:bg-white/20 border-white/25 text-white hover:border-white/50 backdrop-blur-sm"
             : "bg-white hover:bg-slate-50 border-slate-200 text-slate-800 hover:border-[#447D29]"
         }`}
-        aria-label="Seleccionar país o región"
+        aria-label={t("ariaLabel")}
       >
         <CountryFlag code={currentCountry.code} size="sm" />
         <span className={`font-semibold ${theme === "transparent" ? "text-white" : "text-slate-900"}`}>
-          {currentCountry.name.split(" ")[0]}
+          {currentCountry.name.split(" & ")[0]}
         </span>
         <span
           className={`text-[10px] uppercase font-bold px-1.5 py-0.5 rounded ${
@@ -59,15 +63,15 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
             <div className="px-3 py-2 border-b border-slate-100 mb-2">
               <div className="flex items-center gap-2 text-xs font-bold text-[#2F591B] uppercase tracking-wider">
                 <Globe className="w-3.5 h-3.5 text-[#447D29]" />
-                Páginas Espejo & Red Internacional
+                {t("title")}
               </div>
               <p className="text-[11px] text-slate-500 mt-0.5">
-                Selecciona tu región para ver formulaciones, inventario y soporte técnico local.
+                {t("subtitle")}
               </p>
             </div>
 
             <div className="space-y-1">
-              {COUNTRIES.map((country) => {
+              {countries.map((country) => {
                 const isSelected = country.code === currentCountry.code;
                 return (
                   <button
@@ -105,7 +109,7 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
             <div className="mt-3 p-3 rounded-xl bg-[#F8FAF6] border border-slate-200 text-[11px] text-slate-700">
               <div className="flex items-center gap-1.5 text-[#2F591B] font-bold mb-1">
                 <MapPin className="w-3.5 h-3.5 shrink-0 text-[#447D29]" />
-                <span>Sede activa: {currentCountry.name}</span>
+                <span>{t("activeHub", { name: currentCountry.name })}</span>
               </div>
               <div className="space-y-0.5 text-slate-600 pl-5">
                 <p className="truncate font-medium">{currentCountry.contactOffice.address}</p>

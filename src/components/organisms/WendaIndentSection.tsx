@@ -1,22 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import { useSiteContent } from "@/i18n/useSiteContent";
 import { Badge } from "../atoms/Badge";
-import { IndustryCard } from "../molecules/IndustryCard";
-import {
-  INDENT_INDUSTRIES,
-  INDENT_PROCESS_STEPS,
-  IndentIndustry
-} from "@/data/siteContent";
+import { IndentIndustry } from "@/data/siteContent";
 import {
   Globe,
   Ship,
-  CheckCircle2,
-  FileCheck,
   Search,
+  ShieldCheck,
+  TrendingUp,
   ArrowRight,
   ChevronRight,
-  Filter
+  Check,
+  ArrowUpRight,
+  Layers
 } from "lucide-react";
 
 interface WendaIndentSectionProps {
@@ -24,47 +24,36 @@ interface WendaIndentSectionProps {
   onRequestQuote: (industryName?: string) => void;
 }
 
+const STEP_ICONS = [Search, Globe, ShieldCheck, Ship, TrendingUp];
+const STEP_HEIGHTS = ["lg:h-10", "lg:h-20", "lg:h-30", "lg:h-40", "lg:h-52"];
+
 export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
   onSelectIndustry,
   onRequestQuote
 }) => {
-  const [filterQuery, setFilterQuery] = useState("");
-  const [activeTab, setActiveTab] = useState<string>("all");
-
-  const filteredIndustries = INDENT_INDUSTRIES.filter((ind) => {
-    const matchesSearch =
-      ind.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
-      ind.items.some((i) => i.toLowerCase().includes(filterQuery.toLowerCase()));
-
-    if (activeTab === "food") {
-      return matchesSearch && ind.id !== "soluciones-industriales";
-    }
-    if (activeTab === "industrial") {
-      return matchesSearch && ind.id === "soluciones-industriales";
-    }
-    return matchesSearch;
-  });
+  const { t } = useTranslation("wendaIndent");
+  const { industries, indentSteps } = useSiteContent();
 
   return (
     <section id="indent" className="py-24 lg:py-32 bg-[#FFFFFF] relative border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-24">
         {/* Header - Editorial Style */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-slate-200 pb-8">
           <div className="space-y-4 max-w-3xl">
             <div className="flex items-center gap-2">
               <Badge variant="wenda" size="md">
-                Abastecimiento Wenda Indent
+                {t("badge")}
               </Badge>
               <span className="text-slate-300">·</span>
               <span className="text-xs font-bold text-[#2F591B] uppercase tracking-wider">
-                Suministro Global & Importación Segura
+                {t("subBadge")}
               </span>
             </div>
             <h2 className="heading-editorial-lg font-editorial text-slate-900">
-              Conectamos las necesidades de cada industria con fabricantes internacionales certificados
+              {t("title")}
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              En alianza con fabricantes mundiales que cumplen los más altos estándares de calidad y certificación internacional, ponemos a tu alcance materias primas, ingredientes y soluciones técnicas con suministro confiable y disponibilidad local.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -73,105 +62,288 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
               onClick={() => onRequestQuote("Wenda Indent General")}
               className="btn-pill-primary text-xs !py-3.5 !px-6 group cursor-pointer"
             >
-              <span>Solicitar Cotización de Importación</span>
+              <span>{t("ctaQuote")}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
             </button>
           </div>
         </div>
 
-        {/* 5-Step Indent Methodology - Open Step Track */}
-        <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-            <h3 className="text-xl font-bold text-slate-900 font-editorial flex items-center gap-2">
-              <Ship className="w-5 h-5 text-[#447D29]" />
-              El Modelo de Abastecimiento Wenda Indent
-            </h3>
-            <span className="text-xs text-slate-500 font-medium">
-              Desde 1995 en EE. UU., Latam, Turquía y Asia-Pacífico
-            </span>
+        {/* 5-Step Indent Methodology - Stepped Staircase Diagram */}
+        <div className="space-y-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#447D29]">
+                <Layers className="w-4 h-4" />
+                <span>{t("diagramBadge")}</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-editorial mt-1 flex items-center gap-2">
+                <Ship className="w-5 h-5 text-[#447D29]" />
+                {t("diagramTitle")}
+              </h3>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-            {INDENT_PROCESS_STEPS.map((step) => (
-              <div
-                key={step.step}
-                className="py-4 border-t border-slate-200 space-y-2 group hover:border-[#447D29] transition-all duration-300"
-              >
-                <div className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
-                  Paso {step.step}
+          {/* Desktop Staircase Layout (lg and above) */}
+          <div className="hidden lg:grid lg:grid-cols-5 gap-4 xl:gap-5 items-end pt-4">
+            {indentSteps.map((stepItem, idx) => {
+              const StepIcon = STEP_ICONS[idx % STEP_ICONS.length];
+              const pedestalHeight = STEP_HEIGHTS[idx % STEP_HEIGHTS.length];
+              const stepNum = String(idx + 1).padStart(2, "0");
+
+              return (
+                <div key={stepNum} className="group relative flex flex-col justify-end">
+                  {/* Step Card */}
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#447D29]/60 transition-all duration-300 flex flex-col justify-between h-[360px] relative z-10">
+                    <div className="space-y-3">
+                      {/* Top Header of Card */}
+                      <div className="flex items-center justify-between">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EBF4E5] text-[#447D29] font-bold text-xs">
+                          {stepNum}
+                        </span>
+                        <div className="p-2 rounded-xl bg-slate-50 text-[#447D29] group-hover:bg-[#447D29] group-hover:text-white transition-colors">
+                          <StepIcon className="w-4 h-4" />
+                        </div>
+                      </div>
+
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#447D29]">
+                          {stepItem.step}
+                        </span>
+                        <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#447D29] transition-colors leading-snug">
+                          {stepItem.title}
+                        </h4>
+                      </div>
+
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                        {stepItem.description}
+                      </p>
+                    </div>
+
+                    {/* Deliverable Resource & Meter */}
+                    <div className="space-y-3 pt-3 border-t border-slate-100">
+                      <div className="bg-slate-50 group-hover:bg-[#F0F7ED] border border-slate-200/60 group-hover:border-[#447D29]/30 rounded-xl p-2.5 transition-colors">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                          {t("deliverableLabel")}
+                        </span>
+                        <p className="text-[11px] font-medium text-slate-700 leading-tight">
+                          {stepItem.description}
+                        </p>
+                      </div>
+
+                      {/* 5-bar step gauge */}
+                      <div className="space-y-1">
+                        <div className="flex items-center justify-between text-[10px] font-bold text-slate-400">
+                          <span>{stepItem.step}</span>
+                          <span>{idx + 1}/5</span>
+                        </div>
+                        <div className="grid grid-cols-5 gap-1">
+                          {[0, 1, 2, 3, 4].map((barIdx) => (
+                            <div
+                              key={barIdx}
+                              className={`h-1.5 rounded-full transition-colors ${
+                                barIdx <= idx
+                                  ? "bg-[#447D29]"
+                                  : "bg-slate-100"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Stepped Pedestal Block underneath */}
+                  <div
+                    className={`w-full ${pedestalHeight} rounded-b-2xl border-x border-b border-slate-200/80 bg-gradient-to-b from-slate-100 via-slate-100/80 to-slate-200/50 flex flex-col items-center justify-center p-2 text-center transition-all duration-300 group-hover:from-[#EBF4E5] group-hover:to-[#D9E8BE]/70 group-hover:border-[#447D29]/40 shadow-2xs`}
+                  >
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-[#2F591B] transition-colors">
+                      <span>Nivel {idx + 1}</span>
+                      <ArrowUpRight className="w-3 h-3 text-slate-400 group-hover:text-[#447D29] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+                  </div>
                 </div>
-                <h4 className="text-base font-bold text-slate-900 group-hover:text-[#447D29] transition-colors">{step.title}</h4>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  {step.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          {/* Mobile Staircase Layout (< lg) */}
+          <div className="lg:hidden relative pl-6 space-y-6 before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-[#447D29] before:via-slate-300 before:to-[#447D29]">
+            {indentSteps.map((stepItem, idx) => {
+              const StepIcon = STEP_ICONS[idx % STEP_ICONS.length];
+              const stepNum = String(idx + 1).padStart(2, "0");
+
+              return (
+                <div key={stepNum} className="relative group">
+                  {/* Step Node Marker */}
+                  <div className="absolute -left-6 top-5 -translate-x-1/2 w-7 h-7 rounded-full bg-white border-2 border-[#447D29] flex items-center justify-center text-[10px] font-bold text-[#447D29] shadow-xs">
+                    {stepNum}
+                  </div>
+
+                  {/* Mobile Card */}
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs space-y-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <div className="p-1.5 rounded-lg bg-[#EBF4E5] text-[#447D29]">
+                          <StepIcon className="w-4 h-4" />
+                        </div>
+                        <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
+                          {stepItem.step}
+                        </span>
+                      </div>
+                      <span className="text-[10px] font-bold px-2 py-0.5 bg-slate-100 rounded-md text-slate-500">
+                        Nivel {idx + 1}
+                      </span>
+                    </div>
+
+                    <h4 className="text-base font-bold text-slate-900 leading-snug">
+                      {stepItem.title}
+                    </h4>
+
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {stepItem.description}
+                    </p>
+
+                    <div className="bg-slate-50 border border-slate-200/60 rounded-xl p-2.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                        {t("deliverableLabel")}
+                      </span>
+                      <p className="text-xs font-medium text-slate-700">
+                        {stepItem.description}
+                      </p>
+                    </div>
+
+                    {/* Progress bars */}
+                    <div className="grid grid-cols-5 gap-1 pt-1">
+                      {[0, 1, 2, 3, 4].map((barIdx) => (
+                        <div
+                          key={barIdx}
+                          className={`h-1.5 rounded-full ${
+                            barIdx <= idx ? "bg-[#447D29]" : "bg-slate-100"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Soluciones por Industria */}
-        <div className="space-y-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+        {/* Catálogo Multidisciplinario / Soluciones por Industria */}
+        <div className="space-y-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6">
             <div>
               <span className="text-xs uppercase text-[#447D29] tracking-wider font-bold">
-                Catálogo Multidisciplinario
+                {t("catalogEyebrow")}
               </span>
               <h3 className="heading-editorial-md font-editorial text-slate-900 mt-0.5">
-                Soluciones por Industria
+                {t("catalogTitle")}
               </h3>
             </div>
-
-            {/* Filter buttons & search bar (Pill Styling) */}
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="flex bg-[#F1F5F9] p-1 border border-slate-200 rounded-full">
-                <button
-                  onClick={() => setActiveTab("all")}
-                  className={`px-4 py-1.5 text-xs font-bold rounded-full cursor-pointer transition-all ${
-                    activeTab === "all" ? "bg-[#447D29] text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  Todas ({INDENT_INDUSTRIES.length})
-                </button>
-                <button
-                  onClick={() => setActiveTab("food")}
-                  className={`px-4 py-1.5 text-xs font-bold rounded-full cursor-pointer transition-all ${
-                    activeTab === "food" ? "bg-[#447D29] text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  Alimentarias
-                </button>
-                <button
-                  onClick={() => setActiveTab("industrial")}
-                  className={`px-4 py-1.5 text-xs font-bold rounded-full cursor-pointer transition-all ${
-                    activeTab === "industrial" ? "bg-[#447D29] text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  Industriales
-                </button>
-              </div>
-
-              <div className="relative">
-                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Buscar reactivo o ingrediente..."
-                  value={filterQuery}
-                  onChange={(e) => setFilterQuery(e.target.value)}
-                  className="pl-9 pr-4 py-1.5 bg-white border border-slate-300 rounded-full text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#447D29] w-48 sm:w-64 shadow-2xs transition-all"
-                />
-              </div>
-            </div>
+            <p className="text-xs text-slate-500 font-medium max-w-md sm:text-right">
+              {t("catalogSubtitle")}
+            </p>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredIndustries.map((ind) => (
-              <IndustryCard
-                key={ind.id}
-                industry={ind}
-                onSelect={onSelectIndustry}
-              />
-            ))}
+          <div className="space-y-20 lg:space-y-28">
+            {industries.map((ind, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <div
+                  key={ind.id}
+                  className={`group flex flex-col ${
+                    isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                  } items-stretch gap-8 lg:gap-12 xl:gap-16`}
+                >
+                  <div className="w-full lg:w-[68%] xl:w-[70%] shrink-0">
+                    <div
+                      onClick={() => onSelectIndustry(ind)}
+                      className="relative h-[320px] sm:h-[400px] lg:h-[460px] xl:h-[500px] w-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 bg-slate-900 cursor-pointer"
+                    >
+                      <Image
+                        src={ind.image}
+                        alt={ind.name}
+                        fill
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+
+                      <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                        <div>
+                          <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-300">
+                            {t("sectorLabel")}
+                          </span>
+                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white font-editorial">
+                            {ind.name}
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-full lg:w-[32%] xl:w-[30%] flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
+                          Catálogo Técnico 0{index + 1}
+                        </span>
+                        <span className="text-slate-300">·</span>
+                        <span className="text-xs text-slate-500 font-medium">
+                          {t("rawMaterialsCount", { count: ind.items.length })}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 font-editorial tracking-tight">
+                        {ind.name}
+                      </h3>
+
+                      <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                        {ind.description}
+                      </p>
+
+                      <div className="pt-2 space-y-2.5">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                          {t("keySolutionsLabel")}
+                        </span>
+                        <div className="space-y-2">
+                          {ind.items.slice(0, 4).map((item, itemIdx) => (
+                            <div key={itemIdx} className="flex items-start gap-2.5 text-xs text-slate-700">
+                              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#EBF4E5] text-[#447D29]">
+                                <Check className="h-2.5 w-2.5 stroke-[3]" />
+                              </span>
+                              <span className="font-medium text-slate-700 leading-snug">{item}</span>
+                            </div>
+                          ))}
+                          {ind.items.length > 4 && (
+                            <p className="text-[11px] text-[#447D29] font-bold pl-6 pt-0.5">
+                              {t("moreItems", { count: ind.items.length - 4 })}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 flex flex-col sm:flex-row lg:flex-col gap-2.5">
+                      <button
+                        onClick={() => onSelectIndustry(ind)}
+                        className="btn-pill-primary text-xs !py-3 !px-5 flex items-center justify-center gap-2 group/btn cursor-pointer w-full"
+                      >
+                        <span>{t("viewFullCatalog")}</span>
+                        <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
+                      <button
+                        onClick={() => onRequestQuote(ind.name)}
+                        className="px-4 py-2.5 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors cursor-pointer text-center w-full"
+                      >
+                        {t("ctaQuote")}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

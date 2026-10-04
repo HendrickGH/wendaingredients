@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Logo } from "../atoms/Logo";
 import { Button } from "../atoms/Button";
 import { CountrySelector } from "../molecules/CountrySelector";
+import { LanguageSwitcher } from "../molecules/LanguageSwitcher";
 import { CountryFlag } from "../atoms/CountryFlag";
 import { CountryMirror } from "@/data/siteContent";
 import {
@@ -25,6 +27,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry }) => {
+  const { t } = useTranslation("navbar");
   const [isTransparent, setIsTransparent] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -45,7 +48,29 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
         // Headroom logic: hide when scrolling down, show when scrolling up
         const scrollDelta = currentScrollY - lastScrollY.current;
 
-        if (scrollDelta > 8 && currentScrollY > 120) {
+        // Check if inside full-viewport timeline module (#trayectoria)
+        const timelineEl = document.getElementById("trayectoria");
+        let isTimelineActive = false;
+        if (timelineEl) {
+          const rect = timelineEl.getBoundingClientRect();
+          // Active while timeline stage is pinned or covering the viewport
+          isTimelineActive = rect.top <= 80 && rect.bottom >= window.innerHeight - 80;
+        }
+
+        // Check if inside specialized solutions module (#soluciones-especializadas)
+        const solucionesEl = document.getElementById("soluciones-especializadas");
+        let isSolucionesActive = false;
+        if (solucionesEl) {
+          const rect = solucionesEl.getBoundingClientRect();
+          // Active while specialized solutions section is visible in the viewport
+          isSolucionesActive = rect.top < window.innerHeight && rect.bottom > 80;
+        }
+
+        if (isTimelineActive || isSolucionesActive) {
+          // Block navbar from reappearing while interactive or sticky modules are active, even on scroll-up
+          setIsVisible(false);
+          setCategoriesDropdownOpen(false);
+        } else if (scrollDelta > 8 && currentScrollY > 120) {
           // Scrolling down
           setIsVisible(false);
           setCategoriesDropdownOpen(false);
@@ -62,13 +87,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navCategories = [
-    { name: "Meat & Poultry", href: "#categorias", desc: "Textura, rendimiento y retención de jugos" },
-    { name: "Bakery & Panificación", href: "#categorias", desc: "Volumen, suavidad y tolerancia de masa" },
-    { name: "Suplementos & Bienestar", href: "#categorias", desc: "Aminoácidos instantizados y nutrición funcional" },
-    { name: "From Nature (Colores)", href: "#categorias", desc: "Pigmentos botánicos puros termoestables" },
-    { name: "Tripas VICEL & Maquinaria", href: "#categorias", desc: "Casings de celulosa y líneas continuas" }
-  ];
+  const navCategories = (
+    t("portfolio.items", { returnObjects: true }) as { name: string; desc: string }[]
+  ).map((cat) => ({ ...cat, href: "#categorias" }));
 
   const showHeader = isVisible || mobileMenuOpen;
 
@@ -98,7 +119,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                   isTransparent ? "bg-[#D9E8BE]" : "bg-[#447D29]"
                 }`}
               />
-              Red Global Wenda
+              {t("network")}
             </span>
             <span
               className={`hidden lg:inline w-px h-3 shrink-0 ${
@@ -137,6 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                 isTransparent ? "bg-white/20" : "bg-slate-200"
               }`}
             />
+            <LanguageSwitcher theme={isTransparent ? "transparent" : "light"} />
             <CountrySelector
               currentCountry={currentCountry}
               onSelectCountry={onSelectCountry}
@@ -170,7 +192,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                   : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
               }`}
             >
-              Acerca de
+              {t("links.about")}
             </a>
 
             {/* Interactive Dropdown for Categories */}
@@ -187,7 +209,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                     : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
                 }`}
               >
-                <span>Categorías</span>
+                <span>{t("links.categories")}</span>
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
                     categoriesDropdownOpen
@@ -202,7 +224,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               {categoriesDropdownOpen && (
                 <div className="absolute top-full left-0 mt-1 w-80 rounded-2xl bg-white p-3 shadow-xl border border-slate-200 animate-in fade-in duration-150 z-50">
                   <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1 mb-1">
-                    Portafolio de Soluciones
+                    {t("portfolio.title")}
                   </div>
                   <div className="space-y-1">
                     {navCategories.map((cat, idx) => (
@@ -233,7 +255,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                   : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
               }`}
             >
-              Marcas
+              {t("links.brands")}
             </a>
 
             <a
@@ -244,7 +266,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                   : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
               }`}
             >
-              WNDA Science
+              {t("links.science")}
             </a>
 
             <a
@@ -255,7 +277,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                   : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
               }`}
             >
-              Wenda Indent
+              {t("links.indent")}
             </a>
 
             <a
@@ -266,7 +288,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                   : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
               }`}
             >
-              Contacto
+              {t("links.contact")}
             </a>
           </nav>
 
@@ -275,7 +297,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             <a href="#contact">
               {isTransparent ? (
                 <span className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold bg-[#D9E8BE] text-[#0F172A] hover:bg-white transition-all shadow-sm cursor-pointer active:scale-95">
-                  <span>Conecta con Soporte</span>
+                  <span>{t("cta.short")}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>
               ) : (
@@ -284,7 +306,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                   size="sm"
                   icon={<ArrowUpRight className="w-4 h-4" />}
                 >
-                  Conecta con Soporte Técnico
+                  {t("cta.full")}
                 </Button>
               )}
             </a>
@@ -298,7 +320,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                 ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
                 : "bg-slate-100 border-slate-200 text-slate-800"
             }`}
-            aria-label="Abrir menú"
+            aria-label={t("openMenu")}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -314,48 +336,48 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               onClick={() => setMobileMenuOpen(false)}
               className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
             >
-              Acerca de
+              {t("links.about")}
             </a>
             <a
               href="#categorias"
               onClick={() => setMobileMenuOpen(false)}
               className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
             >
-              Categorías
+              {t("links.categories")}
             </a>
             <a
               href="#marcas"
               onClick={() => setMobileMenuOpen(false)}
               className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
             >
-              Marcas
+              {t("links.brands")}
             </a>
             <a
               href="#science"
               onClick={() => setMobileMenuOpen(false)}
               className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
             >
-              WNDA Science
+              {t("links.science")}
             </a>
             <a
               href="#indent"
               onClick={() => setMobileMenuOpen(false)}
               className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
             >
-              Wenda Indent
+              {t("links.indent")}
             </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
               className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
             >
-              Contacto
+              {t("links.contact")}
             </a>
           </div>
 
           <div className="space-y-4 pt-6 border-t border-slate-200">
             <div className="p-3.5 rounded-xl bg-[#F8FAF6] border border-slate-200">
-              <p className="text-xs text-slate-500 mb-1">Región Seleccionada:</p>
+              <p className="text-xs text-slate-500 mb-1">{t("selectedRegion")}</p>
               <p className="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <CountryFlag code={currentCountry.code} size="md" />
                 <span>{currentCountry.name}</span>
@@ -368,7 +390,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               className="block w-full"
             >
               <Button variant="primary" fullWidth size="lg">
-                Conectar con Equipo Técnico
+                {t("cta.mobile")}
               </Button>
             </a>
           </div>

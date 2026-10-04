@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import { Button } from "../atoms/Button";
 import { BrandItem, IndentIndustry } from "@/data/siteContent";
@@ -22,6 +23,8 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
   industry,
   onRequestSample
 }) => {
+  const { t } = useTranslation("technicalModal");
+
   if (!isOpen || (!brand && !industry)) return null;
 
   const title = brand ? brand.name : industry?.name || "";
@@ -37,7 +40,7 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
           <div>
             <div className="flex items-center gap-2 mb-1.5">
               <Badge variant="wenda" size="sm">
-                {brand ? "Ficha Técnica de Marca" : "Catálogo de Industria"}
+                {brand ? t("brandBadge") : t("industryBadge")}
               </Badge>
               {brand && (
                 <>
@@ -82,7 +85,7 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
             )}
             <div className="space-y-1">
               <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
-                Descripción Funcional & Origen:
+                {t("descTitle")}
               </span>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                 {brand.description}
@@ -91,7 +94,7 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
 
             <div className="space-y-2 pt-2 border-t border-slate-100">
               <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">
-                Claims & Propiedades Técnicas Validadas:
+                {t("claimsTitle")}
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {brand.features.map((feat, idx) => (
@@ -108,10 +111,10 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
 
             <div className="pl-4 border-l-2 border-[#447D29] text-xs text-slate-700 py-1">
               <span className="font-bold text-[#1B3810] block mb-1">
-                Nota de Formulación Confidencial:
+                {t("ndaTitle")}
               </span>
               <p className="font-normal leading-relaxed">
-                Los parámetros exactos de adición (% de dosificación, curvas de temperatura y sinergias con matrices cárnicas o vegetales) se proporcionan mediante asesoría técnica directa bajo acuerdo confidencial con nuestro laboratorio.
+                {t("ndaBody")}
               </p>
             </div>
           </div>
@@ -129,14 +132,14 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
               />
               <div className="absolute bottom-0 inset-x-0 bg-white/95 p-3 border-t border-slate-100">
                 <span className="text-xs text-[#2F591B] font-bold">
-                  Soluciones Validadas en Planta:
+                  {t("validatedTitle")}
                 </span>
               </div>
             </div>
 
             <div className="space-y-2">
               <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
-                Ingredientes & Químicos Disponibles para Suministro:
+                {t("availableTitle")}
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {industry.items.map((item, idx) => (
@@ -156,7 +159,7 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
         {/* Modal actions */}
         <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
           <Button variant="ghost" size="sm" onClick={onClose}>
-            Cerrar
+            {t("close")}
           </Button>
           <Button
             variant="primary"
@@ -167,7 +170,7 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
               onRequestSample(title);
             }}
           >
-            Solicitar Muestra o Cotización para {title}
+            {t("request", { title })}
           </Button>
         </div>
       </div>

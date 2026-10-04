@@ -1,10 +1,10 @@
-"use client";
-
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import { Heading } from "../atoms/Heading";
 import { BrandCard } from "../molecules/BrandCard";
-import { BRANDS, BrandItem } from "@/data/siteContent";
+import { BrandItem } from "@/data/siteContent";
+import { useSiteContent } from "@/i18n/useSiteContent";
 import { Lock, ArrowRight, ArrowLeft } from "lucide-react";
 import { useEditorialCarousel } from "@/hooks/useEditorialCarousel";
 
@@ -13,6 +13,8 @@ interface BrandsSectionProps {
 }
 
 export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails }) => {
+  const { t } = useTranslation("brandsSection");
+  const { brands: BRANDS } = useSiteContent();
   const {
     scrollRef,
     scrollProgress,
@@ -36,23 +38,23 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
           <div className="space-y-3 max-w-2xl">
             <Badge variant="wenda" size="md">
-              Marcas y sistemas patentados
+              {t("badge")}
             </Badge>
             <Heading level={2} color="slate">
-              Sistemas e Ingredientes con Claims Técnicos Validados
+              {t("title")}
             </Heading>
             <p className="text-sm sm:text-base text-slate-600 font-normal">
-              Marcas registradas desarrolladas para resolver desafíos críticos de textura, retención de agua, vida de anaquel y optimización de costos.
+              {t("subtitle")}
             </p>
           </div>
 
           <div className="max-w-sm pl-4 border-l-2 border-[#447D29] py-1 shrink-0">
             <div className="flex items-center gap-2 text-xs font-bold text-[#2F591B] mb-1">
               <Lock className="w-3.5 h-3.5 text-[#447D29]" />
-              Portafolio Técnico Reservado
+              {t("reservedTitle")}
             </div>
             <p className="text-[11px] text-slate-600 leading-snug">
-              Mostramos los claims principales y origen de ingredientes. Las especificaciones y formulaciones detalladas se suministran bajo consulta directa con nuestro laboratorio.
+              {t("reservedBody")}
             </p>
           </div>
         </div>
@@ -61,7 +63,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
         <div
           ref={scrollRef}
           tabIndex={0}
-          aria-label="Carrusel de marcas y sistemas patentados"
+          aria-label={t("carouselAria")}
           className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pt-2 pb-4 focus:outline-hidden"
         >
           {BRANDS.map((brand) => (
@@ -83,7 +85,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
           <div
             onClick={handleTrackClick}
             className="relative flex-1 h-[3px] bg-slate-300/80 rounded-full cursor-pointer overflow-hidden py-1 -my-1 group"
-            title="Progreso de marcas registradas"
+            title={t("trackTitle")}
           >
             <div className="absolute inset-0 bg-slate-300/80 rounded-full" />
             <div
@@ -98,7 +100,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
               type="button"
               onClick={scrollPrev}
               disabled={!canScrollLeft}
-              aria-label="Marca anterior"
+              aria-label={t("prevAria")}
               className={`p-2 text-slate-800 transition-all duration-200 cursor-pointer ${
                 canScrollLeft
                   ? "hover:text-[#447D29] hover:-translate-x-1 active:scale-95"
@@ -112,7 +114,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
               type="button"
               onClick={scrollNext}
               disabled={!canScrollRight}
-              aria-label="Siguiente marca"
+              aria-label={t("nextAria")}
               className={`p-2 text-slate-800 transition-all duration-200 cursor-pointer ${
                 canScrollRight
                   ? "hover:text-[#447D29] hover:translate-x-1 active:scale-95"
@@ -132,13 +134,13 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
           >
             <div className="space-y-1">
               <span className="text-xs font-semibold text-emerald-800 tracking-wide">
-                Nueva división especializada
+                {t("scienceTag")}
               </span>
               <h4 className="text-xl font-bold text-slate-900 group-hover:text-[#447D29] transition-colors">
-                WNDA Science
+                {t("scienceTitle")}
               </h4>
               <p className="text-xs text-slate-600">
-                Biotecnología y nutrición funcional de alto desempeño para suplementos.
+                {t("scienceDesc")}
               </p>
             </div>
             <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-[#447D29] transition-transform group-hover:translate-x-2" />
@@ -150,13 +152,13 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
           >
             <div className="space-y-1">
               <span className="text-xs font-semibold text-[#2F591B] tracking-wide">
-                Abastecimiento internacional
+                {t("indentTag")}
               </span>
               <h4 className="text-xl font-bold text-slate-900 group-hover:text-[#447D29] transition-colors">
-                Wenda Indent
+                {t("indentTitle")}
               </h4>
               <p className="text-xs text-slate-600">
-                Conectamos industrias con fabricantes certificados e importación segura.
+                {t("indentDesc")}
               </p>
             </div>
             <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-[#447D29] transition-transform group-hover:translate-x-2" />
