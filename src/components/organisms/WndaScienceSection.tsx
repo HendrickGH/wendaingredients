@@ -14,7 +14,11 @@ import {
 } from "framer-motion";
 import {
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Droplets,
+  Layers,
+  Microscope,
+  Leaf
 } from "lucide-react";
 
 interface Capability {
@@ -77,6 +81,13 @@ const DEFAULT_CAPABILITY_DETAILS: CapabilityDetail[] = [
     metricLabel: "Estandarización de Activos",
     shortLabel: "Extractos"
   }
+];
+
+const CAPABILITY_ICONS = [
+  <Droplets key="0" className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />,
+  <Layers key="1" className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />,
+  <Microscope key="2" className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />,
+  <Leaf key="3" className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />
 ];
 
 interface SlidePanelProps {
@@ -277,13 +288,16 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
             </p>
 
             {/* Application Performance Callout */}
-            <div className="pl-4 border-l-2 border-[#D9E8BE] py-1 max-w-2xl bg-white/[0.03] rounded-r-lg">
-              <span className="text-xs font-bold text-[#D9E8BE] uppercase tracking-wider block mb-1">
-                Desempeño en Aplicación
-              </span>
-              <p className="text-sm text-slate-300 leading-relaxed font-normal">
-                {detail.highlight}
-              </p>
+            <div className="flex items-start gap-3 max-w-2xl py-1">
+              {CAPABILITY_ICONS[index % CAPABILITY_ICONS.length]}
+              <div className="space-y-0.5">
+                <span className="text-xs font-bold text-[#D9E8BE] uppercase tracking-wider block">
+                  Desempeño en Aplicación
+                </span>
+                <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                  {detail.highlight}
+                </p>
+              </div>
             </div>
 
             {/* CTA Button */}

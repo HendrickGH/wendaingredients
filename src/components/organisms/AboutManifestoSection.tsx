@@ -12,7 +12,8 @@ import {
   ShieldCheck,
   ArrowRight,
   Sparkles,
-  Building2
+  Building2,
+  Quote
 } from "lucide-react";
 
 export const AboutManifestoSection: React.FC = () => {
@@ -104,13 +105,16 @@ export const AboutManifestoSection: React.FC = () => {
               </p>
 
               {/* Editorial pullquote */}
-              <div className="pl-4 border-l-3 border-[#447D29] py-1 bg-gradient-to-r from-[#F0F7ED] to-transparent rounded-r-lg">
-                <span className="text-base font-bold text-slate-900 italic font-serif block">
-                  {t("quote", "“We listen, reach out and we deliver”")}
-                </span>
-                <span className="text-xs text-slate-500 uppercase tracking-wider font-sans font-semibold">
-                  Filosofía de Servicio Global
-                </span>
+              <div className="flex items-start gap-3 py-1">
+                <Quote className="w-5 h-5 text-[#447D29] shrink-0 mt-1" />
+                <div className="space-y-0.5">
+                  <span className="text-base font-bold text-slate-900 italic font-serif block">
+                    {t("quote", "“We listen, reach out and we deliver”")}
+                  </span>
+                  <span className="text-xs text-slate-500 uppercase tracking-wider font-sans font-semibold block">
+                    Filosofía de Servicio Global
+                  </span>
+                </div>
               </div>
             </div>
 

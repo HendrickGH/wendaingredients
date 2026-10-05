@@ -13,7 +13,8 @@ import {
   Volume2,
   VolumeX,
   Sparkles,
-  Award
+  Award,
+  Quote
 } from "lucide-react";
 
 export const HeroSection: React.FC = () => {
@@ -152,13 +153,16 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Corporate Motto Pullquote */}
-          <blockquote className="pl-4 border-l-2 border-[#D9E8BE] py-1 mt-6">
-            <p className="text-base sm:text-lg font-bold text-white italic font-serif">
-              {t("quote")}
-            </p>
-            <cite className="text-xs text-slate-300 not-italic block mt-0.5 font-medium">
-              {t("quoteCite")}
-            </cite>
+          <blockquote className="flex items-start gap-3 py-1 mt-6">
+            <Quote className="w-5 h-5 text-[#D9E8BE] shrink-0 mt-1" />
+            <div>
+              <p className="text-base sm:text-lg font-bold text-white italic font-serif">
+                {t("quote")}
+              </p>
+              <cite className="text-xs text-slate-300 not-italic block mt-0.5 font-medium">
+                {t("quoteCite")}
+              </cite>
+            </div>
           </blockquote>
 
           {/* Minimalist Operational Stats Strip */}

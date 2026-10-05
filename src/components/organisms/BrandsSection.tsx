@@ -48,14 +48,16 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
             </p>
           </div>
 
-          <div className="max-w-sm pl-4 border-l-2 border-[#447D29] py-1 shrink-0">
-            <div className="flex items-center gap-2 text-xs font-bold text-[#2F591B] mb-1">
-              <Lock className="w-3.5 h-3.5 text-[#447D29]" />
-              {t("reservedTitle")}
+          <div className="max-w-sm py-1 shrink-0 flex items-start gap-2.5">
+            <Lock className="w-4 h-4 text-[#447D29] shrink-0 mt-0.5" />
+            <div>
+              <span className="text-xs font-bold text-[#2F591B] block mb-0.5">
+                {t("reservedTitle")}
+              </span>
+              <p className="text-[11px] text-slate-600 leading-snug">
+                {t("reservedBody")}
+              </p>
             </div>
-            <p className="text-[11px] text-slate-600 leading-snug">
-              {t("reservedBody")}
-            </p>
           </div>
         </div>
 

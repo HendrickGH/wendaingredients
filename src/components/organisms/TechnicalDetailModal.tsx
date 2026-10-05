@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import { Button } from "../atoms/Button";
 import { BrandItem, IndentIndustry } from "@/data/siteContent";
-import { X, CheckCircle2, ArrowRight } from "lucide-react";
+import { X, CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
 
 interface TechnicalDetailModalProps {
   isOpen: boolean;
@@ -109,13 +109,16 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
               </div>
             </div>
 
-            <div className="pl-4 border-l-2 border-[#447D29] text-xs text-slate-700 py-1">
-              <span className="font-bold text-[#1B3810] block mb-1">
-                {t("ndaTitle")}
-              </span>
-              <p className="font-normal leading-relaxed">
-                {t("ndaBody")}
-              </p>
+            <div className="flex items-start gap-2.5 text-xs text-slate-700 py-1">
+              <ShieldCheck className="w-4 h-4 text-[#447D29] shrink-0 mt-0.5" />
+              <div>
+                <span className="font-bold text-[#1B3810] block mb-0.5">
+                  {t("ndaTitle")}
+                </span>
+                <p className="font-normal leading-relaxed">
+                  {t("ndaBody")}
+                </p>
+              </div>
             </div>
           </div>
         )}

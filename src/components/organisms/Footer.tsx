@@ -6,7 +6,7 @@ import { useSiteContent } from "@/i18n/useSiteContent";
 import { Logo } from "../atoms/Logo";
 import { CountryFlag } from "../atoms/CountryFlag";
 import { CountryMirror } from "@/data/siteContent";
-import { Award } from "lucide-react";
+import { Award, MapPin } from "lucide-react";
 
 export const Footer: React.FC<{
   currentCountry: CountryMirror;
@@ -52,14 +52,17 @@ export const Footer: React.FC<{
             <p className="text-xs text-gray-400 leading-relaxed max-w-sm font-normal">
               {t("about")}
             </p>
-            <div className="pl-3.5 border-l-2 border-[#D9E8BE] text-xs max-w-sm space-y-1">
-              <span className="font-bold text-[#D9E8BE] block uppercase tracking-wider text-[11px]">
-                {t("activeHub", { name: activeCountry.name })}
-              </span>
-              <p className="text-gray-300 font-normal">{activeCountry.contactOffice.address}</p>
-              <p className="text-gray-400 font-medium">
-                {t("directLine", { phone: activeCountry.contactOffice.phone })}
-              </p>
+            <div className="flex items-start gap-2.5 text-xs max-w-sm">
+              <MapPin className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />
+              <div className="space-y-0.5">
+                <span className="font-bold text-[#D9E8BE] block uppercase tracking-wider text-[11px]">
+                  {t("activeHub", { name: activeCountry.name })}
+                </span>
+                <p className="text-gray-300 font-normal">{activeCountry.contactOffice.address}</p>
+                <p className="text-gray-400 font-medium">
+                  {t("directLine", { phone: activeCountry.contactOffice.phone })}
+                </p>
+              </div>
             </div>
           </div>
 
