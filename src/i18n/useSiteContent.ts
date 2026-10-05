@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import i18n, { DEFAULT_LANGUAGE } from "./config";
+import translations from "./translations.json";
 import {
   BRANDS,
   CATEGORIES,
@@ -48,8 +49,14 @@ const mergeLocalized = <T,>(base: T, text: Json): T => {
   return text as T;
 };
 
+type TranslationsDict = Record<string, Record<string, { items?: Json }>>;
+const translationsData = translations as unknown as TranslationsDict;
+
 const getItems = (lng: string, ns: string): Json =>
-  i18n.getResource(lng, ns, "items") ?? i18n.getResource(DEFAULT_LANGUAGE, ns, "items");
+  translationsData[ns]?.[lng]?.items ??
+  translationsData[ns]?.[DEFAULT_LANGUAGE]?.items ??
+  i18n.getResource(lng, ns, "items") ??
+  i18n.getResource(DEFAULT_LANGUAGE, ns, "items");
 
 const localize = <T,>(base: T[], lng: string, ns: string): T[] =>
   mergeLocalized(base, getItems(lng, ns)) as T[];

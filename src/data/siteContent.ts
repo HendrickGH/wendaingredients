@@ -439,7 +439,8 @@ export const CATEGORIES: CategoryItem[] = [
       "Tortillas de trigo y productos planos",
       "Masas congeladas y productos bake-off",
       "Líneas libres de gluten y proteicas"
-    ]
+    ],
+    brandAssociations: ["SoyPura", "Safe Plate", "FreshGuard", "Wenda Phos", "Koolgel"]
   },
   {
     id: "supplements",
@@ -492,7 +493,8 @@ export const CATEGORIES: CategoryItem[] = [
       "Bebidas funcionales y pre-entrenos",
       "Cápsulas y comprimidos nutracéuticos",
       "Gummies funcionales y shots energéticos"
-    ]
+    ],
+    brandAssociations: ["SoyPura", "FreshGuard", "Safe Plate", "BioAmino", "PureCarotene"]
   },
   {
     id: "from-nature",
@@ -534,7 +536,8 @@ export const CATEGORIES: CategoryItem[] = [
       "Panadería, galletas y coberturas dulces",
       "Bebidas saborizadas y jugos",
       "Confitería, gomitas y postres lácteos"
-    ]
+    ],
+    brandAssociations: ["From Nature", "Safe Plate", "FreshGuard", "PhytoShield"]
   },
   {
     id: "tecnologia",
@@ -579,7 +582,8 @@ export const CATEGORIES: CategoryItem[] = [
       "Salchichas de ave y vegetarianas",
       "Embutidos de pequeño calibre sin piel",
       "Plantas industriales de cocción y empaque continuo"
-    ]
+    ],
+    brandAssociations: ["VICEL Casings", "RIBON Machinery", "AutoSmoke", "HighSpeed Continuous"]
   }
 ];
 

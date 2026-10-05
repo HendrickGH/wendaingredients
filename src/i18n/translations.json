@@ -49,11 +49,26 @@
       "portfolio": {
         "title": "Portafolio de Soluciones",
         "items": [
-          { "name": "Meat & Poultry", "desc": "Textura, rendimiento y retención de jugos" },
-          { "name": "Bakery & Panificación", "desc": "Volumen, suavidad y tolerancia de masa" },
-          { "name": "Suplementos & Bienestar", "desc": "Aminoácidos instantizados y nutrición funcional" },
-          { "name": "From Nature (Colores)", "desc": "Pigmentos botánicos puros termoestables" },
-          { "name": "Tripas VICEL & Maquinaria", "desc": "Casings de celulosa y líneas continuas" }
+          {
+            "name": "Meat & Poultry",
+            "desc": "Textura, rendimiento y retención de jugos"
+          },
+          {
+            "name": "Bakery & Panificación",
+            "desc": "Volumen, suavidad y tolerancia de masa"
+          },
+          {
+            "name": "Suplementos & Bienestar",
+            "desc": "Aminoácidos instantizados y nutrición funcional"
+          },
+          {
+            "name": "From Nature (Colores)",
+            "desc": "Pigmentos botánicos puros termoestables"
+          },
+          {
+            "name": "Tripas VICEL & Maquinaria",
+            "desc": "Casings de celulosa y líneas continuas"
+          }
         ]
       },
       "cta": {
@@ -77,11 +92,26 @@
       "portfolio": {
         "title": "Solutions Portfolio",
         "items": [
-          { "name": "Meat & Poultry", "desc": "Texture, yield, and juice retention" },
-          { "name": "Bakery & Baking", "desc": "Volume, softness, and dough tolerance" },
-          { "name": "Supplements & Wellness", "desc": "Instantized amino acids and functional nutrition" },
-          { "name": "From Nature (Colors)", "desc": "Pure heat-stable botanical pigments" },
-          { "name": "VICEL Casings & Machinery", "desc": "Cellulose casings and continuous processing lines" }
+          {
+            "name": "Meat & Poultry",
+            "desc": "Texture, yield, and juice retention"
+          },
+          {
+            "name": "Bakery & Baking",
+            "desc": "Volume, softness, and dough tolerance"
+          },
+          {
+            "name": "Supplements & Wellness",
+            "desc": "Instantized amino acids and functional nutrition"
+          },
+          {
+            "name": "From Nature (Colors)",
+            "desc": "Pure heat-stable botanical pigments"
+          },
+          {
+            "name": "VICEL Casings & Machinery",
+            "desc": "Cellulose casings and continuous processing lines"
+          }
         ]
       },
       "cta": {
@@ -105,11 +135,26 @@
       "portfolio": {
         "title": "解决方案矩阵",
         "items": [
-          { "name": "肉类与家禽 (Meat & Poultry)", "desc": "改善质构、保水保汁与出程率" },
-          { "name": "烘焙与面制品 (Bakery)", "desc": "提升体积、柔软度与面团耐揉性" },
-          { "name": "营养补充剂 (Supplements)", "desc": "速溶氨基酸与功能性营养原料" },
-          { "name": "天然色素 (From Nature)", "desc": "纯天然耐热植物萃取色素" },
-          { "name": "VICEL肠衣与RIBON机械", "desc": "纤维素肠衣与连续化加工生产线" }
+          {
+            "name": "肉类与家禽 (Meat & Poultry)",
+            "desc": "改善质构、保水保汁与出程率"
+          },
+          {
+            "name": "烘焙与面制品 (Bakery)",
+            "desc": "提升体积、柔软度与面团耐揉性"
+          },
+          {
+            "name": "营养补充剂 (Supplements)",
+            "desc": "速溶氨基酸与功能性营养原料"
+          },
+          {
+            "name": "天然色素 (From Nature)",
+            "desc": "纯天然耐热植物萃取色素"
+          },
+          {
+            "name": "VICEL肠衣与RIBON机械",
+            "desc": "纤维素肠衣与连续化加工生产线"
+          }
         ]
       },
       "cta": {
@@ -472,11 +517,23 @@
           "description": "Optimizamos la retención de agua, firmeza al corte y estabilidad durante tratamientos térmicos severos. Reducimos mermas de cocción hasta en un 35% mientras garantizamos rebanabilidad impecable en jamones y embutidos emulsionados.",
           "metricLabel": "Reducción de Mermas de Cocción",
           "badge": "Solución Cárnica Avanzada",
-          "specs": ["WBS Transglutaminasa libre de alérgenos", "SafePlate® antimicrobiano natural", "Wenda Phos retención de humedad"],
+          "specs": [
+            "WBS Transglutaminasa libre de alérgenos",
+            "SafePlate® antimicrobiano natural",
+            "Wenda Phos retención de humedad"
+          ],
           "ctaText": "Explorar soluciones cárnicas",
           "images": [
-            { "title": "Emulsión & Rebanabilidad al Frío", "tag": "SafePlate® Bio", "caption": "Estabilidad de emulsiones finas sin sinéresis ni separación grasa." },
-            { "title": "Retención de Humedad en Cortes", "tag": "WBS Ligantes", "caption": "Mejora de rendimiento y mordida en piezas enteras y marinados." }
+            {
+              "title": "Emulsión & Rebanabilidad al Frío",
+              "tag": "SafePlate® Bio",
+              "caption": "Estabilidad de emulsiones finas sin sinéresis ni separación grasa."
+            },
+            {
+              "title": "Retención de Humedad en Cortes",
+              "tag": "WBS Ligantes",
+              "caption": "Mejora de rendimiento y mordida en piezas enteras y marinados."
+            }
           ]
         },
         {
@@ -486,11 +543,23 @@
           "description": "Formulaciones diseñadas para soportar procesos de alta velocidad y congelación de masas sin perder volumen ni esponjosidad. Extiende la vida útil en anaquel hasta 21 días manteniendo suavidad y resiliencia organoléptica.",
           "metricLabel": "Salto de Horno & Volumen",
           "badge": "Bio-ingeniería Panadera",
-          "specs": ["Complejos enzimáticos de volumen", "Sistemas antiextrusión y congelado", "Clean label sin bromato ni emulsificantes sintéticos"],
+          "specs": [
+            "Complejos enzimáticos de volumen",
+            "Sistemas antiextrusión y congelado",
+            "Clean label sin bromato ni emulsificantes sintéticos"
+          ],
           "ctaText": "Ver portafolio panificación",
           "images": [
-            { "title": "Tolerancia Mecánica al Amasado", "tag": "Bio-acondicionador", "caption": "Refuerzo del gluten para masas de alta hidratación y líneas continuas." },
-            { "title": "Alveolado & Estructura de Miga", "tag": "Enzimas de Miga", "caption": "Conservación de frescura y miga esponjosa hasta por 21 días." }
+            {
+              "title": "Tolerancia Mecánica al Amasado",
+              "tag": "Bio-acondicionador",
+              "caption": "Refuerzo del gluten para masas de alta hidratación y líneas continuas."
+            },
+            {
+              "title": "Alveolado & Estructura de Miga",
+              "tag": "Enzimas de Miga",
+              "caption": "Conservación de frescura y miga esponjosa hasta por 21 días."
+            }
           ]
         },
         {
@@ -500,11 +569,23 @@
           "description": "Extraídos de cúrcuma, betabel, clorofila y páprika mediante tecnología de microencapsulación que protege el tono cromático durante pasteurización y extrusión continua, logrando etiquetas 100% limpias.",
           "metricLabel": "Origen Botánico Certificado",
           "badge": "Clean Label Pigments",
-          "specs": ["Resistencia a procesos térmicos > 120°C", "7 familias espectrales estables", "Certificación Kosher y Halal por lote"],
+          "specs": [
+            "Resistencia a procesos térmicos > 120°C",
+            "7 familias espectrales estables",
+            "Certificación Kosher y Halal por lote"
+          ],
           "ctaText": "Descubrir tonos botánicos",
           "images": [
-            { "title": "Microencapsulado Grado Alimentario", "tag": "Clean Label", "caption": "Protección contra oxidación térmica y degradación por luz UV." },
-            { "title": "Extractos Espectrales de Cúrcuma", "tag": "100% Botánico", "caption": "Tonos amarillos y dorados estables con solubilidad instantánea." }
+            {
+              "title": "Microencapsulado Grado Alimentario",
+              "tag": "Clean Label",
+              "caption": "Protección contra oxidación térmica y degradación por luz UV."
+            },
+            {
+              "title": "Extractos Espectrales de Cúrcuma",
+              "tag": "100% Botánico",
+              "caption": "Tonos amarillos y dorados estables con solubilidad instantánea."
+            }
           ]
         },
         {
@@ -514,11 +595,23 @@
           "description": "Acceso directo a más de 100 principios activos y excipientes de grado farmacéutico y alimentario con soporte técnico in situ y logística puerta a puerta desde nuestras 10 filiales internacionales.",
           "metricLabel": "Países con Red Logística Directa",
           "badge": "Infraestructura Global",
-          "specs": ["CoA y espectrometría por lote", "4 centros R&D y 6 laboratorios cárnicos", "Suministro continuo con stock local"],
+          "specs": [
+            "CoA y espectrometría por lote",
+            "4 centros R&D y 6 laboratorios cárnicos",
+            "Suministro continuo con stock local"
+          ],
           "ctaText": "Consultar WNDA Science",
           "images": [
-            { "title": "Pureza Química & Ensayos HPLC", "tag": "Grado Farma", "caption": "Espectrometría de masas y certificados analíticos (CoA) por lote." },
-            { "title": "Líneas de Grado Aséptico ISO", "tag": "Cadena Global", "caption": "Auditorías de calidad internacionales y distribución refrigerada." }
+            {
+              "title": "Pureza Química & Ensayos HPLC",
+              "tag": "Grado Farma",
+              "caption": "Espectrometría de masas y certificados analíticos (CoA) por lote."
+            },
+            {
+              "title": "Líneas de Grado Aséptico ISO",
+              "tag": "Cadena Global",
+              "caption": "Auditorías de calidad internacionales y distribución refrigerada."
+            }
           ]
         }
       ]
@@ -542,11 +635,23 @@
           "description": "We optimize water retention, slice firmness, and thermal stability. We reduce cooking loss by up to 35% while ensuring flawless sliceability in hams and emulsified meats.",
           "metricLabel": "Cooking Loss Reduction",
           "badge": "Advanced Meat Solution",
-          "specs": ["Allergen-free WBS Transglutaminase", "Natural antimicrobial SafePlate®", "Moisture-retention Wenda Phos"],
+          "specs": [
+            "Allergen-free WBS Transglutaminase",
+            "Natural antimicrobial SafePlate®",
+            "Moisture-retention Wenda Phos"
+          ],
           "ctaText": "Explore meat solutions",
           "images": [
-            { "title": "Emulsion & Cold Sliceability", "tag": "SafePlate® Bio", "caption": "Fine emulsion stability without syneresis or fat separation." },
-            { "title": "Moisture Retention in Cuts", "tag": "WBS Binders", "caption": "Improved yield and bite in whole muscle and marinated cuts." }
+            {
+              "title": "Emulsion & Cold Sliceability",
+              "tag": "SafePlate® Bio",
+              "caption": "Fine emulsion stability without syneresis or fat separation."
+            },
+            {
+              "title": "Moisture Retention in Cuts",
+              "tag": "WBS Binders",
+              "caption": "Improved yield and bite in whole muscle and marinated cuts."
+            }
           ]
         },
         {
@@ -556,11 +661,23 @@
           "description": "Formulations engineered to endure high-speed processing and frozen dough stress without losing volume or fluffiness. Extends shelf life up to 21 days with organoleptic softness.",
           "metricLabel": "Oven Spring & Volume",
           "badge": "Baking Bio-Engineering",
-          "specs": ["Volume enzyme complexes", "Anti-extrusion & freezing systems", "Clean label: bromate-free & synth-emulsifier free"],
+          "specs": [
+            "Volume enzyme complexes",
+            "Anti-extrusion & freezing systems",
+            "Clean label: bromate-free & synth-emulsifier free"
+          ],
           "ctaText": "View bakery portfolio",
           "images": [
-            { "title": "Mechanical Mixing Tolerance", "tag": "Bio-Conditioner", "caption": "Gluten reinforcement for high-hydration doughs & continuous lines." },
-            { "title": "Crumb Structure & Aeration", "tag": "Crumb Enzymes", "caption": "Freshness retention & fluffy crumb for up to 21 days." }
+            {
+              "title": "Mechanical Mixing Tolerance",
+              "tag": "Bio-Conditioner",
+              "caption": "Gluten reinforcement for high-hydration doughs & continuous lines."
+            },
+            {
+              "title": "Crumb Structure & Aeration",
+              "tag": "Crumb Enzymes",
+              "caption": "Freshness retention & fluffy crumb for up to 21 days."
+            }
           ]
         },
         {
@@ -570,11 +687,23 @@
           "description": "Extracted from turmeric, beet, chlorophyll, and paprika via microencapsulation technology that shields shade during pasteurization and continuous extrusion for 100% clean labels.",
           "metricLabel": "Certified Botanical Origin",
           "badge": "Clean Label Pigments",
-          "specs": ["Thermal resistance > 120°C", "7 stable spectral families", "Kosher & Halal certified per batch"],
+          "specs": [
+            "Thermal resistance > 120°C",
+            "7 stable spectral families",
+            "Kosher & Halal certified per batch"
+          ],
           "ctaText": "Discover botanical shades",
           "images": [
-            { "title": "Food-Grade Microencapsulation", "tag": "Clean Label", "caption": "Protection against thermal oxidation & UV degradation." },
-            { "title": "Spectral Turmeric Extracts", "tag": "100% Botanical", "caption": "Stable yellow and golden shades with instant solubility." }
+            {
+              "title": "Food-Grade Microencapsulation",
+              "tag": "Clean Label",
+              "caption": "Protection against thermal oxidation & UV degradation."
+            },
+            {
+              "title": "Spectral Turmeric Extracts",
+              "tag": "100% Botanical",
+              "caption": "Stable yellow and golden shades with instant solubility."
+            }
           ]
         },
         {
@@ -584,11 +713,23 @@
           "description": "Direct access to 100+ active ingredients and excipients of pharmaceutical and food grade, backed by on-site technical support and door-to-door logistics from 10 international subsidiaries.",
           "metricLabel": "Countries Direct Logistics Network",
           "badge": "Global Infrastructure",
-          "specs": ["CoA & spectrometry per batch", "4 R&D centers & 6 meat labs", "Continuous supply with local stock"],
+          "specs": [
+            "CoA & spectrometry per batch",
+            "4 R&D centers & 6 meat labs",
+            "Continuous supply with local stock"
+          ],
           "ctaText": "Consult WNDA Science",
           "images": [
-            { "title": "Chemical Purity & HPLC Testing", "tag": "Pharma Grade", "caption": "Mass spectrometry & CoA certificates per batch." },
-            { "title": "ISO Aseptic Processing Lines", "tag": "Global Chain", "caption": "International quality audits & refrigerated distribution." }
+            {
+              "title": "Chemical Purity & HPLC Testing",
+              "tag": "Pharma Grade",
+              "caption": "Mass spectrometry & CoA certificates per batch."
+            },
+            {
+              "title": "ISO Aseptic Processing Lines",
+              "tag": "Global Chain",
+              "caption": "International quality audits & refrigerated distribution."
+            }
           ]
         }
       ]
@@ -612,11 +753,23 @@
           "description": "优化保水性、切片紧实度及高温热处理稳定性。在确保火腿与乳化香肠完美切片性的同时，降低蒸煮损失高达 35%。",
           "metricLabel": "蒸煮损失降低率",
           "badge": "先进肉类解决方案",
-          "specs": ["无过敏原 WBS 谷氨酰胺转氨酶 (TG酶)", "SafePlate® 天然生物抑菌剂", "Wenda Phos 高效保水磷酸盐"],
+          "specs": [
+            "无过敏原 WBS 谷氨酰胺转氨酶 (TG酶)",
+            "SafePlate® 天然生物抑菌剂",
+            "Wenda Phos 高效保水磷酸盐"
+          ],
           "ctaText": "探索肉制品解决方案",
           "images": [
-            { "title": "乳化与冷切片性能", "tag": "SafePlate® 生物防腐", "caption": "细乳化体系稳定，无析水及油脂分离。" },
-            { "title": "原切肉块保水保汁", "tag": "WBS 粘合剂", "caption": "提升大肉块与注射滚揉产品的出程率与咀嚼感。" }
+            {
+              "title": "乳化与冷切片性能",
+              "tag": "SafePlate® 生物防腐",
+              "caption": "细乳化体系稳定，无析水及油脂分离。"
+            },
+            {
+              "title": "原切肉块保水保汁",
+              "tag": "WBS 粘合剂",
+              "caption": "提升大肉块与注射滚揉产品的出程率与咀嚼感。"
+            }
           ]
         },
         {
@@ -626,11 +779,23 @@
           "description": "专为高强度高速打面及冷冻面团工艺设计，入炉胀发力强，保持松软口感。在保持感官风味的同时将保质期延长至21天。",
           "metricLabel": "入炉胀发与体积提升",
           "badge": "烘焙生物工程",
-          "specs": ["体积优化酶制剂复合配方", "抗挤压与冷冻损伤保护体系", "清洁标签：无溴酸盐与合成乳化剂"],
+          "specs": [
+            "体积优化酶制剂复合配方",
+            "抗挤压与冷冻损伤保护体系",
+            "清洁标签：无溴酸盐与合成乳化剂"
+          ],
           "ctaText": "查看烘焙产品矩阵",
           "images": [
-            { "title": "机械打面耐揉性", "tag": "生物改良剂", "caption": "强化面筋网络，适应高吸水量与连续化生产线。" },
-            { "title": "气孔组织与心部结构", "tag": "心部质构酶", "caption": "保持面包心部柔软蓬松，保鲜期长达21天。" }
+            {
+              "title": "机械打面耐揉性",
+              "tag": "生物改良剂",
+              "caption": "强化面筋网络，适应高吸水量与连续化生产线。"
+            },
+            {
+              "title": "气孔组织与心部结构",
+              "tag": "心部质构酶",
+              "caption": "保持面包心部柔软蓬松，保鲜期长达21天。"
+            }
           ]
         },
         {
@@ -640,11 +805,23 @@
           "description": "采用微胶囊包埋技术从姜黄、红甜菜、叶绿素及红辣椒中萃取，在巴氏杀菌与连续挤压加工中有效保护色泽，打造 100% 清洁标签。",
           "metricLabel": "认证植物来源",
           "badge": "清洁标签色素",
-          "specs": ["耐受 120°C 以上高温热处理", "7 大稳定光谱色系", "每批次均具备 Kosher 及 Halal 认证"],
+          "specs": [
+            "耐受 120°C 以上高温热处理",
+            "7 大稳定光谱色系",
+            "每批次均具备 Kosher 及 Halal 认证"
+          ],
           "ctaText": "探索天然植物色系",
           "images": [
-            { "title": "食品级微胶囊包埋", "tag": "清洁标签", "caption": "有效抵御热氧化及紫外光线照射引发的褪色。" },
-            { "title": "姜黄光谱萃取物", "tag": "100% 植物萃取", "caption": "稳定明亮黄/金黄色调，具备速溶特性。" }
+            {
+              "title": "食品级微胶囊包埋",
+              "tag": "清洁标签",
+              "caption": "有效抵御热氧化及紫外光线照射引发的褪色。"
+            },
+            {
+              "title": "姜黄光谱萃取物",
+              "tag": "100% 植物萃取",
+              "caption": "稳定明亮黄/金黄色调，具备速溶特性。"
+            }
           ]
         },
         {
@@ -654,11 +831,23 @@
           "description": "直连 100+ 种医药级与食品级活性成分及辅料，由全球 10 家直属子公司提供现场技术支持与门到门物流保障。",
           "metricLabel": "直营物流网络覆盖国家",
           "badge": "全球化基础设施",
-          "specs": ["每批次均附带 CoA 及质谱检测报告", "4 大研发中心与 6 大肉类实验室", "本地化常备库存保障持续供货"],
+          "specs": [
+            "每批次均附带 CoA 及质谱检测报告",
+            "4 大研发中心与 6 大肉类实验室",
+            "本地化常备库存保障持续供货"
+          ],
           "ctaText": "咨询 WNDA Science",
           "images": [
-            { "title": "化学纯度与 HPLC 检验", "tag": "医药级", "caption": "质谱分析与批次质量检验合格证 (CoA)。" },
-            { "title": "ISO 无菌加工生产线", "tag": "全球供应链", "caption": "国际质量审计标准与全程冷链运输。" }
+            {
+              "title": "化学纯度与 HPLC 检验",
+              "tag": "医药级",
+              "caption": "质谱分析与批次质量检验合格证 (CoA)。"
+            },
+            {
+              "title": "ISO 无菌加工生产线",
+              "tag": "全球供应链",
+              "caption": "国际质量审计标准与全程冷链运输。"
+            }
           ]
         }
       ]
@@ -683,6 +872,11 @@
       "brands": "Sistemas y Marcas Formuladas:",
       "challengeSheet": "Ver Ficha de Desafíos ({{count}})",
       "requestSample": "Solicitar Muestra",
+      "tabs": {
+        "benefits": "Beneficios",
+        "applications": "Aplicaciones",
+        "systems": "Sistemas"
+      },
       "modal": {
         "eyebrow": "Ficha Técnica de Formulación",
         "title": "{{title}} — Desafíos y Parámetros en Planta",
@@ -719,6 +913,11 @@
       "brands": "Formulated Brands & Systems:",
       "challengeSheet": "View Challenge Sheet ({{count}})",
       "requestSample": "Request Sample",
+      "tabs": {
+        "benefits": "Benefits",
+        "applications": "Applications",
+        "systems": "Systems"
+      },
       "modal": {
         "eyebrow": "Technical Formulation Sheet",
         "title": "{{title}} — Plant Parameters & Challenges",
@@ -755,6 +954,11 @@
       "brands": "相关系统与品牌：",
       "challengeSheet": "查看技术痛点清单 ({{count}})",
       "requestSample": "索取样品",
+      "tabs": {
+        "benefits": "核心优势",
+        "applications": "应用领域",
+        "systems": "品牌系统"
+      },
       "modal": {
         "eyebrow": "配方技术规格书",
         "title": "{{title}} — 工厂应用痛点与参数",
@@ -1377,14 +1581,54 @@
       "viewFormulation": "Ver formulación",
       "consultAria": "Consultar formulación para {{title}}",
       "items": [
-        { "title": "Embutidos & Charcutería Fina", "category": "Cárnicos", "tag": "Transglutaminasa WBS", "claim": "Cohesión estructural perfecta y rebanabilidad sin rotura" },
-        { "title": "Panadería Rústica & Fermentación", "category": "Panificación", "tag": "Volumen & Miga", "claim": "Alvéolos homogéneos y conservación prolongada de humedad" },
-        { "title": "Pigmentos Puros de Cúrcuma & Remolacha", "category": "From Nature", "tag": "100% Botánico", "claim": "Termorresistencia en horneado y pasteurización" },
-        { "title": "Análisis Molecular & Control de Pureza", "category": "WNDA Science", "tag": "Validación CoA", "claim": "Confirmación de concentración activa y microbiología cero" },
-        { "title": "Líneas Automatizadas de Acero Inoxidable", "category": "Tecnología", "tag": "Maquinaria RIBON", "claim": "Hornos de cocción y tumblers de alto rendimiento" },
-        { "title": "Cortes Magros & Inyección de Salmuera", "category": "Cárnicos", "tag": "Fosfatos WendaPhos", "claim": "Menor sinéresis en anaquel y reducción directa de mermas" },
-        { "title": "Bollería Dorada & Baguettes", "category": "Panificación", "tag": "Tolerancia Bake-off", "claim": "Excelente estabilidad en masas congeladas industriales" },
-        { "title": "Nutrición Deportiva & Polvos Instantáneos", "category": "Suplementos", "tag": "Instantización", "claim": "Dispersión instantánea en agua fría sin grumos" }
+        {
+          "title": "Embutidos & Charcutería Fina",
+          "category": "Cárnicos",
+          "tag": "Transglutaminasa WBS",
+          "claim": "Cohesión estructural perfecta y rebanabilidad sin rotura"
+        },
+        {
+          "title": "Panadería Rústica & Fermentación",
+          "category": "Panificación",
+          "tag": "Volumen & Miga",
+          "claim": "Alvéolos homogéneos y conservación prolongada de humedad"
+        },
+        {
+          "title": "Pigmentos Puros de Cúrcuma & Remolacha",
+          "category": "From Nature",
+          "tag": "100% Botánico",
+          "claim": "Termorresistencia en horneado y pasteurización"
+        },
+        {
+          "title": "Análisis Molecular & Control de Pureza",
+          "category": "WNDA Science",
+          "tag": "Validación CoA",
+          "claim": "Confirmación de concentración activa y microbiología cero"
+        },
+        {
+          "title": "Líneas Automatizadas de Acero Inoxidable",
+          "category": "Tecnología",
+          "tag": "Maquinaria RIBON",
+          "claim": "Hornos de cocción y tumblers de alto rendimiento"
+        },
+        {
+          "title": "Cortes Magros & Inyección de Salmuera",
+          "category": "Cárnicos",
+          "tag": "Fosfatos WendaPhos",
+          "claim": "Menor sinéresis en anaquel y reducción directa de mermas"
+        },
+        {
+          "title": "Bollería Dorada & Baguettes",
+          "category": "Panificación",
+          "tag": "Tolerancia Bake-off",
+          "claim": "Excelente estabilidad en masas congeladas industriales"
+        },
+        {
+          "title": "Nutrición Deportiva & Polvos Instantáneos",
+          "category": "Suplementos",
+          "tag": "Instantización",
+          "claim": "Dispersión instantánea en agua fría sin grumos"
+        }
       ]
     },
     "en": {
@@ -1399,14 +1643,54 @@
       "viewFormulation": "View formulation",
       "consultAria": "Consult formulation for {{title}}",
       "items": [
-        { "title": "Sausages & Fine Charcuterie", "category": "Meat & Poultry", "tag": "Transglutaminase WBS", "claim": "Perfect structural cohesion and clean sliceability" },
-        { "title": "Rustic Bakery & Fermentation", "category": "Bakery", "tag": "Volume & Crumb", "claim": "Homogeneous alveolation and extended moisture retention" },
-        { "title": "Pure Turmeric & Beetroot Pigments", "category": "From Nature", "tag": "100% Botanical", "claim": "Heat stability during baking and pasteurization" },
-        { "title": "Molecular Analysis & Purity Control", "category": "WNDA Science", "tag": "CoA Validation", "claim": "Active concentration confirmation and zero microbiology" },
-        { "title": "Automated Stainless Steel Lines", "category": "Technology", "tag": "RIBON Machinery", "claim": "Cooking ovens and high-yield tumblers" },
-        { "title": "Lean Cuts & Brine Injection", "category": "Meat & Poultry", "tag": "WendaPhos Phosphates", "claim": "Reduced shelf syneresis and direct drip loss minimization" },
-        { "title": "Golden Pastries & Baguettes", "category": "Bakery", "tag": "Bake-off Tolerance", "claim": "Excellent stability in industrial frozen doughs" },
-        { "title": "Sports Nutrition & Instant Powders", "category": "Supplements", "tag": "Instantization", "claim": "Instant cold water dispersion without clumping" }
+        {
+          "title": "Sausages & Fine Charcuterie",
+          "category": "Meat & Poultry",
+          "tag": "Transglutaminase WBS",
+          "claim": "Perfect structural cohesion and clean sliceability"
+        },
+        {
+          "title": "Rustic Bakery & Fermentation",
+          "category": "Bakery",
+          "tag": "Volume & Crumb",
+          "claim": "Homogeneous alveolation and extended moisture retention"
+        },
+        {
+          "title": "Pure Turmeric & Beetroot Pigments",
+          "category": "From Nature",
+          "tag": "100% Botanical",
+          "claim": "Heat stability during baking and pasteurization"
+        },
+        {
+          "title": "Molecular Analysis & Purity Control",
+          "category": "WNDA Science",
+          "tag": "CoA Validation",
+          "claim": "Active concentration confirmation and zero microbiology"
+        },
+        {
+          "title": "Automated Stainless Steel Lines",
+          "category": "Technology",
+          "tag": "RIBON Machinery",
+          "claim": "Cooking ovens and high-yield tumblers"
+        },
+        {
+          "title": "Lean Cuts & Brine Injection",
+          "category": "Meat & Poultry",
+          "tag": "WendaPhos Phosphates",
+          "claim": "Reduced shelf syneresis and direct drip loss minimization"
+        },
+        {
+          "title": "Golden Pastries & Baguettes",
+          "category": "Bakery",
+          "tag": "Bake-off Tolerance",
+          "claim": "Excellent stability in industrial frozen doughs"
+        },
+        {
+          "title": "Sports Nutrition & Instant Powders",
+          "category": "Supplements",
+          "tag": "Instantization",
+          "claim": "Instant cold water dispersion without clumping"
+        }
       ]
     },
     "zh": {
@@ -1421,14 +1705,54 @@
       "viewFormulation": "查看技术配方",
       "consultAria": "咨询 {{title}} 配方",
       "items": [
-        { "title": "灌肠与精制肉制品", "category": "肉类与家禽", "tag": "WBS 谷氨酰胺转氨酶", "claim": "完美的结构切片性与高致密度" },
-        { "title": "乡村烘焙与发酵面团", "category": "烘焙与面制品", "tag": "体积与气孔结构", "claim": "气孔均匀且具备持久的长效保水性" },
-        { "title": "姜黄与甜菜根纯天然色素", "category": "天然色素", "tag": "100% 植物萃取", "claim": "耐高温烘焙与巴氏杀菌" },
-        { "title": "分子分析与纯度控制", "category": "WNDA 科学", "tag": "CoA 合格验证", "claim": "有效成分活性确认与微生物零检出" },
-        { "title": "自动化不锈钢加工生产线", "category": "机械设备", "tag": "RIBON 机械", "claim": "高效蒸煮炉与高出程真空滚揉机" },
-        { "title": "精肉注射与盐水滚揉", "category": "肉类与家禽", "tag": "WendaPhos 复合磷酸盐", "claim": "降低货架期渗液，直接减少保水损耗" },
-        { "title": "金黄法棍与起酥面包", "category": "烘焙与面制品", "tag": "烘烤耐受性", "claim": "在工业冷冻面团中具备卓越的耐冻稳定性" },
-        { "title": "运动营养与速溶粉剂", "category": "营养补充剂", "tag": "速溶造粒", "claim": "冷水瞬间分散且无结块" }
+        {
+          "title": "灌肠与精制肉制品",
+          "category": "肉类与家禽",
+          "tag": "WBS 谷氨酰胺转氨酶",
+          "claim": "完美的结构切片性与高致密度"
+        },
+        {
+          "title": "乡村烘焙与发酵面团",
+          "category": "烘焙与面制品",
+          "tag": "体积与气孔结构",
+          "claim": "气孔均匀且具备持久的长效保水性"
+        },
+        {
+          "title": "姜黄与甜菜根纯天然色素",
+          "category": "天然色素",
+          "tag": "100% 植物萃取",
+          "claim": "耐高温烘焙与巴氏杀菌"
+        },
+        {
+          "title": "分子分析与纯度控制",
+          "category": "WNDA 科学",
+          "tag": "CoA 合格验证",
+          "claim": "有效成分活性确认与微生物零检出"
+        },
+        {
+          "title": "自动化不锈钢加工生产线",
+          "category": "机械设备",
+          "tag": "RIBON 机械",
+          "claim": "高效蒸煮炉与高出程真空滚揉机"
+        },
+        {
+          "title": "精肉注射与盐水滚揉",
+          "category": "肉类与家禽",
+          "tag": "WendaPhos 复合磷酸盐",
+          "claim": "降低货架期渗液，直接减少保水损耗"
+        },
+        {
+          "title": "金黄法棍与起酥面包",
+          "category": "烘焙与面制品",
+          "tag": "烘烤耐受性",
+          "claim": "在工业冷冻面团中具备卓越的耐冻稳定性"
+        },
+        {
+          "title": "运动营养与速溶粉剂",
+          "category": "营养补充剂",
+          "tag": "速溶造粒",
+          "claim": "冷水瞬间分散且无结块"
+        }
       ]
     }
   },
@@ -1446,20 +1770,32 @@
       "customEyebrow": "Desarrollos a Medida:",
       "customDesc": "Formulaciones personalizadas para polvos, cápsulas y bebidas funcionales listas para envasar.",
       "cta": "Consultar con Especialista WNDA",
+      "interactiveBadge": "Especialización Científica",
+      "coaNotice": "Documentación técnica y Certificado de Análisis (CoA) disponibles por lote.",
+      "metrics": [
+        { "value": "100%", "label": "Trazabilidad CoA por Lote" },
+        { "value": "< 15s", "label": "Humectación en Agua Fría" },
+        { "value": "HPLC", "label": "Estandarización de Activos" },
+        { "value": "USP / FCC", "label": "Grado Farmacéutico & Alimentario" }
+      ],
       "capabilities": [
         {
+          "tag": "Nutrición Deportiva & Rendimiento",
           "title": "Aminoácidos Instantizados",
           "desc": "Humectación inmediata y dispersión total en agua fría sin apelmazamiento ni grumos."
         },
         {
+          "tag": "Estabilidad Molecular",
           "title": "Vitaminas Dispersables",
           "desc": "Tratamientos de superficie para estabilidad prolongada y distribución homogénea en mezclas secas."
         },
         {
+          "tag": "Garantía de Inocuidad",
           "title": "Control Riguroso de Calidad",
           "desc": "Verificación de pureza por lote, límites estrictos de metales pesados y Certificados CoA."
         },
         {
+          "tag": "Fitoquímica de Alta Pureza",
           "title": "Extractos Botánicos Estandarizados",
           "desc": "Potencia activa garantizada por cromatografía HPLC para suplementos de alta gama."
         }
@@ -1478,20 +1814,32 @@
       "customEyebrow": "Custom Formulations:",
       "customDesc": "Tailored formulations for powders, capsules, and ready-to-mix functional beverages.",
       "cta": "Consult WNDA Specialist",
+      "interactiveBadge": "Scientific Specialization",
+      "coaNotice": "Technical documentation and Certificate of Analysis (CoA) available per batch.",
+      "metrics": [
+        { "value": "100%", "label": "Batch CoA Traceability" },
+        { "value": "< 15s", "label": "Cold-Water Wetting" },
+        { "value": "HPLC", "label": "Standardized Active Potency" },
+        { "value": "USP / FCC", "label": "Pharma & Food Grade" }
+      ],
       "capabilities": [
         {
+          "tag": "Sports Nutrition & Performance",
           "title": "Instantized Amino Acids",
           "desc": "Immediate wetting and complete cold-water dispersion without caking or clumping."
         },
         {
+          "tag": "Molecular Stability",
           "title": "Dispersible Vitamins",
           "desc": "Surface treatments for extended stability and homogeneous dry blend distribution."
         },
         {
+          "tag": "Safety & Compliance Assurance",
           "title": "Rigorous Quality Control",
           "desc": "Batch purity verification, strict heavy metal limits, and CoA documentation."
         },
         {
+          "tag": "High-Purity Phytochemistry",
           "title": "Standardized Botanical Extracts",
           "desc": "Active potency guaranteed by HPLC chromatography for premium nutraceuticals."
         }
@@ -1510,20 +1858,32 @@
       "customEyebrow": "定制化研发：",
       "customDesc": "针对固体饮料、胶囊及即饮功能性饮料提供定制配方。",
       "cta": "咨询 WNDA 专家团队",
+      "interactiveBadge": "重点科研专业领域",
+      "coaNotice": "每批次均提供完整技术规范与分析检测报告 (CoA)。",
+      "metrics": [
+        { "value": "100%", "label": "逐批全项 CoA 报告" },
+        { "value": "< 15s", "label": "冷水速溶完全浸润" },
+        { "value": "HPLC", "label": "高效液相色谱活性定标" },
+        { "value": "USP / FCC", "label": "药典级与食品级标准" }
+      ],
       "capabilities": [
         {
+          "tag": "运动营养与机能恢复",
           "title": "速溶氨基酸系列",
           "desc": "具备瞬间润湿性，在冷水中迅速完全分散，无结块。"
         },
         {
+          "tag": "分子级分散稳定性",
           "title": "高分散维生素",
           "desc": "经过特殊表面处理，保障长期稳定性及在干粉复配中的均匀度。"
         },
         {
+          "tag": "严苛安全与合规保障",
           "title": "严格品质控制",
           "desc": "逐批纯度检测，严格控制重金属指标，随货提供 CoA 报告。"
         },
         {
+          "tag": "高纯度天然植物化学",
           "title": "标准化植物提取物",
           "desc": "通过高效液相色谱 (HPLC) 测定活性成分含量，品质稳定。"
         }
@@ -1669,6 +2029,1962 @@
       "availableTitle": "可子供货的食品原料与精细化学品：",
       "close": "关闭",
       "request": "索取 {{title}} 样品或报价"
+    }
+  },
+  "categories": {
+    "es": {
+      "items": [
+        {
+          "title": "Meat & Poultry",
+          "subtitle": "Funcionalidad que se traduce en rendimiento",
+          "tagline": "Más rendimiento en el proceso. Más satisfacción en cada bocado.",
+          "badge": "Especialidad Histórica",
+          "highlights": [
+            "Mejor textura, mordida y cohesión estructural",
+            "Mayor jugosidad y retención de humedad sin purga",
+            "Ablandadores y marinadores funcionales de alta penetración",
+            "Emulsiones más estables y homogéneas",
+            "Reducción directa de mermas y optimización de costos"
+          ],
+          "pillars": [
+            {
+              "title": "Rendimiento que impulsa la rentabilidad",
+              "description": "Ayudamos a aprovechar mejor cada materia prima mediante sistemas funcionales que incrementan el rendimiento y favorecen un proceso más eficiente.",
+              "points": [
+                "Mayor rendimiento volumétrico durante la producción",
+                "Reducción comprobada de mermas por cocción",
+                "Menor pérdida de líquidos y exudado en empaque al vacío",
+                "Mejor retención de agua en formulaciones exigentes",
+                "Mayor consistencia lote a lote"
+              ]
+            },
+            {
+              "title": "Estabilidad que protege el producto",
+              "description": "Nuestras soluciones ayudan a conservar la estructura, funcionalidad y calidad durante el almacenamiento, distribución y comercialización.",
+              "points": [
+                "Sistemas ligantes avanzados para matrices proteicas",
+                "Emulsificantes de alto desempeño",
+                "Mayor estabilidad de emulsión en cocción y congelación",
+                "Mejor cohesión y rebanabilidad en piezas frías",
+                "Menor separación de fases grasas y acuosas"
+              ]
+            },
+            {
+              "title": "Protección & Conservación de Lote",
+              "description": "Sistemas antimicrobianos y antioxidantes que protegen la frescura, el color, el sabor y la calidad microbiológica.",
+              "points": [
+                "Extensión tangible de vida útil en anaquel",
+                "Protección activa frente al deterioro microbiano",
+                "Control de oxidación lipídica y cambio de color",
+                "Apariencia fresca y natural durante la exhibición"
+              ]
+            },
+            {
+              "title": "Clean Label & Reemplazadores de Carne",
+              "description": "Alternativas de origen natural para etiquetas claras y sistemas que permiten ajustar el contenido cárnico conservando mordida y sabor.",
+              "points": [
+                "Formulaciones con ingredientes de origen vegetal identificable",
+                "Sistemas sustitutos o extensores de carne para balance de costos",
+                "Ligantes para matrices complejas de pollo, cerdo y res"
+              ]
+            }
+          ],
+          "applications": [
+            "Salchichas y embutidos emulsionados",
+            "Jamones cocidos y curados",
+            "Nuggets y productos apanados de pollo",
+            "Hamburguesas y carnes formadas",
+            "Marinación e inyección de cortes frescos"
+          ]
+        },
+        {
+          "title": "Bakery & Panificación",
+          "subtitle": "Ciencia para más volumen - más frescura - valor en cada horneado",
+          "tagline": "Ingredientes y soluciones funcionales diseñados para optimizar textura, volumen, suavidad, frescura y vida útil.",
+          "badge": "Alto Crecimiento",
+          "highlights": [
+            "Migas más suaves, uniformes y aireadas",
+            "Mayor volumen y retención prolongada de humedad",
+            "Mayor tolerancia de masa ante fluctuaciones de fermentación",
+            "Desempeño confiable bajo congelación (bake-off)",
+            "Panificados enriquecidos con proteína sin perder sabor"
+          ],
+          "pillars": [
+            {
+              "title": "Texturas diseñadas para conquistar",
+              "description": "Desarrollo de la textura adecuada para cada formato de panificación, conservando esponjosidad durante toda la vida comercial.",
+              "points": [
+                "Estructura alveolar óptima y migas resilientes",
+                "Suavidad prolongada que evita el endurecimiento prematuro",
+                "Experiencias sensoriales adaptadas a cada consumidor"
+              ]
+            },
+            {
+              "title": "Protección con extensión de vida útil",
+              "description": "Tecnologías para controlar el crecimiento de mohos y levaduras sin alterar el perfil de aroma y sabor tradicional.",
+              "points": [
+                "Sistemas naturales y ácido sórbico encapsulado",
+                "Protección frente al envejecimiento retrogradante del almidón",
+                "Menor merma en punto de venta y distribución a larga distancia"
+              ]
+            },
+            {
+              "title": "Desempeño confiable bajo congelación",
+              "description": "Sistemas para proteger la estructura, la fermentación y la calidad final de masas congeladas y bake-off.",
+              "points": [
+                "Protección de las levaduras ante estrés térmico",
+                "Mayor estabilidad durante ciclos de descongelación",
+                "Excelente salto de horno tras meses de almacenamiento congelado"
+              ]
+            },
+            {
+              "title": "Colorantes y Enriquecimiento Nutricional",
+              "description": "Colores naturales vivos resistentes al horneado y sistemas para aportar proteína vegetal manteniendo la masticabilidad.",
+              "points": [
+                "Dosificación eficiente y reproducción uniforme lote a lote",
+                "Mayor aporte proteico sin textura arenosa",
+                "Formulaciones Clean Label sin conservadores sintéticos"
+              ]
+            }
+          ],
+          "applications": [
+            "Pan de caja y molde",
+            "Bollería y pan dulce",
+            "Galletas y crackers",
+            "Tortillas de trigo y productos planos",
+            "Masas congeladas y productos bake-off",
+            "Líneas libres de gluten y proteicas"
+          ]
+        },
+        {
+          "title": "Suplementos & Bienestar",
+          "subtitle": "Innovación que potencia el bienestar integral",
+          "tagline": "Pureza que puede demostrarse - Desempeño que puede formularse.",
+          "badge": "Nutrición Funcional",
+          "highlights": [
+            "Aminoácidos instantizados de alta solubilidad",
+            "Vitaminas y carotenoides dispersables en agua",
+            "Extractos botánicos estandarizados y nutracéuticos de precisión",
+            "Excelente homogeneidad en polvos para batidos y sticks",
+            "Control estricto de metales pesados y microbiología"
+          ],
+          "pillars": [
+            {
+              "title": "Una buena fórmula comienza con ingredientes confiables",
+              "description": "Materias primas consistentes con especificaciones claras para responder a los requisitos técnicos y regulatorios de cada proyecto.",
+              "points": [
+                "Pureza documentada con Certificado de Análisis (CoA)",
+                "Estabilidad química y microbiológica en vida de anaquel",
+                "Trazabilidad completa desde el origen",
+                "Versatilidad para tabletas, cápsulas y bebidas en polvo"
+              ]
+            },
+            {
+              "title": "Activos Funcionales y Nutracéuticos",
+              "description": "Propuestas diferenciadas alrededor de las tendencias actuales de salud, longevidad y nutrición deportiva.",
+              "points": [
+                "Rendimiento físico y recuperación muscular",
+                "Salud articular y ósea",
+                "Belleza desde la nutrición (antioxidantes y péptidos)",
+                "Energía celular y metabolismo activo"
+              ]
+            },
+            {
+              "title": "Tecnologías de Dispersión Avanzada",
+              "description": "Microencapsulación y tratamientos de superficie para solubilidad inmediata en agua fría.",
+              "points": [
+                "Humectación instantánea sin grumos ni sedimentación",
+                "Sistemas adaptados a sachets, gominolas y polvos listos para mezclar",
+                "Sabor neutro que facilita el perfilado organoléptico"
+              ]
+            }
+          ],
+          "applications": [
+            "Proteínas en polvo y blends deportivos",
+            "Bebidas funcionales y pre-entrenos",
+            "Cápsulas y comprimidos nutracéuticos",
+            "Gummies funcionales y shots energéticos"
+          ]
+        },
+        {
+          "title": "From Nature - Colores Naturales",
+          "subtitle": "La paleta cromática de la naturaleza para alimentos vibrantes",
+          "tagline": "Tonos amarillos, naranjas, rojos, rosas, morados, verdes y azules con máxima estabilidad.",
+          "badge": "Clean Label Color",
+          "highlights": [
+            "Concentrados 100% de origen vegetal identificable",
+            "Alta resistencia a tratamientos térmicos, horneado y luz UV",
+            "Formatos microfinos y dispersables en agua o lípidos",
+            "Reemplazo total de colorantes artificiales (FD&C)",
+            "Poder tintóreo controlado y reproducible entre lotes"
+          ],
+          "pillars": [
+            {
+              "title": "Alto Desempeño y Tolerancia Térmica",
+              "description": "Pigmentos microfinos formulados para soportar pasteurización, horneado y extrusión sin perder tonalidad.",
+              "points": [
+                "Sistemas dispersables en fases acuosas y matrices secas",
+                "Estrategias antioxidantes para evitar la degradación por luz",
+                "Selección ajustada al pH final del alimento"
+              ]
+            },
+            {
+              "title": "Dispersión Adaptada a Cada Matriz",
+              "description": "Soluciones a medida para evitar la migración de color en embutidos, glaseados, bebidas o botanas.",
+              "points": [
+                "Dosificación controlada y costo por uso competitivo",
+                "Compatibilidad con etiquetas limpias y sellos de advertencia reducidos",
+                "Suministro garantizado de fuentes agrícolas seleccionadas"
+              ]
+            }
+          ],
+          "applications": [
+            "Cárnicos y embutidos con curado natural",
+            "Panadería, galletas y coberturas dulces",
+            "Bebidas saborizadas y jugos",
+            "Confitería, gomitas y postres lácteos"
+          ]
+        },
+        {
+          "title": "Tecnología Cárnica: VICEL & RIBON",
+          "subtitle": "Casings de celulosa de alta velocidad y maquinaria industrial",
+          "tagline": "Integramos insumos de empaque de alta velocidad y tecnología especializada para procesos más rentables y automatizados.",
+          "badge": "Ingeniería de Procesos",
+          "highlights": [
+            "Tripas de celulosa VICEL: calibre uniforme y pelado ultra rápido",
+            "Maquinaria RIBON: hornos, tumblers, inyectores y líneas de sacrificio",
+            "Permeabilidad perfecta al humo y aroma",
+            "Compatibilidad total con embutidoras de alta velocidad",
+            "Soporte de ingeniería y servicio técnico en planta"
+          ],
+          "pillars": [
+            {
+              "title": "VICEL - Tripas de Celulosa para Alta Velocidad",
+              "description": "Wenda Ingredients es socio comercial de VICEL, ofreciendo tripas biodegradables fabricadas con celulosa natural de madera y línter de algodón.",
+              "points": [
+                "Espesor uniforme y alta resistencia a la abrasión",
+                "Permeabilidad al aire y vapor de agua para ahumado perfecto",
+                "Fácil pelado sin mermas de carne adherida",
+                "Uso directo desde el empaque sin necesidad de remojo previo",
+                "Variantes: transparente, tonos ahumados, cereza, naranja, con franjas de identificación e impresión personalizada"
+              ]
+            },
+            {
+              "title": "RIBON - Maquinaria para Plantas Procesadoras",
+              "description": "Equipos individuales o líneas completas adaptadas a la capacidad productiva de cada planta cárnica.",
+              "points": [
+                "Hornos de cocción y ahumado industrial con generadores de humo",
+                "Tumblers de masaje al vacío e inyectores continuos de salmuera",
+                "Líneas de sacrificio, corte y deshuese automatizado",
+                "Equipos de higiene, esterilización y lavadoras de cajas industriales"
+              ]
+            }
+          ],
+          "applications": [
+            "Salchichas tipo Viena y Hot Dogs",
+            "Salchichas de ave y vegetarianas",
+            "Embutidos de pequeño calibre sin piel",
+            "Plantas industriales de cocción y empaque continuo"
+          ]
+        }
+      ]
+    },
+    "en": {
+      "items": [
+        {
+          "title": "Meat & Poultry",
+          "subtitle": "Functionality that translates into yield",
+          "tagline": "More yield in process. More satisfaction in every bite.",
+          "badge": "Historical Specialty",
+          "highlights": [
+            "Better texture, bite, and structural cohesion",
+            "Higher juiciness and moisture retention without drip loss",
+            "High-penetration functional tenderizers and marinades",
+            "More stable and homogeneous emulsions",
+            "Direct drip loss reduction and cost optimization"
+          ],
+          "pillars": [
+            {
+              "title": "Yield driving profitability",
+              "description": "We maximize raw material utilization through functional systems that increase yield and foster efficient processing.",
+              "points": [
+                "Higher volumetric yield during production",
+                "Proven reduction in cooking drip loss",
+                "Lower liquid loss in vacuum packaging",
+                "Better water retention in demanding formulations",
+                "Greater batch-to-batch consistency"
+              ]
+            },
+            {
+              "title": "Stability protecting product quality",
+              "description": "Our solutions preserve structure, functionality, and quality during storage, distribution, and sale.",
+              "points": [
+                "Advanced protein matrix binding systems",
+                "High-performance emulsifiers",
+                "Enhanced emulsion stability during cooking and freezing",
+                "Better cohesion and sliceability in cold cuts",
+                "Reduced oil and water phase separation"
+              ]
+            },
+            {
+              "title": "Batch protection & preservation",
+              "description": "Antimicrobial and antioxidant systems protecting freshness, color, flavor, and microbiological safety.",
+              "points": [
+                "Tangible shelf-life extension",
+                "Active protection against microbial spoilage",
+                "Control of lipid oxidation and discoloration",
+                "Fresh, natural appearance during display"
+              ]
+            },
+            {
+              "title": "Clean Label & Meat Replacers",
+              "description": "Natural alternatives for clear labels and systems allowing meat extension while preserving bite and taste.",
+              "points": [
+                "Formulations with recognizable plant-based ingredients",
+                "Meat replacement or extender systems for cost control",
+                "Binders for complex chicken, pork, and beef matrices"
+              ]
+            }
+          ],
+          "applications": [
+            "Emulsified sausages and franks",
+            "Cooked and cured hams",
+            "Chicken nuggets and breaded products",
+            "Burgers and formed meats",
+            "Fresh cut marination and injection"
+          ]
+        },
+        {
+          "title": "Bakery & Baking",
+          "subtitle": "Science for volume - freshness - value in every bake",
+          "tagline": "Functional ingredients designed to optimize texture, volume, softness, freshness, and shelf life.",
+          "badge": "High Growth",
+          "highlights": [
+            "Softer, uniform, and airy crumb",
+            "Increased volume and extended moisture retention",
+            "Greater dough tolerance to fermentation swings",
+            "Reliable performance under freezing (bake-off)",
+            "Protein-fortified baked goods without taste loss"
+          ],
+          "pillars": [
+            {
+              "title": "Textures designed to captivate",
+              "description": "Developing the right texture for every baking format, preserving fluffiness throughout shelf life.",
+              "points": [
+                "Optimal alveolar structure and resilient crumb",
+                "Extended softness preventing premature staling",
+                "Sensory experiences tailored to every consumer"
+              ]
+            },
+            {
+              "title": "Extended shelf-life protection",
+              "description": "Technologies to control mold and yeast growth without altering traditional taste and aroma.",
+              "points": [
+                "Natural systems and encapsulated sorbic acid",
+                "Protection against starch retrogradation",
+                "Lower loss at point of sale and long-distance transport"
+              ]
+            },
+            {
+              "title": "Reliable freeze-thaw performance",
+              "description": "Systems to protect structure, fermentation, and final quality of frozen doughs and bake-off items.",
+              "points": [
+                "Protection of yeast against thermal stress",
+                "Higher stability during thaw cycles",
+                "Excellent oven spring after months of frozen storage"
+              ]
+            },
+            {
+              "title": "Coloring & Nutritional Fortification",
+              "description": "Vibrant natural colors resistant to baking and plant protein systems maintaining chewiness.",
+              "points": [
+                "Efficient dosing and uniform batch reproducibility",
+                "Higher protein content without gritty mouthfeel",
+                "Clean Label formulations without synthetic preservatives"
+              ]
+            }
+          ],
+          "applications": [
+            "Sliced pan bread",
+            "Sweet buns and pastries",
+            "Cookies and crackers",
+            "Wheat tortillas and flatbreads",
+            "Frozen doughs and bake-off products",
+            "Gluten-free and high-protein lines"
+          ]
+        },
+        {
+          "title": "Supplements & Wellness",
+          "subtitle": "Innovation enhancing holistic wellbeing",
+          "tagline": "Purity you can prove - Performance you can formulate.",
+          "badge": "Functional Nutrition",
+          "highlights": [
+            "Instantized amino acids with high solubility",
+            "Water-dispersible vitamins and carotenoids",
+            "Standardized botanical extracts and precision nutraceuticals",
+            "Excellent powder homogeneity for shakes and sticks",
+            "Strict heavy metal and microbiological controls"
+          ],
+          "pillars": [
+            {
+              "title": "A great formula starts with trusted ingredients",
+              "description": "Consistent raw materials with clear specs meeting technical and regulatory requirements.",
+              "points": [
+                "Documented purity with Certificate of Analysis (CoA)",
+                "Chemical and microbiological shelf-life stability",
+                "Full origin traceability",
+                "Versatility for tablets, capsules, and powder drinks"
+              ]
+            },
+            {
+              "title": "Functional Actives & Nutraceuticals",
+              "description": "Differentiated concepts around health, longevity, and sports nutrition trends.",
+              "points": [
+                "Physical performance and muscle recovery",
+                "Joint and bone health",
+                "Beauty from within (antioxidants and peptides)",
+                "Cellular energy and active metabolism"
+              ]
+            },
+            {
+              "title": "Advanced Dispersion Technologies",
+              "description": "Microencapsulation and surface treatments for immediate cold-water solubility.",
+              "points": [
+                "Instant wetting without clumping or settling",
+                "Systems suitable for sachets, gummies, and RTD powders",
+                "Neutral flavor facilitating organoleptic profiling"
+              ]
+            }
+          ],
+          "applications": [
+            "Protein powders and sports blends",
+            "Functional drinks and pre-workouts",
+            "Nutraceutical capsules and tablets",
+            "Functional gummies and energy shots"
+          ]
+        },
+        {
+          "title": "From Nature - Natural Colors",
+          "subtitle": "Nature's color palette for vibrant foods",
+          "tagline": "Yellow, orange, red, pink, purple, green, and blue shades with maximum stability.",
+          "badge": "Clean Label Color",
+          "highlights": [
+            "100% botanical concentrates",
+            "High resistance to heat treatment, baking, and UV light",
+            "Microfine water and lipid dispersible formats",
+            "Full replacement of synthetic dyes (FD&C)",
+            "Controlled tinting strength reproducible across batches"
+          ],
+          "pillars": [
+            {
+              "title": "High Performance & Thermal Tolerance",
+              "description": "Microfine pigments formulated to withstand pasteurization, baking, and extrusion without fading.",
+              "points": [
+                "Dispersible systems in aqueous and dry matrices",
+                "Antioxidant strategies to prevent light degradation",
+                "Selection adjusted to final food pH"
+              ]
+            },
+            {
+              "title": "Dispersion Tailored to Each Matrix",
+              "description": "Tailored solutions preventing color migration in sausages, icings, drinks, or snacks.",
+              "points": [
+                "Controlled dosing and competitive cost-in-use",
+                "Compatibility with clean labels and warning-free packaging",
+                "Guaranteed supply from selected agricultural sources"
+              ]
+            }
+          ],
+          "applications": [
+            "Naturally cured meats and sausages",
+            "Bakery, cookies, and sweet coatings",
+            "Flavored drinks and juices",
+            "Confectionery, gummies, and dairy desserts"
+          ]
+        },
+        {
+          "title": "Meat Tech: VICEL & RIBON",
+          "subtitle": "High-speed cellulose casings and industrial machinery",
+          "tagline": "Integrating high-speed packaging consumables and specialized machinery for profitable, automated processing.",
+          "badge": "Process Engineering",
+          "highlights": [
+            "VICEL cellulose casings: uniform caliber and ultra-fast peeling",
+            "RIBON machinery: ovens, tumblers, injectors, and slaughter lines",
+            "Perfect smoke and aroma permeability",
+            "Full compatibility with high-speed stuffers",
+            "In-plant engineering and technical service support"
+          ],
+          "pillars": [
+            {
+              "title": "VICEL - High-Speed Cellulose Casings",
+              "description": "Wenda Ingredients is VICEL's strategic partner, providing biodegradable casings from natural wood cellulose and cotton linter.",
+              "points": [
+                "Uniform thickness and high abrasion resistance",
+                "Air and water vapor permeability for perfect smoking",
+                "Easy peeling without meat adherence",
+                "Direct use from pack without pre-soaking",
+                "Variants: transparent, smoked, cherry, orange, stripes, and custom print"
+              ]
+            },
+            {
+              "title": "RIBON - Machinery for Processing Plants",
+              "description": "Individual equipment or complete lines tailored to meat plant capacity.",
+              "points": [
+                "Industrial cooking and smoking ovens with smoke generators",
+                "Vacuum massage tumblers and continuous brine injectors",
+                "Slaughter, cutting, and automated deboning lines",
+                "Hygiene, sterilization, and industrial crate washers"
+              ]
+            }
+          ],
+          "applications": [
+            "Frankfurters and Vienna sausages",
+            "Poultry and vegetarian sausages",
+            "Small caliber skinless sausages",
+            "Industrial cooking and continuous packaging lines"
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "items": [
+        {
+          "title": "肉类与家禽 (Meat & Poultry)",
+          "subtitle": "将功能性转化为实实在在的出程率",
+          "tagline": "加工出程率更高，每一口口感更满意。",
+          "badge": "传统核心优势",
+          "highlights": [
+            "提升切片质构、咬劲与结构致密度",
+            "提升多汁性与保水保汁率，无渗液",
+            "高渗透性功能嫩化剂与腌制剂",
+            "更稳定均匀的乳化体系",
+            "直接降低热损耗，优化配方成本"
+          ],
+          "pillars": [
+            {
+              "title": "提升出程率，驱动企业盈利",
+              "description": "通过功能性原料体系提高原材料利用率，增加出程率并促进高效加工。",
+              "points": [
+                "生产过程中的体积出程率大幅提升",
+                "经实测验证有效降低蒸煮烹饪损耗",
+                "减少真空包装过程中的渗液与血水析出",
+                "在苛刻配方中具备更好的保水性能",
+                "批次与批次间品质高度稳定一致"
+              ]
+            },
+            {
+              "title": "稳定保护产品品质",
+              "description": "在储存、运输及销售过程中保持产品结构、功能性与外观品质。",
+              "points": [
+                "针对蛋白质基质的先进黏合体系",
+                "高效乳化剂",
+                "增强蒸煮与冷冻过程中的乳化稳定性",
+                "提升冷切肉制品的切片性与凝聚力",
+                "减少水油分离现象"
+              ]
+            },
+            {
+              "title": "批次保护与保鲜",
+              "description": "天然抑菌与抗氧化体系，保护产品新鲜度、色泽、风味与微生物安全。",
+              "points": [
+                "显著延长货架期",
+                "主动抵御微生物变质",
+                "控制脂肪氧化与褪色变色",
+                "展示期间保持新鲜自然的色泽"
+              ]
+            },
+            {
+              "title": "清洁标签与肉类替代/复配",
+              "description": "提供天然来源的清洁标签方案及在保留口感的同时合理复配肉量的体系。",
+              "points": [
+                "采用可识别植物来源原料配方",
+                "用于成本控制的肉类复配或替代体系",
+                "适用于鸡肉、猪肉及牛肉复杂基质的黏合剂"
+              ]
+            }
+          ],
+          "applications": [
+            "乳化型香肠与西式热狗",
+            "蒸煮火腿与培根",
+            "鸡肉块与油炸裹粉产品",
+            "汉堡肉饼与重组肉",
+            "鲜肉注射与滚揉腌制"
+          ]
+        },
+        {
+          "title": "烘焙与面制品 (Bakery)",
+          "subtitle": "科学赋能更大体积 · 持久新鲜 · 烘焙价值",
+          "tagline": "专为改善质构、体积、柔软度、新鲜度与保质期而设计的特种功能原料。",
+          "badge": "高速增长",
+          "highlights": [
+            "更柔软、均匀且蓬松的气孔组织",
+            "体积更大且具备长效保水保湿",
+            "增强面团对发酵波动的耐受力",
+            "在冷冻面团 (bake-off) 中性能可靠",
+            "高蛋白强化烘焙且无风味损失"
+          ],
+          "pillars": [
+            {
+              "title": "匠心设计的烘焙质构",
+              "description": "为各种烘焙品类研发理想质构，在整个货架期内保持蓬松与柔软。",
+              "points": [
+                "优化的气孔结构与弹韧适宜的面包心",
+                "长效保持柔软，防止早熟老化变硬",
+                "满足不同消费者的丰富口感体验"
+              ]
+            },
+            {
+              "title": "保质期延长的安全防护",
+              "description": "在不改变传统香味与口感的前提下控制霉菌与酵母菌生长。",
+              "points": [
+                "天然防腐体系与微胶囊包埋山梨酸",
+                "防止淀粉回生老化",
+                "减少终端货架损耗与长途运输风险"
+              ]
+            },
+            {
+              "title": "冷冻面团的卓越耐受性",
+              "description": "保护冷冻面团及预烘焙产品的结构、发酵力与最终成品品质。",
+              "points": [
+                "保护酵母免受冷冻热应力损伤",
+                "解冻循环过程中具备更高的稳定性",
+                "冷冻储藏数月后仍具备优异的入炉膨胀力"
+              ]
+            },
+            {
+              "title": "天然色素与营养强化",
+              "description": "耐高温烘焙的鲜艳天然色素与维持咀嚼感的植物蛋白强化体系。",
+              "points": [
+                "添加量低且批次复现性好",
+                "提高蛋白质含量且无沙粒口感",
+                "无合成防腐剂的 Clean Label 清洁标签配方"
+              ]
+            }
+          ],
+          "applications": [
+            "切片切方吐司",
+            "甜面包与糕点",
+            "饼干与曲奇",
+            "小麦卷饼与薄饼",
+            "冷冻面团与预烘焙产品",
+            "无麸质与高蛋白系列"
+          ]
+        },
+        {
+          "title": "营养补充剂 (Supplements)",
+          "subtitle": "以创新赋能整体健康",
+          "tagline": "纯度可据以证明 - 性能可据以配方化。",
+          "badge": "功能性营养",
+          "highlights": [
+            "高溶解度速溶造粒氨基酸",
+            "水分散性维生素与类胡萝卜素",
+            "标准化植物提取物与精密膳食补充剂",
+            "在冲饮粉剂与小条包中具备极佳均匀度",
+            "严格的重金属与微生物指标把控"
+          ],
+          "pillars": [
+            {
+              "title": "优质配方始于值得信赖的原料",
+              "description": "规格明确、品质稳定一致的原料，满足各项目的技术与法规要求。",
+              "points": [
+                "随货附带 CoA 分析合格证证明纯度",
+                "在货架期内具备良好的化学与微生物稳定性",
+                "原料来源全程可追溯",
+                "广泛适用于压片、胶囊及固体饮料"
+              ]
+            },
+            {
+              "title": "功能活性成分与膳食补充剂",
+              "description": "围绕健康、抗衰长寿及运动营养趋势打造差异化提案。",
+              "points": [
+                "运动表现与肌肉修复",
+                "骨骼与关节健康",
+                "口服美容 (抗氧化剂与活性肽)",
+                "细胞能量与活性代谢"
+              ]
+            },
+            {
+              "title": "先进的分散造粒技术",
+              "description": "微胶囊包埋与表面处理技术，实现冷水瞬间完全溶解。",
+              "points": [
+                "瞬间润湿，无结块、无沉淀",
+                "适用于小条包、软糖及即饮冲剂",
+                "风味中性，便于进行感官调味"
+              ]
+            }
+          ],
+          "applications": [
+            "蛋白粉与运动营养复配粉",
+            "功能性饮料与预充能冲饮",
+            "膳食补充剂胶囊与片剂",
+            "功能性软糖与能量饮"
+          ]
+        },
+        {
+          "title": "天然色素 (From Nature)",
+          "subtitle": "来自大自然的绚丽色彩",
+          "tagline": "涵盖黄、橙、红、粉、紫、绿、蓝等色调，具备极高稳定性。",
+          "badge": "清洁标签色素",
+          "highlights": [
+            "100% 可识别植物来源提取",
+            "对热处理、烘焙及紫外光照具备高耐受性",
+            "超微细、水分散与脂分散型规格",
+            "全面替代合成食用色素 (FD&C)",
+            "着色力稳定且批次间高度可复现"
+          ],
+          "pillars": [
+            {
+              "title": "高性能与耐热稳定性",
+              "description": "经过精细化处理的超微色素，耐受巴氏杀菌、烘焙与挤压膨化而不褪色。",
+              "points": [
+                "适用于水相与干粉基质的分散体系",
+                "防止光照复配抗氧化策略",
+                "根据食品最终 pH 值精准选型"
+              ]
+            },
+            {
+              "title": "适配各种基质的分散性能",
+              "description": "定制化解决方案，防止在香肠、淋面、饮料或膨化食品中发生迁移。",
+              "points": [
+                "添加量低，综合使用成本具备竞争力",
+                "符合清洁标签要求，无需标注警告标识",
+                "严格选育的优质农产品原料保障稳定供应"
+              ]
+            }
+          ],
+          "applications": [
+            "天然发色肉制品与香肠",
+            "烘焙、饼干与甜品淋面",
+            "风味饮料与果汁",
+            "糖果、软糖与乳品甜点"
+          ]
+        },
+        {
+          "title": "VICEL 肠衣与 RIBON 机械",
+          "subtitle": "高速纤维素肠衣与工业化加工机械",
+          "tagline": "整合高速度包装耗材与特种加工设备，助力工厂实现更高自动化与盈利能力。",
+          "badge": "工程工艺",
+          "highlights": [
+            "VICEL 纤维素肠衣：口径均匀，剥皮极快",
+            "RIBON 机械：蒸煮炉、滚揉机、注射机及屠宰分割线",
+            "优异的烟熏与香气透过率",
+            "完全兼容各类高速灌装机",
+            "驻厂工程技术与售后服务支持"
+          ],
+          "pillars": [
+            {
+              "title": "VICEL - 高速剥皮纤维素肠衣",
+              "description": "文达原料为 VICEL 战略合作伙伴，提供由天然木材与棉短绒制成的可降解纤维素肠衣。",
+              "points": [
+                "壁厚均匀，耐磨性强",
+                "透气透蒸气，烟熏上色均匀",
+                "极易剥皮，无肉质粘连损耗",
+                "拆封即用，无需预先浸泡",
+                "提供透明、烟熏色、樱桃红、橙色、标识条纹及定制印刷等多种规格"
+              ]
+            },
+            {
+              "title": "RIBON - 食品加工厂机械设备",
+              "description": "根据各肉品工厂的产能需求提供单机或整条自动化生产线。",
+              "points": [
+                "带发烟装置的工业蒸煮烟熏炉",
+                "真空滚揉机与连续式盐水注射机",
+                "屠宰、分割与自动化去骨生产线",
+                "卫生消毒设备与工业周转箱清洗机"
+              ]
+            }
+          ],
+          "applications": [
+            "维也纳香肠与西式热狗肠",
+            "禽肉肠与素食香肠",
+            "无皮小口径香肠",
+            "工业化连续蒸煮与包装生产线"
+          ]
+        }
+      ]
+    }
+  },
+  "naturalColors": {
+    "es": {
+      "items": [
+        {
+          "name": "Polvo de remolacha roja",
+          "source": "Remolacha roja",
+          "tone": "Rojo rubí / Magenta",
+          "application": "Cárnicos curados, yogures, coberturas"
+        },
+        {
+          "name": "Extracto de hibisco",
+          "source": "Flor de hibisco",
+          "tone": "Rosa brillante / Borgoña",
+          "application": "Bebidas, gomitas, jaleas"
+        },
+        {
+          "name": "Polvo de rábano rojo",
+          "source": "Rábano rojo",
+          "tone": "Rojo escarlata intenso",
+          "application": "Embutidos, salsas, panificados"
+        },
+        {
+          "name": "Extracto de rosa",
+          "source": "Pétalos de rosa",
+          "tone": "Rosa pastel elegante",
+          "application": "Repostería fina, helados, bebidas"
+        },
+        {
+          "name": "Camote morado",
+          "source": "Camote morado",
+          "tone": "Púrpura profundo / Violeta",
+          "application": "Snacks, galletas, rellenos de panadería"
+        },
+        {
+          "name": "Azul de gardenia",
+          "source": "Gardenia jasminoides Ellis",
+          "tone": "Azul cielo vibrante",
+          "application": "Bebidas isotónicas, confitería, heladería"
+        },
+        {
+          "name": "Polvo de espirulina (Estándar & Superfino)",
+          "source": "Alga Arthrospira platensis",
+          "tone": "Azul zafiro & Verde océano",
+          "application": "Suplementos en polvo, batidos, coberturas"
+        },
+        {
+          "name": "Amarillo de gardenia",
+          "source": "Gardenia jasminoides Ellis",
+          "tone": "Amarillo luminoso limpio",
+          "application": "Fideos, productos horneados, cremas"
+        },
+        {
+          "name": "Cúrcuma concentrada",
+          "source": "Curcuma longa",
+          "tone": "Amarillo dorado cálido",
+          "application": "Mostazas, aderezos, pan de hamburguesa"
+        },
+        {
+          "name": "Extracto de espino amarillo",
+          "source": "Fruto de espino amarillo",
+          "tone": "Naranja mandarino cálido",
+          "application": "Jugos cítricos, confitería, cereales"
+        },
+        {
+          "name": "Betacaroteno natural",
+          "source": "Frutas y vegetales seleccionados",
+          "tone": "Naranja radiante / Dorado",
+          "application": "Margarinas, pastas, bebidas refrescantes"
+        }
+      ]
+    },
+    "en": {
+      "items": [
+        {
+          "name": "Red Beet Powder",
+          "source": "Red Beetroot",
+          "tone": "Ruby Red / Magenta",
+          "application": "Cured meats, yogurts, toppings"
+        },
+        {
+          "name": "Hibiscus Extract",
+          "source": "Hibiscus Flower",
+          "tone": "Bright Pink / Burgundy",
+          "application": "Beverages, gummies, jellies"
+        },
+        {
+          "name": "Red Radish Powder",
+          "source": "Red Radish",
+          "tone": "Intense Scarlet Red",
+          "application": "Sausages, sauces, bakery"
+        },
+        {
+          "name": "Rose Extract",
+          "source": "Rose Petals",
+          "tone": "Elegant Pastel Pink",
+          "application": "Fine pastry, ice creams, drinks"
+        },
+        {
+          "name": "Purple Sweet Potato",
+          "source": "Purple Sweet Potato",
+          "tone": "Deep Purple / Violet",
+          "application": "Snacks, cookies, bakery fillings"
+        },
+        {
+          "name": "Gardenia Blue",
+          "source": "Gardenia jasminoides Ellis",
+          "tone": "Vibrant Sky Blue",
+          "application": "Isotonic drinks, confectionery, ice cream"
+        },
+        {
+          "name": "Spirulina Powder (Standard & Superfine)",
+          "source": "Arthrospira platensis algae",
+          "tone": "Sapphire Blue & Ocean Green",
+          "application": "Powder supplements, shakes, coatings"
+        },
+        {
+          "name": "Gardenia Yellow",
+          "source": "Gardenia jasminoides Ellis",
+          "tone": "Clean Luminous Yellow",
+          "application": "Noodles, baked goods, creams"
+        },
+        {
+          "name": "Concentrated Turmeric",
+          "source": "Curcuma longa",
+          "tone": "Warm Golden Yellow",
+          "application": "Mustards, dressings, burger buns"
+        },
+        {
+          "name": "Sea Buckthorn Extract",
+          "source": "Sea Buckthorn Fruit",
+          "tone": "Warm Mandarin Orange",
+          "application": "Citrus juices, confectionery, cereals"
+        },
+        {
+          "name": "Natural Beta-carotene",
+          "source": "Selected fruits and vegetables",
+          "tone": "Radiant Orange / Gold",
+          "application": "Margarines, pastas, refreshing drinks"
+        }
+      ]
+    },
+    "zh": {
+      "items": [
+        {
+          "name": "甜菜红粉",
+          "source": "红甜菜根",
+          "tone": "红宝石红 / 洋红",
+          "application": "发色肉制品、酸奶、淋面"
+        },
+        {
+          "name": "洛神花/玫瑰茄提取物",
+          "source": "玫瑰茄花",
+          "tone": "亮粉色 / 酒红",
+          "application": "饮料、软糖、果冻"
+        },
+        {
+          "name": "红萝卜色素",
+          "source": "红萝卜",
+          "tone": "鲜艳猩红",
+          "application": "香肠、酱汁、烘焙食品"
+        },
+        {
+          "name": "玫瑰提取物",
+          "source": "玫瑰花瓣",
+          "tone": "优雅粉红",
+          "application": "精细烘焙、冰淇淋、饮料"
+        },
+        {
+          "name": "紫薯色素",
+          "source": "紫薯",
+          "tone": "深紫 / 罗兰紫",
+          "application": "休闲食品、饼干、烘焙馅料"
+        },
+        {
+          "name": "栀子蓝色素",
+          "source": "栀子 (Gardenia jasminoides)",
+          "tone": "鲜艳蔚蓝",
+          "application": "运动饮料、糖果、冰淇淋"
+        },
+        {
+          "name": "螺旋藻蓝粉 (标准与超细级)",
+          "source": "钝顶螺旋藻",
+          "tone": "宝石蓝 & 海洋绿",
+          "application": "粉剂补充剂、摇摇乐冲饮、糖衣"
+        },
+        {
+          "name": "栀子黄色素",
+          "source": "栀子 (Gardenia jasminoides)",
+          "tone": "明亮明黄",
+          "application": "面条、烘焙食品、奶油"
+        },
+        {
+          "name": "姜黄色素",
+          "source": "姜黄 (Curcuma longa)",
+          "tone": "暖金黄",
+          "application": "芥末酱、沙拉酱、汉堡面包"
+        },
+        {
+          "name": "沙棘色素",
+          "source": "沙棘果",
+          "tone": "暖柑橘橙",
+          "application": "柑橘果汁、糖果、谷物"
+        },
+        {
+          "name": "天然 β-胡萝卜素",
+          "source": "果蔬提取",
+          "tone": "耀眼橙 / 金黄",
+          "application": "人造奶油、意大利面、清凉饮料"
+        }
+      ]
+    }
+  },
+  "brands": {
+    "es": {
+      "items": [
+        {
+          "name": "WBS",
+          "claim": "Conectores de proteínas de transglutaminasa libre de alérgenos",
+          "description": "Sistema enzimático diseñado como alternativa para reducir o sustituir fosfatos, favoreciendo la retención de humedad, la jugosidad y la estabilidad de la emulsión.",
+          "category": "Cárnicos & Proteínas",
+          "tag": "Clean Label",
+          "features": [
+            "Libre de alérgenos",
+            "Reduce fosfatos",
+            "Mayor retención hídrica"
+          ]
+        },
+        {
+          "name": "Wenda Phos",
+          "claim": "Mezclas de fosfatos y tripolifosfatos de alta pureza",
+          "description": "Diseñadas para jamones, embutidos, salmueras de inyección y productos emulsionados. Gran solubilidad y tolerancia a la sal con estabilización óptima del pH.",
+          "category": "Funcionales Esenciales",
+          "tag": "Alta Pureza",
+          "features": [
+            "Alta solubilidad en frío",
+            "Control de sinéresis",
+            "Excelente firmeza al corte"
+          ]
+        },
+        {
+          "name": "WMR",
+          "claim": "Sistemas funcionales a base de proteína para sustitución cárnica",
+          "description": "Permiten optimizar el contenido cárnico manteniendo mordida, textura y jugosidad, favoreciendo la emulsificación de grasa y retención de líquidos.",
+          "category": "Optimización de Costos",
+          "tag": "Rendimiento",
+          "features": [
+            "Sustitución controlada",
+            "Mejora de masticabilidad",
+            "Estabilidad térmica"
+          ]
+        },
+        {
+          "name": "Safe Plate",
+          "claim": "Conservadores y antioxidantes de origen natural",
+          "description": "Soluciones Clean Label formuladas con vinagre tamponado, vitamina C y extracto de romero desodorizado para extender vida útil sin notas ácidas indeseadas.",
+          "category": "Bioprotección Natural",
+          "tag": "Etiqueta Limpia",
+          "features": [
+            "Vinagre tamponado",
+            "Extracto de romero",
+            "Cero sabores residuales"
+          ]
+        },
+        {
+          "name": "SoyPura",
+          "claim": "Proteínas de soya versátiles (70% - 90%)",
+          "description": "Concentrados y aislados proteicos de alta solubilidad que favorecen la emulsificación, retención de humedad y estructuración de matrices cárnicas y panaderas.",
+          "category": "Proteínas Vegetales",
+          "tag": "Nutrición",
+          "features": [
+            "Concentraciones 70%-90%",
+            "Gran capacidad de gel",
+            "Estabilidad en congelación"
+          ]
+        },
+        {
+          "name": "NatureBinde",
+          "claim": "Solución natural alternativa a fosfatos",
+          "description": "Mejora el rendimiento, la jugosidad y suavidad manteniendo la estructura natural de la carne, con alta capacidad amortiguadora para brindar máxima estabilidad al proceso.",
+          "category": "Fosfato Alternativo",
+          "tag": "100% Natural",
+          "features": [
+            "Alternativa a fosfatos",
+            "Potenciador de humedad",
+            "Alta capacidad buffer"
+          ]
+        },
+        {
+          "name": "Koolgel",
+          "claim": "Sistemas hidrocoloides y carragenina kappa de alta capacidad",
+          "description": "Formulado con fibras vegetales y carrageninas de grado alimentario para optimizar la elasticidad, rebanabilidad y resistencia en ciclos de congelación/descongelación.",
+          "category": "Hidrocoloides",
+          "tag": "Elasticidad",
+          "features": [
+            "Carragenina kappa purificada",
+            "Cero purga al corte",
+            "Resistente a descongelado"
+          ]
+        },
+        {
+          "name": "FreshGuard",
+          "claim": "Sistemas de bioprotección contra microorganismos patógenos",
+          "description": "Control de Listeria y flora alterante que prolonga la frescura comercial y preserva el color, jugosidad y textura en aplicaciones directas o de superficie.",
+          "category": "Inocuidad Alimentaria",
+          "tag": "Seguridad",
+          "features": [
+            "Control de Listeria monocytogenes",
+            "Prolonga vida de anaquel",
+            "Protege color fresco"
+          ]
+        }
+      ]
+    },
+    "en": {
+      "items": [
+        {
+          "name": "WBS",
+          "claim": "Allergen-free transglutaminase protein binding connectors",
+          "description": "Enzymatic system designed to reduce or replace phosphates, enhancing moisture retention, juiciness, and emulsion stability.",
+          "category": "Meat & Proteins",
+          "tag": "Clean Label",
+          "features": [
+            "Allergen-free",
+            "Reduces phosphates",
+            "Higher water retention"
+          ]
+        },
+        {
+          "name": "Wenda Phos",
+          "claim": "High-purity phosphate and tripolyphosphate blends",
+          "description": "Engineered for hams, sausages, injection brines, and emulsified meats. Excellent cold solubility and salt tolerance with optimal pH buffering.",
+          "category": "Essential Functionals",
+          "tag": "High Purity",
+          "features": [
+            "Cold solubility",
+            "Syneresis control",
+            "Clean slicing firmness"
+          ]
+        },
+        {
+          "name": "WMR",
+          "claim": "Protein-based functional systems for meat replacement",
+          "description": "Optimizes meat content while maintaining bite, texture, and juiciness, supporting fat emulsification and liquid retention.",
+          "category": "Cost Optimization",
+          "tag": "Yield",
+          "features": [
+            "Controlled replacement",
+            "Improved chewiness",
+            "Thermal stability"
+          ]
+        },
+        {
+          "name": "Safe Plate",
+          "claim": "Natural origin preservatives and antioxidants",
+          "description": "Clean Label solutions formulated with buffered vinegar, vitamin C, and deodorized rosemary extract to extend shelf life without sour notes.",
+          "category": "Natural Bioprotection",
+          "tag": "Clean Label",
+          "features": [
+            "Buffered vinegar",
+            "Rosemary extract",
+            "Zero off-flavors"
+          ]
+        },
+        {
+          "name": "SoyPura",
+          "claim": "Versatile soy proteins (70% - 90%)",
+          "description": "High-solubility protein concentrates and isolates promoting emulsification, moisture retention, and structure in meat and bakery matrices.",
+          "category": "Plant Proteins",
+          "tag": "Nutrition",
+          "features": [
+            "70%-90% protein",
+            "High gel strength",
+            "Freeze stability"
+          ]
+        },
+        {
+          "name": "NatureBinde",
+          "claim": "Natural phosphate alternative solution",
+          "description": "Enhances yield, juiciness, and softness while maintaining natural meat fiber structure, with high buffering capacity for process stability.",
+          "category": "Phosphate Alternative",
+          "tag": "100% Natural",
+          "features": [
+            "Phosphate alternative",
+            "Moisture booster",
+            "High buffer capacity"
+          ]
+        },
+        {
+          "name": "Koolgel",
+          "claim": "High-capacity hydrocolloid and kappa carrageenan systems",
+          "description": "Formulated with plant fibers and food-grade carrageenans to optimize elasticity, sliceability, and freeze/thaw stability.",
+          "category": "Hydrocolloids",
+          "tag": "Elasticity",
+          "features": [
+            "Purified kappa carrageenan",
+            "Zero slice purge",
+            "Freeze-thaw resistant"
+          ]
+        },
+        {
+          "name": "FreshGuard",
+          "claim": "Bioprotection systems against pathogenic microorganisms",
+          "description": "Controls Listeria and spoilage flora, extending commercial freshness while preserving color, juiciness, and texture.",
+          "category": "Food Safety",
+          "tag": "Security",
+          "features": [
+            "Listeria control",
+            "Extends shelf life",
+            "Protects fresh color"
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "items": [
+        {
+          "name": "WBS",
+          "claim": "无过敏原谷氨酰胺转氨酶 (TG酶) 蛋白交联体系",
+          "description": "专为降低或替代复合磷酸盐而设计的酶制剂体系，显著提高保水性、多汁感及乳化稳定性。",
+          "category": "肉制品与蛋白质",
+          "tag": "清洁标签",
+          "features": [
+            "无过敏原成分",
+            "降低磷酸盐使用量",
+            "极高保水出程率"
+          ]
+        },
+        {
+          "name": "Wenda Phos",
+          "claim": "高纯度复合磷酸盐与焦磷酸盐复配物",
+          "description": "专为火腿、西式香肠、注射盐水及乳化肉制品设计。溶解度高、耐盐性好，具有优异的 pH 缓冲能力。",
+          "category": "基础功能原料",
+          "tag": "高纯度",
+          "features": [
+            "冷水快速溶解",
+            "控制渗液析出",
+            "优异的切片硬度"
+          ]
+        },
+        {
+          "name": "WMR",
+          "claim": "基于蛋白质的肉类替代与增量功能体系",
+          "description": "在保持切片咬劲、质构与多汁感的同时优化肉含量，促进脂肪乳化与水分保持。",
+          "category": "成本优化方案",
+          "tag": "出程率",
+          "features": [
+            "可控比例替代",
+            "改善咀嚼口感",
+            "耐高温热稳定性"
+          ]
+        },
+        {
+          "name": "Safe Plate",
+          "claim": "天然来源防腐剂与抗氧化剂",
+          "description": "Clean Label 清洁标签方案，由缓冲醋粉、维生素 C 及脱臭迷迭香提取物复配而成，延长保质期且无不良酸味。",
+          "category": "天然生物防护",
+          "tag": "清洁标签",
+          "features": [
+            "缓冲醋粉成分",
+            "迷迭香提取物",
+            "无异味残留"
+          ]
+        },
+        {
+          "name": "SoyPura",
+          "claim": "多功能大豆蛋白系列 (70% - 90%)",
+          "description": "高溶解性大豆浓缩与分离蛋白，促进肉类及烘焙基质的乳化、保水与结构成型。",
+          "category": "植物蛋白",
+          "tag": "营养强化",
+          "features": [
+            "70%-90% 蛋白含量",
+            "高凝胶强度",
+            "耐冷冻解冻"
+          ]
+        },
+        {
+          "name": "NatureBinde",
+          "claim": "天然无磷酸盐替代解决方案",
+          "description": "在保持肉质纤维天然结构的同时提升出程率、多汁感与柔软度，具备高缓冲能力以保障工艺稳定性。",
+          "category": "无磷替代",
+          "tag": "100% 天然",
+          "features": [
+            "无磷酸盐替代",
+            "锁水增柔",
+            "高 pH 缓冲能力"
+          ]
+        },
+        {
+          "name": "Koolgel",
+          "claim": "高性能复配胶体与卡拉胶体系",
+          "description": "由植物纤维与食品级卡拉胶复配而成，优化肉制品的弹性、切片性及耐冻融稳定性。",
+          "category": "复配亲水胶体",
+          "tag": "高弹性",
+          "features": [
+            "纯化卡拉胶",
+            "切片零血水析出",
+            "耐反复冻融"
+          ]
+        },
+        {
+          "name": "FreshGuard",
+          "claim": "抵御致病微生物的生物防护体系",
+          "description": "有效控制单核细胞增生李斯特菌及腐败菌，延长商品保质期，同时保护天然鲜艳色泽与多汁感。",
+          "category": "食品安全",
+          "tag": "生物安全",
+          "features": [
+            "控制李斯特菌",
+            "显著延长保质期",
+            "保护新鲜肉色"
+          ]
+        }
+      ]
+    }
+  },
+  "timeline": {
+    "es": {
+      "items": [
+        {
+          "era": "Génesis & Comercio Portuario",
+          "title": "Fundación en Dalian",
+          "description": "Nace Wenda Ingredients en el polo portuario e industrial de Dalian con la visión pionera de vincular la manufactura asiática de materias primas con los estándares de la industria alimentaria internacional.",
+          "imageCaption": "Puerto y centro logístico de materias primas en Dalian, inicio del comercio exterior de aditivos.",
+          "location": "Dalian, China",
+          "tag": "Origen Industrial",
+          "metric": {
+            "value": "30+",
+            "label": "Años de trayectoria ininterrumpida"
+          }
+        },
+        {
+          "era": "Biotecnología & Enzimas",
+          "title": "Desarrollo Enzimático y Transglutaminasa",
+          "description": "Desarrollo y puesta en marcha de reactores de fermentación para la producción de transglutaminasa y conectores proteicos de alta afinidad en sistemas cárnicos, surimi y análogos proteicos.",
+          "imageCaption": "Biocatálisis y purificación de transglutaminasa para la reticulación covalente de proteínas cárnicas.",
+          "location": "Dalian R&D Center",
+          "tag": "Biocatálisis Proteica",
+          "metric": {
+            "value": "TG-Meat",
+            "label": "Pioneros en formulación enzimática de alto enlace"
+          }
+        },
+        {
+          "era": "Expansión Intercontinental",
+          "title": "Consolidación de Sedes Internacionales",
+          "description": "Apertura de filiales operativas directas y centros de distribución estratégica en Norteamérica, Europa y Asia-Pacífico, eliminando intermediarios en la cadena de frío y suministro.",
+          "imageCaption": "Infraestructura logística multimodal y almacenamiento regulado en Norteamérica y Europa.",
+          "location": "Red Transcontinental",
+          "tag": "Cadena de Suministro Directa",
+          "metric": {
+            "value": "3",
+            "label": "Continentes con presencia operativa directa"
+          }
+        },
+        {
+          "era": "Revolución Clean Label",
+          "title": "Vanguardia en Soluciones Clean Label",
+          "description": "Desarrollo y patente de las familias SafePlate® y FreshGuard®: conservadores botánicos, extractos de romero y fermentos naturales para sustituir fosfatos y nitritos sintéticos sin alterar el perfil sensorial.",
+          "imageCaption": "Extractos botánicos de romero y antioxidantes polifenólicos para reemplazo de aditivos sintéticos.",
+          "location": "Global R&D Lab",
+          "tag": "Etiqueta Limpia & Antioxidantes",
+          "metric": {
+            "value": "0%",
+            "label": "Aditivos químicos sintéticos en la línea SafePlate"
+          }
+        },
+        {
+          "era": "Aterrizaje Técnico Regional",
+          "title": "Laboratorio de Aplicación México & Latam",
+          "description": "Inauguración de la planta piloto y centro técnico de pruebas cárnicas y panificación en México, permitiendo tropicalizar texturas, mermas de cocción y perfiles sensoriales para toda América Latina.",
+          "imageCaption": "Planta piloto cárnica y laboratorio reológico para pruebas de rendimiento en tiempo real.",
+          "location": "Querétaro, México",
+          "tag": "Planta Piloto de Aplicación",
+          "metric": {
+            "value": "48h",
+            "label": "Tiempo de prototipado y validación de muestra técnica"
+          }
+        },
+        {
+          "era": "Ciencia de la Masa & Panificación",
+          "title": "Líneas de Panificación y Nutrición",
+          "description": "Expansión hacia texturizantes enzimáticos, hidrocoloides y emulsiones para panificación industrial y pastelería, logrando retención de humedad prolongada, volumen óptimo y tolerancia en masa congelada.",
+          "imageCaption": "Optimización de la microestructura del alveolado y retención de humedad en masas industriales.",
+          "location": "División Bakery & Cereales",
+          "tag": "Retención de Humedad & Alveolado",
+          "metric": {
+            "value": "+30%",
+            "label": "Extensión de frescura en miga sin conservadores sintéticos"
+          }
+        },
+        {
+          "era": "Automatización & Embutición",
+          "title": "Alianzas Estratégicas VICEL & RIBON",
+          "description": "Integración exclusiva de tripas de celulosa regenerada VICEL de alta velocidad y maquinaria alemana/asiática RIBON para embutición continua sin roturas en líneas automáticas.",
+          "imageCaption": "Tripas celulósicas VICEL y envolvedoras mecánicas continuas de ultra-alta velocidad.",
+          "location": "División Maquinaria & Casing",
+          "tag": "Ingeniería de Procesamiento",
+          "metric": {
+            "value": "2,000+",
+            "label": "Piezas por minuto en líneas continuas de salchicha"
+          }
+        },
+        {
+          "era": "Biotecnología Celular & Red Indent",
+          "title": "Lanzamiento WNDA Science & Red Indent",
+          "description": "Consolidación de WNDA Science para suplementos, extractos bioactivos y péptidos funcionales, junto con la red Wenda Indent para cotización directa en origen y abastecimiento global transparente.",
+          "imageCaption": "Péptidos bioactivos y estandarización analítica HPLC para nutracéuticos de grado farmacéutico.",
+          "location": "Plataforma Global Wenda",
+          "tag": "Nutracéutica & Trazabilidad",
+          "metric": {
+            "value": "100%",
+            "label": "Trazabilidad de origen y pureza certificada"
+          }
+        }
+      ]
+    },
+    "en": {
+      "items": [
+        {
+          "era": "Genesis & Port Trade",
+          "title": "Foundation in Dalian",
+          "description": "Wenda Ingredients was founded in the port and industrial hub of Dalian with a pioneering vision to bridge Asian raw material manufacturing with international food industry standards.",
+          "imageCaption": "Port and logistics hub for raw materials in Dalian, beginning of international trade.",
+          "location": "Dalian, China",
+          "tag": "Industrial Origin",
+          "metric": {
+            "value": "30+",
+            "label": "Years of uninterrupted experience"
+          }
+        },
+        {
+          "era": "Biotechnology & Enzymes",
+          "title": "Enzymatic Development & Transglutaminase",
+          "description": "Development and commissioning of fermentation reactors for transglutaminase and high-affinity protein cross-linking systems in meat, surimi, and plant proteins.",
+          "imageCaption": "Biocatalysis and transglutaminase purification for covalent cross-linking of meat proteins.",
+          "location": "Dalian R&D Center",
+          "tag": "Protein Biocatalysis",
+          "metric": {
+            "value": "TG-Meat",
+            "label": "Pioneers in high-binding enzymatic formulation"
+          }
+        },
+        {
+          "era": "Intercontinental Expansion",
+          "title": "Consolidation of Global Headquarters",
+          "description": "Opening of direct operating subsidiaries and strategic distribution centers in North America, Europe, and Asia-Pacific, eliminating cold-chain intermediaries.",
+          "imageCaption": "Multimodal logistics infrastructure and regulated warehousing in North America and Europe.",
+          "location": "Transcontinental Network",
+          "tag": "Direct Supply Chain",
+          "metric": {
+            "value": "3",
+            "label": "Continents with direct operational presence"
+          }
+        },
+        {
+          "era": "Clean Label Revolution",
+          "title": "Vanguard in Clean Label Solutions",
+          "description": "Development and patenting of SafePlate® and FreshGuard®: botanical preservatives, rosemary extracts, and natural ferments replacing synthetic phosphates and nitrites.",
+          "imageCaption": "Botanical rosemary extracts and polyphenolic antioxidants replacing synthetic additives.",
+          "location": "Global R&D Lab",
+          "tag": "Clean Label & Antioxidants",
+          "metric": {
+            "value": "0%",
+            "label": "Synthetic chemical additives in SafePlate line"
+          }
+        },
+        {
+          "era": "Regional Technical Hub",
+          "title": "Mexico & Latam Application Laboratory",
+          "description": "Inauguration of pilot plant and technical meat/bakery application center in Mexico, tailoring textures, cooking yields, and sensory profiles for Latin America.",
+          "imageCaption": "Meat pilot plant and rheological laboratory for real-time yield testing.",
+          "location": "Queretaro, Mexico",
+          "tag": "Application Pilot Plant",
+          "metric": {
+            "value": "48h",
+            "label": "Prototyping & technical sample validation turnaround"
+          }
+        },
+        {
+          "era": "Dough Science & Bakery",
+          "title": "Bakery & Nutrition Lines Expansion",
+          "description": "Expansion into enzymatic texturizers, hydrocolloids, and emulsions for industrial bakery and pastry, achieving extended moisture retention and freeze tolerance.",
+          "imageCaption": "Microstructure optimization of crumb alveolation and moisture retention in industrial doughs.",
+          "location": "Bakery & Cereals Division",
+          "tag": "Moisture Retention & Crumb",
+          "metric": {
+            "value": "+30%",
+            "label": "Freshness extension without synthetic preservatives"
+          }
+        },
+        {
+          "era": "Automation & Processing",
+          "title": "Strategic Alliances: VICEL & RIBON",
+          "description": "Exclusive integration of high-speed VICEL regenerated cellulose casings and RIBON processing machinery for continuous stuffing without breakage.",
+          "imageCaption": "VICEL cellulose casings and ultra-high-speed continuous mechanical stuffers.",
+          "location": "Machinery & Casings Division",
+          "tag": "Processing Engineering",
+          "metric": {
+            "value": "2,000+",
+            "label": "Pieces per minute on continuous sausage lines"
+          }
+        },
+        {
+          "era": "Biotech & Indent Network",
+          "title": "Launch of WNDA Science & Wenda Indent",
+          "description": "Consolidación de WNDA Science for supplements and bioactive peptides, alongside Wenda Indent network for direct sourcing quotes and transparent global supply.",
+          "imageCaption": "Bioactive peptides and HPLC analytical standardization for pharmaceutical-grade nutraceuticals.",
+          "location": "Wenda Global Platform",
+          "tag": "Nutraceuticals & Traceability",
+          "metric": {
+            "value": "100%",
+            "label": "Certified origin traceability and purity"
+          }
+        }
+      ]
+    },
+    "zh": {
+      "items": [
+        {
+          "era": "创立与港口贸易",
+          "title": "在大连启航",
+          "description": "文达原料在大连港口及工业枢纽创立，秉承将亚洲原料制造与国际食品工业高标准无缝链接的前瞻愿景。",
+          "imageCaption": "大连食品原料港口与物流中心，开启添加剂国际贸易之旅。",
+          "location": "中国·大连",
+          "tag": "产业源头",
+          "metric": {
+            "value": "30+",
+            "label": "三十载专注深耕"
+          }
+        },
+        {
+          "era": "生物技术与酶制剂",
+          "title": "酶制剂研发与谷氨酰胺转氨酶",
+          "description": "建成并投产发酵反应器，用于肉制品、重组肉及植物蛋白中高亲和力谷氨酰胺转氨酶 (TG酶) 的生产。",
+          "imageCaption": "生物催化与谷氨酰胺转氨酶提纯，实现肉类蛋白质的共价交联。",
+          "location": "大连研发中心",
+          "tag": "蛋白质生物催化",
+          "metric": {
+            "value": "TG-Meat",
+            "label": "高强度交联酶制剂配方先行者"
+          }
+        },
+        {
+          "era": "跨国全球化扩张",
+          "title": "整合国际直营分支机构",
+          "description": "在北美、欧洲及亚太建立直营子公司与战略分销中心，消除冷链与供应链中间环节。",
+          "imageCaption": "北美与欧洲的多式联运物流基础设施与多温区仓储。",
+          "location": "跨国服务网络",
+          "tag": "直营供应链",
+          "metric": {
+            "value": "3",
+            "label": "大洲直营业务布局"
+          }
+        },
+        {
+          "era": "清洁标签革命",
+          "title": "引领 Clean Label 解决方案",
+          "description": "研发并取得 SafePlate® 与 FreshGuard® 专利：植物防腐剂、迷迭香提取物及天然发酵物，替代合成磷酸盐与亚硝酸盐。",
+          "imageCaption": "迷迭香植物提取物与多酚抗氧化剂，替代合成食品添加剂。",
+          "location": "全球研发实验室",
+          "tag": "清洁标签与抗氧化",
+          "metric": {
+            "value": "0%",
+            "label": "SafePlate 系列不含合成化学添加剂"
+          }
+        },
+        {
+          "era": "区域技术落地",
+          "title": "墨西哥与拉美应用实验室",
+          "description": "在墨西哥建成肉类与烘焙中试车间及技术中心，为整个拉丁美洲市场定制质构、出程率与口感。",
+          "imageCaption": "肉类中试工厂与流变学实验室，实现实时出程率测试。",
+          "location": "墨西哥·克雷塔罗",
+          "tag": "中试应用工厂",
+          "metric": {
+            "value": "48h",
+            "label": "样品原型开发与技术验证周期"
+          }
+        },
+        {
+          "era": "面团科技与烘焙",
+          "title": "烘焙与营养事业部扩展",
+          "description": "进军工业烘焙与糕点用酶制剂质构改良剂、亲水胶体及乳化体系，实现长效保水、优异体积与耐冻性。",
+          "imageCaption": "优化工业面团气孔微观结构与保水性能。",
+          "location": "烘焙与谷物事业部",
+          "tag": "保水保湿与气孔结构",
+          "metric": {
+            "value": "+30%",
+            "label": "无需合成防腐剂，显著延长面包心新鲜度"
+          }
+        },
+        {
+          "era": "自动化与加工机械",
+          "title": "VICEL 与 RIBON 战略合作",
+          "description": "独家整合 VICEL 高速再生纤维素肠衣与 RIBON 自动化加工机械，实现高速连续灌装不下线不破膜。",
+          "imageCaption": "VICEL 纤维素肠衣与超高速连续机械灌装机。",
+          "location": "机械与肠衣事业部",
+          "tag": "加工工程技术",
+          "metric": {
+            "value": "2,000+",
+            "label": "香肠连续灌装线每分钟产出件数"
+          }
+        },
+        {
+          "era": "细胞生物与直供网络",
+          "title": "WNDA Science 与 Wenda Indent 盛大发布",
+          "description": "整合用于补充剂与活性肽的 WNDA Science 科技事业部，以及用于源头直购与透明供应链的 Wenda Indent 直供网络。",
+          "imageCaption": "活性肽与高效液相色谱 (HPLC) 分析标准化，赋能药用级膳食补充剂。",
+          "location": "文达全球平台",
+          "tag": "营养补充剂与可追溯性",
+          "metric": {
+            "value": "100%",
+            "label": "源头可追溯性与纯度认证"
+          }
+        }
+      ]
+    }
+  },
+  "industries": {
+    "es": {
+      "items": [
+        {
+          "name": "Cárnicos",
+          "description": "Ingredientes y soluciones para formulación, conservación, textura, rendimiento y procesamiento cárnico.",
+          "items": [
+            "Antioxidantes y conservadores naturales",
+            "Proteínas de soya, chícharo y arroz",
+            "Estabilizantes y espesantes funcionales",
+            "Fosfatos simples y complejos",
+            "Potenciadores de sabor y notas umami",
+            "Fibras dietéticas solubles e insolubles",
+            "Reguladores de color y curado",
+            "Dextrosas y maltodextrinas de precisión",
+            "Tripas de celulosa VICEL"
+          ]
+        },
+        {
+          "name": "Panificación",
+          "description": "Ingredientes para conservación, fermentación, textura, fortificación y desarrollo de productos horneados.",
+          "items": [
+            "Conservadores y ácido sórbico encapsulado",
+            "Sistemas naturales para control de mohos y levaduras",
+            "Fosfatos para leudado químico balanceado",
+            "Estabilizantes y acondicionadores de masa",
+            "Fibras de avena, trigo y manzana",
+            "Acidulantes y reguladores de pH",
+            "Edulcorantes de alta intensidad",
+            "Emulsificantes (SSL, DATEM, lecitinas)",
+            "Vitaminas y minerales para fortificación",
+            "Sabores y colores termoestables"
+          ]
+        },
+        {
+          "name": "Bebidas",
+          "description": "Ingredientes para ajustar sabor, acidez, estabilidad coloidal, contenido nutricional y vida útil en bebidas.",
+          "items": [
+            "Edulcorantes naturales y no calóricos",
+            "Acidulantes (ácido cítrico, málico, fumárico)",
+            "Fibras prebióticas transparentes",
+            "Antioxidantes hidrosolubles y conservadores",
+            "Fosfatos para isotónicas y leches saborizadas",
+            "Proteínas claras dispersables en frío",
+            "Estabilizantes y agentes de turbidez",
+            "Colores naturales con brillo cristalino",
+            "Ingredientes de carga y soporte"
+          ]
+        },
+        {
+          "name": "Lácteos",
+          "description": "Soluciones para emulsión, gelificación, estabilización, conservación y formulación de quesos, yogures y cremas.",
+          "items": [
+            "Emulsificantes para quesos análogos y fundidos",
+            "Edulcorantes y moduladores de dulzor",
+            "Acidulantes lácticos y cítricos",
+            "Fosfatos emulsionantes para derivados lácteos",
+            "Estabilizantes para yogur batido y griego",
+            "Antioxidantes y conservadores antifúngicos",
+            "Proteínas de suero (WPC, WPI) y caseínas",
+            "Fibras para textura cremosa baja en grasa",
+            "Sabores y colorantes lácteos naturales"
+          ]
+        },
+        {
+          "name": "Nutracéuticos & Suplementos",
+          "description": "Ingredientes para suplementos alimenticios, bebidas funcionales y productos de nutrición deportiva especializada.",
+          "items": [
+            "Aminoácidos puros (BCAA, glutamina, creatina)",
+            "Vitaminas hidrosolubles y liposolubles",
+            "Minerales quelados de alta biodisponibilidad",
+            "Extractos botánicos estandarizados por HPLC",
+            "Ingredientes nutracéuticos para longevidad",
+            "Aceites en polvo microencapsulados (MCT, Omega-3)",
+            "Carotenoides antioxidantes (astaxantina, luteína)",
+            "Proteínas de chícharo, arroz y cáñamo"
+          ]
+        },
+        {
+          "name": "Soluciones Industriales",
+          "description": "Materias primas y químicos especializados para procesos industriales de alta exigencia técnica.",
+          "items": [
+            "Tratamiento de agua: desinfectantes, biocidas, floculantes y coagulantes",
+            "Industria de ceras: parafinas, ceras microcristalinas y Fischer-Tropsch",
+            "Construcción: aditivos para concreto, reductores de agua y lignosulfonatos",
+            "Adhesivos y recubrimientos: alcohol polivinílico (PVA) y resinas",
+            "Minería: reactivos de flotación y modificadores de tensión superficial",
+            "Cosméticos y detergentes: tensoactivos suaves y modificadores reológicos",
+            "Empaque: películas de celulosa compostables y biodegradables"
+          ]
+        }
+      ]
+    },
+    "en": {
+      "items": [
+        {
+          "name": "Meat & Poultry",
+          "description": "Ingredients and solutions for meat formulation, preservation, texture, yield, and processing.",
+          "items": [
+            "Natural antioxidants and preservatives",
+            "Soy, pea, and rice proteins",
+            "Functional stabilizers and thickeners",
+            "Simple and complex phosphates",
+            "Flavor enhancers and umami notes",
+            "Soluble and insoluble dietary fibers",
+            "Color and curing regulators",
+            "Precision dextrose and maltodextrins",
+            "VICEL cellulose casings"
+          ]
+        },
+        {
+          "name": "Bakery & Baking",
+          "description": "Ingredients for preservation, fermentation, texture, fortification, and baked goods development.",
+          "items": [
+            "Preservatives and encapsulated sorbic acid",
+            "Natural systems for mold and yeast control",
+            "Balanced chemical leavening phosphates",
+            "Dough conditioners and stabilizers",
+            "Oat, wheat, and apple fibers",
+            "Acidulants and pH regulators",
+            "High-intensity sweeteners",
+            "Emulsifiers (SSL, DATEM, lecithins)",
+            "Fortification vitamins and minerals",
+            "Heat-stable flavors and colors"
+          ]
+        },
+        {
+          "name": "Beverages",
+          "description": "Ingredients to adjust flavor, acidity, colloidal stability, nutritional content, and shelf life in drinks.",
+          "items": [
+            "Natural and zero-calorie sweeteners",
+            "Acidulants (citric, malic, fumaric acid)",
+            "Transparent prebiotic fibers",
+            "Water-soluble antioxidants and preservatives",
+            "Phosphates for isotonic and flavored milks",
+            "Clear cold-dispersible proteins",
+            "Stabilizers and clouding agents",
+            "Natural colors with crystal clarity",
+            "Bulking and carrier ingredients"
+          ]
+        },
+        {
+          "name": "Dairy",
+          "description": "Solutions for emulsification, gelling, stabilization, preservation, and formulation of cheeses, yogurts, and creams.",
+          "items": [
+            "Emulsifiers for processed and analog cheeses",
+            "Sweeteners and flavor modulators",
+            "Lactic and citric acidulants",
+            "Emulsifying phosphates for dairy derivatives",
+            "Stabilizers for stirred and Greek yogurt",
+            "Antioxidants and antifungal preservatives",
+            "Whey proteins (WPC, WPI) and caseins",
+            "Fibers for low-fat creamy texture",
+            "Natural dairy flavors and colors"
+          ]
+        },
+        {
+          "name": "Nutraceuticals & Supplements",
+          "description": "Ingredients for dietary supplements, functional drinks, and specialized sports nutrition products.",
+          "items": [
+            "Pure amino acids (BCAAs, glutamine, creatine)",
+            "Water-soluble and fat-soluble vitamins",
+            "High-bioavailability chelated minerals",
+            "HPLC-standardized botanical extracts",
+            "Longevity nutraceutical ingredients",
+            "Microencapsulated oil powders (MCT, Omega-3)",
+            "Antioxidant carotenoids (astaxanthin, lutein)",
+            "Pea, rice, and hemp proteins"
+          ]
+        },
+        {
+          "name": "Industrial Solutions",
+          "description": "Raw materials and specialized chemicals for high-exacting industrial processes.",
+          "items": [
+            "Water treatment: disinfectants, biocides, flocculants & coagulants",
+            "Wax industry: paraffins, microcrystalline & Fischer-Tropsch waxes",
+            "Construction: concrete admixtures, water reducers & lignosulfonates",
+            "Adhesives & coatings: polyvinyl alcohol (PVA) & resins",
+            "Mining: flotation reagents & surface tension modifiers",
+            "Cosmetics & detergents: mild surfactants & rheology modifiers",
+            "Packaging: compostable & biodegradable cellulose films"
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "items": [
+        {
+          "name": "肉制品 (Meat & Poultry)",
+          "description": "用于肉制品配方、保鲜、质构改善、提高出程率及加工工艺的原料与解决方案。",
+          "items": [
+            "天然抗氧化剂与天然防腐剂",
+            "大豆、豌豆及大米蛋白",
+            "功能性稳定剂与增稠剂",
+            "单体及复合磷酸盐",
+            "鲜味剂与天然 Umami 增鲜",
+            "可溶性与不可溶性膳食纤维",
+            "发色剂与护色调节剂",
+            "精密葡萄糖与麦芽糊精",
+            "VICEL 纤维素肠衣"
+          ]
+        },
+        {
+          "name": "烘焙与面制品 (Bakery)",
+          "description": "用于面制品防腐保鲜、发酵控制、质构改良、营养强化及新产品开发的原料。",
+          "items": [
+            "防腐剂与微胶囊包埋山梨酸",
+            "控制霉菌与酵母菌的天然抑菌体系",
+            "用于化学膨松的平衡磷酸盐",
+            "面团改良剂与稳定剂",
+            "燕麦、小麦及苹果膳食纤维",
+            "酸度调节剂与 pH 缓冲剂",
+            "高倍甜味剂",
+            "乳化剂 (SSL, DATEM, 卵磷脂)",
+            "营养强化维生素与矿物质",
+            "耐高温香精与天然色素"
+          ]
+        },
+        {
+          "name": "液体饮料 (Beverages)",
+          "description": "用于调节风味、酸度、胶体稳定性、营养成分及延长饮料保质期的特种原料。",
+          "items": [
+            "天然及代糖零卡甜味剂",
+            "酸味剂 (柠檬酸、苹果酸、富马酸)",
+            "澄清透明膳食纤维",
+            "水溶性抗氧化剂与防腐剂",
+            "用于运动饮料与风味乳的磷酸盐",
+            "冷水高分散清亮蛋白",
+            "稳定剂与浊度剂",
+            "晶莹透亮天然色素",
+            "载体与填充剂"
+          ]
+        },
+        {
+          "name": "乳制品 (Dairy)",
+          "description": "用于再制干酪、酸奶、奶油及乳饮的乳化、凝胶、稳定、防腐与配方开发。",
+          "items": [
+            "用于再制干酪与模拟奶酪的乳化盐",
+            "甜味剂与风味修饰剂",
+            "乳酸与柠檬酸酸味剂",
+            "乳制品专用乳化磷酸盐",
+            "搅拌型与希腊酸奶稳定剂",
+            "抗氧化剂与抗真菌防腐剂",
+            "乳清蛋白 (WPC, WPI) 及酪蛋白",
+            "低脂浓稠质构膳食纤维",
+            "天然乳品香精与色素"
+          ]
+        },
+        {
+          "name": "营养补充剂 (Nutraceuticals)",
+          "description": "用于膳食补充剂、功能性饮料及专业运动营养产品的特种原料。",
+          "items": [
+            "高纯氨基酸 (支链氨基酸、谷氨酰胺、肌酸)",
+            "水溶性与脂溶性维生素",
+            "高生物利用度螯合矿物质",
+            "高效液相色谱 (HPLC) 标准化植物提取物",
+            "抗衰长寿特种原料",
+            "微胶囊包埋油脂粉 (MCT、Omega-3)",
+            "抗氧化类胡萝卜素 (虾青素、叶黄素)",
+            "豌豆、大米及大麻籽蛋白"
+          ]
+        },
+        {
+          "name": "工业化学品与精细化工",
+          "description": "适用于高技术要求工业生产过程的特种原材料与化学品。",
+          "items": [
+            "水处理：消毒剂、杀菌剂、絮凝剂与助凝剂",
+            "石蜡工业：石蜡、微晶蜡及费托蜡",
+            "建筑材料：混凝土外加剂、减水剂与木质素磺酸盐",
+            "胶粘剂与涂料：聚乙烯醇 (PVA) 及树脂",
+            "矿业选矿：浮选药剂与表面张力调节剂",
+            "化妆品与洗涤剂：温和表面活性剂与流变调节剂",
+            "环保包装：可堆肥与可降解纤维素薄膜"
+          ]
+        }
+      ]
+    }
+  },
+  "indentSteps": {
+    "es": {
+      "items": [
+        {
+          "step": "Fase 1 · Requerimiento",
+          "title": "Entendemos tu necesidad",
+          "description": "Analizamos tu formulación, restricciones de costo, perfil sensorial y objetivos comerciales específicos."
+        },
+        {
+          "step": "Fase 2 · Sourcing Global",
+          "title": "Identificamos la solución",
+          "description": "Seleccionamos la mejor alternativa entre nuestra red internacional de plantas y centros de I+D."
+        },
+        {
+          "step": "Fase 3 · Calidad & CoA",
+          "title": "Validamos producto y proveedor",
+          "description": "Auditoría documental estricta, certificados de análisis (CoA), pruebas piloto y confirmación de estándares internacionales."
+        },
+        {
+          "step": "Fase 4 · Logística Integral",
+          "title": "Coordinamos los suministros",
+          "description": "Gestión aduanal, logística multimodal y almacenamiento seguro para garantizar entregas puntuales."
+        },
+        {
+          "step": "Fase 5 · Cima & Éxito",
+          "title": "Damos seguimiento continuo",
+          "description": "Acompañamiento en el escalamiento industrial en tu planta con soporte de nuestros ingenieros especialistas."
+        }
+      ]
+    },
+    "en": {
+      "items": [
+        {
+          "step": "Phase 1 · Requirement",
+          "title": "We understand your need",
+          "description": "We analyze your formulation, cost constraints, sensory profile, and specific commercial targets."
+        },
+        {
+          "step": "Phase 2 · Global Sourcing",
+          "title": "We identify the solution",
+          "description": "We select the best option across our international network of synthesis plants and R&D centers."
+        },
+        {
+          "step": "Phase 3 · Quality & CoA",
+          "title": "We validate product & supplier",
+          "description": "Strict document audit, Certificates of Analysis (CoA), pilot trials, and international compliance."
+        },
+        {
+          "step": "Phase 4 · Full Logistics",
+          "title": "We coordinate supply & transit",
+          "description": "Customs brokerage, multimodal transit, and regulated storage for on-time deliveries."
+        },
+        {
+          "step": "Phase 5 · Peak & Success",
+          "title": "Continuous technical follow-up",
+          "description": "In-plant support during industrial scale-up guided by our specialized application engineers."
+        }
+      ]
+    },
+    "zh": {
+      "items": [
+        {
+          "step": "第一阶段 · 需求诊断",
+          "title": "深入了解您的采购与工艺需求",
+          "description": "分析您的配方结构、成本限制、感官指标及具体的商业目标。"
+        },
+        {
+          "step": "第二阶段 · 全球寻源",
+          "title": "匹配最佳原料与生产方案",
+          "description": "在文达全球合成工厂及研发中心网络中筛选最优产品与方案。"
+        },
+        {
+          "step": "第三阶段 · 质量与 CoA",
+          "title": "严格验证产品与工厂资质",
+          "description": "严格的文件审计、逐批分析合格证 (CoA) 检测、中试验证及国际认证核验。"
+        },
+        {
+          "step": "第四阶段 · 综合物流",
+          "title": "统筹跨国供应链与报关进口",
+          "description": "清关报关、多式联运及合规仓储管理，确保按时保质准时交付。"
+        },
+        {
+          "step": "第五阶段 · 上线成功",
+          "title": "工厂上线全程跟踪与技术支持",
+          "description": "技术工程师亲临工厂指导工业化放大生产，保障平稳上线。"
+        }
+      ]
     }
   }
 }

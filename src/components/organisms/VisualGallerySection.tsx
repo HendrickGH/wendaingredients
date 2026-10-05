@@ -8,6 +8,8 @@ import { Heading } from "../atoms/Heading";
 import { Camera, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEditorialCarousel } from "@/hooks/useEditorialCarousel";
 
+import translations from "@/i18n/translations.json";
+
 const GALLERY_IMAGES = [
   "/images/meat/charcuterie-board.jpg",
   "/images/bakery/rustic-sourdough.jpg",
@@ -27,7 +29,7 @@ interface GalleryItemData {
 }
 
 export const VisualGallerySection: React.FC = () => {
-  const { t } = useTranslation("visualGallery");
+  const { t, i18n } = useTranslation("visualGallery");
   const {
     scrollRef,
     scrollProgress,
@@ -38,13 +40,20 @@ export const VisualGallerySection: React.FC = () => {
     seekToRatio
   } = useEditorialCarousel();
 
-  const rawItems = t("items", { returnObjects: true }) as GalleryItemData[];
-  const items = Array.isArray(rawItems)
-    ? rawItems.map((item, idx) => ({
-        ...item,
-        image: GALLERY_IMAGES[idx] || GALLERY_IMAGES[0]
-      }))
-    : [];
+  const rawItems = t("items", { returnObjects: true });
+  const activeLang = ((i18n.resolvedLanguage || i18n.language || "es") as "es" | "en" | "zh") in translations.visualGallery
+    ? ((i18n.resolvedLanguage || i18n.language || "es") as "es" | "en" | "zh")
+    : "es";
+
+  const fallbackItems = translations.visualGallery[activeLang]?.items || translations.visualGallery.es.items;
+  const itemsData = Array.isArray(rawItems) && rawItems.length > 0
+    ? (rawItems as GalleryItemData[])
+    : (fallbackItems as GalleryItemData[]);
+
+  const items = itemsData.map((item, idx) => ({
+    ...item,
+    image: GALLERY_IMAGES[idx] || GALLERY_IMAGES[0]
+  }));
 
   const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
