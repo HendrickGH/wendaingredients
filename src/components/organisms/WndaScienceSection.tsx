@@ -253,10 +253,10 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
           sizes="120vw"
           className="object-cover"
         />
-        {/* Contrast Overlays for WCAG AAA Readability */}
-        <div className="absolute inset-0 bg-black/65 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/75 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/50 pointer-events-none" />
+        {/* Refined Contrast Overlays (bright, vivid photography with crisp text contrast) */}
+        <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-black/45 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
       </motion.div>
 
       {/* Grid Layout (Fluid 12 Columns, padding: 4vh 5vw) */}
@@ -559,9 +559,9 @@ export const WndaScienceSection: React.FC<{ onConsultScience: () => void }> = ({
                 sizes="100vw"
                 className="object-cover"
               />
-              {/* Contrast Overlays for Text Legibility */}
-              <div className="absolute inset-0 bg-black/60 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/60 pointer-events-none" />
+              {/* Refined Contrast Overlays for Text Legibility */}
+              <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 pointer-events-none" />
             </motion.div>
           </motion.div>
 
