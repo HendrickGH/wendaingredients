@@ -278,15 +278,15 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
                           role="radio"
                           aria-checked={isSelected}
                           onClick={() => setFormData({ ...formData, category: topicId })}
-                          className={`px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer border flex items-center justify-between gap-2 focus-visible:outline-2 focus-visible:outline-[#2F591B] focus-visible:outline-offset-2 ${
+                          className={`px-3.5 py-2.5 rounded-xl text-xs transition-all duration-200 cursor-pointer border flex items-center justify-between gap-2 active:scale-95 focus-visible:outline-2 focus-visible:outline-[#2F591B] focus-visible:outline-offset-2 ${
                             isSelected
-                              ? "bg-[#2F591B] text-white border-[#2F591B] shadow-sm font-semibold"
-                              : "bg-white hover:bg-slate-50 text-slate-700 border-slate-200 font-medium"
+                              ? "bg-[#2F591B] text-white border-[#2F591B] shadow-sm font-semibold scale-[1.02]"
+                              : "bg-white hover:bg-slate-50 text-slate-700 border-slate-200 font-medium hover:border-slate-300"
                           }`}
                         >
                           <span className="truncate">{t(`topics.${topicId}`)}</span>
                           {isSelected && (
-                            <Check className="w-3.5 h-3.5 text-[#D9E8BE] shrink-0" aria-hidden="true" />
+                            <Check className="w-3.5 h-3.5 text-[#D9E8BE] shrink-0 animate-in zoom-in-50 duration-200" aria-hidden="true" />
                           )}
                         </button>
                       );
