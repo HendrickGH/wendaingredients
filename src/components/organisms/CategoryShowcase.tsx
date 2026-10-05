@@ -18,8 +18,8 @@ import {
   ArrowRight,
   ShieldCheck,
   X,
-  SlidersHorizontal,
-  FileText
+  FileText,
+  ChevronDown
 } from "lucide-react";
 
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -37,10 +37,29 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
   const { categories: CATEGORIES, naturalColors: NATURAL_COLORS } = useSiteContent();
   const shortName = (c: LocalizedCategory) => c.shortName || c.title;
   const [activeCategoryId, setActiveCategoryId] = useState<string>("meat-poultry");
+  const [activeTab, setActiveTab] = useState<"benefits" | "applications" | "systems">("benefits");
   const [activePillarIndex, setActivePillarIndex] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const currentCategory = CATEGORIES.find((c) => c.id === activeCategoryId) || CATEGORIES[0];
+
+  const tabs: { id: "benefits" | "applications" | "systems"; label: string; icon: React.ReactNode }[] = [
+    {
+      id: "benefits",
+      label: t("tabs.benefits", "Beneficios"),
+      icon: <CheckCircle2 className="w-3.5 h-3.5" />
+    },
+    {
+      id: "applications",
+      label: t("tabs.applications", "Aplicaciones"),
+      icon: <Layers className="w-3.5 h-3.5" />
+    },
+    {
+      id: "systems",
+      label: t("tabs.systems", "Sistemas"),
+      icon: <Sparkles className="w-3.5 h-3.5" />
+    }
+  ];
 
   // Safe pillar index within bounds
   const safePillarIndex = Math.min(activePillarIndex, currentCategory.pillars.length - 1);
@@ -103,40 +122,35 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
             </p>
           </div>
 
-          <div className="shrink-0">
+          <div className="shrink-0 flex flex-col items-stretch gap-2.5 w-full sm:w-auto">
+            {/* Consult Button */}
             <button
               onClick={() => onConsultSolution(currentCategory.id)}
-              className="btn-pill-primary text-xs !py-3 !px-5 group cursor-pointer"
+              className="btn-pill-primary text-xs !py-3 !px-5 group cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap w-full"
             >
               <span>{t("consultFor", { name: shortName(currentCategory) })}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-          </div>
-        </div>
 
-        {/* Category Navigation - Segmented Control Bar */}
-        <div className="w-full bg-[#F8FAF6] p-1.5 rounded-2xl border border-slate-200 overflow-x-auto scrollbar-none">
-          <div className="flex items-center gap-1.5 min-w-max sm:min-w-0 sm:grid sm:grid-cols-5">
-            {CATEGORIES.map((cat) => {
-              const isActive = cat.id === activeCategoryId;
-              return (
-                <button
-                  key={cat.id}
-                  type="button"
-                  onClick={() => handleSelectCategory(cat.id)}
-                  className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer select-none whitespace-nowrap ${
-                    isActive
-                      ? "bg-[#447D29] text-white shadow-xs"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-white/80"
-                  }`}
-                >
-                  <span className={isActive ? "text-white" : "text-[#447D29]"}>
-                    {categoryIcons[cat.id]}
-                  </span>
-                  <span>{shortName(cat)}</span>
-                </button>
-              );
-            })}
+            {/* Category Select Dropdown */}
+            <div className="relative inline-flex items-center w-full">
+              <span className="absolute left-3.5 text-[#447D29] pointer-events-none z-10">
+                {categoryIcons[activeCategoryId]}
+              </span>
+              <select
+                id="category-selector"
+                value={activeCategoryId}
+                onChange={(e) => handleSelectCategory(e.target.value)}
+                className="appearance-none w-full bg-[#F8FAF6] hover:bg-white text-slate-800 font-bold text-xs sm:text-sm pl-9.5 pr-9 py-2.5 rounded-full border border-slate-300 hover:border-[#447D29] focus:border-[#447D29] focus:outline-hidden focus:ring-2 focus:ring-[#447D29]/20 shadow-2xs cursor-pointer transition-all"
+              >
+                {CATEGORIES.map((cat) => (
+                  <option key={cat.id} value={cat.id} className="text-slate-900 bg-white font-medium py-1">
+                    {shortName(cat)}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3.5 pointer-events-none" />
+            </div>
           </div>
         </div>
 
@@ -153,13 +167,6 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
                 priority
               />
 
-              {/* Floating Pill Badge */}
-              <div className="absolute top-5 left-5 z-10">
-                <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-white/95 text-[#2F591B] backdrop-blur-md border border-white/40 shadow-sm">
-                  {currentCategory.badge}
-                </span>
-              </div>
-
               {/* Visual Category Backdrop Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white space-y-2">
                 <p className="text-xs sm:text-sm font-bold text-[#D9E8BE] uppercase tracking-wider">
@@ -171,17 +178,6 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
                 <p className="text-xs sm:text-sm text-slate-200 max-w-xl font-normal leading-relaxed">
                   {currentCategory.tagline}
                 </p>
-
-                {/* Quick teaser button inside image on mobile/tablet */}
-                <div className="pt-3 flex items-center gap-3">
-                  <button
-                    onClick={() => handleOpenModal()}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-bold backdrop-blur-md transition-colors border border-white/30 cursor-pointer"
-                  >
-                    <SlidersHorizontal className="w-3.5 h-3.5" />
-                    <span>{t("seeChallenges", { count: currentCategory.pillars.length })}</span>
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -200,60 +196,92 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
               </p>
             </div>
 
-            {/* Applications List */}
-            {currentCategory.applications && currentCategory.applications.length > 0 && (
-              <div className="space-y-2.5 pt-2">
-                <h5 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
-                  <Layers className="w-3.5 h-3.5 text-[#447D29]" />
-                  {t("applications")}
-                </h5>
-                <div className="flex flex-wrap gap-1.5">
-                  {currentCategory.applications.map((app, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs px-3 py-1.5 bg-[#F8FAF6] text-slate-800 rounded-full font-medium border border-slate-200"
+            {/* Segmented Menu Tabs for Beneficios, Aplicaciones, Sistemas */}
+            <div className="w-full bg-[#F8FAF6] p-1.5 rounded-2xl border border-slate-200">
+              <div className="grid grid-cols-3 gap-1.5">
+                {tabs.map((tab) => {
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer select-none whitespace-nowrap ${
+                        isActive
+                          ? "bg-[#447D29] text-white shadow-xs"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-white/80"
+                      }`}
                     >
-                      {app}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Quick Proven Benefits Summary */}
-            <div className="space-y-2.5 pt-2 border-t border-slate-200">
-              <h5 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                {t("benefits")}
-              </h5>
-              <div className="space-y-2">
-                {currentCategory.highlights.slice(0, 3).map((h, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-[#447D29] shrink-0 mt-0.5" />
-                    <span>{h}</span>
-                  </div>
-                ))}
+                      <span className={isActive ? "text-white" : "text-[#447D29]"}>
+                        {tab.icon}
+                      </span>
+                      <span>{tab.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Associated Brands (if available) */}
-            {currentCategory.brandAssociations && currentCategory.brandAssociations.length > 0 && (
-              <div className="pt-2 border-t border-slate-200 space-y-2">
-                <h5 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#447D29]" />
-                  {t("brands")}
-                </h5>
-                <div className="flex flex-wrap gap-1.5">
-                  {currentCategory.brandAssociations.map((brand, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs px-2.5 py-1 bg-[#EBF4E5] text-[#2F591B] rounded-lg font-semibold border border-[#447D29]/20"
-                    >
-                      {brand}
-                    </span>
-                  ))}
+            {/* Tab Content Display */}
+            <div className="min-h-[175px]">
+              {/* Beneficios Tab */}
+              {activeTab === "benefits" && (
+                <div className="space-y-2.5 animate-in fade-in duration-200">
+                  <h5 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#447D29]" />
+                    {t("benefits")}
+                  </h5>
+                  <div className="space-y-2">
+                    {currentCategory.highlights.map((h, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-[#447D29] shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+
+              {/* Aplicaciones Tab */}
+              {activeTab === "applications" && (
+                <div className="space-y-2.5 animate-in fade-in duration-200">
+                  <h5 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+                    <Layers className="w-3.5 h-3.5 text-[#447D29]" />
+                    {t("applications")}
+                  </h5>
+                  <div className="space-y-2">
+                    {currentCategory.applications && currentCategory.applications.length > 0 ? (
+                      currentCategory.applications.map((app, idx) => (
+                        <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                          <CheckCircle2 className="w-4 h-4 text-[#447D29] shrink-0 mt-0.5" />
+                          <span>{app}</span>
+                        </div>
+                      ))
+                    ) : (
+                      <span className="text-xs text-slate-500 italic">No applications available</span>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Sistemas Tab */}
+              {activeTab === "systems" && (
+                <div className="space-y-2.5 animate-in fade-in duration-200">
+                  <h5 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#447D29]" />
+                    {t("brands")}
+                  </h5>
+                  <div className="space-y-2">
+                    {(currentCategory.brandAssociations || []).map((brand, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-[#447D29] shrink-0 mt-0.5" />
+                        <span>{brand}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Primary Action Buttons (Triggers Modal or Consultation) */}
             <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
