@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { MetricCounter } from "../atoms/MetricCounter";
-import { STATS } from "@/data/siteContent";
 
 
 export const AboutInfrastructureSection: React.FC = () => {

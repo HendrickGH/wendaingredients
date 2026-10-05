@@ -12,12 +12,7 @@ import {
   X,
   ArrowUpRight,
   PhoneCall,
-  ChevronDown,
-  Layers,
-  Sparkles,
-  Building2,
-  ShieldCheck,
-  Search
+  ChevronDown
 } from "lucide-react";
 
 interface NavbarProps {

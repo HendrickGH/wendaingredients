@@ -1,19 +1,12 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import {
   Play,
   Pause,
-  ArrowRight,
   ChevronRight,
-  ShieldCheck,
   X,
-  Volume2,
-  VolumeX,
-  Sparkles,
-  Award,
   Quote
 } from "lucide-react";
 

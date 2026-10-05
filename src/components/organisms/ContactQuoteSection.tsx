@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import confetti from "canvas-confetti";
 import { useTranslation, Trans } from "react-i18next";
 import { CountryMirror } from "@/data/siteContent";
@@ -43,11 +43,11 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
   const [loading, setLoading] = useState(false);
 
   // Sync category state when defaultTopic prop changes from outside (e.g. topic cards)
-  useEffect(() => {
-    if (defaultTopic) {
-      setFormData((prev) => ({ ...prev, category: defaultTopic }));
-    }
-  }, [defaultTopic]);
+  const [prevDefaultTopic, setPrevDefaultTopic] = useState(defaultTopic);
+  if (defaultTopic && defaultTopic !== prevDefaultTopic) {
+    setPrevDefaultTopic(defaultTopic);
+    setFormData((prev) => ({ ...prev, category: defaultTopic }));
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

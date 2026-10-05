@@ -22,12 +22,6 @@ export const Logo: React.FC<LogoProps> = ({
     lg: { h: 48, w: 57 }
   };
 
-  const textSizes = {
-    sm: { title: "text-base", sub: "text-[9px]" },
-    md: { title: "text-lg sm:text-xl", sub: "text-[10px]" },
-    lg: { title: "text-xl sm:text-2xl", sub: "text-xs" }
-  };
-
   // Header / Horizontal Lockup using wenda.svg icon only
   if (variant === "horizontal") {
     return (

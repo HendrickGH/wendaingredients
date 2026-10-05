@@ -10,7 +10,6 @@ import {
   Globe2,
   FlaskConical,
   ShieldCheck,
-  Award,
   ArrowRight
 } from "lucide-react";
 

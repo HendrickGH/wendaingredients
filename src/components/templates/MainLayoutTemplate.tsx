@@ -103,18 +103,14 @@ export const MainLayoutTemplate: React.FC = () => {
         <HeroSection />
 
         <AboutManifestoSection />
-        <AboutInfrastructureSection />
-        <AboutLeadershipSection />
-
-        <StickyServicesSection />
-
-        <VisualGallerySection />
 
         <CategoryShowcase
           onConsultSolution={(categoryId) =>
             handleRequestSample(CATEGORY_TOPICS[categoryId] ?? categoryId)
           }
         />
+
+        <StickyServicesSection />
 
         <BrandsSection
           onOpenBrandDetails={handleOpenBrandModal}
@@ -125,6 +121,11 @@ export const MainLayoutTemplate: React.FC = () => {
         />
 
         <QualityCertifications />
+
+        <VisualGallerySection />
+
+        <AboutInfrastructureSection />
+        <AboutLeadershipSection />
 
         <TimelineChronicle />
 

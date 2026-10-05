@@ -4,7 +4,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import { Heading } from "../atoms/Heading";
-import { ShieldCheck, Award, CheckCircle2, Sparkles, FileText, FlaskRound } from "lucide-react";
+import { ShieldCheck, Award, Sparkles, FileText, FlaskRound } from "lucide-react";
 
 export const QualityCertifications: React.FC = () => {
   const { t } = useTranslation("quality");
