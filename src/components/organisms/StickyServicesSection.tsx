@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import { ArrowRight, CheckCircle2, ArrowUpRight, Sparkles } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface PillarImage {
   src: string;
@@ -73,7 +75,6 @@ interface PillarText {
   images: { title: string; tag: string; caption: string }[];
 }
 
-
 export const StickyServicesSection: React.FC = () => {
   const { t } = useTranslation("services");
   const pillarTexts = t("pillars", { returnObjects: true }) as PillarText[];
@@ -100,44 +101,131 @@ export const StickyServicesSection: React.FC = () => {
   const [mobileActiveImages, setMobileActiveImages] = useState<Record<string, string>>({});
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  // GSAP Animation Refs
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const stickyStageRef = useRef<HTMLDivElement>(null);
+  const metricDisplayRef = useRef<HTMLDivElement>(null);
+  const imageDisplayRef = useRef<HTMLDivElement>(null);
+
+  // GSAP ScrollTrigger Entrance Choreography
   useEffect(() => {
-    const handleScroll = () => {
-      const triggerLine = window.innerHeight * 0.45;
-      let closestIdx = 0;
-      let minDistance = Infinity;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
 
-      itemRefs.current.forEach((el, idx) => {
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const elementCenter = (rect.top + rect.bottom) / 2;
-        const distance = Math.abs(elementCenter - triggerLine);
+    gsap.registerPlugin(ScrollTrigger);
 
-        if (rect.top <= triggerLine + 250 && rect.bottom >= triggerLine - 250) {
-          if (distance < minDistance) {
-            minDistance = distance;
-            closestIdx = idx;
+    const ctx = gsap.context(() => {
+      // 1. Header entrance
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 28 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
           }
-        }
-      });
-      setActiveIndex(closestIdx);
-    };
+        );
+      }
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+      // 2. Sticky Stage initial entrance
+      if (stickyStageRef.current) {
+        gsap.fromTo(
+          stickyStageRef.current,
+          { opacity: 0, scale: 0.96, y: 30 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: stickyStageRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 3. Staggered reveal of pillar cards in the left column + ScrollTrigger active tracker
+      itemRefs.current.forEach((itemEl, idx) => {
+        if (!itemEl) return;
+        gsap.fromTo(
+          itemEl,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: itemEl,
+              start: "top 88%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+
+        ScrollTrigger.create({
+          trigger: itemEl,
+          start: "top center",
+          end: "bottom center",
+          onToggle: (self) => {
+            if (self.isActive) {
+              setActiveIndex(idx);
+              setOverridePillar(null);
+            }
+          }
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
+
+  // Animate sticky stage changes on activeIndex transition
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    if (imageDisplayRef.current) {
+      gsap.fromTo(
+        imageDisplayRef.current,
+        { opacity: 0.35, scale: 1.05 },
+        { opacity: 1, scale: 1, duration: 0.55, ease: "power2.out" }
+      );
+    }
+
+    if (metricDisplayRef.current) {
+      gsap.fromTo(
+        metricDisplayRef.current,
+        { scale: 0.78, opacity: 0, y: 16 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.8)" }
+      );
+    }
+  }, [activeIndex, overridePillar]);
 
   const activePillar = PILLARS[activeIndex] || PILLARS[0];
   const currentHeroImage = (overridePillar?.index === activeIndex ? overridePillar.src : null) || activePillar.image;
 
   return (
     <section
+      ref={sectionRef}
       id="soluciones-especializadas"
       className="py-24 lg:py-32 bg-[#FFFFFF] relative border-b border-slate-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-4 mb-16 lg:mb-20">
+        <div ref={headerRef} className="max-w-3xl space-y-4 mb-16 lg:mb-20">
           <Badge variant="wenda" size="md">
             {t("header.badge")}
           </Badge>
@@ -199,8 +287,17 @@ export const StickyServicesSection: React.FC = () => {
                   {/* Bullet Specs */}
                   <div className="space-y-2 mb-6">
                     {pillar.specs.map((spec, sIdx) => (
-                      <div key={sIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700">
-                        <CheckCircle2 className="w-4 h-4 text-[#447D29] shrink-0" />
+                      <div
+                        key={sIdx}
+                        className={`flex items-center gap-2.5 text-xs sm:text-sm transition-colors duration-300 ${
+                          isActive ? "text-slate-900 font-medium" : "text-slate-600"
+                        }`}
+                      >
+                        <CheckCircle2
+                          className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
+                            isActive ? "text-[#447D29] scale-110" : "text-slate-400"
+                          }`}
+                        />
                         <span>{spec}</span>
                       </div>
                     ))}
@@ -302,10 +399,10 @@ export const StickyServicesSection: React.FC = () => {
 
           {/* Right Column: Full-height container with sticky media stage */}
           <div className="lg:col-span-6 relative hidden lg:block">
-            <div className="sticky top-28 space-y-3 pb-12">
+            <div ref={stickyStageRef} className="sticky top-28 space-y-3 pb-12">
               <div className="clarity-card overflow-hidden shadow-xl bg-slate-900 border border-slate-200/80 rounded-2xl">
                 {/* Photo Display with Smooth Crossfade */}
-                <div className="relative h-[360px] w-full bg-slate-900 overflow-hidden group">
+                <div ref={imageDisplayRef} className="relative h-[360px] w-full bg-slate-900 overflow-hidden group">
                   <Image
                     key={currentHeroImage}
                     src={currentHeroImage}
@@ -319,7 +416,7 @@ export const StickyServicesSection: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
                   {/* Bottom Overlay Info with Big Metric */}
-                  <div className="absolute bottom-5 left-5 right-5 text-white space-y-1.5 pointer-events-none">
+                  <div ref={metricDisplayRef} className="absolute bottom-5 left-5 right-5 text-white space-y-1.5 pointer-events-none">
                     <div className="flex items-baseline gap-3">
                       <span className="text-4xl xl:text-5xl font-extrabold text-[#D9E8BE] tracking-tight">
                         {activePillar.metric}
