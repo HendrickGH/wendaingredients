@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
@@ -9,15 +9,20 @@ import {
   FlaskConical,
   Award,
   Globe2,
-  ShieldCheck,
   ArrowRight,
-  Sparkles,
   Building2,
   Quote
 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const AboutManifestoSection: React.FC = () => {
   const { t } = useTranslation("about");
+  const sectionRef = useRef<HTMLElement>(null);
+  const narrativeRef = useRef<HTMLDivElement>(null);
+  const campusRef = useRef<HTMLDivElement>(null);
+  const differentiatorsHeaderRef = useRef<HTMLDivElement>(null);
+  const differentiatorsGridRef = useRef<HTMLDivElement>(null);
 
   const differentiators = [
     {
@@ -62,8 +67,103 @@ export const AboutManifestoSection: React.FC = () => {
     }
   ];
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // 1. Narrative waterfall entrance
+      if (narrativeRef.current) {
+        gsap.fromTo(
+          narrativeRef.current.children,
+          { opacity: 0, y: 26 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: narrativeRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 2. Campus & Lab visual entrance
+      if (campusRef.current) {
+        gsap.fromTo(
+          campusRef.current,
+          { opacity: 0, scale: 0.96, y: 30 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: campusRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+
+      // 5. Differentiators Header & Grid Stagger
+      if (differentiatorsHeaderRef.current) {
+        gsap.fromTo(
+          differentiatorsHeaderRef.current,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: differentiatorsHeaderRef.current,
+              start: "top 88%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      if (differentiatorsGridRef.current) {
+        gsap.fromTo(
+          differentiatorsGridRef.current.children,
+          { opacity: 0, y: 32, scale: 0.98 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.65,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: differentiatorsGridRef.current,
+              start: "top 88%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="about" className="py-20 lg:py-28 bg-[#FFFFFF] relative border-b border-slate-200 overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="about"
+      className="py-20 lg:py-28 bg-[#FFFFFF] relative border-b border-slate-200 overflow-hidden"
+    >
       {/* Subtle organic background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#447D29]/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-100/80 rounded-full blur-2xl pointer-events-none -ml-20 -mb-20" />
@@ -74,7 +174,7 @@ export const AboutManifestoSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Narrative, Quote & CTAs */}
-          <div className="lg:col-span-6 space-y-6">
+          <div ref={narrativeRef} className="lg:col-span-6 space-y-6">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2">
                 <Badge variant="wenda" size="md">
@@ -120,16 +220,16 @@ export const AboutManifestoSection: React.FC = () => {
 
             {/* Quick Actions moved right below text */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#contact" className="btn-pill-primary text-xs !py-3 !px-6 shadow-sm">
+              <a href="#contact" className="btn-pill-primary text-xs !py-3 !px-6 shadow-sm hover:shadow-md transition-all active:scale-95">
                 <span>Contactar a un Ingeniero</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
               <a
                 href="#science"
-                className="text-xs font-bold text-[#2F591B] hover:text-[#447D29] transition-colors flex items-center gap-1.5 px-3 py-2"
+                className="text-xs font-bold text-[#2F591B] hover:text-[#447D29] transition-colors flex items-center gap-1.5 px-3 py-2 group"
               >
                 <span>Conoce WNDA Science</span>
-                <ArrowRight className="w-3 h-3" />
+                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
@@ -138,7 +238,7 @@ export const AboutManifestoSection: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="relative">
               {/* Primary Corporate Campus Image */}
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-xl group">
+              <div ref={campusRef} className="relative aspect-[4/3] sm:aspect-[16/11] w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-xl group">
                 <Image
                   src="/images/about/wenda-corporate-campus.jpg"
                   alt="Wenda Ingredients Headquarters & R&D Campus"
@@ -163,49 +263,7 @@ export const AboutManifestoSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Overlapping Laboratory Inset Card */}
-              <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-8 sm:-left-8 sm:max-w-xs bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xl space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200">
-                    <Image
-                      src="/images/about/team-collaboration.jpg"
-                      alt="Científicos de alimentos Wenda"
-                      fill
-                      className="object-cover"
-                      sizes="56px"
-                    />
-                  </div>
-                  <div>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2F591B] uppercase tracking-wide">
-                      <Sparkles className="w-3 h-3 text-[#447D29]" />
-                      I+D en Acción
-                    </span>
-                    <h4 className="text-xs font-bold text-slate-900 leading-snug">
-                      Soporte en Planta Piloto
-                    </h4>
-                    <p className="text-[11px] text-slate-500">
-                      Formulaciones a la medida
-                    </p>
-                  </div>
-                </div>
 
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-600 font-medium">
-                  <span className="flex items-center gap-1 text-[#2F591B]">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#447D29]" />
-                    GFSI-BRCGS Grado A
-                  </span>
-                  <span className="text-slate-400">·</span>
-                  <span className="font-bold text-slate-700">100% Trazable</span>
-                </div>
-              </div>
-
-              {/* Floating Quality Badge */}
-              <div className="hidden sm:flex absolute -top-4 -right-4 bg-white/95 backdrop-blur-sm rounded-full py-1.5 px-4 border border-[#447D29]/30 shadow-md items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#447D29] animate-pulse" />
-                <span className="text-[11px] font-bold text-[#2F591B] uppercase tracking-wider">
-                  30 Años de Rigor Científico
-                </span>
-              </div>
             </div>
           </div>
 
@@ -213,7 +271,7 @@ export const AboutManifestoSection: React.FC = () => {
 
         {/* Bottom Full-Width Differentiators: Prominent Cards with Photography and High Visual Weight */}
         <div className="pt-10 border-t border-slate-200/80 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div ref={differentiatorsHeaderRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-[#2F591B] block mb-1">
                 Capacidades Estratégicas
@@ -227,11 +285,11 @@ export const AboutManifestoSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div ref={differentiatorsGridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {differentiators.map((diff, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-slate-200 bg-white hover:border-[#447D29] hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col group"
+                className="rounded-2xl border border-slate-200 bg-white hover:border-[#447D29] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col group"
               >
                 {/* Image Header Area */}
                 <div className="relative h-40 w-full overflow-hidden bg-slate-100">

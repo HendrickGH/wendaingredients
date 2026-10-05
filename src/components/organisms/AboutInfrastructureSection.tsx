@@ -1,13 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { MetricCounter } from "../atoms/MetricCounter";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const AboutInfrastructureSection: React.FC = () => {
   const { t } = useTranslation("about");
+  const sectionRef = useRef<HTMLElement>(null);
+  const narrativeRef = useRef<HTMLDivElement>(null);
+  const statsGridRef = useRef<HTMLDivElement>(null);
+  const imageFrameRef = useRef<HTMLDivElement>(null);
 
   // Select the 4 core institutional stats for a clean, spacious 2x2 presentation
   const coreStats = [
@@ -33,8 +38,80 @@ export const AboutInfrastructureSection: React.FC = () => {
     }
   ];
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // 1. Narrative & Header reveal
+      if (narrativeRef.current) {
+        gsap.fromTo(
+          narrativeRef.current.children,
+          { opacity: 0, y: 26 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: narrativeRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 2. Stats Grid Stagger
+      if (statsGridRef.current) {
+        gsap.fromTo(
+          statsGridRef.current.children,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: statsGridRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 3. Logistics photography frame entrance
+      if (imageFrameRef.current) {
+        gsap.fromTo(
+          imageFrameRef.current,
+          { opacity: 0, scale: 0.95, y: 30 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.85,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: imageFrameRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="infrastructure"
       className="py-20 lg:py-28 bg-[#EFF6EC] text-slate-900 relative border-b border-[#D8E8D3] overflow-hidden"
     >
@@ -47,7 +124,7 @@ export const AboutInfrastructureSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-10">
             
             {/* Header info */}
-            <div className="space-y-4">
+            <div ref={narrativeRef} className="space-y-4">
               <span className="text-xs font-bold tracking-widest uppercase text-[#244C16] block">
                 {t("infra.badge", "Infraestructura & Capacidad Global")}
               </span>
@@ -62,14 +139,14 @@ export const AboutInfrastructureSection: React.FC = () => {
             </div>
 
             {/* Clean Editorial Stats: 2x2 Grid with generous breathing room and zero boxed clutter */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 pt-2">
+            <div ref={statsGridRef} className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 pt-2">
               {coreStats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="pt-4 border-t border-[#D0E2CA] space-y-1.5 group"
+                  className="pt-4 border-t border-[#D0E2CA] space-y-1.5 group hover:border-[#447D29] transition-colors"
                 >
                   <div className="text-4xl sm:text-5xl font-extrabold text-[#1B3811] font-editorial tracking-tight group-hover:text-[#447D29] transition-colors">
-                    <MetricCounter value={stat.value} />
+                    <MetricCounter value={stat.value} suffixClassName="text-[#447D29]" />
                   </div>
                   <h3 className="text-sm font-bold text-[#0F172A]">
                     {stat.label}
@@ -81,15 +158,13 @@ export const AboutInfrastructureSection: React.FC = () => {
               ))}
             </div>
 
-
-
           </div>
 
           {/* Right Column: Clean, Unencumbered Photography with Maximum Visual Weight */}
           <div className="lg:col-span-6">
-            <div className="relative">
+            <div ref={imageFrameRef} className="relative">
               
-              {/* Clean Framed Photograph: No suffocating text or massive bullet dashboards stamped on it */}
+              {/* Clean Framed Photograph */}
               <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-2xl border border-[#D5E5CF] group">
                 <Image
                   src="/images/about/global-logistics.jpg"
@@ -103,8 +178,6 @@ export const AboutInfrastructureSection: React.FC = () => {
                 {/* Minimal subtle gradient only at bottom edge for contrast */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
 
-
-
                 {/* Clean, short caption at the bottom of the photo */}
                 <div className="absolute bottom-4 left-5 right-5 text-white">
                   <h4 className="text-sm font-bold text-white font-editorial">
@@ -115,8 +188,6 @@ export const AboutInfrastructureSection: React.FC = () => {
                   </p>
                 </div>
               </div>
-
-
 
             </div>
           </div>
