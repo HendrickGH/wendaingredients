@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useTransition } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import {
@@ -9,16 +9,12 @@ import {
   useTransform,
   useSpring,
   useReducedMotion,
-  interpolate
+  interpolate,
+  MotionValue
 } from "framer-motion";
 import {
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  CheckCircle2,
-  FileText,
-  ShieldCheck,
-  ChevronDown
+  CheckCircle2
 } from "lucide-react";
 
 interface Capability {
@@ -27,24 +23,32 @@ interface Capability {
   desc: string;
 }
 
-interface Metric {
-  value: string;
-  label: string;
+interface CapabilityDetail {
+  image: string;
+  alt: string;
+  spec: string;
+  highlight: string;
+  metricValue: string;
+  metricLabel: string;
+  shortLabel: string;
 }
 
+// Intro cover image: Scientists research team
 const INTRO_IMAGE = {
-  image: "/images/supplements/clean-science-research.jpg",
-  alt: "WNDA Science Biomolecular Research & Advanced Formulation"
+  image: "/images/supplements/biochemical-testing.jpg",
+  alt: "WNDA Science Biomolecular Research & Advanced Formulation Team"
 };
 
-const CAPABILITY_DETAILS = [
+// Capabilities details mapped to N slide panels
+const DEFAULT_CAPABILITY_DETAILS: CapabilityDetail[] = [
   {
     image: "/images/supplements/supplement-scoop-pure.jpg",
     alt: "Instantized amino acids cold water dispersion test",
     spec: "Solubilidad Inmediata en Agua Fría",
     highlight: "Dispersión completa sin turbidez residual ni separación de fase en bebidas y polvos instantáneos.",
     metricValue: "< 15s",
-    metricLabel: "Humectación en Frío"
+    metricLabel: "Humectación en Frío",
+    shortLabel: "Aminoácidos"
   },
   {
     image: "/images/supplements/nutraceutical-capsules.jpg",
@@ -52,15 +56,17 @@ const CAPABILITY_DETAILS = [
     spec: "Tratamiento de Superficie & Homogeneidad",
     highlight: "Protección térmica y fotostabilidad para mezclas secas, comprimidos y cápsulas duras.",
     metricValue: "0 Grumos",
-    metricLabel: "Homogeneidad en Mezclas"
+    metricLabel: "Homogeneidad en Mezclas",
+    shortLabel: "Vitaminas"
   },
   {
-    image: "/images/supplements/biochemical-testing.jpg",
+    image: "/images/supplements/molecular-biology-dna.jpg",
     alt: "Biochemical laboratory testing and analytical validation",
     spec: "Validación por Cromatografía HPLC",
     highlight: "Control estricto de pureza lote por lote, metales pesados y liberación microbiológica.",
     metricValue: "100%",
-    metricLabel: "Trazabilidad CoA por Lote"
+    metricLabel: "Trazabilidad CoA por Lote",
+    shortLabel: "Control"
   },
   {
     image: "/images/supplements/botanical-extracts.jpg",
@@ -68,9 +74,271 @@ const CAPABILITY_DETAILS = [
     spec: "Estandarización de Principios Activos",
     highlight: "Potencia fitoquímica constante y verificada para suplementación y nutracéutica de alta gama.",
     metricValue: "HPLC",
-    metricLabel: "Estandarización de Activos"
+    metricLabel: "Estandarización de Activos",
+    shortLabel: "Extractos"
   }
 ];
+
+interface SlidePanelProps {
+  index: number;
+  totalPanels: number;
+  tCapStart: number;
+  smoothProgress: MotionValue<number>;
+  cap: Capability;
+  detail: CapabilityDetail;
+  onConsultScience: () => void;
+  ctaText: string;
+}
+
+const SlidePanel: React.FC<SlidePanelProps> = ({
+  index,
+  totalPanels,
+  tCapStart,
+  smoothProgress,
+  cap,
+  detail,
+  onConsultScience,
+  ctaText
+}) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  // All N panels have the exact same entry and exit lifecycle
+  const capRange = 1.0 - tCapStart;
+  const segmentDuration = totalPanels > 0 ? capRange / totalPanels : 1;
+  const transitionRatio = 0.75; // 75% active scrub transition, 25% stationary reading plateau
+  const transitionDuration = segmentDuration * transitionRatio;
+
+  // Entry timing for this panel
+  const tStart = tCapStart + index * segmentDuration;
+  const tEntryDone = tStart + transitionDuration;
+
+  // Exit timing when the next panel arrives
+  const tExitStart = tCapStart + (index + 1) * segmentDuration;
+  const tExitDone = Math.min(1.0, tExitStart + transitionDuration);
+
+  // Stagger entry checkpoints
+  const tTextStable = tStart + 0.85 * transitionDuration;
+  const tMetricsStart = tStart + 0.15 * transitionDuration;
+
+  // 1. Container Slide-in & subtle retreat physics (identical for all panels)
+  const panelTranslateX = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return "0%";
+    // Before entry: positioned outside viewport to the right
+    if (val <= tStart) return "100%";
+    // Entering
+    if (val < tEntryDone) {
+      const p = (val - tStart) / (tEntryDone - tStart);
+      return `${100 * (1 - p)}%`;
+    }
+    // Stationary reading plateau or final panel
+    if (val < tExitStart || index === totalPanels - 1) {
+      return "0%";
+    }
+    // Subtle retreat on exit
+    if (val < tExitDone) {
+      const p = (val - tExitStart) / (tExitDone - tExitStart);
+      return `${-15 * p}%`;
+    }
+    return "-15%";
+  });
+
+  // Brightness dimming during retreat
+  const panelFilter = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion || index === totalPanels - 1) return "brightness(1)";
+    if (val <= tExitStart) return "brightness(1)";
+    if (val >= tExitDone) return "brightness(0.6)";
+    const p = (val - tExitStart) / (tExitDone - tExitStart);
+    return `brightness(${1 - 0.4 * p})`;
+  });
+
+  // 2. Parallax Background (30% -> 0%)
+  const bgTranslateX = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return "0%";
+    if (val <= tStart) return "30%";
+    if (val >= tEntryDone) return "0%";
+    const p = (val - tStart) / (tEntryDone - tStart);
+    return `${30 * (1 - p)}%`;
+  });
+
+  // 3. Editorial Column Stagger (20% -> 0%, opacity 0.3 -> 1.0)
+  const textTranslateX = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return "0%";
+    if (val <= tStart) return "20%";
+    if (val >= tTextStable) return "0%";
+    const p = (val - tStart) / (tTextStable - tStart);
+    return `${20 * (1 - p)}%`;
+  });
+
+  const textOpacity = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return 1;
+    if (val <= tStart) return 0.3;
+    if (val >= tTextStable) return 1;
+    const p = (val - tStart) / (tTextStable - tStart);
+    return 0.3 + 0.7 * p;
+  });
+
+  // 4. Floating Metrics Card Stagger (45% in X, 10% in Y, opacity 0 -> 1)
+  const cardTranslateX = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return "0%";
+    if (val <= tMetricsStart) return "45%";
+    if (val >= tEntryDone) return "0%";
+    const p = (val - tMetricsStart) / (tEntryDone - tMetricsStart);
+    return `${45 * (1 - p)}%`;
+  });
+
+  const cardTranslateY = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return "0%";
+    if (val <= tMetricsStart) return "10%";
+    if (val >= tEntryDone) return "0%";
+    const p = (val - tMetricsStart) / (tEntryDone - tMetricsStart);
+    return `${10 * (1 - p)}%`;
+  });
+
+  const cardOpacity = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return 1;
+    if (val <= tMetricsStart) return 0;
+    if (val >= tEntryDone) return 1;
+    const p = (val - tMetricsStart) / (tEntryDone - tMetricsStart);
+    return p;
+  });
+
+  return (
+    <motion.div
+      style={{
+        x: panelTranslateX,
+        filter: panelFilter,
+        zIndex: 20 + index * 10,
+        willChange: "transform"
+      }}
+      className="absolute inset-0 w-full h-full overflow-hidden select-none"
+    >
+      {/* Background Imagery with Parallax */}
+      <motion.div
+        style={{
+          x: bgTranslateX,
+          willChange: "transform"
+        }}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+      >
+        <Image
+          src={detail.image}
+          alt={detail.alt}
+          fill
+          priority={index === 0}
+          sizes="100vw"
+          className="object-cover"
+        />
+        {/* Contrast Overlays for WCAG AAA Readability */}
+        <div className="absolute inset-0 bg-black/65 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/75 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/50 pointer-events-none" />
+      </motion.div>
+
+      {/* Grid Layout (Fluid 12 Columns, padding: 4vh 5vw) */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-center px-[5vw] py-[4vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[2vw] items-center w-full max-w-7xl mx-auto">
+          {/* Left Editorial Block (Columns 1 to 7) */}
+          <motion.div
+            style={{
+              x: textTranslateX,
+              opacity: textOpacity,
+              willChange: "transform, opacity"
+            }}
+            className="lg:col-span-7 space-y-5 text-white"
+          >
+            {/* Spec Validation Header (clean, without pills/badges) */}
+            <div className="flex items-center gap-2 text-[#D9E8BE] text-xs font-semibold">
+              <CheckCircle2 className="w-4 h-4 shrink-0" />
+              <span>{detail.spec}</span>
+            </div>
+
+            {/* Main Capability Title */}
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-editorial text-white tracking-tight leading-[1.10] drop-shadow-2xl">
+              {cap?.title}
+            </h2>
+
+            {/* Description Copy */}
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-md">
+              {cap?.desc}
+            </p>
+
+            {/* Application Performance Callout */}
+            <div className="pl-4 border-l-2 border-[#D9E8BE] py-1 max-w-2xl bg-white/[0.03] rounded-r-lg">
+              <span className="text-xs font-bold text-[#D9E8BE] uppercase tracking-wider block mb-1">
+                Desempeño en Aplicación
+              </span>
+              <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                {detail.highlight}
+              </p>
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={onConsultScience}
+                className="btn-pill-primary text-xs !py-3 !px-7 group cursor-pointer inline-flex items-center gap-2.5 shadow-2xl hover:scale-105 active:scale-95 transition-all"
+              >
+                <span>{ctaText}</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Right Analytical Floating Card (Columns 8 to 12) */}
+          <motion.div
+            style={{
+              x: cardTranslateX,
+              y: cardTranslateY,
+              opacity: cardOpacity,
+              willChange: "transform, opacity"
+            }}
+            className="lg:col-span-5"
+          >
+            <div className="relative rounded-3xl p-6 sm:p-8 bg-slate-950/70 border border-white/20 backdrop-blur-2xl shadow-2xl space-y-6 text-white overflow-hidden">
+              <div
+                className="absolute -right-16 -top-16 w-48 h-48 rounded-full pointer-events-none opacity-30"
+                style={{
+                  background: "radial-gradient(circle, rgba(217,232,190,0.3) 0%, transparent 70%)"
+                }}
+              />
+
+              <div className="space-y-1">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#D9E8BE]">
+                  Métrica de Desempeño
+                </span>
+                <h3 className="text-lg font-bold font-editorial text-white">
+                  Ficha Técnica & Validación
+                </h3>
+              </div>
+
+              {/* Big KPI Metric Display */}
+              <div className="py-4 px-5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
+                <span className="text-3xl sm:text-5xl font-extrabold text-[#D9E8BE] font-editorial block tracking-tight">
+                  {detail.metricValue}
+                </span>
+                <span className="text-xs sm:text-sm font-medium text-slate-300 block">
+                  {detail.metricLabel}
+                </span>
+              </div>
+
+              <div className="space-y-3 pt-2 text-xs text-slate-300">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-[#D9E8BE] shrink-0 animate-pulse" />
+                  <span>Certificación y Trazabilidad CoA garantizada por lote</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-[#D9E8BE] shrink-0" />
+                  <span>Control de impurezas y pureza analítica conforme a USP / FCC</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export const WndaScienceSection: React.FC<{ onConsultScience: () => void }> = ({
   onConsultScience
@@ -78,48 +346,53 @@ export const WndaScienceSection: React.FC<{ onConsultScience: () => void }> = ({
   const { t } = useTranslation("wndaScience");
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
-  const [, startTransition] = useTransition();
-
-  const [activeCapIdx, setActiveCapIdx] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Responsive frame detection
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
     checkMobile();
-    window.addEventListener("resize", checkMobile);
+    window.addEventListener("resize", checkMobile, { passive: true });
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const rawCaps = t("capabilities", { returnObjects: true }) as Capability[];
-  const capabilities = Array.isArray(rawCaps) ? rawCaps : [];
+  const capabilities = Array.isArray(rawCaps) && rawCaps.length > 0
+    ? rawCaps
+    : DEFAULT_CAPABILITY_DETAILS.map(d => ({
+        title: d.shortLabel,
+        desc: d.highlight,
+        tag: "WNDA Science"
+      }));
 
-  const rawMetrics = t("metrics", { returnObjects: true }) as Metric[];
-  const metrics = Array.isArray(rawMetrics) ? rawMetrics : [];
+  const totalPanels = capabilities.length || 4;
 
-  const totalCaps = capabilities.length > 0 ? capabilities.length : CAPABILITY_DETAILS.length;
-  const activeCap = capabilities[activeCapIdx] || capabilities[0];
-  const activeDetail = CAPABILITY_DETAILS[activeCapIdx] || CAPABILITY_DETAILS[0];
-
-  // Scroll tracking across the 300vh wrapper
+  // Continuous Scroll Progress across Master Container
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
-  // Inertial spring for scrub: 1 feel
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 140,
-    damping: 26,
+    stiffness: 120,
+    damping: 24,
     restDelta: 0.001
   });
 
-  // Pre-compiled interpolators for clip-path mask (0% to 35%: frame expands to 100% full screen)
+  // Timeline allocation:
+  // [0.0, 0.20]: Intro frame expansion to full screen + Slogan title display
+  // [0.20, 1.0]: N slide panel transitions (Slide 01 -> Slide 02 -> Slide 03 -> Slide 04)
+  const tCapStart = 0.20;
+  const capRange = 1.0 - tCapStart;
+  const segmentDuration = totalPanels > 0 ? capRange / totalPanels : 1;
+  const transitionRatio = 0.75;
+  const introRetreatDuration = segmentDuration * transitionRatio;
+
+  // Interpolators for Phase 1: Expanding Frame
   const desktopClipInterp = useRef(
     interpolate(
-      [0, 0.35],
+      [0, 0.15],
       ["inset(18% 36% 18% 36% round 28px)", "inset(0% 0% 0% 0% round 0px)"],
       { clamp: true }
     )
@@ -127,428 +400,183 @@ export const WndaScienceSection: React.FC<{ onConsultScience: () => void }> = ({
 
   const mobileClipInterp = useRef(
     interpolate(
-      [0, 0.35],
-      ["inset(20% 12% 20% 12% round 16px)", "inset(0% 0% 0% 0% round 0px)"],
+      [0, 0.15],
+      ["inset(20% 10% 20% 10% round 16px)", "inset(0% 0% 0% 0% round 0px)"],
       { clamp: true }
     )
   ).current;
 
-  // Mask expansion (0% -> 35%)
-  const clipPath = useTransform(smoothProgress, (val) => {
+  const introClipPath = useTransform(smoothProgress, (val) => {
     if (shouldReduceMotion) return "inset(0% 0% 0% 0% round 0px)";
     return isMobile ? mobileClipInterp(val) : desktopClipInterp(val);
   });
 
-  // Subtle image zoom for depth
-  const imageScale = useTransform(smoothProgress, [0, 0.35, 1], [1.08, 1.0, 1.04]);
+  const introImageScale = useTransform(smoothProgress, [0, 0.15, 0.35], [1.08, 1.0, 1.03]);
 
-  // Contrast overlay: 0 while expanding, darkens after full expansion for text readability
-  const overlayOpacity = useTransform(
-    smoothProgress,
-    [0, 0.35, 0.48, 0.65, 1],
-    [0, 0, 0.45, 0.70, 0.80]
-  );
+  // Frame drop shadow fades as it reaches full screen
+  const introFrameShadow = useTransform(smoothProgress, (val) => {
+    if (val >= 0.15) return "drop-shadow(0 0 0 rgba(0,0,0,0))";
+    const p = Math.max(0, 1 - val / 0.15);
+    return `drop-shadow(0 ${25 * p}px ${50 * p}px rgba(0,0,0,${0.2 * p}))`;
+  });
 
-  // Phase 1 -> 2: Hero Statement (Only enters AFTER full expansion: 0.35 -> 0.48, holds to 0.62, fades 0.62 -> 0.72)
-  const heroOpacity = useTransform(
-    smoothProgress,
-    [0, 0.35, 0.48, 0.62, 0.72],
-    [0, 0, 1, 1, 0]
-  );
-  const heroTranslateY = useTransform(
-    smoothProgress,
-    [0, 0.35, 0.48, 0.62, 0.72],
-    ["30px", "30px", "0px", "0px", "-30px"]
-  );
-  const heroPointerEvents = useTransform(smoothProgress, (val) =>
-    val >= 0.35 && val < 0.70 ? "auto" : "none"
-  );
+  // Intro retreat when Panel 01 slides in (identical retreat physics to sibling panels)
+  const introTranslateX = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return "0%";
+    if (val <= tCapStart) return "0%";
+    if (val >= tCapStart + introRetreatDuration) return "-15%";
+    const p = (val - tCapStart) / introRetreatDuration;
+    return `${-15 * p}%`;
+  });
 
-  // Phase 3: Secondary Content Group (Enters 0.70 -> 0.82, holds through 1.0)
-  const contentOpacity = useTransform(
-    smoothProgress,
-    [0, 0.70, 0.82, 1],
-    [0, 0, 1, 1]
-  );
-  const contentTranslateY = useTransform(
-    smoothProgress,
-    [0, 0.70, 0.82, 1],
-    ["30px", "30px", "0px", "0px"]
-  );
-  const contentPointerEvents = useTransform(smoothProgress, (val) =>
-    val >= 0.70 ? "auto" : "none"
-  );
+  const introFilter = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return "brightness(1)";
+    if (val <= tCapStart) return "brightness(1)";
+    if (val >= tCapStart + introRetreatDuration) return "brightness(0.6)";
+    const p = (val - tCapStart) / introRetreatDuration;
+    return `brightness(${1 - 0.4 * p})`;
+  });
 
-  // Scroll indicator hint (fades out as scroll starts)
-  const scrollIndicatorOpacity = useTransform(smoothProgress, [0, 0.12], [1, 0]);
-
-  // Navigation handlers for Phase 3 capabilities
-  const nextCapability = () => {
-    startTransition(() => {
-      setActiveCapIdx((prev) => (prev + 1) % totalCaps);
-    });
-  };
-
-  const prevCapability = () => {
-    startTransition(() => {
-      setActiveCapIdx((prev) => (prev - 1 + totalCaps) % totalCaps);
-    });
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      prevCapability();
-    } else if (e.key === "ArrowRight") {
-      e.preventDefault();
-      nextCapability();
+  // Only the H2 slogan title appears on the intro screen (no container box, no badges, no extra copy)
+  const introTitleOpacity = useTransform(smoothProgress, (val) => {
+    if (val <= 0.04) return 0;
+    if (val < 0.14) return (val - 0.04) / 0.10;
+    if (val <= tCapStart) return 1;
+    if (val < tCapStart + introRetreatDuration) {
+      return 1 - (val - tCapStart) / introRetreatDuration;
     }
-  };
+    return 0;
+  });
 
-  // If user requests reduced motion, deliver a static, fully expanded presentation
+  const introTitleTranslateY = useTransform(smoothProgress, [0.04, 0.14, tCapStart, tCapStart + introRetreatDuration], ["20px", "0px", "0px", "-20px"]);
+
+  const ctaText = t("cta", "Consultar con Especialista WNDA");
+
+  // Reduced motion: standard accessible static layout
   if (shouldReduceMotion) {
     return (
       <section
         id="science"
-        className="relative min-h-[700px] flex items-center py-20 lg:py-28 bg-black text-white border-y border-white/10"
+        className="relative py-20 bg-black text-white border-y border-white/10"
         aria-label="WNDA Science Showcase"
       >
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          <Image
-            src={INTRO_IMAGE.image}
-            alt={INTRO_IMAGE.alt}
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/80" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 w-full space-y-12">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-[#D9E8BE]">
-              <span>{t("badge")}</span>
-              <span>·</span>
-              <span className="text-white/80">{t("eyebrow")}</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-editorial text-white leading-tight">
-              {t("title")}
+        <div className="max-w-7xl mx-auto px-6 space-y-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <h2 className="text-4xl sm:text-6xl font-bold font-editorial text-white">
+              Conectamos Conocimiento Científico
             </h2>
-            <p className="text-base sm:text-lg text-slate-200">{t("subtitle")}</p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-8 border-t border-white/15">
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs uppercase tracking-wider text-[#D9E8BE] font-bold">
-                {activeCap?.tag || t("badge")}
-              </span>
-              <h3 className="text-2xl sm:text-4xl font-bold font-editorial text-white">
-                {activeCap?.title}
-              </h3>
-              <p className="text-base text-slate-200">{activeCap?.desc}</p>
-              <div className="pl-4 border-l-2 border-[#D9E8BE] py-1">
-                <p className="text-sm text-slate-300">{activeDetail.highlight}</p>
-              </div>
-              <button
-                type="button"
-                onClick={onConsultScience}
-                className="btn-pill-primary text-xs !py-3 !px-6 inline-flex items-center gap-2"
-              >
-                <span>{t("cta")}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-            <div className="lg:col-span-5 bg-black/50 border border-white/20 rounded-3xl p-6 backdrop-blur-md">
-              <span className="text-4xl font-bold font-editorial text-[#D9E8BE] block">
-                {activeDetail.metricValue}
-              </span>
-              <span className="text-xs text-slate-300 block mb-4">
-                {activeDetail.metricLabel}
-              </span>
-              <p className="text-xs text-slate-400">{t("supportDesc")}</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {capabilities.map((cap, i) => {
+              const detail = DEFAULT_CAPABILITY_DETAILS[i] || DEFAULT_CAPABILITY_DETAILS[0];
+              return (
+                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+                  <span className="text-[#D9E8BE] font-bold text-xs uppercase">{detail.spec}</span>
+                  <h3 className="text-2xl font-editorial font-bold text-white">{cap.title}</h3>
+                  <p className="text-slate-300 text-sm">{cap.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
     );
   }
 
+  // Master container height: 1 intro stage + N panels (e.g. 500vh for N = 4)
+  const masterContainerHeight = `${(1 + totalPanels) * 100}vh`;
+
   return (
     <section
       id="science"
       ref={containerRef}
-      tabIndex={0}
-      onKeyDown={handleKeyDown}
-      className="relative h-[280vh] sm:h-[300vh] bg-white select-none focus:outline-none"
+      style={{ height: masterContainerHeight }}
+      className="relative w-full bg-white select-none focus:outline-none"
       aria-label="WNDA Science Interactive Showcase"
     >
-      {/* Pinned Stage: Sticky 100vh / 100dvh viewport container */}
-      <div className="sticky top-0 w-full h-screen h-[100dvh] overflow-hidden flex items-center justify-center border-y border-slate-200 bg-white">
-        {/* Central Vertical Expanding Frame (Mask / Clip-path Scrub) */}
+      {/* Sticky Stage: 100vw x 100vh pinned stage */}
+      <div className="sticky top-0 w-full h-screen h-[100dvh] overflow-hidden bg-black">
+        {/* Intro Cover Stage (Scientists Image + H2 only, with subtle retreat) */}
         <motion.div
           style={{
-            clipPath,
-            willChange: "clip-path",
-            filter: "drop-shadow(0 25px 50px rgba(0,0,0,0.18))"
+            x: introTranslateX,
+            filter: introFilter,
+            zIndex: 10,
+            willChange: "transform"
           }}
-          className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+          className="absolute inset-0 w-full h-full flex items-center justify-center bg-white"
         >
-          {/* Main Background Image */}
+          {/* Expanding Clip-Path Frame */}
           <motion.div
             style={{
-              scale: imageScale,
-              willChange: "transform"
+              clipPath: introClipPath,
+              filter: introFrameShadow,
+              willChange: "clip-path"
             }}
-            className="relative w-full h-full"
+            className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
           >
-            <Image
-              src={INTRO_IMAGE.image}
-              alt={INTRO_IMAGE.alt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
+            {/* Background Imagery with Subtle Zoom */}
+            <motion.div
+              style={{
+                scale: introImageScale,
+                willChange: "transform"
+              }}
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image
+                src={INTRO_IMAGE.image}
+                alt={INTRO_IMAGE.alt}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+              />
+              {/* Contrast Overlays for Text Legibility */}
+              <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/60 pointer-events-none" />
+            </motion.div>
           </motion.div>
 
-          {/* Dynamic Contrast Overlay: 0 at start, progressively darkens in Phase 3 */}
+          {/* Slogan H2 Only: no container box, no badges, no extra copy */}
           <motion.div
             style={{
-              opacity: overlayOpacity,
-              willChange: "opacity"
+              opacity: introTitleOpacity,
+              y: introTitleTranslateY,
+              willChange: "transform, opacity"
             }}
-            className="absolute inset-0 bg-black pointer-events-none"
-          />
-        </motion.div>
-
-        {/* LAYER 1: Hero Statement (0% to 45% visible, fades 45% -> 60%) */}
-        <motion.div
-          style={{
-            opacity: heroOpacity,
-            y: heroTranslateY,
-            pointerEvents: heroPointerEvents,
-            willChange: "transform, opacity"
-          }}
-          className="absolute inset-0 flex flex-col items-center justify-center px-6 sm:px-12 text-center z-20 max-w-5xl mx-auto"
-        >
-          <div className="space-y-6 max-w-4xl mx-auto text-white">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-lg">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#D9E8BE]">
-                {t("badge")}
-              </span>
-              <span className="text-white/40">·</span>
-              <span className="text-xs font-semibold tracking-wide text-slate-200">
-                {t("eyebrow")}
-              </span>
-            </div>
-
+            className="relative z-20 flex flex-col items-center justify-center px-6 sm:px-12 text-center max-w-5xl mx-auto pointer-events-none"
+          >
             <h2
               id="science-heading"
-              className="text-3xl sm:text-5xl lg:text-6xl font-bold font-editorial text-white tracking-tight leading-[1.10] drop-shadow-2xl"
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold font-editorial text-white tracking-tight leading-[1.10] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
             >
-              {t("title")}
+              Conectamos Conocimiento Científico
             </h2>
-
-            <p className="text-base sm:text-xl text-slate-200 leading-relaxed font-normal max-w-3xl mx-auto drop-shadow-md">
-              {t("subtitle")}
-            </p>
-
-            <p className="text-xs sm:text-sm font-bold text-[#D9E8BE] tracking-wider uppercase drop-shadow-sm">
-              {t("tagline")}
-            </p>
-
-            {/* Global Credibility Metrics Summary */}
-            {metrics.length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-white/15 max-w-3xl mx-auto">
-                {metrics.map((metric, i) => (
-                  <div key={i} className="space-y-1 text-center">
-                    <span className="text-xl sm:text-3xl font-extrabold text-[#D9E8BE] font-editorial block tracking-tight">
-                      {metric.value}
-                    </span>
-                    <span className="text-[11px] sm:text-xs text-slate-300 font-medium block">
-                      {metric.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Scroll Cue Indicator (Phase 1) */}
-        <motion.div
-          style={{
-            opacity: scrollIndicatorOpacity,
-            willChange: "opacity"
-          }}
-          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none"
-        >
-          <span className="text-[11px] uppercase tracking-widest text-slate-800 font-mono font-bold">
-            Desliza para explorar
-          </span>
-          <ChevronDown className="w-4 h-4 text-[#447D29] animate-bounce" />
-        </motion.div>
-
-        {/* LAYER 2: Secondary Content Group (Phase 3: 60% to 100%) */}
-        <motion.div
-          style={{
-            opacity: contentOpacity,
-            y: contentTranslateY,
-            pointerEvents: contentPointerEvents,
-            willChange: "transform, opacity"
-          }}
-          className="absolute inset-0 flex items-center justify-center z-20 w-full"
-        >
-          <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left Column: Narrative, CTA & Paginator */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#D9E8BE] text-xs font-bold backdrop-blur-md">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>{activeDetail.spec}</span>
-                  </div>
-
-                  <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
-                    Capacidad 0{activeCapIdx + 1} de 0{totalCaps} · {activeCap?.tag || t("badge")}
-                  </div>
-
-                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-editorial text-white leading-tight drop-shadow-md">
-                    {activeCap?.title}
-                  </h3>
-
-                  <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal">
-                    {activeCap?.desc}
-                  </p>
-                </div>
-
-                {/* Application Performance Callout */}
-                <div className="pl-4 border-l-2 border-[#D9E8BE] py-1 max-w-2xl bg-white/[0.02] rounded-r-lg">
-                  <span className="text-xs font-bold text-[#D9E8BE] uppercase tracking-wider block mb-1">
-                    Desempeño en Aplicación
-                  </span>
-                  <p className="text-sm text-slate-200 leading-relaxed">
-                    {activeDetail.highlight}
-                  </p>
-                </div>
-
-                {/* CTA Action Row */}
-                <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <button
-                    type="button"
-                    onClick={onConsultScience}
-                    className="btn-pill-primary text-xs !py-3 !px-6 group cursor-pointer inline-flex items-center gap-2 shadow-2xl hover:scale-105 active:scale-95 transition-all"
-                  >
-                    <span>{t("cta")}</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-
-                  <span className="text-xs text-slate-300">
-                    {t("customDesc", "Formulaciones personalizadas para polvos, cápsulas y bebidas.")}
-                  </span>
-                </div>
-
-                {/* Paginator / Tab Switcher (Interactive Scrubbing Complement) */}
-                <div className="pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
-                  {/* Tab Pills */}
-                  <div
-                    role="tablist"
-                    aria-label="Capacidades de WNDA Science"
-                    className="flex flex-wrap items-center gap-2"
-                  >
-                    {Array.from({ length: totalCaps }).map((_, idx) => {
-                      const isSelected = activeCapIdx === idx;
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          role="tab"
-                          aria-selected={isSelected}
-                          onClick={() => {
-                            startTransition(() => {
-                              setActiveCapIdx(idx);
-                            });
-                          }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9E8BE] ${
-                            isSelected
-                              ? "bg-[#D9E8BE] text-black font-bold shadow-md"
-                              : "bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white border border-white/10"
-                          }`}
-                        >
-                          0{idx + 1} {capabilities[idx]?.title ? capabilities[idx].title.split(" ")[0] : `Pilar`}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Previous / Next Arrow Controls */}
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={prevCapability}
-                      aria-label="Capacidad anterior"
-                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9E8BE]"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={nextCapability}
-                      aria-label="Capacidad siguiente"
-                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9E8BE]"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Consolidated Glass Proof Card */}
-              <div className="lg:col-span-5">
-                <div className="bg-black/50 border border-white/20 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6">
-                  <div className="flex items-center justify-between pb-4 border-b border-white/15">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                      {activeCap?.tag || t("badge")}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-xs text-[#D9E8BE] font-semibold">
-                      <ShieldCheck className="w-4 h-4 text-[#D9E8BE]" />
-                      <span>Grado Validado</span>
-                    </div>
-                  </div>
-
-                  {/* Pillar Key Metric */}
-                  <div className="space-y-1">
-                    <span className="text-4xl sm:text-5xl font-extrabold text-[#D9E8BE] font-editorial tracking-tight block">
-                      {activeDetail.metricValue}
-                    </span>
-                    <span className="text-xs text-slate-300 font-medium block">
-                      {activeDetail.metricLabel}
-                    </span>
-                  </div>
-
-                  {/* Analytical Support Context */}
-                  <div className="pt-4 border-t border-white/15 space-y-2">
-                    <div className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider">
-                      <FileText className="w-3.5 h-3.5 text-[#D9E8BE] shrink-0" />
-                      <span>{t("supportTitle", "Validación Analítica Lote por Lote")}</span>
-                    </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                      {t("supportDesc")}
-                    </p>
-                  </div>
-
-                  {/* CoA Notice */}
-                  <div className="pt-2 text-[11px] text-slate-400">
-                    {t(
-                      "coaNotice",
-                      "Documentación técnica y Certificado de Análisis (CoA) disponibles por lote."
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        {/* Render stacked capability slide panels (Slide 01 -> Slide 04 all enter with identical physics) */}
+        {Array.from({ length: totalPanels }).map((_, idx) => {
+          const detail = DEFAULT_CAPABILITY_DETAILS[idx] || DEFAULT_CAPABILITY_DETAILS[0];
+          const cap = capabilities[idx] || {
+            title: detail.shortLabel,
+            desc: detail.highlight,
+            tag: "WNDA Science"
+          };
+          return (
+            <SlidePanel
+              key={idx}
+              index={idx}
+              totalPanels={totalPanels}
+              tCapStart={tCapStart}
+              smoothProgress={smoothProgress}
+              cap={cap}
+              detail={detail}
+              onConsultScience={onConsultScience}
+              ctaText={ctaText}
+            />
+          );
+        })}
       </div>
     </section>
   );
