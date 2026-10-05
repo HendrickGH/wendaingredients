@@ -107,9 +107,9 @@ export const AboutLeadershipSection: React.FC = () => {
             </div>
 
             {/* 4 Pillars of Institutional Trust in a clean 2x2 grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pt-4 border-t border-slate-200">
               {leadershipPoints.map((point, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                <div key={idx} className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-[#F0F7ED] shrink-0 mt-0.5">
                     {point.icon}
                   </div>
