@@ -59,6 +59,14 @@ if (!i18n.isInitialized) {
     react: { useSuspense: false },
     initAsync: false
   });
+} else {
+  // Hot-reload resource bundles in development when translations change
+  const freshResources = buildResources();
+  for (const [lang, namespaces] of Object.entries(freshResources)) {
+    for (const [ns, bundle] of Object.entries(namespaces)) {
+      i18n.addResourceBundle(lang, ns, bundle, true, true);
+    }
+  }
 }
 
 export default i18n;

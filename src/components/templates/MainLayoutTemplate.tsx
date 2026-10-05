@@ -17,6 +17,7 @@ import { BrandsSection } from "../organisms/BrandsSection";
 import { QualityCertifications } from "../organisms/QualityCertifications";
 import { WndaScienceSection } from "../organisms/WndaScienceSection";
 import { WendaIndentSection } from "../organisms/WendaIndentSection";
+import { FaqSection } from "../organisms/FaqSection";
 import { ContactQuoteSection } from "../organisms/ContactQuoteSection";
 import { Footer } from "../organisms/Footer";
 import { TechnicalDetailModal } from "../organisms/TechnicalDetailModal";
@@ -132,6 +133,20 @@ export const MainLayoutTemplate: React.FC = () => {
         <WendaIndentSection
           onSelectIndustry={handleOpenIndustryModal}
           onRequestQuote={() => handleRequestSample("indent")}
+        />
+
+        <FaqSection
+          onAskQuestion={(customQuestion) => {
+            handleRequestSample("meat");
+            setTimeout(() => {
+              const messageInput = document.getElementById("contact-form-message") as HTMLTextAreaElement | null;
+              if (messageInput && customQuestion) {
+                messageInput.value = customQuestion;
+                messageInput.dispatchEvent(new Event("input", { bubbles: true }));
+                messageInput.focus();
+              }
+            }, 300);
+          }}
         />
 
         <ContactQuoteSection

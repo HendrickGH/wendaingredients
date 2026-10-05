@@ -72,9 +72,9 @@
         ]
       },
       "cta": {
-        "short": "Conecta con Soporte",
-        "full": "Conecta con Soporte Técnico",
-        "mobile": "Conectar con Equipo Técnico"
+        "short": "Desarrolla tu formulación",
+        "full": "Desarrolla tu próxima formulación",
+        "mobile": "Desarrolla tu próxima formulación"
       }
     },
     "en": {
@@ -115,9 +115,9 @@
         ]
       },
       "cta": {
-        "short": "Technical Support",
-        "full": "Connect with Technical Support",
-        "mobile": "Connect with Technical Team"
+        "short": "Develop formulation",
+        "full": "Develop your next formulation",
+        "mobile": "Develop your next formulation"
       }
     },
     "zh": {
@@ -158,9 +158,9 @@
         ]
       },
       "cta": {
-        "short": "联系技术支持",
-        "full": "联系技术支持团队",
-        "mobile": "立即对接技术团队"
+        "short": "开发配方",
+        "full": "开发您的下一个配方",
+        "mobile": "开发您的下一个配方"
       }
     }
   },
@@ -980,7 +980,7 @@
   },
   "contact": {
     "es": {
-      "eyebrow": "Hablemos de su próxima formulación",
+      "eyebrow": "Desarrolla tu próxima formulación con nuestros expertos",
       "title": "Tu próximo gran producto comienza con el ingrediente correcto.",
       "intro": "¿Interesado en mejorar rendimiento, textura o vida útil? Llena este formulario y nuestro equipo de ingenieros de alimentos te responderá de inmediato. Sin intermediarios, con asesoría técnica directa.",
       "office": {
@@ -1012,7 +1012,7 @@
         "message": "Detalle del Desafío Técnico o Muestra Requerida:",
         "messagePh": "Describa su producto, proceso actual (ej. embutido cocido, pan molde, bebida) y objetivo (ej. reducir mermas, mejorar textura, alargar vida de anaquel)...",
         "loading": "Procesando requerimiento...",
-        "submit": "Solicitar Asesoría & Muestras Técnicas"
+        "submit": "Desarrolla tu próxima formulación con nuestros expertos"
       },
       "topics": {
         "meat": "Meat & Poultry",
@@ -1024,7 +1024,7 @@
       }
     },
     "en": {
-      "eyebrow": "Let's Talk About Your Next Formulation",
+      "eyebrow": "Develop your next formulation with our experts",
       "title": "Your next great product starts with the right ingredient.",
       "intro": "Looking to improve yield, texture, or shelf life? Fill out this form and our food engineering team will reply promptly. Direct technical advice without intermediaries.",
       "office": {
@@ -1056,7 +1056,7 @@
         "message": "Technical Challenge or Sample Details:",
         "messagePh": "Describe your product, current process (e.g. cooked sausage, loaf bread, beverage) and goal (e.g. reduce yield loss, enhance texture, extend shelf life)...",
         "loading": "Processing request...",
-        "submit": "Request Consultation & Samples"
+        "submit": "Develop your next formulation with our experts"
       },
       "topics": {
         "meat": "Meat & Poultry",
@@ -1068,7 +1068,7 @@
       }
     },
     "zh": {
-      "eyebrow": "探讨您的下一个配方项目",
+      "eyebrow": "与我们的专家一起开发您的下一个配方",
       "title": "卓越产品始于高品质原料",
       "intro": "希望降低出程损耗、改善质构或延长保质期？填写此表单，我们的食品工程师团队将第一时间与您联系，提供专业直接的技术指导。",
       "office": {
@@ -1100,7 +1100,7 @@
         "message": "技术挑战或所需样品说明：",
         "messagePh": "请简述您的产品、现有工艺（如西式火腿、吐司面包、功能饮料等）以及改善目标（如降低蒸煮损失、改善咬劲、延长保鲜期等）...",
         "loading": "提交中...",
-        "submit": "提交技术咨询与样品申请"
+        "submit": "与我们的专家一起开发您的下一个配方"
       },
       "topics": {
         "meat": "肉类与家禽 (Meat & Poultry)",
@@ -1773,10 +1773,22 @@
       "interactiveBadge": "Especialización Científica",
       "coaNotice": "Documentación técnica y Certificado de Análisis (CoA) disponibles por lote.",
       "metrics": [
-        { "value": "100%", "label": "Trazabilidad CoA por Lote" },
-        { "value": "< 15s", "label": "Humectación en Agua Fría" },
-        { "value": "HPLC", "label": "Estandarización de Activos" },
-        { "value": "USP / FCC", "label": "Grado Farmacéutico & Alimentario" }
+        {
+          "value": "100%",
+          "label": "Trazabilidad CoA por Lote"
+        },
+        {
+          "value": "< 15s",
+          "label": "Humectación en Agua Fría"
+        },
+        {
+          "value": "HPLC",
+          "label": "Estandarización de Activos"
+        },
+        {
+          "value": "USP / FCC",
+          "label": "Grado Farmacéutico & Alimentario"
+        }
       ],
       "capabilities": [
         {
@@ -1817,10 +1829,22 @@
       "interactiveBadge": "Scientific Specialization",
       "coaNotice": "Technical documentation and Certificate of Analysis (CoA) available per batch.",
       "metrics": [
-        { "value": "100%", "label": "Batch CoA Traceability" },
-        { "value": "< 15s", "label": "Cold-Water Wetting" },
-        { "value": "HPLC", "label": "Standardized Active Potency" },
-        { "value": "USP / FCC", "label": "Pharma & Food Grade" }
+        {
+          "value": "100%",
+          "label": "Batch CoA Traceability"
+        },
+        {
+          "value": "< 15s",
+          "label": "Cold-Water Wetting"
+        },
+        {
+          "value": "HPLC",
+          "label": "Standardized Active Potency"
+        },
+        {
+          "value": "USP / FCC",
+          "label": "Pharma & Food Grade"
+        }
       ],
       "capabilities": [
         {
@@ -1861,10 +1885,22 @@
       "interactiveBadge": "重点科研专业领域",
       "coaNotice": "每批次均提供完整技术规范与分析检测报告 (CoA)。",
       "metrics": [
-        { "value": "100%", "label": "逐批全项 CoA 报告" },
-        { "value": "< 15s", "label": "冷水速溶完全浸润" },
-        { "value": "HPLC", "label": "高效液相色谱活性定标" },
-        { "value": "USP / FCC", "label": "药典级与食品级标准" }
+        {
+          "value": "100%",
+          "label": "逐批全项 CoA 报告"
+        },
+        {
+          "value": "< 15s",
+          "label": "冷水速溶完全浸润"
+        },
+        {
+          "value": "HPLC",
+          "label": "高效液相色谱活性定标"
+        },
+        {
+          "value": "USP / FCC",
+          "label": "药典级与食品级标准"
+        }
       ],
       "capabilities": [
         {
@@ -3983,6 +4019,119 @@
           "step": "第五阶段 · 上线成功",
           "title": "工厂上线全程跟踪与技术支持",
           "description": "技术工程师亲临工厂指导工业化放大生产，保障平稳上线。"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "es": {
+      "badge": "Preguntas Frecuentes",
+      "eyebrow": "Resolución Técnica & Logística",
+      "title": "Dudas Frecuentes sobre Formulación, Muestras y Suministro",
+      "subtitle": "Conoce cómo trabajamos con fabricantes de alimentos: desde la validación de muestras en planta piloto hasta el escalamiento industrial, certificaciones y logística internacional.",
+      "askBox": {
+        "title": "¿Tienes un desafío de formulación no listado aquí?",
+        "desc": "Envíanos tu consulta técnica o especificación requerida. Nuestros ingenieros responderán con recomendaciones directas en menos de 24 horas.",
+        "button": "Desarrolla tu próxima formulación con nosotros"
+      },
+      "items": [
+        {
+          "question": "¿Cómo puedo solicitar muestras técnicas para validación en planta piloto?",
+          "answer": "Puedes solicitar muestras gratuitas a través de nuestro formulario de contacto o directamente con nuestros ingenieros. Cada envío incluye la Ficha Técnica completa (TDS), Certificado de Análisis (CoA) del lote específico y recomendaciones de dosificación y procesamiento optimizadas para tu línea de producción."
+        },
+        {
+          "question": "¿Cuáles son sus volúmenes mínimos de pedido (MOQ) y esquemas de entrega?",
+          "answer": "Ofrecemos esquemas altamente flexibles según la etapa del proyecto: desde lotes piloto y cajas para validación industrial hasta suministros recurrentes por tarima o contenedor directo. En México y Latinoamérica contamos con stock local en almacenes estratégicos para garantizar entregas ágiles y disponibilidad continua."
+        },
+        {
+          "question": "¿Qué certificaciones internacionales avalan la calidad e inocuidad de sus ingredientes?",
+          "answer": "Nuestras instalaciones y procesos de manufactura operan bajo los más altos estándares globales: certificación GFSI-BRCGS Grado A, Star-K Kosher, Halal, validación de sistemas HACCP, registro ante la FDA y trazabilidad integral lote por lote avalada documentalmente."
+        },
+        {
+          "question": "¿Ofrecen asistencia técnica presencial o remota durante la reformulación?",
+          "answer": "Sí. Contamos con 4 centros de I+D especializados y 6 laboratorios de aplicación cárnica y panificación. Nuestro equipo de más de 75 especialistas acompaña a tus técnicos tanto en ensayos de laboratorio y análisis de textura como en pruebas en planta piloto para ajustar rendimientos y sensorialidad."
+        },
+        {
+          "question": "¿Cómo garantizan la confidencialidad de nuestras recetas y procesos industriales?",
+          "answer": "La protección de tu propiedad intelectual es fundamental. Antes de cualquier intercambio técnico o evaluación de formulación firmamos un Acuerdo de Confidencialidad estricto (NDA), garantizando total reserva sobre tus matrices alimentarias, recetas y objetivos comerciales."
+        },
+        {
+          "question": "¿Qué diferencia a Wenda Ingredients de la compra a través de Wenda Indent?",
+          "answer": "Wenda Ingredients desarrolla, formula y comercializa nuestras marcas propias de ingredientes funcionales de especialidad (WBS, Wenda Phos, Safe Plate, etc.). Wenda Indent es nuestra división de abastecimiento global directo, que conecta a fabricantes con proveedores internacionales certificados para materias primas e insumos a escala industrial con gestión aduanal completa."
+        }
+      ]
+    },
+    "en": {
+      "badge": "Frequently Asked Questions",
+      "eyebrow": "Technical & Logistics Support",
+      "title": "Common Questions on Formulation, Pilot Samples, and Global Supply",
+      "subtitle": "Discover how we collaborate with food processors: from pilot sample validation to industrial scaling, international certifications, and direct supply chain management.",
+      "askBox": {
+        "title": "Have a specific formulation challenge not listed here?",
+        "desc": "Send us your technical inquiry or required specification. Our application engineers will respond with actionable recommendations within 24 hours.",
+        "button": "Develop your next formulation with our experts"
+      },
+      "items": [
+        {
+          "question": "How can I request technical samples for pilot plant testing?",
+          "answer": "You can request complimentary samples via our contact form or directly through our technical team. Every shipment includes the complete Technical Data Sheet (TDS), batch-specific Certificate of Analysis (CoA), and recommended dosage guidelines tailored to your production equipment."
+        },
+        {
+          "question": "What are your Minimum Order Quantities (MOQ) and delivery lead times?",
+          "answer": "We offer flexible supply tiers adapted to your scale: from pilot evaluation batches to recurring pallet or full-container shipments. In North America, Mexico, and Latam, we maintain regional inventory in strategic distribution hubs for prompt fulfillment."
+        },
+        {
+          "question": "What international food safety and quality certifications back your ingredients?",
+          "answer": "Our manufacturing facilities operate under stringent global standards, including GFSI-BRCGS Grade A, Star-K Kosher, Halal certification, HACCP validation, and FDA registration, with full lot-by-lot analytical traceability."
+        },
+        {
+          "question": "Do you provide on-site or remote technical assistance during reformulation?",
+          "answer": "Yes. With 4 dedicated R&D centers and 6 international meat application laboratories, our team of 75+ food scientists collaborates directly with your R&D and QA teams during bench-top trials and industrial pilot runs."
+        },
+        {
+          "question": "How do you protect the confidentiality of our formulations and proprietary recipes?",
+          "answer": "Protecting your intellectual property is paramount. Prior to reviewing any formulations or operational challenges, we execute a rigorous Non-Disclosure Agreement (NDA), ensuring absolute discretion for your processes and commercial goals."
+        },
+        {
+          "question": "What is the distinction between Wenda Ingredients and Wenda Indent?",
+          "answer": "Wenda Ingredients develops and manufactures our proprietary functional ingredient brands (WBS, Wenda Phos, Safe Plate, etc.). Wenda Indent is our direct global sourcing division connecting industrial processors with certified international producers for high-volume raw materials with seamless customs coordination."
+        }
+      ]
+    },
+    "zh": {
+      "badge": "常见问题",
+      "eyebrow": "技术与物流支持",
+      "title": "关于配方、试验样品和全球供应的常见问题",
+      "subtitle": "了解我们如何与食品加工商合作：从中试样品验证到工业放大、国际认证和全球直供管理。",
+      "askBox": {
+        "title": "有未在此列出的具体配方挑战吗？",
+        "desc": "直接向我们的应用工程师提交技术咨询，我们将在24小时内提供专业解决方案与建议。",
+        "button": "与我们的专家一起开发您的配方"
+      },
+      "items": [
+        {
+          "question": "如何申请用于中试放大的技术样品？",
+          "answer": "您可以通过我们的联系表单或直接向技术团队申请免费样品。每个批次均附有完整的技术数据表 (TDS)、批次分析证书 (CoA) 以及工艺用量建议。"
+        },
+        {
+          "question": "最小订购量 (MOQ) 和交货周期是怎样的？",
+          "answer": "我们提供灵活的供应方案：从中试验证批次到整托盘或集装箱直接发货。我们在主要区域均设有本地仓储中心，确保快速交付与持续供应。"
+        },
+        {
+          "question": "贵司产品具备哪些国际质量与食品安全认证？",
+          "answer": "所有生产基地均符合严格的国际标准，包括 GFSI-BRCGS A级认证、Star-K 犹太洁食认证、清真认证 (Halal)、HACCP 体系及 FDA 注册，每批次产品具备完整溯源文件。"
+        },
+        {
+          "question": "在产品重构与开发过程中是否提供现场技术支持？",
+          "answer": "是的。我们拥有4个专业研发中心和6个肉类应用联合实验室，75+位研发与技术专家可直接与您的团队协作优化质构、出品率与清洁标签方案。"
+        },
+        {
+          "question": "如何确保客户专属配方与生产工艺的保密性？",
+          "answer": "客户知识产权是我们的核心准则。在技术评估与配方对接前，我们均会签署严格的保密协议 (NDA)，100%保护您的配方与商业机密。"
+        },
+        {
+          "question": "Wenda Ingredients 与 Wenda Indent 有何区别？",
+          "answer": "Wenda Ingredients 专注于自主研发与生产的功能性配料品牌（如 WBS、Wenda Phos、Safe Plate 等）；Wenda Indent 是全球大宗原料直采与进出口服务体系，帮助企业对接合规国际源头工厂。"
         }
       ]
     }
