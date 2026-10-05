@@ -116,9 +116,13 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
   const tExitStart = tCapStart + (index + 1) * segmentDuration;
   const tExitDone = Math.min(1.0, tExitStart + transitionDuration);
 
-  // Stagger entry checkpoints
-  const tTextStable = tStart + 0.85 * transitionDuration;
-  const tMetricsStart = tStart + 0.15 * transitionDuration;
+  // Content choreography:
+  // Fade in incoming text/cards only after the panel canvas has covered the screen (>40% of transition)
+  const tTextEntryStart = tStart + 0.38 * transitionDuration;
+  const tCardEntryStart = tStart + 0.48 * transitionDuration;
+
+  // Fade out outgoing content smoothly when the next panel arrives so cards never collide
+  const tContentExitDone = tExitStart + 0.40 * transitionDuration;
 
   // 1. Container Slide-in & subtle retreat physics (identical for all panels)
   const panelTranslateX = useTransform(smoothProgress, (val) => {
@@ -151,55 +155,65 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
     return `brightness(${1 - 0.4 * p})`;
   });
 
-  // 2. Parallax Background (30% -> 0%)
+  // 2. Parallax Background: slightly oversized (116%) so shifting by 5% never leaves empty gaps
   const bgTranslateX = useTransform(smoothProgress, (val) => {
     if (shouldReduceMotion) return "0%";
-    if (val <= tStart) return "30%";
+    if (val <= tStart) return "5%";
     if (val >= tEntryDone) return "0%";
     const p = (val - tStart) / (tEntryDone - tStart);
-    return `${30 * (1 - p)}%`;
+    return `${5 * (1 - p)}%`;
   });
 
-  // 3. Editorial Column Stagger (20% -> 0%, opacity 0.3 -> 1.0)
-  const textTranslateX = useTransform(smoothProgress, (val) => {
-    if (shouldReduceMotion) return "0%";
-    if (val <= tStart) return "20%";
-    if (val >= tTextStable) return "0%";
-    const p = (val - tStart) / (tTextStable - tStart);
-    return `${20 * (1 - p)}%`;
+  // 3. Editorial Column Reveal (floats in with translateY and opacity once panel canvas has entered)
+  const textTranslateY = useTransform(smoothProgress, (val) => {
+    if (shouldReduceMotion) return "0px";
+    if (val <= tTextEntryStart) return "24px";
+    if (val >= tEntryDone) return "0px";
+    const p = (val - tTextEntryStart) / (tEntryDone - tTextEntryStart);
+    return `${Math.round(24 * (1 - p))}px`;
   });
 
   const textOpacity = useTransform(smoothProgress, (val) => {
     if (shouldReduceMotion) return 1;
-    if (val <= tStart) return 0.3;
-    if (val >= tTextStable) return 1;
-    const p = (val - tStart) / (tTextStable - tStart);
-    return 0.3 + 0.7 * p;
+    // Before text entrance (prevents text from being clipped by panel leading edge)
+    if (val <= tTextEntryStart) return 0;
+    // Text entering
+    if (val < tEntryDone) {
+      return (val - tTextEntryStart) / (tEntryDone - tTextEntryStart);
+    }
+    // Reading plateau
+    if (val <= tExitStart || index === totalPanels - 1) return 1;
+    // Exiting when next panel arrives (smooth fade out avoids visual collision)
+    if (val < tContentExitDone) {
+      return 1 - (val - tExitStart) / (tContentExitDone - tExitStart);
+    }
+    return 0;
   });
 
-  // 4. Floating Metrics Card Stagger (45% in X, 10% in Y, opacity 0 -> 1)
-  const cardTranslateX = useTransform(smoothProgress, (val) => {
-    if (shouldReduceMotion) return "0%";
-    if (val <= tMetricsStart) return "45%";
-    if (val >= tEntryDone) return "0%";
-    const p = (val - tMetricsStart) / (tEntryDone - tMetricsStart);
-    return `${45 * (1 - p)}%`;
-  });
-
+  // 4. Floating Metrics Card Reveal (staggered float in and graceful exit fade)
   const cardTranslateY = useTransform(smoothProgress, (val) => {
-    if (shouldReduceMotion) return "0%";
-    if (val <= tMetricsStart) return "10%";
-    if (val >= tEntryDone) return "0%";
-    const p = (val - tMetricsStart) / (tEntryDone - tMetricsStart);
-    return `${10 * (1 - p)}%`;
+    if (shouldReduceMotion) return "0px";
+    if (val <= tCardEntryStart) return "30px";
+    if (val >= tEntryDone) return "0px";
+    const p = (val - tCardEntryStart) / (tEntryDone - tCardEntryStart);
+    return `${Math.round(30 * (1 - p))}px`;
   });
 
   const cardOpacity = useTransform(smoothProgress, (val) => {
     if (shouldReduceMotion) return 1;
-    if (val <= tMetricsStart) return 0;
-    if (val >= tEntryDone) return 1;
-    const p = (val - tMetricsStart) / (tEntryDone - tMetricsStart);
-    return p;
+    // Before card entrance
+    if (val <= tCardEntryStart) return 0;
+    // Card entering
+    if (val < tEntryDone) {
+      return (val - tCardEntryStart) / (tEntryDone - tCardEntryStart);
+    }
+    // Reading plateau
+    if (val <= tExitStart || index === totalPanels - 1) return 1;
+    // Exiting when next panel arrives
+    if (val < tContentExitDone) {
+      return 1 - (val - tExitStart) / (tContentExitDone - tExitStart);
+    }
+    return 0;
   });
 
   return (
@@ -210,22 +224,22 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
         zIndex: 20 + index * 10,
         willChange: "transform"
       }}
-      className="absolute inset-0 w-full h-full overflow-hidden select-none"
+      className="absolute inset-0 w-full h-full overflow-hidden select-none bg-black"
     >
-      {/* Background Imagery with Parallax */}
+      {/* Background Imagery with Subtle Depth */}
       <motion.div
         style={{
           x: bgTranslateX,
           willChange: "transform"
         }}
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute -inset-x-[8%] inset-y-0 w-[116%] h-full pointer-events-none"
       >
         <Image
           src={detail.image}
           alt={detail.alt}
           fill
           priority={index === 0}
-          sizes="100vw"
+          sizes="120vw"
           className="object-cover"
         />
         {/* Contrast Overlays for WCAG AAA Readability */}
@@ -240,7 +254,7 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
           {/* Left Editorial Block (Columns 1 to 7) */}
           <motion.div
             style={{
-              x: textTranslateX,
+              y: textTranslateY,
               opacity: textOpacity,
               willChange: "transform, opacity"
             }}
@@ -288,7 +302,6 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
           {/* Right Analytical Floating Card (Columns 8 to 12) */}
           <motion.div
             style={{
-              x: cardTranslateX,
               y: cardTranslateY,
               opacity: cardOpacity,
               willChange: "transform, opacity"
@@ -438,17 +451,18 @@ export const WndaScienceSection: React.FC<{ onConsultScience: () => void }> = ({
   });
 
   // Only the H2 slogan title appears on the intro screen (no container box, no badges, no extra copy)
+  // And it dissolves cleanly before Panel 01's content enters
   const introTitleOpacity = useTransform(smoothProgress, (val) => {
     if (val <= 0.04) return 0;
     if (val < 0.14) return (val - 0.04) / 0.10;
     if (val <= tCapStart) return 1;
-    if (val < tCapStart + introRetreatDuration) {
-      return 1 - (val - tCapStart) / introRetreatDuration;
+    if (val < tCapStart + 0.40 * introRetreatDuration) {
+      return 1 - (val - tCapStart) / (0.40 * introRetreatDuration);
     }
     return 0;
   });
 
-  const introTitleTranslateY = useTransform(smoothProgress, [0.04, 0.14, tCapStart, tCapStart + introRetreatDuration], ["20px", "0px", "0px", "-20px"]);
+  const introTitleTranslateY = useTransform(smoothProgress, [0.04, 0.14, tCapStart, tCapStart + 0.40 * introRetreatDuration], ["20px", "0px", "0px", "-20px"]);
 
   const ctaText = t("cta", "Consultar con Especialista WNDA");
 
