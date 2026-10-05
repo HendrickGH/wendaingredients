@@ -313,51 +313,47 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
             </div>
           </motion.div>
 
-          {/* Right Analytical Floating Card (Columns 8 to 12) */}
+          {/* Right Analytical Column (Columns 8 to 12) - Clean Editorial Spec */}
           <motion.div
             style={{
               y: cardTranslateY,
               opacity: cardOpacity,
               willChange: "transform, opacity"
             }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 text-white space-y-8"
           >
-            <div className="relative rounded-3xl p-6 sm:p-8 bg-slate-950/70 border border-white/20 backdrop-blur-2xl shadow-2xl space-y-6 text-white overflow-hidden">
-              <div
-                className="absolute -right-16 -top-16 w-48 h-48 rounded-full pointer-events-none opacity-30"
-                style={{
-                  background: "radial-gradient(circle, rgba(217,232,190,0.3) 0%, transparent 70%)"
-                }}
-              />
+            <div className="space-y-1.5">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#D9E8BE] block">
+                Métrica de Desempeño
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold font-editorial text-white tracking-tight">
+                Ficha Técnica & Validación
+              </h3>
+            </div>
 
-              <div className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#D9E8BE]">
-                  Métrica de Desempeño
+            {/* Giant Editorial KPI */}
+            <div className="space-y-1">
+              <span className="text-5xl sm:text-7xl font-bold font-editorial text-[#D9E8BE] tracking-tight leading-none block drop-shadow-lg">
+                {detail.metricValue}
+              </span>
+              <span className="text-sm sm:text-base font-medium text-slate-200 block pt-1">
+                {detail.metricLabel}
+              </span>
+            </div>
+
+            {/* Technical Verification Points */}
+            <div className="space-y-3.5 text-xs sm:text-sm text-slate-200">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />
+                <span className="leading-snug">
+                  Certificación y Trazabilidad CoA garantizada por lote
                 </span>
-                <h3 className="text-lg font-bold font-editorial text-white">
-                  Ficha Técnica & Validación
-                </h3>
               </div>
-
-              {/* Big KPI Metric Display */}
-              <div className="py-4 px-5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                <span className="text-3xl sm:text-5xl font-extrabold text-[#D9E8BE] font-editorial block tracking-tight">
-                  {detail.metricValue}
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-[#D9E8BE] shrink-0 mt-0.5" />
+                <span className="leading-snug">
+                  Control de impurezas y pureza analítica conforme a USP / FCC
                 </span>
-                <span className="text-xs sm:text-sm font-medium text-slate-300 block">
-                  {detail.metricLabel}
-                </span>
-              </div>
-
-              <div className="space-y-3 pt-2 text-xs text-slate-300">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D9E8BE] shrink-0 animate-pulse" />
-                  <span>Certificación y Trazabilidad CoA garantizada por lote</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D9E8BE] shrink-0" />
-                  <span>Control de impurezas y pureza analítica conforme a USP / FCC</span>
-                </div>
               </div>
             </div>
           </motion.div>
