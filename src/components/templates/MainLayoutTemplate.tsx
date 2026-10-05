@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { CountryMirror, BrandItem, IndentIndustry } from "@/data/siteContent";
 import { useSiteContent } from "@/i18n/useSiteContent";
 import { Navbar } from "../organisms/Navbar";
@@ -29,11 +30,29 @@ const CATEGORY_TOPICS: Record<string, string> = {
   tecnologia: "vicel"
 };
 
+const COUNTRY_TO_LANG: Record<string, string> = {
+  MX: "es",
+  LATAM: "es",
+  US: "en",
+  EU: "en",
+  APAC: "zh"
+};
+
+const LANG_TO_DEFAULT_COUNTRY: Record<string, string> = {
+  es: "MX",
+  en: "US",
+  zh: "APAC"
+};
+
 export const MainLayoutTemplate: React.FC = () => {
+  const { i18n } = useTranslation();
   const { countries, brands, industries } = useSiteContent();
 
   // Only stable identifiers live in state; localized objects are derived on every render
-  const [countryCode, setCountryCode] = useState<string>("MX");
+  const [countryCode, setCountryCode] = useState<string>(() => {
+    const activeLang = i18n.resolvedLanguage ?? i18n.language ?? "es";
+    return LANG_TO_DEFAULT_COUNTRY[activeLang] ?? "MX";
+  });
   const [selectedBrandName, setSelectedBrandName] = useState<string | null>(null);
   const [selectedIndustryId, setSelectedIndustryId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,7 +62,13 @@ export const MainLayoutTemplate: React.FC = () => {
   const selectedBrand = brands.find((b) => b.name === selectedBrandName) ?? null;
   const selectedIndustry = industries.find((i) => i.id === selectedIndustryId) ?? null;
 
-  const handleSelectCountry = (country: CountryMirror) => setCountryCode(country.code);
+  const handleSelectCountry = (country: CountryMirror) => {
+    setCountryCode(country.code);
+    const targetLang = COUNTRY_TO_LANG[country.code] ?? "es";
+    if (i18n.language !== targetLang) {
+      i18n.changeLanguage(targetLang);
+    }
+  };
 
   const handleOpenBrandModal = (brand: BrandItem) => {
     setSelectedBrandName(brand.name);

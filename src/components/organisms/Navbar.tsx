@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import { Logo } from "../atoms/Logo";
 import { Button } from "../atoms/Button";
 import { CountrySelector } from "../molecules/CountrySelector";
-import { LanguageSwitcher } from "../molecules/LanguageSwitcher";
 import { CountryFlag } from "../atoms/CountryFlag";
 import { CountryMirror } from "@/data/siteContent";
 import {
@@ -107,34 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             : "bg-[#F8FAF6] border-slate-200/90 text-slate-700"
         }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 min-w-0">
-          <div className="flex items-center gap-2.5 min-w-0 shrink">
-            <span
-              className={`inline-flex items-center gap-1.5 font-bold shrink-0 ${
-                isTransparent ? "text-[#D9E8BE]" : "text-[#2F591B]"
-              }`}
-            >
-              <span
-                className={`w-2 h-2 rounded-full ${
-                  isTransparent ? "bg-[#D9E8BE]" : "bg-[#447D29]"
-                }`}
-              />
-              {t("network")}
-            </span>
-            <span
-              className={`hidden lg:inline w-px h-3 shrink-0 ${
-                isTransparent ? "bg-white/20" : "bg-slate-300"
-              }`}
-            />
-            <span
-              className={`hidden lg:inline font-medium truncate max-w-sm xl:max-w-lg ${
-                isTransparent ? "text-slate-300" : "text-slate-600"
-              }`}
-            >
-              {currentCountry.tagline}
-            </span>
-          </div>
-
+        <div className="max-w-7xl mx-auto flex items-center justify-end gap-4 min-w-0">
           <div className="flex items-center gap-3 sm:gap-5 shrink-0">
             <a
               href={`tel:${currentCountry.contactOffice.phone}`}
@@ -158,7 +130,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                 isTransparent ? "bg-white/20" : "bg-slate-200"
               }`}
             />
-            <LanguageSwitcher theme={isTransparent ? "transparent" : "light"} />
             <CountrySelector
               currentCountry={currentCountry}
               onSelectCountry={onSelectCountry}
