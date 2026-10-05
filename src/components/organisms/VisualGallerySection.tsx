@@ -1,12 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import { Heading } from "../atoms/Heading";
 import { Camera, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEditorialCarousel } from "@/hooks/useEditorialCarousel";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import translations from "@/i18n/translations.json";
 
@@ -30,6 +32,9 @@ interface GalleryItemData {
 
 export const VisualGallerySection: React.FC = () => {
   const { t, i18n } = useTranslation("visualGallery");
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
   const {
     scrollRef,
     scrollProgress,
@@ -55,6 +60,59 @@ export const VisualGallerySection: React.FC = () => {
     image: GALLERY_IMAGES[idx] || GALLERY_IMAGES[0]
   }));
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // 1. Header entrance
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 26 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 2. Carousel items reveal
+      if (scrollRef.current) {
+        const cards = scrollRef.current.children;
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 32, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.65,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: scrollRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [scrollRef]);
+
   const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const clickRatio = (e.clientX - rect.left) / rect.width;
@@ -62,10 +120,14 @@ export const VisualGallerySection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-[#FFFFFF] border-b border-slate-200 overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="galeria-aplicaciones"
+      className="py-24 bg-[#FFFFFF] border-b border-slate-200 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-100 pb-8">
+        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-100 pb-8">
           <div className="space-y-3 max-w-2xl">
             <Badge variant="wenda" size="md" icon={<Camera className="w-3.5 h-3.5" />}>
               {t("badge")}

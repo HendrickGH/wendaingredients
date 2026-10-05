@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { Badge } from "../atoms/Badge";
 import { NaturalColorSwatch } from "../molecules/NaturalColorSwatch";
 import { useTranslation } from "react-i18next";
 import { useSiteContent, LocalizedCategory } from "@/i18n/useSiteContent";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Beef,
   Wheat,
@@ -40,6 +42,63 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
   const [activeTab, setActiveTab] = useState<"benefits" | "applications" | "systems">("benefits");
   const [activePillarIndex, setActivePillarIndex] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const imageCardRef = useRef<HTMLDivElement>(null);
+  const briefingCardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // 1. Header entrance
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 26 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 2. Dominant Image & Briefing card dual reveal
+      if (imageCardRef.current && briefingCardRef.current) {
+        gsap.fromTo(
+          [imageCardRef.current, briefingCardRef.current],
+          { opacity: 0, y: 32, scale: 0.98 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.75,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: imageCardRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const currentCategory = CATEGORIES.find((c) => c.id === activeCategoryId) || CATEGORIES[0];
 
@@ -106,10 +165,14 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
   };
 
   return (
-    <section id="categorias" className="py-24 lg:py-32 bg-[#FFFFFF] relative border-b border-slate-200">
+    <section
+      ref={sectionRef}
+      id="categorias"
+      className="py-24 lg:py-32 bg-[#FFFFFF] relative border-b border-slate-200"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-12">
         {/* Section Header - Editorial Clarity */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
+        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
           <div className="space-y-3 max-w-2xl">
             <Badge variant="wenda" size="md">
               {t("header.badge")}
@@ -157,7 +220,7 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
         {/* Main Category Stage: Visual-Dominant Editorial Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Dominant Image Card (7 Columns): Immersive, Hero-Grade Photography */}
-          <div className="lg:col-span-7">
+          <div ref={imageCardRef} className="lg:col-span-7">
             <div className="relative h-[400px] sm:h-[480px] lg:h-[540px] w-full rounded-3xl overflow-hidden shadow-lg border border-slate-200 group bg-slate-950">
               <Image
                 src={currentCategory.image}
@@ -183,7 +246,7 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
           </div>
 
           {/* Executive Briefing Card (5 Columns): Clean, Scannable & Action-Oriented */}
-          <div className="lg:col-span-5 space-y-6">
+          <div ref={briefingCardRef} className="lg:col-span-5 space-y-6">
             <div className="space-y-2">
               <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider block">
                 {t("briefing.eyebrow")}

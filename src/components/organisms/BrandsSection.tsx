@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import { Heading } from "../atoms/Heading";
@@ -7,6 +9,8 @@ import { BrandItem } from "@/data/siteContent";
 import { useSiteContent } from "@/i18n/useSiteContent";
 import { Lock, ArrowRight, ArrowLeft } from "lucide-react";
 import { useEditorialCarousel } from "@/hooks/useEditorialCarousel";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface BrandsSectionProps {
   onOpenBrandDetails: (brand: BrandItem) => void;
@@ -15,6 +19,11 @@ interface BrandsSectionProps {
 export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails }) => {
   const { t } = useTranslation("brandsSection");
   const { brands: BRANDS } = useSiteContent();
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const carouselContainerRef = useRef<HTMLDivElement>(null);
+  const crossLinksRef = useRef<HTMLDivElement>(null);
+
   const {
     scrollRef,
     scrollProgress,
@@ -25,6 +34,79 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
     seekToRatio
   } = useEditorialCarousel();
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // 1. Header entrance
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 26 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 2. Carousel cards reveal
+      if (scrollRef.current) {
+        const cards = scrollRef.current.children;
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 35, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: scrollRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 3. Cross links reveal
+      if (crossLinksRef.current) {
+        gsap.fromTo(
+          crossLinksRef.current.children,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: crossLinksRef.current,
+              start: "top 90%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [scrollRef]);
+
   const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const clickRatio = (e.clientX - rect.left) / rect.width;
@@ -32,10 +114,14 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
   };
 
   return (
-    <section id="marcas" className="py-24 bg-[#F8FAF6] relative border-b border-slate-200 overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="marcas"
+      className="py-24 bg-[#F8FAF6] relative border-b border-slate-200 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10">
         {/* Header with strategic note representation */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
+        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
           <div className="space-y-3 max-w-2xl">
             <Badge variant="wenda" size="md">
               {t("badge")}
@@ -129,7 +215,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
         </div>
 
         {/* Cross links to WNDA Science & Wenda Indent */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
+        <div ref={crossLinksRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
           <a
             href="#science"
             className="group py-6 border-t border-slate-200 hover:border-[#447D29] transition-colors flex items-center justify-between"
