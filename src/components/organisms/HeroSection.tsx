@@ -9,6 +9,8 @@ import {
   X,
   Quote
 } from "lucide-react";
+import gsap from "gsap";
+import { MetricCounter } from "../atoms/MetricCounter";
 
 export const HeroSection: React.FC = () => {
   const { t } = useTranslation("hero");
@@ -16,6 +18,78 @@ export const HeroSection: React.FC = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [activeVideoSrc, setActiveVideoSrc] = useState("/videos/hero-food-science.mp4");
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // GSAP Animation Refs
+  const heroContainerRef = useRef<HTMLElement>(null);
+  const swirlRef = useRef<HTMLDivElement>(null);
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const quoteRef = useRef<HTMLQuoteElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  // GSAP Entrance & Ambient Motion Choreography
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      // 1. Ambient Brand Swirl Float (HyperFrames sine-wave-loop rule)
+      if (swirlRef.current) {
+        gsap.to(swirlRef.current, {
+          y: 22,
+          x: -15,
+          rotation: 3.5,
+          duration: 7.5,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true
+        });
+      }
+
+      // 2. Coordinated Waterfall Arrival (HyperFrames waterfall-entry & spring-pop-entrance rules)
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.fromTo(
+        badgeRef.current,
+        { opacity: 0, y: 22, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.6 }
+      )
+        .fromTo(
+          titleRef.current,
+          { opacity: 0, y: 36 },
+          { opacity: 1, y: 0, duration: 0.8 },
+          "-=0.4"
+        )
+        .fromTo(
+          subtitleRef.current,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          "-=0.5"
+        )
+        .fromTo(
+          ctaRef.current,
+          { opacity: 0, y: 20, scale: 0.98 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.6 },
+          "-=0.4"
+        )
+        .fromTo(
+          quoteRef.current,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.6 },
+          "-=0.4"
+        )
+        .fromTo(
+          statsRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          "-=0.4"
+        );
+    }, heroContainerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   // Toggle background video playback
   const togglePlay = () => {
@@ -42,6 +116,7 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section
+      ref={heroContainerRef}
       aria-labelledby="hero-title"
       className="relative min-h-[92vh] lg:min-h-[96vh] flex items-center bg-[#0B140B] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24"
     >
@@ -65,7 +140,10 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B140B] via-transparent to-black/40 z-10" />
 
         {/* Organic Luminous Brand Swirl / Wave (Clarity Signature Visual Wave in Wenda Mint/Green) */}
-        <div className="absolute right-0 top-1/4 w-[650px] h-[650px] pointer-events-none opacity-40 lg:opacity-60 z-10 hidden sm:block">
+        <div
+          ref={swirlRef}
+          className="absolute right-0 top-1/4 w-[650px] h-[650px] pointer-events-none opacity-40 lg:opacity-60 z-10 hidden sm:block will-change-transform"
+        >
           <svg
             viewBox="0 0 600 600"
             fill="none"
@@ -101,24 +179,31 @@ export const HeroSection: React.FC = () => {
         {/* Hero Content Column (Clarity Style Headline & Actions) */}
         <div className="max-w-3xl space-y-8">
           <div className="space-y-5">
-            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#D9E8BE] text-xs font-bold uppercase tracking-wider">
+            <div
+              ref={badgeRef}
+              className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#D9E8BE] text-xs font-bold uppercase tracking-wider"
+            >
               {t("badge")}
             </div>
 
             <h1
+              ref={titleRef}
               id="hero-title"
               className="text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.08] font-editorial max-w-2xl drop-shadow-md"
             >
               {t("title")}
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed max-w-xl drop-shadow-sm">
+            <p
+              ref={subtitleRef}
+              className="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed max-w-xl drop-shadow-sm"
+            >
               {t("subtitle")}
             </p>
           </div>
 
           {/* Action Button Group (Clarity Style: Vibrant Pill with Play Triangle + Secondary Pill) */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div ref={ctaRef} className="flex flex-wrap items-center gap-4 pt-2">
             {/* Primary Action Button: Reproducir Video (Clarity Yellow/Mint style) */}
             <button
               onClick={() => setIsVideoModalOpen(true)}
@@ -146,7 +231,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Corporate Motto Pullquote */}
-          <blockquote className="flex items-start gap-3 py-1 mt-6">
+          <blockquote ref={quoteRef} className="flex items-start gap-3 py-1 mt-6">
             <Quote className="w-5 h-5 text-[#D9E8BE] shrink-0 mt-1" />
             <div>
               <p className="text-base sm:text-lg font-bold text-white italic font-serif">
@@ -158,33 +243,42 @@ export const HeroSection: React.FC = () => {
             </div>
           </blockquote>
 
-          {/* Minimalist Operational Stats Strip */}
+          {/* Minimalist Operational Stats Strip with Dynamic Counters */}
           <div
+            ref={statsRef}
             className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/15 max-w-2xl"
             aria-label={t("statsAria")}
           >
             <div>
-              <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight block">
-                30+
-              </span>
+              <MetricCounter
+                value="30+"
+                className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight block"
+                suffixClassName="text-[#D9E8BE]"
+              />
               <span className="text-xs text-slate-300 font-medium">{t("stats.years")}</span>
             </div>
             <div>
-              <span className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block">
-                10+
-              </span>
+              <MetricCounter
+                value="10+"
+                className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block"
+                suffixClassName="text-white"
+              />
               <span className="text-xs text-slate-300 font-medium">{t("stats.countries")}</span>
             </div>
             <div>
-              <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight block">
-                4
-              </span>
+              <MetricCounter
+                value="4"
+                className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight block"
+                suffixClassName="text-[#D9E8BE]"
+              />
               <span className="text-xs text-slate-300 font-medium">{t("stats.rd")}</span>
             </div>
             <div>
-              <span className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block">
-                6
-              </span>
+              <MetricCounter
+                value="6"
+                className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block"
+                suffixClassName="text-white"
+              />
               <span className="text-xs text-slate-300 font-medium">{t("stats.labs")}</span>
             </div>
           </div>

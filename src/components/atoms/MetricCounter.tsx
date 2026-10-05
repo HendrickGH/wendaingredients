@@ -1,45 +1,95 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 interface MetricCounterProps {
   value: string;
   className?: string;
+  suffixClassName?: string;
+  duration?: number;
 }
 
-export const MetricCounter: React.FC<MetricCounterProps> = ({ value, className = "" }) => {
+export const MetricCounter: React.FC<MetricCounterProps> = ({
+  value,
+  className = "",
+  suffixClassName = "text-[#447D29]",
+  duration = 1600
+}) => {
   const numericPart = parseInt(value.replace(/[^0-9]/g, ""), 10);
   const suffix = value.replace(/[0-9]/g, "");
   const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const containerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (isNaN(numericPart)) return;
-    let start = 0;
-    const duration = 1600;
-    const stepTime = Math.abs(Math.floor(duration / (numericPart > 100 ? 50 : numericPart || 1)));
-    const increment = Math.ceil(numericPart / (duration / stepTime));
 
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= numericPart) {
-        setCount(numericPart);
-        clearInterval(timer);
-      } else {
-        setCount(start);
-      }
-    }, stepTime);
+    // Viewport intersection observer to start counting on entrance
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
 
-    return () => clearInterval(timer);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
   }, [numericPart]);
+
+  useEffect(() => {
+    if (!hasStarted || isNaN(numericPart)) return;
+
+    let startTime: number | null = null;
+    let animationFrameId: number;
+
+    // HyperFrames counting-dynamic-scale: power3.out deceleration ease
+    const easeOutPower3 = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const currentVal = Math.round(numericPart * easeOutPower3(progress));
+
+      setCount(currentVal);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
+      } else {
+        setCount(numericPart);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [hasStarted, numericPart, duration]);
 
   if (isNaN(numericPart)) {
     return <span className={className}>{value}</span>;
   }
 
   return (
-    <span className={`font-sans font-black text-[#0F172A] ${className}`}>
-      {count}
-      <span className="text-[#447D29]">{suffix}</span>
+    <span
+      ref={containerRef}
+      className={`inline-flex items-baseline tabular-nums ${className}`}
+      style={{ fontVariantNumeric: "tabular-nums" }}
+    >
+      <span className="transition-transform duration-300">
+        {count}
+      </span>
+      {suffix && (
+        <span className={`ml-0.5 ${suffixClassName}`}>
+          {suffix}
+        </span>
+      )}
     </span>
   );
 };
