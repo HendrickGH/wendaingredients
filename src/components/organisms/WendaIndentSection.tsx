@@ -1,8 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSiteContent } from "@/i18n/useSiteContent";
 import { Badge } from "../atoms/Badge";
 import { IndentIndustry } from "@/data/siteContent";
@@ -33,9 +35,30 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
 }) => {
   const { t } = useTranslation("wendaIndent");
   const { industries, indentSteps } = useSiteContent();
+  const lastCardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      if (!lastCardRef.current) return;
+
+      ScrollTrigger.create({
+        trigger: lastCardRef.current,
+        start: "top 20%",
+        endTrigger: "#contact",
+        end: "top top",
+        pin: true,
+        pinSpacing: false,
+        anticipatePin: 1,
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="indent" className="py-24 lg:py-32 bg-[#FFFFFF] relative border-b border-slate-200">
+    <section id="indent" className="pt-24 lg:pt-32 pb-8 lg:pb-12 bg-[#FFFFFF] relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-24">
         {/* Header - Editorial Style */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-slate-200 pb-8">
@@ -249,12 +272,16 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
           <div className="space-y-20 lg:space-y-28">
             {industries.map((ind, index) => {
               const isEven = index % 2 === 0;
+              const isLast = index === industries.length - 1;
               return (
                 <div
                   key={ind.id}
+                  ref={isLast ? lastCardRef : undefined}
                   className={`group flex flex-col ${
                     isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } items-stretch gap-8 lg:gap-12 xl:gap-16`}
+                  } items-stretch gap-8 lg:gap-12 xl:gap-16 ${
+                    isLast ? "bg-white relative z-10 pt-4 pb-6" : ""
+                  }`}
                 >
                   <div className="w-full lg:w-[68%] xl:w-[70%] shrink-0">
                     <div

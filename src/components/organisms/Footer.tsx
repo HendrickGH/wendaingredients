@@ -18,7 +18,7 @@ export const Footer: React.FC<{
   const activeCountry = countries.find((c) => c.code === currentCountry.code) || currentCountry;
 
   return (
-    <footer className="bg-[#0B140B] text-gray-300 pt-16 pb-12 text-xs sm:text-sm border-t border-[#1C2E1A]">
+    <footer className="relative z-20 bg-[#0B140B] text-gray-300 pt-16 pb-12 text-xs sm:text-sm border-t border-[#1C2E1A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
         {/* Top Accreditation & Certifications Banner */}
         <div className="pb-8 border-b border-white/10 flex flex-wrap items-center justify-between gap-6">

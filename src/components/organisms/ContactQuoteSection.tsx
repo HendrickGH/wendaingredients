@@ -71,7 +71,7 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
     <section
       id="contact"
       aria-labelledby="contact-section-title"
-      className="py-20 lg:py-28 bg-[#F8FAF6] text-slate-900 border-t border-slate-200 scroll-mt-12"
+      className="relative z-20 min-h-screen py-20 lg:py-28 bg-[#F8FAF6] text-slate-900 border-t border-slate-200/80 shadow-[0_-25px_60px_-15px_rgba(0,0,0,0.12)] scroll-mt-12"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
         {/* Section Header */}
