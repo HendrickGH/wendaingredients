@@ -37,31 +37,172 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
   const { industries, indentSteps } = useSiteContent();
   const lastCardRef = useRef<HTMLDivElement>(null);
 
+  // GSAP Animation Refs
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const diagramHeaderRef = useRef<HTMLDivElement>(null);
+  const staircaseDesktopRef = useRef<HTMLDivElement>(null);
+  const staircaseMobileRef = useRef<HTMLDivElement>(null);
+  const catalogHeaderRef = useRef<HTMLDivElement>(null);
+  const industryCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      if (!lastCardRef.current) return;
+      // 1. Header entrance
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 26 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
 
-      ScrollTrigger.create({
-        trigger: lastCardRef.current,
-        start: "top 20%",
-        endTrigger: "#contact",
-        end: "top top",
-        pin: true,
-        pinSpacing: false,
-        anticipatePin: 1,
+      // 2. Diagram Sub-Header entrance
+      if (diagramHeaderRef.current) {
+        gsap.fromTo(
+          diagramHeaderRef.current.children,
+          { opacity: 0, y: 22 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: diagramHeaderRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 3. Stepped Staircase Diagram (Desktop)
+      if (staircaseDesktopRef.current) {
+        const columns = staircaseDesktopRef.current.children;
+        gsap.fromTo(
+          columns,
+          { opacity: 0, y: 60, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: staircaseDesktopRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 4. Stepped Staircase Diagram (Mobile)
+      if (staircaseMobileRef.current) {
+        const mobileSteps = staircaseMobileRef.current.children;
+        gsap.fromTo(
+          mobileSteps,
+          { opacity: 0, x: -24 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: staircaseMobileRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 5. Catálogo Multidisciplinario Header
+      if (catalogHeaderRef.current) {
+        gsap.fromTo(
+          catalogHeaderRef.current.children,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: catalogHeaderRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 6. Catálogo Multidisciplinario Industry Items (first 7 items; last item remains un-transformed for sticky pin)
+      industryCardsRef.current.forEach((cardEl, idx) => {
+        if (!cardEl || idx === industries.length - 1) return;
+        const isEven = idx % 2 === 0;
+        gsap.fromTo(
+          cardEl,
+          { opacity: 0, y: 45, x: isEven ? -25 : 25 },
+          {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cardEl,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
       });
+
+      // 7. Sticky Stacking Pin for the last card
+      if (lastCardRef.current) {
+        ScrollTrigger.create({
+          trigger: lastCardRef.current,
+          start: "top 20%",
+          endTrigger: "#contact",
+          end: "bottom top",
+          pin: true,
+          pinSpacing: false,
+        });
+      }
     });
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="indent" className="pt-24 lg:pt-32 pb-8 lg:pb-12 bg-[#FFFFFF] relative border-b border-slate-200">
+    <section
+      ref={sectionRef}
+      id="indent"
+      className="pt-24 lg:pt-32 pb-8 lg:pb-12 bg-[#FFFFFF] relative border-b border-slate-200"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-24">
         {/* Header - Editorial Style */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-slate-200 pb-8">
+        <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-slate-200 pb-8">
           <div className="space-y-4 max-w-3xl">
             <div className="flex items-center gap-2">
               <Badge variant="wenda" size="md">
@@ -93,7 +234,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
 
         {/* 5-Step Indent Methodology - Stepped Staircase Diagram */}
         <div className="space-y-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+          <div ref={diagramHeaderRef} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#447D29]">
                 <Layers className="w-4 h-4" />
@@ -107,7 +248,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
           </div>
 
           {/* Desktop Staircase Layout (lg and above) */}
-          <div className="hidden lg:grid lg:grid-cols-5 gap-4 xl:gap-5 items-end pt-4">
+          <div ref={staircaseDesktopRef} className="hidden lg:grid lg:grid-cols-5 gap-4 xl:gap-5 items-end pt-4">
             {indentSteps.map((stepItem, idx) => {
               const StepIcon = STEP_ICONS[idx % STEP_ICONS.length];
               const pedestalHeight = STEP_HEIGHTS[idx % STEP_HEIGHTS.length];
@@ -116,14 +257,14 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
               return (
                 <div key={stepNum} className="group relative flex flex-col justify-end">
                   {/* Step Card */}
-                  <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#447D29]/60 transition-all duration-300 flex flex-col justify-between h-[360px] relative z-10">
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#447D29]/60 hover:-translate-y-2 transition-all duration-400 flex flex-col justify-between h-[360px] relative z-10">
                     <div className="space-y-3">
                       {/* Top Header of Card */}
                       <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EBF4E5] text-[#447D29] font-bold text-xs">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EBF4E5] text-[#447D29] font-bold text-xs group-hover:scale-110 group-hover:bg-[#447D29] group-hover:text-white transition-all duration-300 shadow-2xs">
                           {stepNum}
                         </span>
-                        <div className="p-2 rounded-xl bg-slate-50 text-[#447D29] group-hover:bg-[#447D29] group-hover:text-white transition-colors">
+                        <div className="p-2 rounded-xl bg-slate-50 text-[#447D29] group-hover:bg-[#447D29] group-hover:text-white group-hover:rotate-6 transition-all duration-300">
                           <StepIcon className="w-4 h-4" />
                         </div>
                       </div>
@@ -163,9 +304,9 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
                           {[0, 1, 2, 3, 4].map((barIdx) => (
                             <div
                               key={barIdx}
-                              className={`h-1.5 rounded-full transition-colors ${
+                              className={`h-1.5 rounded-full transition-all duration-500 ${
                                 barIdx <= idx
-                                  ? "bg-[#447D29]"
+                                  ? "bg-[#447D29] group-hover:bg-[#2F591B] group-hover:scale-y-125"
                                   : "bg-slate-100"
                               }`}
                             />
@@ -177,7 +318,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
 
                   {/* Stepped Pedestal Block underneath */}
                   <div
-                    className={`w-full ${pedestalHeight} rounded-b-2xl border-x border-b border-slate-200/80 bg-gradient-to-b from-slate-100 via-slate-100/80 to-slate-200/50 flex flex-col items-center justify-center p-2 text-center transition-all duration-300 group-hover:from-[#EBF4E5] group-hover:to-[#D9E8BE]/70 group-hover:border-[#447D29]/40 shadow-2xs`}
+                    className={`w-full ${pedestalHeight} rounded-b-2xl border-x border-b border-slate-200/80 bg-gradient-to-b from-slate-100 via-slate-100/80 to-slate-200/50 flex flex-col items-center justify-center p-2 text-center transition-all duration-400 group-hover:from-[#EBF4E5] group-hover:to-[#D9E8BE]/80 group-hover:border-[#447D29]/50 shadow-2xs group-hover:-translate-y-1`}
                   >
                     <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-[#2F591B] transition-colors">
                       <span>Nivel {idx + 1}</span>
@@ -190,7 +331,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
           </div>
 
           {/* Mobile Staircase Layout (< lg) */}
-          <div className="lg:hidden relative pl-6 space-y-6 before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-[#447D29] before:via-slate-300 before:to-[#447D29]">
+          <div ref={staircaseMobileRef} className="lg:hidden relative pl-6 space-y-6 before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-[#447D29] before:via-slate-300 before:to-[#447D29]">
             {indentSteps.map((stepItem, idx) => {
               const StepIcon = STEP_ICONS[idx % STEP_ICONS.length];
               const stepNum = String(idx + 1).padStart(2, "0");
@@ -255,7 +396,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
 
         {/* Catálogo Multidisciplinario / Soluciones por Industria */}
         <div className="space-y-16">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6">
+          <div ref={catalogHeaderRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6">
             <div>
               <span className="text-xs uppercase text-[#447D29] tracking-wider font-bold">
                 {t("catalogEyebrow")}
@@ -276,7 +417,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
               return (
                 <div
                   key={ind.id}
-                  ref={isLast ? lastCardRef : undefined}
+                  ref={isLast ? lastCardRef : (el) => { industryCardsRef.current[index] = el; }}
                   className={`group flex flex-col ${
                     isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                   } items-stretch gap-8 lg:gap-12 xl:gap-16 ${
