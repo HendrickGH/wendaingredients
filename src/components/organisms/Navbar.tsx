@@ -65,7 +65,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
           isSolucionesActive = rect.top < window.innerHeight && rect.bottom > 80;
         }
 
-        if (isTimelineActive || isSolucionesActive) {
+        // Check if inside full-viewport science module (#science)
+        const scienceEl = document.getElementById("science");
+        let isScienceActive = false;
+        if (scienceEl) {
+          const rect = scienceEl.getBoundingClientRect();
+          // Active while science stage is pinned or covering the viewport
+          isScienceActive = rect.top <= 80 && rect.bottom >= 80;
+        }
+
+        if (isTimelineActive || isSolucionesActive || isScienceActive) {
           // Block navbar from reappearing while interactive or sticky modules are active, even on scroll-up
           setIsVisible(false);
           setCategoriesDropdownOpen(false);
