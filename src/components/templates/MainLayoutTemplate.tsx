@@ -21,6 +21,7 @@ import { FaqSection } from "../organisms/FaqSection";
 import { ContactQuoteSection } from "../organisms/ContactQuoteSection";
 import { Footer } from "../organisms/Footer";
 import { TechnicalDetailModal } from "../organisms/TechnicalDetailModal";
+import { DiaMuertosPromoModal } from "../organisms/DiaMuertosPromoModal";
 
 // Maps a category id to the language-neutral topic id used by the contact form
 const CATEGORY_TOPICS: Record<string, string> = {
@@ -159,6 +160,21 @@ export const MainLayoutTemplate: React.FC = () => {
       <Footer
         currentCountry={currentCountry}
         onSelectCountry={handleSelectCountry}
+      />
+
+      {/* Día de Muertos Seasonal Promo Modal */}
+      <DiaMuertosPromoModal
+        onClaimPromo={(category, message) => {
+          handleRequestSample(category);
+          setTimeout(() => {
+            const messageInput = document.getElementById("contact-form-message") as HTMLTextAreaElement | null;
+            if (messageInput) {
+              messageInput.value = message;
+              messageInput.dispatchEvent(new Event("input", { bubbles: true }));
+              messageInput.focus();
+            }
+          }, 350);
+        }}
       />
 
       {/* Technical Detail Sheet Modal */}

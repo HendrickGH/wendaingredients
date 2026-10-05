@@ -4135,5 +4135,82 @@
         }
       ]
     }
+  },
+  "diaMuertosPromo": {
+    "es": {
+      "badge": "Especial de Temporada • Edición 2026",
+      "floatingBadge": "Especial Día de Muertos",
+      "eyebrow": "Tradición, Textura & Color Botánico",
+      "title": "Kit de Formulación Pan de Muerto & Colores Cempasúchil",
+      "subtitle": "Prepárate para la temporada de mayor demanda en panificación con formulaciones que garantizan frescura prolongada y tonos botánicos vibrantes 100% Clean Label.",
+      "benefits": [
+        {
+          "title": "Miga Ultra Suave por 21+ Días",
+          "desc": "Enzimas especializadas y sistemas Safe Plate® que retienen humedad y evitan el endurecimiento prematuro en anaquel."
+        },
+        {
+          "title": "Tonos Cempasúchil & Otoño",
+          "desc": "Pigmentos botánicos de Flor de Cempasúchil, Cúrcuma y Betacaroteno de alta termoestabilidad para masas y azúcares."
+        },
+        {
+          "title": "Muestra Técnica Prioritaria 48h",
+          "desc": "Envío sin costo de kit de prueba con Ficha Técnica (TDS) y asesoría directa de nuestros maestros panificadores."
+        }
+      ],
+      "cta": "Solicitar Kit Día de Muertos",
+      "close": "Cerrar promoción",
+      "dismiss": "Continuar navegando",
+      "prefilledMessage": "Hola, me interesa solicitar el Kit de Formulación de Temporada Día de Muertos (Pan de Muerto y colorantes naturales Cempasúchil) para pruebas en planta piloto."
+    },
+    "en": {
+      "badge": "Seasonal Special • 2026 Edition",
+      "floatingBadge": "Day of the Dead Special",
+      "eyebrow": "Tradition, Texture & Botanical Colors",
+      "title": "Pan de Muerto Formulation Kit & Marigold Colors",
+      "subtitle": "Prepare for high-demand seasonal baking with clean label solutions delivering prolonged crumb softness and radiant botanical hues.",
+      "benefits": [
+        {
+          "title": "Ultra-Soft Crumb for 21+ Days",
+          "desc": "Specialized bakery enzymes and Safe Plate® systems retaining moisture without synthetic preservatives."
+        },
+        {
+          "title": "Vibrant Marigold Cempasúchil Hues",
+          "desc": "Heat-stable botanical colors from Marigold, Curcumin, and Betacarotene for doughs and seasonal glazes."
+        },
+        {
+          "title": "Priority 48h Pilot Sample Dispatch",
+          "desc": "Complimentary trial sample with complete TDS and direct consultation from our baking application specialists."
+        }
+      ],
+      "cta": "Request Day of the Dead Kit",
+      "close": "Close promotion",
+      "dismiss": "Continue browsing",
+      "prefilledMessage": "Hello, I am interested in requesting the Day of the Dead Seasonal Formulation Kit (Pan de Muerto softness enzymes and marigold botanical colors) for pilot testing."
+    },
+    "zh": {
+      "badge": "季节特别企划 • 2026版",
+      "floatingBadge": "亡灵节专项企划",
+      "eyebrow": "传统烘焙、质构与植物色彩",
+      "title": "亡灵节面包专项配方套件与万寿菊天然色素",
+      "subtitle": "为烘焙旺季提供锁水保鲜酶制剂与万寿菊天然金黄色彩解决方案，100%清洁标签。",
+      "benefits": [
+        {
+          "title": "21天以上长效柔软锁水",
+          "desc": "专属烘焙酶系与 Safe Plate® 体系，延缓面包老化变硬，保持蓬松鲜润。"
+        },
+        {
+          "title": "万寿菊与秋季金黄天然色系",
+          "desc": "耐高温烘烤的万寿菊、姜黄与β-胡萝卜素天然植物提取物。"
+        },
+        {
+          "title": "48小时中试样品快速发运",
+          "desc": "包含完整 TDS 的免费测试套件，配备应用工程师一对一技术指导。"
+        }
+      ],
+      "cta": "申请亡灵节配方套件",
+      "close": "关闭活动",
+      "dismiss": "继续浏览",
+      "prefilledMessage": "您好，我们希望申请亡灵节面包与天然万寿菊色素专项配方套件进行中试验证。"
+    }
   }
 }
