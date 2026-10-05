@@ -7,6 +7,7 @@ import { Button } from "../atoms/Button";
 import { CountrySelector } from "../molecules/CountrySelector";
 import { CountryFlag } from "../atoms/CountryFlag";
 import { CountryMirror } from "@/data/siteContent";
+import { LinkedInIcon } from "../atoms/LinkedInIcon";
 import {
   Menu,
   X,
@@ -104,10 +105,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
     >
       {/* Top corporate utility bar */}
       <div
-        className={`transition-colors duration-300 py-1.5 px-4 text-[11px] border-b ${
+        className={`transition-colors duration-300 py-1.5 px-4 text-[11px] ${
           isTransparent
-            ? "bg-black/20 backdrop-blur-xs border-white/10 text-white/80"
-            : "bg-[#F8FAF6] border-slate-200/90 text-slate-700"
+            ? "bg-black/20 backdrop-blur-xs text-white/80"
+            : "bg-white text-slate-700"
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-end gap-4 min-w-0">
@@ -129,6 +130,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                 {currentCountry.contactOffice.phone}
               </span>
             </a>
+            <a
+              href="https://www.linkedin.com/company/wenda-ingredients/home/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn de Wenda Ingredients"
+              className={`flex items-center justify-center p-1 rounded-md transition-colors ${
+                isTransparent
+                  ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
+                  : "text-slate-700 hover:text-[#447D29] hover:bg-slate-200/50"
+              }`}
+            >
+              <LinkedInIcon className="w-3.5 h-3.5" />
+            </a>
             <div
               className={`h-3.5 w-px hidden sm:block ${
                 isTransparent ? "bg-white/20" : "bg-slate-200"
@@ -148,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
         className={`transition-all duration-300 ${
           isTransparent
             ? "bg-transparent py-4 border-b border-white/10"
-            : "bg-white/95 backdrop-blur-md py-3.5 border-b border-slate-200/90 shadow-sm"
+            : "bg-white py-3.5 border-b border-slate-200/90 shadow-sm"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
@@ -164,7 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
                 isTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
-                  : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+                  : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
             >
               {t("links.about")}
@@ -181,7 +195,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                 className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-bold transition-colors cursor-pointer ${
                   isTransparent
                     ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
-                    : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+                    : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
                 }`}
               >
                 <span>{t("links.categories")}</span>
@@ -207,7 +221,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                         key={idx}
                         href={cat.href}
                         onClick={() => setCategoriesDropdownOpen(false)}
-                        className="block p-2.5 rounded-xl hover:bg-[#F8FAF6] transition-colors group"
+                        className="block p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
                         <div className="text-xs font-bold text-slate-900 group-hover:text-[#447D29] transition-colors">
                           {cat.name}
@@ -227,7 +241,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
                 isTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
-                  : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+                  : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
             >
               {t("links.brands")}
@@ -238,7 +252,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
                 isTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
-                  : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+                  : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
             >
               {t("links.science")}
@@ -249,7 +263,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
                 isTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
-                  : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+                  : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
             >
               {t("links.indent")}
@@ -260,7 +274,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
                 isTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
-                  : "text-slate-700 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+                  : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
             >
               {t("links.contact")}
@@ -309,49 +323,49 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             <a
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
             >
               {t("links.about")}
             </a>
             <a
               href="#categorias"
               onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
             >
               {t("links.categories")}
             </a>
             <a
               href="#marcas"
               onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
             >
               {t("links.brands")}
             </a>
             <a
               href="#science"
               onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
             >
               {t("links.science")}
             </a>
             <a
               href="#indent"
               onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
             >
               {t("links.indent")}
             </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-[#F8FAF6]"
+              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
             >
               {t("links.contact")}
             </a>
           </div>
 
           <div className="space-y-4 pt-6 border-t border-slate-200">
-            <div className="p-3.5 rounded-xl bg-[#F8FAF6] border border-slate-200">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
               <p className="text-xs text-slate-500 mb-1">{t("selectedRegion")}</p>
               <p className="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <CountryFlag code={currentCountry.code} size="md" />

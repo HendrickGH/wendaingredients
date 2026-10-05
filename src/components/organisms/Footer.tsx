@@ -1,12 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useSiteContent } from "@/i18n/useSiteContent";
 import { Logo } from "../atoms/Logo";
 import { CountryFlag } from "../atoms/CountryFlag";
 import { CountryMirror } from "@/data/siteContent";
+import { LinkedInIcon } from "../atoms/LinkedInIcon";
 import { Award, MapPin } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const Footer: React.FC<{
   currentCountry: CountryMirror;
@@ -15,13 +18,70 @@ export const Footer: React.FC<{
   const { t } = useTranslation("footer");
   const { countries } = useSiteContent();
 
+  const footerRef = useRef<HTMLElement>(null);
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
   const activeCountry = countries.find((c) => c.code === currentCountry.code) || currentCountry;
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // 1. Accreditation banner entrance
+      if (bannerRef.current) {
+        gsap.fromTo(
+          bannerRef.current,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: bannerRef.current,
+              start: "top 95%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      // 2. Footer directory columns stagger
+      if (gridRef.current) {
+        gsap.fromTo(
+          gridRef.current.children,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: "top 90%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer className="relative z-20 bg-[#0B140B] text-gray-300 pt-16 pb-12 text-xs sm:text-sm border-t border-[#1C2E1A]">
+    <footer
+      ref={footerRef}
+      className="relative z-20 bg-[#0B140B] text-gray-300 pt-16 pb-12 text-xs sm:text-sm border-t border-[#1C2E1A]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
         {/* Top Accreditation & Certifications Banner */}
-        <div className="pb-8 border-b border-white/10 flex flex-wrap items-center justify-between gap-6">
+        <div ref={bannerRef} className="pb-8 border-b border-white/10 flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <span className="text-xs font-bold uppercase tracking-wider text-white">
               {t("accreditations")}
@@ -45,7 +105,7 @@ export const Footer: React.FC<{
         </div>
 
         {/* Main Footer Directory Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand info */}
           <div className="lg:col-span-2 space-y-5">
             <Logo variant="symbol" theme="dark" size="lg" />
@@ -168,7 +228,20 @@ export const Footer: React.FC<{
             <span>{t("ndaText")}</span>
           </div>
 
-          <p>{t("copyright")}</p>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.linkedin.com/company/wenda-ingredients/home/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn oficial de Wenda Ingredients"
+              className="text-gray-400 hover:text-[#D9E8BE] transition-colors p-1 rounded hover:bg-white/5 inline-flex items-center gap-1.5 group"
+            >
+              <LinkedInIcon className="w-4 h-4 text-gray-400 group-hover:text-[#D9E8BE] transition-colors" />
+              <span className="font-medium text-gray-400 group-hover:text-white transition-colors">LinkedIn</span>
+            </a>
+            <span className="w-1 h-1 rounded-full bg-gray-600" />
+            <p>{t("copyright")}</p>
+          </div>
         </div>
       </div>
     </footer>
