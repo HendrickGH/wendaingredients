@@ -142,7 +142,7 @@ export const TimelineChronicle: React.FC = () => {
         </div>
 
         {/* Main Content Container */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 w-full pt-16 sm:pt-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 w-full pt-8 sm:pt-0 pb-16 sm:pb-0">
           <div
             className={`transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isEntered
@@ -151,23 +151,23 @@ export const TimelineChronicle: React.FC = () => {
             }`}
           >
             {/* Stacked Milestone Content Cards for Seamless Crossfade */}
-            <div className="relative max-w-3xl min-h-[460px] sm:min-h-[500px]">
+            <div className="relative max-w-3xl min-h-[360px] sm:min-h-[500px]">
               {/* Intro slide content */}
               <div
                 aria-hidden={activeIndex !== -1}
-                className={`space-y-5 sm:space-y-6 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`space-y-3 sm:space-y-6 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   activeIndex === -1
                     ? "opacity-100 translate-y-0 pointer-events-auto relative z-10"
                     : "opacity-0 -translate-y-5 pointer-events-none absolute inset-x-0 top-0 z-0"
                 }`}
               >
-                <h2 className="text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.08] font-editorial drop-shadow-md">
+                <h2 className="text-3xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.08] font-editorial drop-shadow-md">
                   {t("timelineIntro:title")}
                 </h2>
-                <p className="text-lg sm:text-2xl text-[#D9E8BE] font-editorial italic leading-snug max-w-2xl">
+                <p className="text-base sm:text-2xl text-[#D9E8BE] font-editorial italic leading-snug max-w-2xl">
                   {t("timelineIntro:subtitle")}
                 </p>
-                <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+                <p className="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed max-w-2xl line-clamp-3 sm:line-clamp-none">
                   {t("timelineIntro:body1", { defaultValue: "Desde 1995 en el puerto de Dalian hasta una red de laboratorios y centros de aplicación en más de 40 mercados, recorre los hitos que marcaron nuestra expansión." }).replace(/<[^>]*>/g, "")}
                 </p>
               </div>
@@ -180,7 +180,7 @@ export const TimelineChronicle: React.FC = () => {
                   <div
                     key={item.year}
                     aria-hidden={!isActive}
-                    className={`space-y-6 sm:space-y-8 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    className={`space-y-4 sm:space-y-8 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                       isActive
                         ? "opacity-100 translate-y-0 pointer-events-auto relative z-10"
                         : isPrevious
@@ -189,41 +189,41 @@ export const TimelineChronicle: React.FC = () => {
                     }`}
                   >
                     {/* Headline Group: Hero-size Editorial Year & Title */}
-                    <div className="space-y-3">
-                      <div className="text-5xl sm:text-7xl xl:text-8xl font-black tracking-tight text-[#D9E8BE] font-editorial leading-none drop-shadow-md">
+                    <div className="space-y-1.5 sm:space-y-3">
+                      <div className="text-4xl sm:text-7xl xl:text-8xl font-black tracking-tight text-[#D9E8BE] font-editorial leading-none drop-shadow-md">
                         {item.year}
                       </div>
-                      <h2 className="text-3xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.08] font-editorial max-w-2xl drop-shadow-md">
+                      <h2 className="text-2xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.10] font-editorial max-w-2xl drop-shadow-md">
                         {item.title}
                       </h2>
                     </div>
 
                     {/* Deep Narrative Description */}
-                    <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl drop-shadow-sm">
+                    <p className="text-xs sm:text-base lg:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl drop-shadow-sm line-clamp-3 sm:line-clamp-none">
                       {item.description}
                     </p>
 
                     {/* Hero-Style Stats Strip for Metric & Location */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/15 max-w-xl">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 pt-3 sm:pt-6 border-t border-white/15 max-w-xl">
                       <div>
-                        <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block mb-1">
+                        <span className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold block mb-0.5 sm:mb-1">
                           {t("timelineChronicle:impactLabel")}
                         </span>
-                        <span className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block">
+                        <span className="text-2xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block">
                           {item.metric.value}
                         </span>
-                        <span className="text-xs text-slate-300 font-medium block mt-0.5">
+                        <span className="text-[11px] sm:text-xs text-slate-300 font-medium block mt-0.5">
                           {item.metric.label}
                         </span>
                       </div>
                       <div>
-                        <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block mb-1">
+                        <span className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold block mb-0.5 sm:mb-1">
                           {t("timelineChronicle:locationLabel")}
                         </span>
-                        <span className="text-base sm:text-lg font-bold text-white block">
+                        <span className="text-sm sm:text-lg font-bold text-white block">
                           {item.location}
                         </span>
-                        <span className="text-xs text-[#D9E8BE] font-medium block mt-0.5">
+                        <span className="text-[11px] sm:text-xs text-[#D9E8BE] font-medium block mt-0.5">
                           {item.tag}
                         </span>
                       </div>
