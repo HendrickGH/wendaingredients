@@ -186,9 +186,9 @@
   },
   "hero": {
     "es": {
-      "badge": "Innovación & Ciencia Aplicada a Alimentos",
-      "title": "Ingredientes funcionales especializados que hacen más",
-      "subtitle": "Creamos formulaciones e ingredientes que optimizan textura, rendimiento, vida de anaquel y perfil clean label para la industria alimentaria mundial.",
+      "badge": "Innovación y Seguridad que Transforman la Industria Alimentaria",
+      "title": "Ingredientes que hacen más.",
+      "subtitle": "Creamos ingredientes funcionales especializados que mejoran el desempeño, la calidad y el valor de cada aplicación para la industria alimentaria. Con más de 30 años de experiencia, presencia en más de 10 países y un equipo global de más de 400 profesionales, transformamos desafíos técnicos en soluciones confiables, eficientes y listas para el mercado.",
       "playAria": "Reproducir video de presentación de Wenda Ingredients",
       "play": "Reproducir vídeo",
       "exploreAria": "Explorar categorías y fórmulas técnicas",
@@ -215,9 +215,9 @@
       }
     },
     "en": {
-      "badge": "Applied Science & Food Innovation",
-      "title": "Specialized functional ingredients that do more",
-      "subtitle": "We create formulations and ingredients that optimize texture, yield, shelf life, and clean label profiles for the global food industry.",
+      "badge": "Innovation and Safety Transforming the Food Industry",
+      "title": "Ingredients that do more.",
+      "subtitle": "We create specialized functional ingredients that enhance performance, quality, and value in every application for the food industry. With over 30 years of experience, a presence in more than 10 countries, and a global team of over 400 professionals, we transform technical challenges into reliable, efficient, and market-ready solutions.",
       "playAria": "Play Wenda Ingredients overview video",
       "play": "Play Video",
       "exploreAria": "Explore categories and technical formulas",
@@ -244,9 +244,9 @@
       }
     },
     "zh": {
-      "badge": "应用科学与食品创新",
-      "title": "卓越效能的特种功能性食品原料",
-      "subtitle": "我们致力于研发与制造高品质功能性配方及原料，为全球食品工业优化质构、出程率、保质期及清洁标签 (Clean Label) 属性。",
+      "badge": "创新与安全 · 赋能食品工业变革",
+      "title": "让配方更卓越的特种配料",
+      "subtitle": "我们研发与制造特种功能性配料，全面提升食品工业各类应用的表现、品质与商业价值。凭借30余年的深厚经验、覆盖全球10多个国家的网络以及400余名专业团队，我们将技术挑战转化为可靠、高效且贴合市场的解决方案。",
       "playAria": "播放文达原料介绍视频",
       "play": "播放视频",
       "exploreAria": "探索产品品类与技术配方",
@@ -316,8 +316,18 @@
       "support": "Soporte integral en formulación y planta piloto",
       "scienceLink": "Conoce WNDA Science →",
       "infra": {
-        "eyebrow": "Infraestructura global",
-        "title": "Experiencia Global. Conocimiento Aplicado Localmente."
+        "eyebrow": "Infraestructura Global",
+        "title": "La infraestructura para investigar, comprobar y escalar soluciones",
+        "lead": "Nuestra red internacional integra centros de investigación de vanguardia, plantas avanzadas y laboratorios cárnicos especializados.",
+        "closing": "Desde la validación de materias primas hasta el desempeño del ingrediente en la aplicación final, cada solución se desarrolla con rigor, precisión y visión industrial.",
+        "points": [
+          "Centros especializados de investigación y desarrollo.",
+          "Laboratorios de aplicación y análisis.",
+          "Capacidades de evaluación química y microbiológica.",
+          "Plantas y sistemas avanzados de producción.",
+          "Procesos rigurosos de control y aseguramiento de calidad.",
+          "Equipos técnicos locales cercanos a cada mercado."
+        ]
       },
       "leader": {
         "alt": "Mr. Wei - Presidente & Fundador de Wenda Ingredients",
@@ -346,7 +356,15 @@
           "title": "Inocuidad Certificada",
           "desc": "Estándares globales GFSI, BRCGS, Kosher y Halal."
         }
-      ]
+      ],
+      "b2b": "Como aliado B2B para la industria alimentaria global, atendemos a fabricantes, procesadores y marcas de alimentos que buscan resolver desafíos de formulación, producción, calidad, inocuidad, vida útil y desempeño. Trabajamos tanto con empresas regionales como con organizaciones multinacionales, adaptando cada solución a su producto, proceso y objetivos de negocio.",
+      "team": {
+        "badge": "Equipo Humano",
+        "title": "Ciencia, experiencia y cercanía trabajando para tu producto",
+        "body": "Somos más de 400 profesionales unidos por una misma pasión: mejorar la calidad de los alimentos. Nuestros equipos de R&D, aplicaciones, calidad, producción, soporte técnico y desarrollo comercial colaboran para ofrecer respuestas ágiles y soluciones integrales. Esta combinación de especialidades nos permite acompañar a cada cliente desde el planteamiento inicial hasta la implementación industrial y el soporte posventa.",
+        "tagline": "Expertise global - Atención local - Resultados que diferencian tu producto en el mercado."
+      },
+      "b2bCta": "Solicitar Asesoría B2B"
     },
     "en": {
       "badge": "About Wenda Ingredients",
@@ -391,7 +409,17 @@
       "scienceLink": "Discover WNDA Science →",
       "infra": {
         "eyebrow": "Global Infrastructure",
-        "title": "Global Expertise. Locally Applied Knowledge."
+        "title": "The infrastructure to research, validate, and scale solutions",
+        "lead": "Our international network integrates cutting-edge research centers, advanced plants, and specialized application laboratories.",
+        "closing": "From raw material validation to final ingredient performance, every solution is developed with rigor, precision, and industrial vision.",
+        "points": [
+          "Specialized research and development centers.",
+          "Application and analytical laboratories.",
+          "Chemical and microbiological evaluation capabilities.",
+          "Advanced manufacturing plants and systems.",
+          "Rigorous quality control and assurance processes.",
+          "Local technical teams close to each regional market."
+        ]
       },
       "leader": {
         "alt": "Mr. Wei - President & Founder of Wenda Ingredients",
@@ -420,7 +448,15 @@
           "title": "Certified Food Safety",
           "desc": "Global standards: GFSI, BRCGS, Kosher, and Halal."
         }
-      ]
+      ],
+      "b2b": "As a dedicated B2B partner for the global food industry, we serve food manufacturers, processors, and brands seeking to solve challenges in formulation, production, quality, food safety, shelf life, and performance, tailoring each solution to regional enterprises and multinational organizations alike.",
+      "team": {
+        "badge": "Global Team",
+        "title": "Science, expertise, and closeness working for your product",
+        "body": "We are more than 400 professionals united by a shared passion: improving food quality. Our R&D, applications, quality, production, technical support, and commercial development teams collaborate to provide agile responses and integrated solutions, accompanying each client from concept to post-sale support.",
+        "tagline": "Global expertise - Local support - Results that differentiate your product in the market."
+      },
+      "b2bCta": "Request B2B Consultation"
     },
     "zh": {
       "badge": "关于文达 (Wenda Ingredients)",
@@ -464,8 +500,18 @@
       "support": "提供配方研发与中试车间全方位技术支持",
       "scienceLink": "了解 WNDA Science 科技 →",
       "infra": {
-        "eyebrow": "全球化基础设施",
-        "title": "全球化经验，本地化落地"
+        "eyebrow": "全球基础设施",
+        "title": "深研、验证与规模化交付的坚实基础设施",
+        "lead": "我们的国际网络集成了前沿研发中心、先进生产基地以及专业应用实验室。",
+        "closing": "从源头原材料质检到终端应用性能表现，每一款解决方案均秉持严谨、精准与工业化视野倾力打造。",
+        "points": [
+          "专业研发与创新中心。",
+          "食品应用与分析检测实验室。",
+          "化学与微生物全套评估能力。",
+          "先进的生产加工与制造系统。",
+          "严谨的全程质量控制与安全保障体系。",
+          "紧密贴近属地市场的本地化技术团队。"
+        ]
       },
       "leader": {
         "alt": "魏先生 - 文达原料创始人兼董事长",
@@ -494,7 +540,15 @@
           "title": "权威食品安全认证",
           "desc": "全球认可：GFSI、BRCGS、清真Halal及犹太Kosher。"
         }
-      ]
+      ],
+      "b2b": "作为全球食品工业值得信赖的 B2B 战略伙伴，我们服务于致力于解决配方研发、规模生产、品质把控、食品安全、保质期及应用性能挑战的食品制造与加工企业，无论是区域性领军品牌还是跨国集团，均能提供定制化专属方案。",
+      "team": {
+        "badge": "全球团队",
+        "title": "科学、经验与深度协作，全心赋能您的产品",
+        "body": "文达由400余位专业人才组成，因同一种使命紧密联结：持续提升食品品质。我们的研发、应用、品控、生产、技术服务与商务团队协同作战，提供敏捷响应与全周期综合方案，陪伴客户完成从初始立项到工业化落地与售后技术护航的每一步。",
+        "tagline": "全球视野 · 本地服务 · 助力产品脱颖而出的卓越成效"
+      },
+      "b2bCta": "申请 B2B 技术咨询"
     }
   },
   "services": {
@@ -892,7 +946,19 @@
         "onsiteQuestion": "¿Requiere acompañamiento en planta?",
         "onsiteBody": "Nuestros ingenieros evalúan tu formulación in situ.",
         "close": "Cerrar",
-        "requestSampleTrial": "Solicitar Muestra / Prueba"
+        "requestSampleTrial": "Solicitar Muestra / Prueba",
+        "dossierIndex": "Índice de Retos Técnicos",
+        "dossierTabChallenges": "Desafíos de Formulación",
+        "dossierTabSpectrum": "Catálogo Cromático Botánico",
+        "filterAll": "Todos los Tonos",
+        "filterRed": "Rojos & Carmesí",
+        "filterPink": "Rosas & Florales",
+        "filterPurple": "Púrpuras",
+        "filterBlue": "Azules & Verdes",
+        "filterYellow": "Amarillos & Dorados",
+        "filterOrange": "Naranjas & Ámbar",
+        "requestTrialForChallenge": "Solicitar prueba para este reto",
+        "verifiedInPlant": "Validado en planta"
       }
     },
     "en": {
@@ -933,7 +999,19 @@
         "onsiteQuestion": "Need on-site plant support?",
         "onsiteBody": "Our engineers evaluate your formulation on site.",
         "close": "Close",
-        "requestSampleTrial": "Request Sample / Trial"
+        "requestSampleTrial": "Request Sample / Trial",
+        "dossierIndex": "Technical Challenge Index",
+        "dossierTabChallenges": "Formulation Challenges",
+        "dossierTabSpectrum": "Botanical Color Catalog",
+        "filterAll": "All Shades",
+        "filterRed": "Reds & Crimson",
+        "filterPink": "Pinks & Florals",
+        "filterPurple": "Purples",
+        "filterBlue": "Blues & Greens",
+        "filterYellow": "Yellows & Golds",
+        "filterOrange": "Oranges & Amber",
+        "requestTrialForChallenge": "Request trial for this challenge",
+        "verifiedInPlant": "Plant-verified"
       }
     },
     "zh": {
@@ -974,7 +1052,19 @@
         "onsiteQuestion": "需要工厂现场技术支持？",
         "onsiteBody": "我们的技术工程师可前往您的工厂进行现场评估。",
         "close": "关闭",
-        "requestSampleTrial": "索取样品 / 安排测试"
+        "requestSampleTrial": "索取样品 / 安排测试",
+        "dossierIndex": "技术痛点清单",
+        "dossierTabChallenges": "配方痛点攻坚",
+        "dossierTabSpectrum": "植物色素色系目录",
+        "filterAll": "全角色谱",
+        "filterRed": "红色与洋红",
+        "filterPink": "粉红与花卉色",
+        "filterPurple": "紫色",
+        "filterBlue": "蓝色与绿色",
+        "filterYellow": "黄色与金黄",
+        "filterOrange": "橙色与琥珀色",
+        "requestTrialForChallenge": "为此挑战索取试样",
+        "verifiedInPlant": "产线验证"
       }
     }
   },
@@ -982,7 +1072,7 @@
     "es": {
       "eyebrow": "Desarrolla tu próxima formulación con nuestros expertos",
       "title": "Tu próximo gran producto comienza con el ingrediente correcto.",
-      "intro": "¿Interesado en mejorar rendimiento, textura o vida útil? Llena este formulario y nuestro equipo de ingenieros de alimentos te responderá de inmediato. Sin intermediarios, con asesoría técnica directa.",
+      "intro": "Cuéntanos qué necesitas mejorar, resolver o crear. Nuestro equipo transformará ese desafío en una solución funcional diseñada para tu aplicación y tus objetivos de negocio.",
       "office": {
         "title": "Sede Técnica: {{name}}",
         "address": "Dirección:",
@@ -1012,7 +1102,7 @@
         "message": "Detalle del Desafío Técnico o Muestra Requerida:",
         "messagePh": "Describa su producto, proceso actual (ej. embutido cocido, pan molde, bebida) y objetivo (ej. reducir mermas, mejorar textura, alargar vida de anaquel)...",
         "loading": "Procesando requerimiento...",
-        "submit": "Desarrolla tu próxima formulación con nuestros expertos"
+        "submit": "Conecta con nuestro equipo técnico"
       },
       "topics": {
         "meat": "Meat & Poultry",
@@ -1026,7 +1116,7 @@
     "en": {
       "eyebrow": "Develop your next formulation with our experts",
       "title": "Your next great product starts with the right ingredient.",
-      "intro": "Looking to improve yield, texture, or shelf life? Fill out this form and our food engineering team will reply promptly. Direct technical advice without intermediaries.",
+      "intro": "Tell us what you need to improve, solve, or create. Our team will transform that challenge into a functional solution tailored to your application and business goals.",
       "office": {
         "title": "Technical Hub: {{name}}",
         "address": "Address:",
@@ -1056,7 +1146,7 @@
         "message": "Technical Challenge or Sample Details:",
         "messagePh": "Describe your product, current process (e.g. cooked sausage, loaf bread, beverage) and goal (e.g. reduce yield loss, enhance texture, extend shelf life)...",
         "loading": "Processing request...",
-        "submit": "Develop your next formulation with our experts"
+        "submit": "Connect with our technical team"
       },
       "topics": {
         "meat": "Meat & Poultry",
@@ -1070,7 +1160,7 @@
     "zh": {
       "eyebrow": "与我们的专家一起开发您的下一个配方",
       "title": "卓越产品始于高品质原料",
-      "intro": "希望降低出程损耗、改善质构或延长保质期？填写此表单，我们的食品工程师团队将第一时间与您联系，提供专业直接的技术指导。",
+      "intro": "告诉我们您的产品需要改进、解决或创新的方向。我们的技术团队将把这一挑战转化为契合您生产工艺与商业目标的高效功能方案。",
       "office": {
         "title": "技术服务中心：{{name}}",
         "address": "地址：",
@@ -1100,7 +1190,7 @@
         "message": "技术挑战或所需样品说明：",
         "messagePh": "请简述您的产品、现有工艺（如西式火腿、吐司面包、功能饮料等）以及改善目标（如降低蒸煮损失、改善咬劲、延长保鲜期等）...",
         "loading": "提交中...",
-        "submit": "与我们的专家一起开发您的下一个配方"
+        "submit": "联系我们的技术工程师"
       },
       "topics": {
         "meat": "肉类与家禽 (Meat & Poultry)",
@@ -1425,7 +1515,8 @@
         "Certificados de Análisis (CoA) detallados y expeditos",
         "Laboratorios cárnicos con planta piloto a escala",
         "Respaldo de marca registrada Trust in Food®"
-      ]
+      ],
+      "tagline": "Ingredientes desarrollados para cumplir. Soluciones creadas para destacar."
     },
     "en": {
       "badge": "GFSI INTERNATIONAL STANDARDS",
@@ -1451,7 +1542,8 @@
         "Detailed & fast Certificates of Analysis (CoA)",
         "Meat application labs with scaled pilot plants",
         "Backed by Trust in Food® registered trademark"
-      ]
+      ],
+      "tagline": "Ingredients developed to perform. Solutions crafted to stand out."
     },
     "zh": {
       "badge": "GFSI 国际食品安全标准",
@@ -1477,7 +1569,8 @@
         "快速出具详细的分析合格证 (CoA)",
         "配备工业级中试生产线的肉类实验室",
         "Trust in Food® (食品安全信任) 注册商标背书"
-      ]
+      ],
+      "tagline": "严苛标准铸就卓越原料，创新方案赋能客户脱颖而出。"
     }
   },
   "timelineIntro": {
@@ -1943,7 +2036,8 @@
       "rawMaterialsCount": "{{count}} Materias Catalogadas",
       "keySolutionsLabel": "Principales Soluciones e Ingredientes",
       "moreItems": "+{{count}} materias primas adicionales en catálogo...",
-      "viewFullCatalog": "Ver Catálogo Completo"
+      "viewFullCatalog": "Ver Catálogo Completo",
+      "closingCall": "Cuéntanos qué ingrediente, materia prima o solución industrial estás buscando."
     },
     "en": {
       "badge": "Wenda Indent Sourcing",
@@ -1961,7 +2055,8 @@
       "rawMaterialsCount": "{{count}} Cataloged Raw Materials",
       "keySolutionsLabel": "Key Solutions & Ingredients",
       "moreItems": "+{{count}} additional raw materials in catalog...",
-      "viewFullCatalog": "View Full Catalog"
+      "viewFullCatalog": "View Full Catalog",
+      "closingCall": "Tell us what ingredient, raw material, or industrial solution you are looking for."
     },
     "zh": {
       "badge": "文达直供 Indent 业务",
@@ -1979,7 +2074,8 @@
       "rawMaterialsCount": "已收录 {{count}} 种高纯度原料",
       "keySolutionsLabel": "核心产品与原料列表",
       "moreItems": "目录中尚有 +{{count}} 种其他原料产品...",
-      "viewFullCatalog": "查看完整产品目录"
+      "viewFullCatalog": "查看完整产品目录",
+      "closingCall": "告诉我们您正在寻找哪类配料、原材料或工业解决方案。"
     }
   },
   "footer": {

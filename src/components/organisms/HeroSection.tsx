@@ -181,7 +181,7 @@ export const HeroSection: React.FC = () => {
           <div className="space-y-5">
             <div
               ref={badgeRef}
-              className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#D9E8BE] text-xs font-bold uppercase tracking-wider"
+              className="inline-flex items-center text-[#D9E8BE] text-xs font-bold uppercase tracking-wider"
             >
               {t("badge")}
             </div>
@@ -196,7 +196,7 @@ export const HeroSection: React.FC = () => {
 
             <p
               ref={subtitleRef}
-              className="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed max-w-xl drop-shadow-sm"
+              className="text-base sm:text-lg lg:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl drop-shadow-sm"
             >
               {t("subtitle")}
             </p>
@@ -249,7 +249,7 @@ export const HeroSection: React.FC = () => {
             className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/15 max-w-2xl"
             aria-label={t("statsAria")}
           >
-            <div>
+            <div className="flex flex-col items-center text-center">
               <MetricCounter
                 value="30+"
                 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight block"
@@ -257,7 +257,7 @@ export const HeroSection: React.FC = () => {
               />
               <span className="text-xs text-slate-300 font-medium">{t("stats.years")}</span>
             </div>
-            <div>
+            <div className="flex flex-col items-center text-center">
               <MetricCounter
                 value="10+"
                 className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block"
@@ -265,7 +265,7 @@ export const HeroSection: React.FC = () => {
               />
               <span className="text-xs text-slate-300 font-medium">{t("stats.countries")}</span>
             </div>
-            <div>
+            <div className="flex flex-col items-center text-center">
               <MetricCounter
                 value="4"
                 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight block"
@@ -273,7 +273,7 @@ export const HeroSection: React.FC = () => {
               />
               <span className="text-xs text-slate-300 font-medium">{t("stats.rd")}</span>
             </div>
-            <div>
+            <div className="flex flex-col items-center text-center">
               <MetricCounter
                 value="6"
                 className="text-3xl sm:text-4xl font-extrabold text-[#D9E8BE] tracking-tight block"

@@ -46,6 +46,16 @@ export const AboutManifestoSection: React.FC = () => {
       icon: <FlaskConical className="w-5 h-5 text-emerald-700" />
     },
     {
+      title: t("differentiators.2.title", "Alcance Internacional"),
+      description: t(
+        "differentiators.2.desc",
+        "Nuestra presencia global y conocimiento local nos permiten responder con agilidad a mercados, regulaciones y procesos diversos."
+      ),
+      image: "/images/tech/industrial-facility.jpg",
+      tag: "Presencia en 10+ Países",
+      icon: <Globe2 className="w-5 h-5 text-sky-700" />
+    },
+    {
       title: t("differentiators.3.title", "Calidad sin Concesiones"),
       description: t(
         "differentiators.3.desc",
@@ -56,14 +66,14 @@ export const AboutManifestoSection: React.FC = () => {
       icon: <Award className="w-5 h-5 text-amber-700" />
     },
     {
-      title: t("differentiators.2.title", "Alcance Internacional"),
+      title: t("differentiators.4.title", "Relaciones que Perduran"),
       description: t(
-        "differentiators.2.desc",
-        "Nuestra presencia global y conocimiento local nos permiten responder con agilidad a mercados, regulaciones y procesos diversos."
+        "differentiators.4.desc",
+        "Construimos alianzas basadas en la transparencia, la integridad y el beneficio mutuo a largo plazo con clientes y proveedores."
       ),
-      image: "/images/tech/industrial-facility.jpg",
-      tag: "Presencia en 10+ Países",
-      icon: <Globe2 className="w-5 h-5 text-sky-700" />
+      image: "/images/about/team-collaboration.jpg",
+      tag: "Alianzas Estratégicas",
+      icon: <Building2 className="w-5 h-5 text-teal-700" />
     }
   ];
 
@@ -173,69 +183,46 @@ export const AboutManifestoSection: React.FC = () => {
         {/* Top 50/50 Split: Narrative & Visual Anchor */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Narrative, Quote & CTAs */}
-          <div ref={narrativeRef} className="lg:col-span-6 space-y-6">
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2">
-                <Badge variant="wenda" size="md">
-                  {t("badge", "Acerca de Wenda Ingredients")}
-                </Badge>
-                <span className="text-slate-300">·</span>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#2F591B]">
-                  Desde 1995
-                </span>
-              </div>
-
-              <h2 className="heading-editorial-lg font-editorial text-[#0F172A] leading-tight">
-                {t("title", "Expertos en convertir oportunidades de formulación en ventajas competitivas")}
-              </h2>
-
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                {t(
-                  "lead",
-                  "Desde 1995, en Wenda Ingredients anticipamos la evolución de la industria alimentaria y desarrollamos ingredientes funcionales que responden a sus desafíos más complejos."
-                )}
-              </p>
-
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                {t(
-                  "body",
-                  "Combinamos conocimiento científico, experiencia en aplicaciones y visión comercial para ayudar a nuestros clientes a mejorar sus productos, optimizar sus procesos y generar mayor valor en el mercado. No somos únicamente un proveedor de ingredientes: somos el aliado técnico que entiende la formulación, el proceso y el resultado que cada negocio necesita alcanzar."
-                )}
-              </p>
-
-              {/* Editorial pullquote */}
-              <div className="flex items-start gap-3 py-1">
-                <Quote className="w-5 h-5 text-[#447D29] shrink-0 mt-1" />
-                <div className="space-y-0.5">
-                  <span className="text-base font-bold text-slate-900 italic font-serif block">
-                    {t("quote", "“We listen, reach out and we deliver”")}
-                  </span>
-                  <span className="text-xs text-slate-500 uppercase tracking-wider font-sans font-semibold block">
-                    Filosofía de Servicio Global
-                  </span>
-                </div>
-              </div>
+          {/* Left Column: Narrative */}
+          <div ref={narrativeRef} className="lg:col-span-6 space-y-4 sm:space-y-5">
+            <div className="inline-flex items-center gap-2">
+              <Badge variant="wenda" size="md">
+                {t("badge", "Acerca de Wenda Ingredients")}
+              </Badge>
+              <span className="text-slate-300">·</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#2F591B]">
+                Desde 1995
+              </span>
             </div>
 
-            {/* Quick Actions moved right below text */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#contact" className="btn-pill-primary text-xs !py-3 !px-6 shadow-sm hover:shadow-md transition-all active:scale-95">
-                <span>Contactar a un Ingeniero</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href="#science"
-                className="text-xs font-bold text-[#2F591B] hover:text-[#447D29] transition-colors flex items-center gap-1.5 px-3 py-2 group"
-              >
-                <span>Conoce WNDA Science</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+            <h2 className="heading-editorial-lg font-editorial text-[#0F172A] leading-tight">
+              {t("title", "Expertos en convertir oportunidades de formulación en ventajas competitivas")}
+            </h2>
+
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              {t(
+                "lead",
+                "Desde 1995, en Wenda Ingredients anticipamos la evolución de la industria alimentaria y desarrollamos ingredientes funcionales que responden a sus desafíos más complejos."
+              )}
+            </p>
+
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              {t(
+                "body",
+                "Combinamos conocimiento científico, experiencia en aplicaciones y visión comercial para ayudar a nuestros clientes a mejorar sus productos, optimizar sus procesos y generar mayor valor en el mercado. No somos únicamente un proveedor de ingredientes: somos el aliado técnico que entiende la formulación, el proceso y el resultado que cada negocio necesita alcanzar."
+              )}
+            </p>
+
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              {t(
+                "b2b",
+                "Como aliado B2B para la industria alimentaria global, atendemos a fabricantes, procesadores y marcas de alimentos que buscan resolver desafíos de formulación, producción, calidad, inocuidad, vida útil y desempeño. Trabajamos tanto con empresas regionales como con organizaciones multinacionales, adaptando cada solución a su producto, proceso y objetivos de negocio."
+              )}
+            </p>
           </div>
 
-          {/* Right Column: Visual Anchor with HQ Campus & Laboratory Floating Card */}
-          <div className="lg:col-span-6 relative">
+          {/* Right Column: Visual Anchor with HQ Campus & Editorial Pullquote / CTAs */}
+          <div className="lg:col-span-6 space-y-6">
             <div className="relative">
               {/* Primary Corporate Campus Image */}
               <div ref={campusRef} className="relative aspect-[4/3] sm:aspect-[16/11] w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-xl group">
@@ -262,8 +249,34 @@ export const AboutManifestoSection: React.FC = () => {
                   </p>
                 </div>
               </div>
+            </div>
 
+            {/* Editorial pullquote */}
+            <div className="flex items-start gap-3 py-1">
+              <Quote className="w-5 h-5 text-[#447D29] shrink-0 mt-1" />
+              <div className="space-y-0.5">
+                <span className="text-base font-bold text-slate-900 italic font-serif block">
+                  {t("quote", "“We listen, reach out and we deliver”")}
+                </span>
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-sans font-semibold block">
+                  Filosofía de Servicio Global
+                </span>
+              </div>
+            </div>
 
+            {/* Quick Actions */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#contact" className="btn-pill-primary text-xs !py-3 !px-6 shadow-sm hover:shadow-md transition-all active:scale-95">
+                <span>{t("b2bCta", "Solicitar Asesoría B2B")}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="#science"
+                className="text-xs font-bold text-[#2F591B] hover:text-[#447D29] transition-colors flex items-center gap-1.5 px-3 py-2 group"
+              >
+                <span>Conoce WNDA Science</span>
+                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
           </div>
 
@@ -285,52 +298,54 @@ export const AboutManifestoSection: React.FC = () => {
             </p>
           </div>
 
-          <div ref={differentiatorsGridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {differentiators.map((diff, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-slate-200 bg-white hover:border-[#447D29] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col group"
-              >
-                {/* Image Header Area */}
-                <div className="relative h-40 w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={diff.image}
-                    alt={diff.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-                  
-                  {/* Minimal unboxed tag over photo */}
-                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white tracking-wide uppercase drop-shadow-sm">
-                    {diff.tag}
-                  </span>
-                </div>
+          <div
+            ref={differentiatorsGridRef}
+            className="grid grid-cols-1 md:grid-cols-6 gap-6"
+          >
+            {differentiators.map((diff, idx) => {
+              const isFirstRow = idx < 3;
+              return (
+                <div
+                  key={idx}
+                  className={`rounded-2xl border border-slate-200 bg-white hover:border-[#447D29] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col group ${
+                    isFirstRow ? "md:col-span-2" : "md:col-span-3"
+                  }`}
+                >
+                  {/* Image Header Area */}
+                  <div className="relative h-44 w-full overflow-hidden bg-slate-100">
+                    <Image
+                      src={diff.image}
+                      alt={diff.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes={isFirstRow ? "(max-width: 768px) 100vw, 33vw" : "(max-width: 768px) 100vw, 50vw"}
+                    />
+                  </div>
 
-                {/* Content Area */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="p-1.5 rounded-lg bg-[#F0F7ED] shrink-0">
-                        {diff.icon}
+                  {/* Content Area */}
+                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                      <div className="flex items-center gap-2.5 mb-2.5">
+                        <div className="p-2 rounded-lg bg-[#F0F7ED] shrink-0">
+                          {diff.icon}
+                        </div>
+                        <h4 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#2F591B] transition-colors font-editorial">
+                          {diff.title}
+                        </h4>
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 group-hover:text-[#2F591B] transition-colors font-editorial">
-                        {diff.title}
-                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {diff.description}
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {diff.description}
-                    </p>
-                  </div>
 
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-[#2F591B] font-semibold opacity-90 group-hover:opacity-100">
-                    <span>Saber más</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-[#2F591B] font-semibold opacity-90 group-hover:opacity-100">
+                      <span>Saber más</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

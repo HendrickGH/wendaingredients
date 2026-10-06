@@ -27,8 +27,15 @@ export interface NaturalColorItem {
   source: string;
   tone: string;
   hex: string;
+  secondaryHex?: string;
   textColor: string;
   application: string;
+  family?: "red" | "pink" | "purple" | "blue" | "yellow" | "orange";
+  activePrinciple?: string;
+  replacesSynthetic?: string;
+  solubility?: string;
+  stability?: string;
+  optimalPH?: string;
 }
 
 export interface CategoryItem {
@@ -590,91 +597,168 @@ export const CATEGORIES: CategoryItem[] = [
 export const NATURAL_COLORS: NaturalColorItem[] = [
   {
     name: "Polvo de remolacha roja",
-    source: "Remolacha roja",
-    tone: "Rojo rubí / Magenta",
+    source: "Beta vulgaris (Remolacha)",
+    tone: "Rojo rubí / Magenta profundo",
     hex: "#9F1239",
+    secondaryHex: "#E11D48",
     textColor: "#ffffff",
-    application: "Cárnicos curados, yogures, coberturas"
+    application: "Cárnicos curados, yogures, coberturas",
+    family: "red",
+    activePrinciple: "Betanina (E-162 Clean)",
+    replacesSynthetic: "Rojo Allura 40 / Carmín sintético",
+    solubility: "100% Hidrosoluble",
+    stability: "Termosensible (<75°C)",
+    optimalPH: "pH 4.0 - 7.0"
   },
   {
     name: "Extracto de hibisco",
-    source: "Flor de hibisco",
+    source: "Hibiscus sabdariffa (Flor de Jamaica)",
     tone: "Rosa brillante / Borgoña",
     hex: "#BE123C",
+    secondaryHex: "#FB7185",
     textColor: "#ffffff",
-    application: "Bebidas, gomitas, jaleas"
+    application: "Bebidas funcionales, gomitas, jaleas",
+    family: "red",
+    activePrinciple: "Delfinidina & Cianidina",
+    replacesSynthetic: "Azorrubina (E122) / Rojo 40",
+    solubility: "Hidrosoluble instantáneo",
+    stability: "Alta estabilidad ácida",
+    optimalPH: "pH 2.5 - 4.5"
   },
   {
     name: "Polvo de rábano rojo",
-    source: "Rábano rojo",
+    source: "Raphanus sativus L.",
     tone: "Rojo escarlata intenso",
     hex: "#DC2626",
+    secondaryHex: "#F87171",
     textColor: "#ffffff",
-    application: "Embutidos, salsas, panificados"
+    application: "Embutidos, salsas, panificados, glaseados",
+    family: "red",
+    activePrinciple: "Pelargonidina acilada",
+    replacesSynthetic: "Eritrosina (E127) / Rojo Allura",
+    solubility: "Hidrosoluble termoestable",
+    stability: "Resistente a pasteurización",
+    optimalPH: "pH 2.0 - 5.5"
   },
   {
     name: "Extracto de rosa",
-    source: "Pétalos de rosa",
+    source: "Rosa rugosa Thunb.",
     tone: "Rosa pastel elegante",
-    hex: "#FB7185",
-    textColor: "#0f172a",
-    application: "Repostería fina, helados, bebidas"
+    hex: "#E11D48",
+    secondaryHex: "#FDA4AF",
+    textColor: "#ffffff",
+    application: "Repostería fina, helados premium, bebidas",
+    family: "pink",
+    activePrinciple: "Polifenoles florales bioactivos",
+    replacesSynthetic: "Colorantes rosa azoicos sintéticos",
+    solubility: "Hidrosoluble translúcido",
+    stability: "Fotoprotección media",
+    optimalPH: "pH 3.5 - 6.5"
   },
   {
     name: "Camote morado",
-    source: "Camote morado",
-    tone: "Púrpura profundo / Violeta",
+    source: "Ipomoea batatas L.",
+    tone: "Púrpura profundo / Violeta real",
     hex: "#7E22CE",
+    secondaryHex: "#C084FC",
     textColor: "#ffffff",
-    application: "Snacks, galletas, rellenos de panadería"
+    application: "Snacks, galletas, rellenos de panadería",
+    family: "purple",
+    activePrinciple: "Antocianinas diaciladas",
+    replacesSynthetic: "Mezcla Rojo 40 + Azul 1",
+    solubility: "Hidrosoluble de alta carga",
+    stability: "Resistente a horneado y extrusión",
+    optimalPH: "pH 2.5 - 6.0"
   },
   {
     name: "Azul de gardenia",
     source: "Gardenia jasminoides Ellis",
-    tone: "Azul cielo vibrante",
+    tone: "Azul cielo vibrante / Zafiro",
     hex: "#0284C7",
+    secondaryHex: "#38BDF8",
     textColor: "#ffffff",
-    application: "Bebidas isotónicas, confitería, heladería"
+    application: "Bebidas isotónicas, confitería, heladería",
+    family: "blue",
+    activePrinciple: "Genipina biocatalizada",
+    replacesSynthetic: "Azul Brillante FCF (E133)",
+    solubility: "Hidrosoluble alta dispersión",
+    stability: "Termoestable y fotoprotegido",
+    optimalPH: "pH 3.0 - 8.0"
   },
   {
     name: "Polvo de espirulina (Estándar & Superfino)",
-    source: "Alga Arthrospira platensis",
+    source: "Arthrospira platensis (Alga Spirulina)",
     tone: "Azul zafiro & Verde océano",
     hex: "#0F766E",
+    secondaryHex: "#14B8A6",
     textColor: "#ffffff",
-    application: "Suplementos en polvo, batidos, coberturas"
+    application: "Suplementos en polvo, batidos, coberturas",
+    family: "blue",
+    activePrinciple: "C-Ficocianina natural pura",
+    replacesSynthetic: "Azul Brillante / Verde Rápido",
+    solubility: "100% Hidrosoluble microfino",
+    stability: "Proceso en frío (<65°C)",
+    optimalPH: "pH 5.0 - 7.5"
   },
   {
     name: "Amarillo de gardenia",
     source: "Gardenia jasminoides Ellis",
     tone: "Amarillo luminoso limpio",
     hex: "#EAB308",
+    secondaryHex: "#FDE047",
     textColor: "#0f172a",
-    application: "Fideos, productos horneados, cremas"
+    application: "Fideos, productos horneados, cremas",
+    family: "yellow",
+    activePrinciple: "Crocina y Crocetina",
+    replacesSynthetic: "Tartrazina (E102)",
+    solubility: "Hidrosoluble cristalino",
+    stability: "Excelente termoestabilidad",
+    optimalPH: "pH 4.0 - 8.0"
   },
   {
     name: "Cúrcuma concentrada",
-    source: "Curcuma longa",
+    source: "Curcuma longa L.",
     tone: "Amarillo dorado cálido",
     hex: "#CA8A04",
+    secondaryHex: "#FACC15",
     textColor: "#ffffff",
-    application: "Mostazas, aderezos, pan de hamburguesa"
+    application: "Mostazas, aderezos, pan de hamburguesa",
+    family: "yellow",
+    activePrinciple: "Curcuminoides 95%",
+    replacesSynthetic: "Tartrazina / Amarillo Quinoleína",
+    solubility: "Dispersable / Liposoluble",
+    stability: "Resistente a fritura y horneado",
+    optimalPH: "pH 3.0 - 7.0"
   },
   {
     name: "Extracto de espino amarillo",
-    source: "Fruto de espino amarillo",
+    source: "Hippophae rhamnoides (Fruto)",
     tone: "Naranja mandarino cálido",
     hex: "#EA580C",
+    secondaryHex: "#FB923C",
     textColor: "#ffffff",
-    application: "Jugos cítricos, confitería, cereales"
+    application: "Jugos cítricos, confitería, cereales",
+    family: "orange",
+    activePrinciple: "Carotenoides & Vitamina C nativa",
+    replacesSynthetic: "Amarillo Ocaso FCF (E110)",
+    solubility: "Microemulsión acuosa",
+    stability: "Antioxidante protector nativo",
+    optimalPH: "pH 2.8 - 6.5"
   },
   {
     name: "Betacaroteno natural",
-    source: "Frutas y vegetales seleccionados",
-    tone: "Naranja radiante / Dorado",
+    source: "Dunaliella salina & Vegetales",
+    tone: "Naranja radiante / Dorado ámbar",
     hex: "#F97316",
+    secondaryHex: "#FDBA74",
     textColor: "#ffffff",
-    application: "Margarinas, pastas, bebidas refrescantes"
+    application: "Margarinas, pastas, bebidas refrescantes",
+    family: "orange",
+    activePrinciple: "All-trans Betacaroteno",
+    replacesSynthetic: "Sunset Yellow (E110) / Azoicos",
+    solubility: "Liposoluble & Emulsión agua",
+    stability: "Resistente a calor de proceso",
+    optimalPH: "pH 3.0 - 7.5"
   }
 ];
 

@@ -4,6 +4,15 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { MetricCounter } from "../atoms/MetricCounter";
+import {
+  Users,
+  Microscope,
+  FlaskConical,
+  Award,
+  Globe2,
+  Calendar,
+  Building2
+} from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,27 +23,37 @@ export const AboutInfrastructureSection: React.FC = () => {
   const statsGridRef = useRef<HTMLDivElement>(null);
   const imageFrameRef = useRef<HTMLDivElement>(null);
 
-  // Select the 4 core institutional stats for a clean, spacious 2x2 presentation
+  // Wenda 6 core institutional metrics from brief
   const coreStats = [
     {
-      value: "6",
-      label: "Laboratorios Cárnicos",
-      desc: "Pruebas de reología, emulsión y corte en planta piloto."
-    },
-    {
-      value: "4",
-      label: "Centros de R&D",
-      desc: "Desarrollo biomolecular, enzimas y bioprotección."
+      value: "30+",
+      label: "Años de Trayectoria",
+      icon: <Calendar className="w-4 h-4 text-[#447D29]" />
     },
     {
       value: "10+",
       label: "Países con Red Directa",
-      desc: "Soporte técnico, normativo y comercial local."
+      icon: <Globe2 className="w-4 h-4 text-emerald-700" />
     },
     {
-      value: "30+",
-      label: "Años de Innovación",
-      desc: "Trayectoria continua en ingredientes funcionales desde 1995."
+      value: "400+",
+      label: "Profesionales Globales",
+      icon: <Users className="w-4 h-4 text-[#2F591B]" />
+    },
+    {
+      value: "4",
+      label: "Centros de R&D",
+      icon: <Microscope className="w-4 h-4 text-teal-700" />
+    },
+    {
+      value: "6",
+      label: "Laboratorios Cárnicos",
+      icon: <FlaskConical className="w-4 h-4 text-sky-700" />
+    },
+    {
+      value: "75+",
+      label: "Especialistas en I+D",
+      icon: <Award className="w-4 h-4 text-amber-700" />
     }
   ];
 
@@ -74,7 +93,7 @@ export const AboutInfrastructureSection: React.FC = () => {
             opacity: 1,
             y: 0,
             duration: 0.65,
-            stagger: 0.1,
+            stagger: 0.08,
             ease: "power3.out",
             scrollTrigger: {
               trigger: statsGridRef.current,
@@ -113,59 +132,60 @@ export const AboutInfrastructureSection: React.FC = () => {
     <section
       ref={sectionRef}
       id="infrastructure"
-      className="py-20 lg:py-28 bg-[#EFF6EC] text-slate-900 relative border-b border-[#D8E8D3] overflow-hidden"
+      className="py-20 lg:py-28 bg-[#EFF6EC] text-slate-900 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Balanced 2-Column Split: Editorial Stats on Left, High-Impact Clean Photography on Right */}
+        {/* Top Split: Narrative & Visual Stage */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Narrative & Clean Editorial Metrics */}
-          <div className="lg:col-span-6 space-y-10">
+          <div className="lg:col-span-6 space-y-8">
             
             {/* Header info */}
             <div ref={narrativeRef} className="space-y-4">
-              <span className="text-xs font-bold tracking-widest uppercase text-[#244C16] block">
-                {t("infra.badge", "Infraestructura & Capacidad Global")}
+              <span className="text-xs font-bold uppercase tracking-wider text-[#2F591B] block">
+                {t("infra.eyebrow", "Infraestructura Global")}
               </span>
 
               <h2 className="heading-editorial-lg font-editorial text-[#0F172A] leading-tight">
-                {t("infra.title", "Experiencia Global. Rigor Técnico en Cada Mercado.")}
+                {t("infra.title", "La infraestructura para investigar, comprobar y escalar soluciones")}
               </h2>
 
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                Una red internacional coordinada de laboratorios de aplicación, centros de investigación y hubs logísticos estratégicos que conectan el desarrollo científico con el abastecimiento confiable a gran escala.
+                {t(
+                  "infra.lead",
+                  "Nuestra red internacional integra centros de investigación de vanguardia, plantas avanzadas y laboratorios cárnicos especializados."
+                )}
               </p>
             </div>
 
-            {/* Clean Editorial Stats: 2x2 Grid with generous breathing room and zero boxed clutter */}
-            <div ref={statsGridRef} className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 pt-2">
+            {/* Clean Editorial Stats: 6 Key Metrics without any borders */}
+            <div ref={statsGridRef} className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-6 pt-2">
               {coreStats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="pt-4 border-t border-[#D0E2CA] space-y-1.5 group hover:border-[#447D29] transition-colors"
+                  className="space-y-1 group"
                 >
-                  <div className="text-4xl sm:text-5xl font-extrabold text-[#1B3811] font-editorial tracking-tight group-hover:text-[#447D29] transition-colors">
+                  <div className="text-xs text-[#2F591B] font-semibold mb-0.5">
+                    <span>{stat.label}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-3xl sm:text-4xl font-extrabold text-[#1B3811] font-editorial tracking-tight group-hover:text-[#447D29] transition-colors">
+                    {stat.icon}
                     <MetricCounter value={stat.value} suffixClassName="text-[#447D29]" />
                   </div>
-                  <h3 className="text-sm font-bold text-[#0F172A]">
-                    {stat.label}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {stat.desc}
-                  </p>
                 </div>
               ))}
             </div>
 
           </div>
 
-          {/* Right Column: Clean, Unencumbered Photography with Maximum Visual Weight */}
+          {/* Right Column: Clean, Unencumbered Photography without borders */}
           <div className="lg:col-span-6">
             <div ref={imageFrameRef} className="relative">
               
-              {/* Clean Framed Photograph */}
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-2xl border border-[#D5E5CF] group">
+              {/* Clean Framed Photograph without outer border */}
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-xl group">
                 <Image
                   src="/images/about/global-logistics.jpg"
                   alt="Wenda Ingredients Red Logística y Abastecimiento Global"
@@ -175,16 +195,20 @@ export const AboutInfrastructureSection: React.FC = () => {
                   priority
                 />
                 
-                {/* Minimal subtle gradient only at bottom edge for contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                {/* Gradient vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
 
-                {/* Clean, short caption at the bottom of the photo */}
-                <div className="absolute bottom-4 left-5 right-5 text-white">
-                  <h4 className="text-sm font-bold text-white font-editorial">
+                {/* Clean caption */}
+                <div className="absolute bottom-5 left-5 right-5 text-white space-y-1">
+                  <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#D9E8BE]">
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>Red Internacional Wenda</span>
+                  </div>
+                  <h4 className="text-base sm:text-lg font-bold text-white font-editorial">
                     Abastecimiento Internacional & Hubs Estratégicos
                   </h4>
-                  <p className="text-[11px] text-slate-200 mt-0.5 line-clamp-1">
-                    Conectando origen, puertos y plantas industriales con trazabilidad continua.
+                  <p className="text-xs text-slate-200 line-clamp-2 font-normal">
+                    Conectando origen, puertos y plantas industriales con rigor analítico y trazabilidad continua.
                   </p>
                 </div>
               </div>

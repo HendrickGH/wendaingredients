@@ -167,6 +167,13 @@ export const QualityCertifications: React.FC = () => {
             <span className="font-medium">{t("pillars.3")}</span>
           </div>
         </div>
+
+        {/* Quality Closing Tagline (Wenda Core Claim) */}
+        <div className="text-center pt-2 border-t border-slate-100">
+          <p className="text-sm sm:text-base font-bold font-editorial text-[#2F591B] tracking-wide">
+            {t("tagline", "Ingredientes desarrollados para cumplir. Soluciones creadas para destacar.")}
+          </p>
+        </div>
       </div>
     </section>
   );

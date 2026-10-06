@@ -126,7 +126,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onAskQuestion }) => {
       ref={sectionRef}
       id="faq"
       aria-labelledby="faq-section-title"
-      className="py-24 bg-[#FFFFFF] text-slate-900 border-t border-slate-200/80 relative z-20 scroll-mt-12"
+      className="py-24 bg-[#FFFFFF] text-slate-900 border-t border-slate-200/80 relative z-20 shadow-[0_-25px_60px_-15px_rgba(0,0,0,0.10)] scroll-mt-12"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
         {/* Header */}
