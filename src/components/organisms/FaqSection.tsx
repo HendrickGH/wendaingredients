@@ -7,8 +7,6 @@ import {
   HelpCircle,
   ChevronDown,
   MessageSquare,
-  ArrowRight,
-  ShieldCheck,
   Send
 } from "lucide-react";
 import gsap from "gsap";
@@ -107,6 +105,9 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onAskQuestion }) => {
 
   const toggleItem = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
   };
 
   const handleSendQuery = (e?: React.SyntheticEvent) => {
