@@ -319,10 +319,11 @@ export const StickyServicesSection: React.FC = () => {
                     {/* Main Photo Display */}
                     <div className="relative h-[240px] sm:h-[280px] w-full bg-slate-900 overflow-hidden">
                       <Image
+                        key={mobileHeroImage}
                         src={mobileHeroImage}
                         alt={pillar.title}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-all duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
