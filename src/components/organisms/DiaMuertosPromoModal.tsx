@@ -22,17 +22,13 @@ export const DiaMuertosPromoModal: React.FC<DiaMuertosPromoModalProps> = ({
 }) => {
   const { t } = useTranslation("diaMuertosPromo");
   const [isOpen, setIsOpen] = useState(false);
-  const [hasBeenDismissed, setHasBeenDismissed] = useState(false);
+  const [hasBeenDismissed, setHasBeenDismissed] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return sessionStorage.getItem("wenda_dia_muertos_dismissed") === "true";
+  });
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    // Check if previously closed in this session
-    const seen = sessionStorage.getItem("wenda_dia_muertos_dismissed");
-    if (seen === "true") {
-      setHasBeenDismissed(true);
-      return;
-    }
+    if (typeof window === "undefined" || hasBeenDismissed) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +47,7 @@ export const DiaMuertosPromoModal: React.FC<DiaMuertosPromoModalProps> = ({
     return () => {
       trigger.kill();
     };
-  }, []);
+  }, [hasBeenDismissed]);
 
   const handleClose = () => {
     setIsOpen(false);
@@ -82,16 +78,11 @@ export const DiaMuertosPromoModal: React.FC<DiaMuertosPromoModalProps> = ({
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-40 bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 hover:border-[#447D29]/60 rounded-xl px-4 py-2.5 shadow-lg shadow-slate-900/5 flex items-center gap-2.5 text-xs font-semibold transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+          className="fixed bottom-6 right-6 z-40 bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 hover:border-[#447D29]/60 rounded-full w-12 h-12 shadow-lg shadow-slate-900/10 flex items-center justify-center transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
           aria-label={t("title", { defaultValue: "Ver promoción Día de Muertos" })}
+          title={t("title", { defaultValue: "Ver promoción Día de Muertos" })}
         >
-          <Wheat className="w-4 h-4 text-[#447D29] group-hover:scale-105 transition-transform" />
-          <span className="text-slate-900 font-semibold tracking-tight">
-            {t("floatingBadge", { defaultValue: "Especial Día de Muertos" })}
-          </span>
-          <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200 uppercase tracking-wider">
-            2026
-          </span>
+          <Wheat className="w-5 h-5 text-[#447D29] group-hover:scale-110 transition-transform" />
         </button>
       )}
 
