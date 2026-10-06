@@ -93,7 +93,7 @@ export const MainLayoutTemplate: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#0F172A] relative selection:bg-[#447D29] selection:text-white">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#0F172A] relative selection:bg-[#447D29] selection:text-white overflow-x-clip">
       {/* Top Navigation */}
       <Navbar
         currentCountry={currentCountry}
@@ -101,7 +101,7 @@ export const MainLayoutTemplate: React.FC = () => {
       />
 
       {/* Main Content Sections */}
-      <main className="relative max-w-full">
+      <main className="relative max-w-full overflow-x-clip">
         <HeroSection />
 
         <AboutManifestoSection />
