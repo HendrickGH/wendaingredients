@@ -156,32 +156,115 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
         );
       }
 
-      // 6. Catálogo Multidisciplinario Industry Items (first 7 items animate)
-      industryCardsRef.current.forEach((cardEl, idx) => {
-        if (!cardEl || idx === industries.length - 1) return;
-        const isEven = idx % 2 === 0;
-        gsap.fromTo(
-          cardEl,
-          { opacity: 0, y: 45, x: isEven ? -25 : 25 },
-          {
-            opacity: 1,
-            y: 0,
-            x: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cardEl,
-              start: "top 85%",
-              toggleActions: "play none none none"
+      // 6. Responsive Catálogo Multidisciplinario Animation Matrix
+      const mm = gsap.matchMedia();
+
+      // Mobile (< 768px): pure vertical motion without horizontal translation (prevents touch scroll jank)
+      mm.add("(max-width: 767px)", () => {
+        industryCardsRef.current.forEach((cardEl) => {
+          if (!cardEl) return;
+          gsap.fromTo(
+            cardEl,
+            { opacity: 0, y: 35 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: cardEl,
+                start: "top 88%",
+                toggleActions: "play none none none"
+              }
             }
-          }
-        );
+          );
+        });
+
+        if (lastCardRef.current) {
+          gsap.fromTo(
+            lastCardRef.current,
+            { opacity: 0, y: 35 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: lastCardRef.current,
+                start: "top 88%",
+                toggleActions: "play none none none"
+              }
+            }
+          );
+        }
       });
 
-      // 7. Sticky Stacking Pin for the last industry card + closing CTA strip (Desktop)
-      ScrollTrigger.matchMedia({
-        "(min-width: 1024px)": function () {
-          if (!lastCardRef.current) return;
+      // Tablet (768px to 1023px): subtle lateral offset with smooth entrance for all cards
+      mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
+        industryCardsRef.current.forEach((cardEl, idx) => {
+          if (!cardEl) return;
+          const isEven = idx % 2 === 0;
+          gsap.fromTo(
+            cardEl,
+            { opacity: 0, y: 40, x: isEven ? -16 : 16 },
+            {
+              opacity: 1,
+              y: 0,
+              x: 0,
+              duration: 0.75,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: cardEl,
+                start: "top 85%",
+                toggleActions: "play none none none"
+              }
+            }
+          );
+        });
+
+        if (lastCardRef.current) {
+          gsap.fromTo(
+            lastCardRef.current,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.75,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: lastCardRef.current,
+                start: "top 85%",
+                toggleActions: "play none none none"
+              }
+            }
+          );
+        }
+      });
+
+      // Desktop (>= 1024px): staggered reveal with last card pinned until #faq
+      mm.add("(min-width: 1024px)", () => {
+        industryCardsRef.current.forEach((cardEl, idx) => {
+          if (!cardEl || idx === industries.length - 1) return;
+          const isEven = idx % 2 === 0;
+          gsap.fromTo(
+            cardEl,
+            { opacity: 0, y: 45, x: isEven ? -25 : 25 },
+            {
+              opacity: 1,
+              y: 0,
+              x: 0,
+              duration: 0.8,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: cardEl,
+                start: "top 85%",
+                toggleActions: "play none none none"
+              }
+            }
+          );
+        });
+
+        if (lastCardRef.current) {
           ScrollTrigger.create({
             trigger: lastCardRef.current,
             start: "top 10%",
@@ -189,20 +272,20 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
             end: "top top",
             pin: true,
             pinSpacing: false,
-            anticipatePin: 1,
+            anticipatePin: 1
           });
-        },
+        }
       });
-    });
+    }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [industries.length]);
 
   return (
     <section
       ref={sectionRef}
       id="indent"
-      className="pt-24 lg:pt-32 pb-8 lg:pb-12 bg-[#FFFFFF] relative border-b border-slate-200"
+      className="pt-24 lg:pt-32 pb-8 lg:pb-12 bg-[#FFFFFF] relative border-b border-slate-200 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-24">
         {/* Header - Editorial Style */}
