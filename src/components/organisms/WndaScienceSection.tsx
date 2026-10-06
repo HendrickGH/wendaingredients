@@ -259,53 +259,63 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
       </motion.div>
 
-      {/* Grid Layout (Fluid 12 Columns, padding: 4vh 5vw) */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-center px-[5vw] py-[4vh]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[2vw] items-center w-full max-w-7xl mx-auto">
-          {/* Left Editorial Block (Columns 1 to 7) */}
+      {/* Grid Layout (Fluid 12 Columns, responsive mobile/tablet padding) */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-center px-4 sm:px-[5vw] py-4 sm:py-[4vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-[2vw] items-center w-full max-w-7xl mx-auto">
+          {/* Left Editorial Block (Columns 1 to 7 on desktop, full width on mobile/tablet) */}
           <motion.div
             style={{
               y: textTranslateY,
               opacity: textOpacity,
               willChange: "transform, opacity"
             }}
-            className="lg:col-span-7 space-y-5 text-white"
+            className="lg:col-span-7 space-y-3 sm:space-y-4 lg:space-y-5 text-white"
           >
-            {/* Spec Validation Header (clean, without pills/badges) */}
+            {/* Spec Validation Header */}
             <div className="flex items-center gap-2 text-[#D9E8BE] text-xs font-semibold">
-              <CheckCircle2 className="w-4 h-4 shrink-0" />
+              <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span>{detail.spec}</span>
             </div>
 
             {/* Main Capability Title */}
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-editorial text-white tracking-tight leading-[1.10] drop-shadow-2xl">
+            <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold font-editorial text-white tracking-tight leading-[1.12] drop-shadow-2xl">
               {cap?.title}
             </h2>
 
+            {/* Mobile & Tablet Inline KPI (ensures key metric is visible without vertical overflow) */}
+            <div className="flex lg:hidden items-baseline gap-2.5 sm:gap-3 py-0.5">
+              <span className="text-3xl sm:text-4xl font-bold font-editorial text-[#D9E8BE] tracking-tight drop-shadow-md">
+                {detail.metricValue}
+              </span>
+              <span className="text-xs sm:text-sm font-medium text-slate-200">
+                {detail.metricLabel}
+              </span>
+            </div>
+
             {/* Description Copy */}
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-md">
+            <p className="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-md line-clamp-3 sm:line-clamp-none">
               {cap?.desc}
             </p>
 
             {/* Application Performance Callout */}
-            <div className="flex items-start gap-3 max-w-2xl py-1">
+            <div className="flex items-start gap-2.5 sm:gap-3 max-w-2xl py-0.5 sm:py-1">
               {CAPABILITY_ICONS[index % CAPABILITY_ICONS.length]}
               <div className="space-y-0.5">
-                <span className="text-xs font-bold text-[#D9E8BE] uppercase tracking-wider block">
+                <span className="text-[11px] sm:text-xs font-bold text-[#D9E8BE] uppercase tracking-wider block">
                   Desempeño en Aplicación
                 </span>
-                <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal line-clamp-2 sm:line-clamp-none">
                   {detail.highlight}
                 </p>
               </div>
             </div>
 
             {/* CTA Button */}
-            <div className="pt-2">
+            <div className="pt-1 sm:pt-2">
               <button
                 type="button"
                 onClick={onConsultScience}
-                className="btn-pill-primary text-xs !py-3 !px-7 group cursor-pointer inline-flex items-center gap-2.5 shadow-2xl hover:scale-105 active:scale-95 transition-all"
+                className="btn-pill-primary text-xs !py-2.5 sm:!py-3 !px-5 sm:!px-7 group cursor-pointer inline-flex items-center gap-2 sm:gap-2.5 shadow-2xl hover:scale-105 active:scale-95 transition-all"
               >
                 <span>{ctaText}</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -313,14 +323,14 @@ const SlidePanel: React.FC<SlidePanelProps> = ({
             </div>
           </motion.div>
 
-          {/* Right Analytical Column (Columns 8 to 12) - Clean Editorial Spec */}
+          {/* Right Analytical Column (Columns 8 to 12) - Shown on Desktop */}
           <motion.div
             style={{
               y: cardTranslateY,
               opacity: cardOpacity,
               willChange: "transform, opacity"
             }}
-            className="lg:col-span-5 text-white space-y-8"
+            className="hidden lg:block lg:col-span-5 text-white space-y-8"
           >
             <div className="space-y-1.5">
               <span className="text-xs font-bold uppercase tracking-widest text-[#D9E8BE] block">
