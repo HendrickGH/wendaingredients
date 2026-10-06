@@ -118,7 +118,7 @@ export const HeroSection: React.FC = () => {
     <section
       ref={heroContainerRef}
       aria-labelledby="hero-title"
-      className="relative min-h-[92vh] lg:min-h-[96vh] flex items-center bg-[#0B140B] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24"
+      className="relative min-h-[92vh] lg:min-h-[96vh] flex items-center bg-[#0B140B] text-white overflow-hidden pt-28 pb-24 sm:pb-20 lg:pt-36 lg:pb-24"
     >
       {/* Background Video Loop (Stock video food science & formulation) */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
@@ -203,11 +203,11 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Action Button Group (Clarity Style: Vibrant Pill with Play Triangle + Secondary Pill) */}
-          <div ref={ctaRef} className="flex flex-wrap items-center gap-4 pt-2">
+          <div ref={ctaRef} className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
             {/* Primary Action Button: Reproducir Video (Clarity Yellow/Mint style) */}
             <button
               onClick={() => setIsVideoModalOpen(true)}
-              className="inline-flex items-center justify-center gap-3 px-7 py-3.5 text-base font-bold rounded-full bg-[#D9E8BE] text-[#0F172A] hover:bg-white hover:shadow-lg transition-all duration-300 shadow-md active:scale-95 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex items-center justify-center gap-3 px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-bold rounded-full bg-[#D9E8BE] text-[#0F172A] hover:bg-white hover:shadow-lg transition-all duration-300 shadow-md active:scale-95 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white w-full sm:w-auto"
               aria-label={t("playAria")}
             >
               <span className="w-6 h-6 rounded-full bg-[#0F172A] text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -219,7 +219,7 @@ export const HeroSection: React.FC = () => {
             {/* Secondary Action Button: Explorar Fórmulas */}
             <a
               href="#categorias"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-semibold rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/25 transition-all duration-300 active:scale-95 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D9E8BE]"
+              className="inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-base font-semibold rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/25 transition-all duration-300 active:scale-95 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D9E8BE] w-full sm:w-auto"
               aria-label={t("exploreAria")}
             >
               <span>{t("explore")}</span>
