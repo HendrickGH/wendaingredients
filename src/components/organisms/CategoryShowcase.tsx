@@ -18,7 +18,6 @@ import {
   Layers,
   Sparkles,
   ArrowRight,
-  ShieldCheck,
   X,
   FileText,
   ChevronDown,
@@ -207,10 +206,10 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
             {/* Consult Button */}
             <button
               onClick={() => onConsultSolution(currentCategory.id)}
-              className="btn-pill-primary text-xs !py-3 !px-5 group cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap w-full"
+              className="btn-pill-primary text-xs !py-3 !px-4 sm:!px-5 group cursor-pointer flex items-center justify-center gap-2 whitespace-normal sm:whitespace-nowrap text-center w-full"
             >
               <span>{t("consultFor", { name: shortName(currentCategory) })}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
             </button>
 
             {/* Category Select Dropdown */}
@@ -287,7 +286,7 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
                       key={tab.id}
                       type="button"
                       onClick={() => setActiveTab(tab.id)}
-                      className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer select-none whitespace-nowrap ${
+                      className={`flex items-center justify-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-2 sm:py-2.5 rounded-xl text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer select-none whitespace-nowrap ${
                         isActive
                           ? "bg-[#447D29] text-white shadow-xs"
                           : "text-slate-600 hover:text-slate-900 hover:bg-white/80"

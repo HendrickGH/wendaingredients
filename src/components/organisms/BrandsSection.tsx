@@ -21,7 +21,6 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
   const { brands: BRANDS } = useSiteContent();
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const carouselContainerRef = useRef<HTMLDivElement>(null);
   const crossLinksRef = useRef<HTMLDivElement>(null);
 
   const {
