@@ -25,8 +25,9 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
   return (
     <div className="relative inline-block text-left">
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 px-3 py-1.5 rounded-full border shadow-2xs transition-all text-xs font-semibold cursor-pointer ${
+        className={`flex items-center gap-2 px-3 py-1.5 rounded-full border shadow-2xs transition-all text-xs font-semibold cursor-pointer select-none touch-manipulation active:scale-95 ${
           theme === "transparent"
             ? "bg-white/10 hover:bg-white/20 border-white/25 text-white hover:border-white/50 backdrop-blur-sm"
             : "bg-white hover:bg-slate-50 border-slate-200 text-slate-800 hover:border-[#447D29]"
@@ -59,7 +60,7 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
             className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-80 sm:w-96 rounded-2xl bg-white p-3 shadow-2xl z-50 border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
+          <div className="absolute right-0 mt-2 w-[calc(100vw-2rem)] max-w-sm rounded-2xl bg-white p-3 shadow-2xl z-50 border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
             <div className="px-3 py-2 border-b border-slate-100 mb-2">
               <div className="flex items-center gap-2 text-xs font-bold text-[#2F591B] uppercase tracking-wider">
                 <Globe className="w-3.5 h-3.5 text-[#447D29]" />

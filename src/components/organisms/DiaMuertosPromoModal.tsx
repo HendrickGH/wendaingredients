@@ -22,13 +22,19 @@ export const DiaMuertosPromoModal: React.FC<DiaMuertosPromoModalProps> = ({
 }) => {
   const { t } = useTranslation("diaMuertosPromo");
   const [isOpen, setIsOpen] = useState(false);
-  const [hasBeenDismissed, setHasBeenDismissed] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return sessionStorage.getItem("wenda_dia_muertos_dismissed") === "true";
-  });
+  const [hasBeenDismissed, setHasBeenDismissed] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    if (typeof window === "undefined" || hasBeenDismissed) return;
+    setIsMounted(true);
+    const seen = sessionStorage.getItem("wenda_dia_muertos_dismissed");
+    if (seen === "true") {
+      setHasBeenDismissed(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted || hasBeenDismissed) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +53,7 @@ export const DiaMuertosPromoModal: React.FC<DiaMuertosPromoModalProps> = ({
     return () => {
       trigger.kill();
     };
-  }, [hasBeenDismissed]);
+  }, [isMounted, hasBeenDismissed]);
 
   const handleClose = () => {
     setIsOpen(false);
@@ -74,7 +80,7 @@ export const DiaMuertosPromoModal: React.FC<DiaMuertosPromoModalProps> = ({
   return (
     <>
       {/* Floating Corporate Seasonal Action Button if dismissed */}
-      {hasBeenDismissed && !isOpen && (
+      {isMounted && hasBeenDismissed && !isOpen && (
         <button
           type="button"
           onClick={() => setIsOpen(true)}

@@ -29,6 +29,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
   const [categoriesDropdownOpen, setCategoriesDropdownOpen] = useState(false);
   const lastScrollY = useRef(0);
 
+  // Prevent background scroll when mobile menu is open on iOS
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -70,8 +82,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
           isScienceActive = rect.top <= 80 && rect.bottom >= 80;
         }
 
-        if (isTimelineActive || isSolucionesActive || isScienceActive) {
-          // Block navbar from reappearing while interactive or sticky modules are active, even on scroll-up
+        const isDesktop = window.innerWidth >= 1024;
+
+        if (isDesktop && (isTimelineActive || isSolucionesActive || isScienceActive)) {
+          // Block navbar on desktop while full-viewport pinned stages are active
           setIsVisible(false);
           setCategoriesDropdownOpen(false);
         } else if (scrollDelta > 8 && currentScrollY > 120) {
@@ -79,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
           setIsVisible(false);
           setCategoriesDropdownOpen(false);
         } else if (scrollDelta < -8) {
-          // Scrolling up
+          // Scrolling up: always re-enable navbar
           setIsVisible(true);
         }
       }
@@ -98,16 +112,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
   const showHeader = isVisible || mobileMenuOpen;
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
-        showHeader ? "translate-y-0" : "-translate-y-full pointer-events-none"
-      }`}
-    >
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+          showHeader
+            ? "translate-y-0 pointer-events-auto"
+            : "-translate-y-full pointer-events-none"
+        }`}
+      >
       {/* Top corporate utility bar */}
       <div
         className={`transition-colors duration-300 py-1.5 px-4 text-[11px] ${
           isTransparent
-            ? "bg-black/20 backdrop-blur-xs text-white/80"
+            ? "bg-[#0B140B]/90 backdrop-blur-md lg:bg-black/20 lg:backdrop-blur-xs text-white/80"
             : "bg-white text-slate-700"
         }`}
       >
@@ -161,7 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
       <div
         className={`transition-all duration-300 ${
           isTransparent
-            ? "bg-transparent py-4 border-b border-white/10"
+            ? "bg-[#0B140B]/80 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none py-3 lg:py-4 border-b border-white/10"
             : "bg-white py-3.5 border-b border-slate-200/90 shadow-sm"
         }`}
       >
@@ -303,8 +320,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
 
           {/* Mobile menu hamburger button */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-xl border transition-colors cursor-pointer ${
+            className={`lg:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl border transition-colors cursor-pointer select-none touch-manipulation active:scale-95 ${
               isTransparent
                 ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
                 : "bg-slate-100 border-slate-200 text-slate-800"
@@ -315,76 +333,84 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
           </button>
         </div>
       </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[96px] bottom-0 bg-white/98 backdrop-blur-xl border-t border-slate-200 p-6 flex flex-col justify-between overflow-y-auto z-40 animate-in fade-in duration-150">
-          <div className="space-y-1">
-            <a
-              href="#about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
-            >
-              {t("links.about")}
-            </a>
-            <a
-              href="#categorias"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
-            >
-              {t("links.categories")}
-            </a>
-            <a
-              href="#marcas"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
-            >
-              {t("links.brands")}
-            </a>
-            <a
-              href="#science"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
-            >
-              {t("links.science")}
-            </a>
-            <a
-              href="#indent"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
-            >
-              {t("links.indent")}
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block p-3 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50"
-            >
-              {t("links.contact")}
-            </a>
-          </div>
-
-          <div className="space-y-4 pt-6 border-t border-slate-200">
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-              <p className="text-xs text-slate-500 mb-1">{t("selectedRegion")}</p>
-              <p className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <CountryFlag code={currentCountry.code} size="md" />
-                <span>{currentCountry.name}</span>
-              </p>
-            </div>
-
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full"
-            >
-              <Button variant="primary" fullWidth size="lg">
-                {t("cta.mobile")}
-              </Button>
-            </a>
-          </div>
-        </div>
-      )}
     </header>
-  );
+
+    {/* Mobile Drawer (Decoupled from transformed header for 100% reliable Safari iOS touch delivery) */}
+    {mobileMenuOpen && (
+      <div
+        id="mobile-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label={t("openMenu")}
+        className="lg:hidden fixed inset-x-0 top-[88px] sm:top-[96px] bottom-0 z-50 bg-white/98 backdrop-blur-xl border-t border-slate-200 p-6 flex flex-col justify-between overflow-y-auto animate-in fade-in duration-150"
+        style={{ height: "calc(100dvh - 88px)" }}
+      >
+        <div className="space-y-1">
+          <a
+            href="#about"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
+          >
+            {t("links.about")}
+          </a>
+          <a
+            href="#categorias"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
+          >
+            {t("links.categories")}
+          </a>
+          <a
+            href="#marcas"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
+          >
+            {t("links.brands")}
+          </a>
+          <a
+            href="#science"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
+          >
+            {t("links.science")}
+          </a>
+          <a
+            href="#indent"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
+          >
+            {t("links.indent")}
+          </a>
+          <a
+            href="#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
+          >
+            {t("links.contact")}
+          </a>
+        </div>
+
+        <div className="space-y-4 pt-6 border-t border-slate-200">
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <p className="text-xs text-slate-500 mb-1">{t("selectedRegion")}</p>
+            <p className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <CountryFlag code={currentCountry.code} size="md" />
+              <span>{currentCountry.name}</span>
+            </p>
+          </div>
+
+          <a
+            href="#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block w-full touch-manipulation cursor-pointer"
+          >
+            <Button variant="primary" fullWidth size="lg">
+              {t("cta.mobile")}
+            </Button>
+          </a>
+        </div>
+      </div>
+    )}
+  </>
+);
 };

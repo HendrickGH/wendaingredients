@@ -265,11 +265,12 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
         });
 
         if (lastCardRef.current) {
+          const faqEl = document.getElementById("faq");
           ScrollTrigger.create({
             trigger: lastCardRef.current,
             start: "top 10%",
-            endTrigger: "#faq",
-            end: "top top",
+            endTrigger: faqEl || sectionRef.current,
+            end: faqEl ? "top top" : "bottom top",
             pin: true,
             pinSpacing: false,
             anticipatePin: 1

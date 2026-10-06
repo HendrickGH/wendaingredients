@@ -24,6 +24,14 @@ export const MetricCounter: React.FC<MetricCounterProps> = ({
   useEffect(() => {
     if (isNaN(numericPart)) return;
 
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setCount(numericPart);
+      setHasStarted(true);
+      return;
+    }
+
     // Viewport intersection observer to start counting on entrance
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,14 +41,22 @@ export const MetricCounter: React.FC<MetricCounterProps> = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05, rootMargin: "60px" }
     );
 
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
 
-    return () => observer.disconnect();
+    // Safety fallback: if after 600ms observer has not triggered (e.g. Safari mobile bar overlap), trigger it
+    const timer = setTimeout(() => {
+      setHasStarted(true);
+    }, 600);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
   }, [numericPart]);
 
   useEffect(() => {

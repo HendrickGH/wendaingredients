@@ -32,7 +32,15 @@ export const HeroSection: React.FC = () => {
   // GSAP Entrance & Ambient Motion Choreography
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+      [badgeRef, titleRef, subtitleRef, ctaRef, quoteRef, statsRef].forEach((ref) => {
+        if (ref.current) {
+          ref.current.style.opacity = "1";
+          ref.current.style.transform = "none";
+        }
+      });
+      return;
+    }
 
     const ctx = gsap.context(() => {
       // 1. Ambient Brand Swirl Float (HyperFrames sine-wave-loop rule)
@@ -118,7 +126,7 @@ export const HeroSection: React.FC = () => {
     <section
       ref={heroContainerRef}
       aria-labelledby="hero-title"
-      className="relative min-h-[92vh] lg:min-h-[96vh] flex items-center bg-[#0B140B] text-white overflow-hidden pt-28 pb-24 sm:pb-20 lg:pt-36 lg:pb-24"
+      className="relative min-h-screen lg:min-h-[96vh] flex flex-col justify-start lg:justify-center bg-[#0B140B] text-white overflow-hidden pt-36 sm:pt-40 lg:pt-36 pb-20 sm:pb-20 lg:pb-24"
     >
       {/* Background Video Loop (Stock video food science & formulation) */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
@@ -206,8 +214,9 @@ export const HeroSection: React.FC = () => {
           <div ref={ctaRef} className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
             {/* Primary Action Button: Reproducir Video (Clarity Yellow/Mint style) */}
             <button
+              type="button"
               onClick={() => setIsVideoModalOpen(true)}
-              className="inline-flex items-center justify-center gap-3 px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-bold rounded-full bg-[#D9E8BE] text-[#0F172A] hover:bg-white hover:shadow-lg transition-all duration-300 shadow-md active:scale-95 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-3 px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-bold rounded-full bg-[#D9E8BE] text-[#0F172A] hover:bg-white hover:shadow-lg transition-all duration-300 shadow-md active:scale-95 cursor-pointer select-none touch-manipulation group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white w-full sm:w-auto"
               aria-label={t("playAria")}
             >
               <span className="w-6 h-6 rounded-full bg-[#0F172A] text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -219,7 +228,7 @@ export const HeroSection: React.FC = () => {
             {/* Secondary Action Button: Explorar Fórmulas */}
             <a
               href="#categorias"
-              className="inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-base font-semibold rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/25 transition-all duration-300 active:scale-95 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D9E8BE] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-base font-semibold rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/25 transition-all duration-300 active:scale-95 cursor-pointer select-none touch-manipulation group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D9E8BE] w-full sm:w-auto"
               aria-label={t("exploreAria")}
             >
               <span>{t("explore")}</span>
@@ -288,8 +297,9 @@ export const HeroSection: React.FC = () => {
       {/* Floating Video Controls in Bottom Right Corner (Accessibility & User Autonomy) */}
       <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2">
         <button
+          type="button"
           onClick={togglePlay}
-          className="p-2.5 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 transition-all cursor-pointer shadow-sm focus-visible:outline-2 focus-visible:outline-white"
+          className="p-2.5 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 transition-all cursor-pointer shadow-sm focus-visible:outline-2 focus-visible:outline-white select-none touch-manipulation active:scale-95"
           title={isPlaying ? t("pauseBackground") : t("resumeBackground")}
           aria-label={isPlaying ? t("pauseBackground") : t("resumeBackground")}
         >
@@ -307,8 +317,9 @@ export const HeroSection: React.FC = () => {
         >
           {/* Close button */}
           <button
+            type="button"
             onClick={() => setIsVideoModalOpen(false)}
-            className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
+            className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer select-none touch-manipulation focus-visible:outline-2 focus-visible:outline-white active:scale-95"
             aria-label={t("modal.close")}
           >
             <X className="w-6 h-6" />

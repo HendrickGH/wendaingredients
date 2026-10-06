@@ -42,7 +42,8 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`inline-flex items-center justify-center transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none ${
+      type={props.type || "button"}
+      className={`inline-flex items-center justify-center transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none touch-manipulation active:scale-[0.98] ${
         fullWidth ? "w-full" : ""
       } ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
       disabled={disabled}
