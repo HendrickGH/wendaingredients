@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
@@ -25,13 +25,32 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
 }) => {
   const { t } = useTranslation("technicalModal");
 
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      document.body.setAttribute("data-modal-open", "true");
+      window.dispatchEvent(new CustomEvent("wenda:modal-open"));
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        document.body.removeAttribute("data-modal-open");
+        window.dispatchEvent(new CustomEvent("wenda:modal-close"));
+      };
+    }
+  }, [isOpen]);
+
   if (!isOpen || (!brand && !industry)) return null;
 
   const title = brand ? brand.name : industry?.name || "";
   const subtitle = brand ? brand.claim : industry?.description || "";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-150">
+    <div
+      role="dialog"
+      aria-modal="true"
+      data-modal="true"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-150"
+    >
       <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs" onClick={onClose} />
 
       <div className="relative w-full max-w-2xl rounded-2xl bg-white p-6 sm:p-8 border border-slate-200 shadow-2xl z-10 space-y-6 max-h-[90vh] overflow-y-auto">
@@ -133,11 +152,6 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
                 fill
                 className="object-cover"
               />
-              <div className="absolute bottom-0 inset-x-0 bg-white/95 p-3 border-t border-slate-100">
-                <span className="text-xs text-[#2F591B] font-bold">
-                  {t("validatedTitle")}
-                </span>
-              </div>
             </div>
 
             <div className="space-y-2">
@@ -160,10 +174,7 @@ export const TechnicalDetailModal: React.FC<TechnicalDetailModalProps> = ({
         )}
 
         {/* Modal actions */}
-        <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            {t("close")}
-          </Button>
+        <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-end gap-3">
           <Button
             variant="primary"
             size="md"
