@@ -17,8 +17,7 @@ import {
   ArrowRight,
   ChevronRight,
   Check,
-  ArrowUpRight,
-  Layers
+  ArrowUpRight
 } from "lucide-react";
 
 interface WendaIndentSectionProps {
@@ -39,7 +38,6 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
   // GSAP Animation Refs
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const diagramHeaderRef = useRef<HTMLDivElement>(null);
   const staircaseDesktopRef = useRef<HTMLDivElement>(null);
   const staircaseMobileRef = useRef<HTMLDivElement>(null);
   const catalogHeaderRef = useRef<HTMLDivElement>(null);
@@ -66,26 +64,6 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
             ease: "power3.out",
             scrollTrigger: {
               trigger: headerRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none"
-            }
-          }
-        );
-      }
-
-      // 2. Diagram Sub-Header entrance
-      if (diagramHeaderRef.current) {
-        gsap.fromTo(
-          diagramHeaderRef.current.children,
-          { opacity: 0, y: 22 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.65,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: diagramHeaderRef.current,
               start: "top 85%",
               toggleActions: "play none none none"
             }
@@ -290,16 +268,12 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-24">
         {/* Header - Editorial Style */}
-        <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-slate-200 pb-8">
+        <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="space-y-4 max-w-3xl">
             <div className="flex items-center gap-2">
               <Badge variant="wenda" size="md">
                 {t("badge")}
               </Badge>
-              <span className="text-slate-300">·</span>
-              <span className="text-xs font-bold text-[#2F591B] uppercase tracking-wider">
-                {t("subBadge")}
-              </span>
             </div>
             <h2 className="heading-editorial-lg font-editorial text-slate-900">
               {t("title")}
@@ -322,19 +296,6 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
 
         {/* 5-Step Indent Methodology - Stepped Staircase Diagram */}
         <div className="space-y-10">
-          <div ref={diagramHeaderRef} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#447D29]">
-                <Layers className="w-4 h-4" />
-                <span>{t("diagramBadge")}</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-editorial mt-1 flex items-center gap-2">
-                <Ship className="w-5 h-5 text-[#447D29]" />
-                {t("diagramTitle")}
-              </h3>
-            </div>
-          </div>
-
           {/* Desktop Staircase Layout (lg and above) */}
           <div ref={staircaseDesktopRef} className="hidden lg:grid lg:grid-cols-5 gap-4 xl:gap-5 items-end pt-4">
             {indentSteps.map((stepItem, idx) => {
@@ -359,7 +320,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
 
                       <div className="space-y-1">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[#447D29]">
-                          {stepItem.step}
+                          {stepItem.step.replace(/^(Fase|Phase|第[一二三四五]阶段)\s*\d*\s*[·\s]\s*/i, "")}
                         </span>
                         <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#447D29] transition-colors leading-snug">
                           {stepItem.title}
@@ -383,23 +344,17 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
                       </div>
 
                       {/* 5-bar step gauge */}
-                      <div className="space-y-1">
-                        <div className="flex items-center justify-between text-[10px] font-bold text-slate-400">
-                          <span>{stepItem.step}</span>
-                          <span>{idx + 1}/5</span>
-                        </div>
-                        <div className="grid grid-cols-5 gap-1">
-                          {[0, 1, 2, 3, 4].map((barIdx) => (
-                            <div
-                              key={barIdx}
-                              className={`h-1.5 rounded-full transition-all duration-500 ${
-                                barIdx <= idx
-                                  ? "bg-[#447D29] group-hover:bg-[#2F591B] group-hover:scale-y-125"
-                                  : "bg-slate-100"
-                              }`}
-                            />
-                          ))}
-                        </div>
+                      <div className="grid grid-cols-5 gap-1 pt-1">
+                        {[0, 1, 2, 3, 4].map((barIdx) => (
+                          <div
+                            key={barIdx}
+                            className={`h-1.5 rounded-full transition-all duration-500 ${
+                              barIdx <= idx
+                                ? "bg-[#447D29] group-hover:bg-[#2F591B] group-hover:scale-y-125"
+                                : "bg-slate-100"
+                            }`}
+                          />
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -419,7 +374,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
           </div>
 
           {/* Mobile Staircase Layout (< lg) */}
-          <div ref={staircaseMobileRef} className="lg:hidden relative pl-6 space-y-6 before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-[#447D29] before:via-slate-300 before:to-[#447D29]">
+          <div ref={staircaseMobileRef} className="lg:hidden relative pl-6 space-y-6 before:absolute before:left-[calc(var(--spacing)*-.2)] before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-[#447D29] before:via-slate-300 before:to-[#447D29]">
             {indentSteps.map((stepItem, idx) => {
               const StepIcon = STEP_ICONS[idx % STEP_ICONS.length];
               const stepNum = String(idx + 1).padStart(2, "0");
@@ -433,17 +388,12 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
 
                   {/* Mobile Card */}
                   <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs space-y-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2">
-                        <div className="p-1.5 rounded-lg bg-[#EBF4E5] text-[#447D29]">
-                          <StepIcon className="w-4 h-4" />
-                        </div>
-                        <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
-                          {stepItem.step}
-                        </span>
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-lg bg-[#EBF4E5] text-[#447D29]">
+                        <StepIcon className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 bg-slate-100 rounded-md text-slate-500">
-                        Nivel {idx + 1}
+                      <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
+                        {stepItem.step.replace(/^(Fase|Phase|第[一二三四五]阶段)\s*\d*\s*[·\s]\s*/i, "")}
                       </span>
                     </div>
 
@@ -526,19 +476,6 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
                             fill
                             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent pointer-events-none" />
-                          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-
-                          <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                            <div>
-                              <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-300">
-                                {t("sectorLabel")}
-                              </span>
-                              <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white font-editorial">
-                                {ind.name}
-                              </h4>
-                            </div>
-                          </div>
                         </div>
                       </div>
 
@@ -646,19 +583,6 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
                         fill
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent pointer-events-none" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-
-                      <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                        <div>
-                          <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-300">
-                            {t("sectorLabel")}
-                          </span>
-                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white font-editorial">
-                            {ind.name}
-                          </h4>
-                        </div>
-                      </div>
                     </div>
                   </div>
 

@@ -4007,27 +4007,27 @@
     "es": {
       "items": [
         {
-          "step": "Fase 1 · Requerimiento",
+          "step": "Requerimiento",
           "title": "Entendemos tu necesidad",
           "description": "Analizamos tu formulación, restricciones de costo, perfil sensorial y objetivos comerciales específicos."
         },
         {
-          "step": "Fase 2 · Sourcing Global",
+          "step": "Sourcing Global",
           "title": "Identificamos la solución",
           "description": "Seleccionamos la mejor alternativa entre nuestra red internacional de plantas y centros de I+D."
         },
         {
-          "step": "Fase 3 · Calidad & CoA",
+          "step": "Calidad & CoA",
           "title": "Validamos producto y proveedor",
           "description": "Auditoría documental estricta, certificados de análisis (CoA), pruebas piloto y confirmación de estándares internacionales."
         },
         {
-          "step": "Fase 4 · Logística Integral",
+          "step": "Logística Integral",
           "title": "Coordinamos los suministros",
           "description": "Gestión aduanal, logística multimodal y almacenamiento seguro para garantizar entregas puntuales."
         },
         {
-          "step": "Fase 5 · Cima & Éxito",
+          "step": "Cima & Éxito",
           "title": "Damos seguimiento continuo",
           "description": "Acompañamiento en el escalamiento industrial en tu planta con soporte de nuestros ingenieros especialistas."
         }
@@ -4036,27 +4036,27 @@
     "en": {
       "items": [
         {
-          "step": "Phase 1 · Requirement",
+          "step": "Requirement",
           "title": "We understand your need",
           "description": "We analyze your formulation, cost constraints, sensory profile, and specific commercial targets."
         },
         {
-          "step": "Phase 2 · Global Sourcing",
+          "step": "Global Sourcing",
           "title": "We identify the solution",
           "description": "We select the best option across our international network of synthesis plants and R&D centers."
         },
         {
-          "step": "Phase 3 · Quality & CoA",
+          "step": "Quality & CoA",
           "title": "We validate product & supplier",
           "description": "Strict document audit, Certificates of Analysis (CoA), pilot trials, and international compliance."
         },
         {
-          "step": "Phase 4 · Full Logistics",
+          "step": "Full Logistics",
           "title": "We coordinate supply & transit",
           "description": "Customs brokerage, multimodal transit, and regulated storage for on-time deliveries."
         },
         {
-          "step": "Phase 5 · Peak & Success",
+          "step": "Peak & Success",
           "title": "Continuous technical follow-up",
           "description": "In-plant support during industrial scale-up guided by our specialized application engineers."
         }
@@ -4065,27 +4065,27 @@
     "zh": {
       "items": [
         {
-          "step": "第一阶段 · 需求诊断",
+          "step": "需求诊断",
           "title": "深入了解您的采购与工艺需求",
           "description": "分析您的配方结构、成本限制、感官指标及具体的商业目标。"
         },
         {
-          "step": "第二阶段 · 全球寻源",
+          "step": "全球寻源",
           "title": "匹配最佳原料与生产方案",
           "description": "在文达全球合成工厂及研发中心网络中筛选最优产品与方案。"
         },
         {
-          "step": "第三阶段 · 质量与 CoA",
+          "step": "质量与 CoA",
           "title": "严格验证产品与工厂资质",
           "description": "严格的文件审计、逐批分析合格证 (CoA) 检测、中试验证及国际认证核验。"
         },
         {
-          "step": "第四阶段 · 综合物流",
+          "step": "综合物流",
           "title": "统筹跨国供应链与报关进口",
           "description": "清关报关、多式联运及合规仓储管理，确保按时保质准时交付。"
         },
         {
-          "step": "第五阶段 · 上线成功",
+          "step": "上线成功",
           "title": "工厂上线全程跟踪与技术支持",
           "description": "技术工程师亲临工厂指导工业化放大生产，保障平稳上线。"
         }
