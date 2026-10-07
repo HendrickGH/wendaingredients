@@ -108,7 +108,7 @@ export const QualityCertifications: React.FC = () => {
 
         {/* Certifications badges grid - Open Layout with Spring Physics */}
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="py-6 border-t border-slate-200 space-y-3 group hover:border-[#447D29] hover:-translate-y-1 transition-all duration-300">
+          <div className="py-6 space-y-3 group hover:-translate-y-1 transition-all duration-300">
             <span className="text-2xl font-black text-[#2F591B] tracking-tight block">
               BRCGS
             </span>
@@ -121,7 +121,7 @@ export const QualityCertifications: React.FC = () => {
             </span>
           </div>
 
-          <div className="py-6 border-t border-slate-200 space-y-3 group hover:border-[#447D29] hover:-translate-y-1 transition-all duration-300">
+          <div className="py-6 space-y-3 group hover:-translate-y-1 transition-all duration-300">
             <span className="text-2xl font-black text-[#2F591B] tracking-tight block">
               حلال
             </span>
@@ -134,7 +134,7 @@ export const QualityCertifications: React.FC = () => {
             </span>
           </div>
 
-          <div className="py-6 border-t border-slate-200 space-y-3 group hover:border-[#447D29] hover:-translate-y-1 transition-all duration-300">
+          <div className="py-6 space-y-3 group hover:-translate-y-1 transition-all duration-300">
             <span className="text-2xl font-black text-amber-800 tracking-tight block">
               STAR-K
             </span>
@@ -149,7 +149,7 @@ export const QualityCertifications: React.FC = () => {
         </div>
 
         {/* Quality pillars - Open Grid */}
-        <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-slate-200 text-xs text-slate-700">
+        <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 text-xs text-slate-700">
           <div className="flex items-start gap-2.5 group">
             <ShieldCheck className="w-4 h-4 text-[#447D29] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
             <span className="font-medium">{t("pillars.0")}</span>
@@ -169,7 +169,7 @@ export const QualityCertifications: React.FC = () => {
         </div>
 
         {/* Quality Closing Tagline (Wenda Core Claim) */}
-        <div className="text-center pt-2 border-t border-slate-100">
+        <div className="text-center pt-2">
           <p className="text-sm sm:text-base font-bold font-editorial text-[#2F591B] tracking-wide">
             {t("tagline", "Ingredientes desarrollados para cumplir. Soluciones creadas para destacar.")}
           </p>
