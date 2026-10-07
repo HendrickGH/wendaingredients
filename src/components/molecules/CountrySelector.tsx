@@ -38,15 +38,6 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
         <span className={`font-semibold ${theme === "transparent" ? "text-white" : "text-slate-900"}`}>
           {currentCountry.name.split(" & ")[0]}
         </span>
-        <span
-          className={`text-[10px] uppercase font-bold px-1.5 py-0.5 rounded ${
-            theme === "transparent"
-              ? "bg-[#D9E8BE] text-[#0F172A]"
-              : "text-[#2F591B] bg-[#EBF4E5] border border-[#CDE2C3]"
-          }`}
-        >
-          {currentCountry.code}
-        </span>
         <ChevronDown
           className={`w-3.5 h-3.5 transition-transform ${
             theme === "transparent" ? "text-white/80" : "text-slate-500"

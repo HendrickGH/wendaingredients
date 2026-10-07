@@ -13,7 +13,8 @@ import {
   X,
   ArrowUpRight,
   PhoneCall,
-  ChevronDown
+  ChevronDown,
+  ChevronRight
 } from "lucide-react";
 
 interface NavbarProps {
@@ -27,7 +28,71 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
   const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [categoriesDropdownOpen, setCategoriesDropdownOpen] = useState(false);
+  const [isModalActive, setIsModalActive] = useState(false);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const headerRef = useRef<HTMLElement>(null);
   const lastScrollY = useRef(0);
+
+  // Automatically hide navbar visually like scroll headroom whenever ANY modal is opened
+  useEffect(() => {
+    const checkModalActive = () => {
+      if (typeof document === "undefined") return;
+      const activeModal = document.querySelector(
+        '[role="dialog"]:not(#mobile-drawer), [aria-modal="true"]:not(#mobile-drawer), [data-modal="true"], body[data-modal-open="true"]'
+      );
+      const isBodyModalOpen = document.body.getAttribute("data-modal-open") === "true";
+      const hasModal = !!activeModal || isBodyModalOpen;
+      setIsModalActive(hasModal);
+      if (hasModal) {
+        setMobileMenuOpen(false);
+        setCategoriesDropdownOpen(false);
+      }
+    };
+
+    checkModalActive();
+
+    const observer = new MutationObserver(() => {
+      checkModalActive();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["data-modal-open", "class", "style"]
+    });
+
+    const handleModalOpen = () => {
+      setIsModalActive(true);
+      setMobileMenuOpen(false);
+      setCategoriesDropdownOpen(false);
+    };
+
+    const handleModalClose = () => {
+      setTimeout(checkModalActive, 30);
+    };
+
+    window.addEventListener("wenda:modal-open", handleModalOpen);
+    window.addEventListener("wenda:modal-close", handleModalClose);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("wenda:modal-open", handleModalOpen);
+      window.removeEventListener("wenda:modal-close", handleModalClose);
+    };
+  }, []);
+
+  // Measure dynamic header height so drawer aligns pixel-perfect without gap or overlap
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.offsetHeight);
+      }
+    };
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight);
+    return () => window.removeEventListener("resize", updateHeaderHeight);
+  }, [mobileMenuOpen]);
 
   // Prevent background scroll when mobile menu is open on iOS
   useEffect(() => {
@@ -109,12 +174,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
     t("portfolio.items", { returnObjects: true }) as { name: string; desc: string }[]
   ).map((cat) => ({ ...cat, href: "#categorias" }));
 
-  const showHeader = isVisible || mobileMenuOpen;
+  const showHeader = !isModalActive && (isVisible || mobileMenuOpen);
+
+  // When mobile menu is open, navbar MUST always have solid white background.
+  // When mobile menu closes, it returns to transparent if scroll <= 80, otherwise stays white.
+  const isHeaderTransparent = isTransparent && !mobileMenuOpen;
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        ref={headerRef}
+        className={`fixed top-0 left-0 right-0 z-[70] transition-transform duration-300 ease-in-out ${
           showHeader
             ? "translate-y-0 pointer-events-auto"
             : "-translate-y-full pointer-events-none"
@@ -123,9 +193,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
       {/* Top corporate utility bar */}
       <div
         className={`transition-colors duration-300 py-1.5 px-4 text-[11px] ${
-          isTransparent
-            ? "bg-[#0B140B]/90 backdrop-blur-md lg:bg-black/20 lg:backdrop-blur-xs text-white/80"
-            : "bg-white text-slate-700"
+          isHeaderTransparent
+            ? "bg-transparent text-white/80"
+            : "bg-white text-slate-700 border-b border-slate-100"
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-end gap-4 min-w-0">
@@ -133,14 +203,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             <a
               href={`tel:${currentCountry.contactOffice.phone}`}
               className={`flex items-center gap-1.5 text-xs font-medium transition-colors ${
-                isTransparent
+                isHeaderTransparent
                   ? "text-white/90 hover:text-[#D9E8BE]"
                   : "text-slate-700 hover:text-[#447D29]"
               }`}
             >
               <PhoneCall
                 className={`w-3.5 h-3.5 ${
-                  isTransparent ? "text-[#D9E8BE]" : "text-[#447D29]"
+                  isHeaderTransparent ? "text-[#D9E8BE]" : "text-[#447D29]"
                 }`}
               />
               <span className="hidden sm:inline font-bold">
@@ -153,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               rel="noopener noreferrer"
               aria-label="LinkedIn de Wenda Ingredients"
               className={`flex items-center justify-center p-1 rounded-md transition-colors ${
-                isTransparent
+                isHeaderTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
                   : "text-slate-700 hover:text-[#447D29] hover:bg-slate-200/50"
               }`}
@@ -162,13 +232,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             </a>
             <div
               className={`h-3.5 w-px hidden sm:block ${
-                isTransparent ? "bg-white/20" : "bg-slate-200"
+                isHeaderTransparent ? "bg-white/20" : "bg-slate-200"
               }`}
             />
             <CountrySelector
               currentCountry={currentCountry}
               onSelectCountry={onSelectCountry}
-              theme={isTransparent ? "transparent" : "light"}
+              theme={isHeaderTransparent ? "transparent" : "light"}
             />
           </div>
         </div>
@@ -177,8 +247,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
       {/* Main navigation bar */}
       <div
         className={`transition-all duration-300 ${
-          isTransparent
-            ? "bg-[#0B140B]/80 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none py-3 lg:py-4 border-b border-white/10"
+          isHeaderTransparent
+            ? "bg-transparent py-3.5 lg:py-4 border-b border-white/10"
             : "bg-white py-3.5 border-b border-slate-200/90 shadow-sm"
         }`}
       >
@@ -193,7 +263,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             <a
               href="#about"
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
-                isTransparent
+                isHeaderTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
                   : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
@@ -210,7 +280,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
               <a
                 href="#categorias"
                 className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-bold transition-colors cursor-pointer ${
-                  isTransparent
+                  isHeaderTransparent
                     ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
                     : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
                 }`}
@@ -220,7 +290,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
                     categoriesDropdownOpen
                       ? "rotate-180 text-[#447D29]"
-                      : isTransparent
+                      : isHeaderTransparent
                       ? "text-white/60"
                       : "text-slate-400"
                   }`}
@@ -256,7 +326,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             <a
               href="#marcas"
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
-                isTransparent
+                isHeaderTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
                   : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
@@ -267,7 +337,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             <a
               href="#science"
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
-                isTransparent
+                isHeaderTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
                   : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
@@ -278,7 +348,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             <a
               href="#indent"
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
-                isTransparent
+                isHeaderTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
                   : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
@@ -289,7 +359,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             <a
               href="#contact"
               className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
-                isTransparent
+                isHeaderTransparent
                   ? "text-white/90 hover:text-[#D9E8BE] hover:bg-white/10"
                   : "text-slate-700 hover:text-[#447D29] hover:bg-slate-50"
               }`}
@@ -301,7 +371,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
           {/* Right Action Button */}
           <div className="hidden lg:flex items-center gap-3">
             <a href="#contact">
-              {isTransparent ? (
+              {isHeaderTransparent ? (
                 <span className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold bg-[#D9E8BE] text-[#0F172A] hover:bg-white transition-all shadow-sm cursor-pointer active:scale-95">
                   <span>{t("cta.short")}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -323,7 +393,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`lg:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl border transition-colors cursor-pointer select-none touch-manipulation active:scale-95 ${
-              isTransparent
+              isHeaderTransparent
                 ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
                 : "bg-slate-100 border-slate-200 text-slate-800"
             }`}
@@ -342,72 +412,85 @@ export const Navbar: React.FC<NavbarProps> = ({ currentCountry, onSelectCountry 
         role="dialog"
         aria-modal="true"
         aria-label={t("openMenu")}
-        className="lg:hidden fixed inset-x-0 top-[88px] sm:top-[96px] bottom-0 z-50 bg-white/98 backdrop-blur-xl border-t border-slate-200 p-6 flex flex-col justify-between overflow-y-auto animate-in fade-in duration-150"
-        style={{ height: "calc(100dvh - 88px)" }}
+        className="lg:hidden fixed inset-x-0 bottom-0 z-[69] bg-white border-t border-slate-200 flex flex-col justify-between overflow-y-auto animate-in fade-in duration-150"
+        style={{
+          top: headerHeight > 0 ? `${headerHeight}px` : "112px",
+          height: headerHeight > 0 ? `calc(100dvh - ${headerHeight}px)` : "calc(100dvh - 112px)"
+        }}
       >
-        <div className="space-y-1">
-          <a
-            href="#about"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
-          >
-            {t("links.about")}
-          </a>
-          <a
-            href="#categorias"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
-          >
-            {t("links.categories")}
-          </a>
-          <a
-            href="#marcas"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
-          >
-            {t("links.brands")}
-          </a>
-          <a
-            href="#science"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
-          >
-            {t("links.science")}
-          </a>
-          <a
-            href="#indent"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
-          >
-            {t("links.indent")}
-          </a>
-          <a
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer"
-          >
-            {t("links.contact")}
-          </a>
-        </div>
-
-        <div className="space-y-4 pt-6 border-t border-slate-200">
-          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-            <p className="text-xs text-slate-500 mb-1">{t("selectedRegion")}</p>
-            <p className="text-sm font-bold text-slate-900 flex items-center gap-2">
-              <CountryFlag code={currentCountry.code} size="md" />
-              <span>{currentCountry.name}</span>
-            </p>
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 py-6 flex flex-col justify-between flex-1 gap-8">
+          <div className="space-y-1">
+            <a
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer group"
+            >
+              <span>{t("links.about")}</span>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#447D29] transition-all" />
+            </a>
+            <a
+              href="#categorias"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer group"
+            >
+              <span>{t("links.categories")}</span>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#447D29] transition-all" />
+            </a>
+            <a
+              href="#marcas"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer group"
+            >
+              <span>{t("links.brands")}</span>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#447D29] transition-all" />
+            </a>
+            <a
+              href="#science"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer group"
+            >
+              <span>{t("links.science")}</span>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#447D29] transition-all" />
+            </a>
+            <a
+              href="#indent"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer group"
+            >
+              <span>{t("links.indent")}</span>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#447D29] transition-all" />
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-3.5 rounded-xl text-base font-bold text-slate-800 hover:text-[#447D29] hover:bg-slate-50 active:bg-slate-100 touch-manipulation transition-colors cursor-pointer group"
+            >
+              <span>{t("links.contact")}</span>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#447D29] transition-all" />
+            </a>
           </div>
 
-          <a
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block w-full touch-manipulation cursor-pointer"
-          >
-            <Button variant="primary" fullWidth size="lg">
-              {t("cta.mobile")}
-            </Button>
-          </a>
+          <div className="space-y-4 pt-4 border-t border-slate-200">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+              <div>
+                <p className="text-xs text-slate-500 mb-0.5">{t("selectedRegion")}</p>
+                <p className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <CountryFlag code={currentCountry.code} size="md" />
+                  <span>{currentCountry.name}</span>
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block w-full touch-manipulation cursor-pointer"
+            >
+              <Button variant="primary" fullWidth size="lg">
+                {t("cta.mobile")}
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     )}
