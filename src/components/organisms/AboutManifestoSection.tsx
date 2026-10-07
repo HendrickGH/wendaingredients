@@ -189,10 +189,6 @@ export const AboutManifestoSection: React.FC = () => {
               <Badge variant="wenda" size="md">
                 {t("badge", "Acerca de Wenda Ingredients")}
               </Badge>
-              <span className="text-slate-300">·</span>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#2F591B]">
-                Desde 1995
-              </span>
             </div>
 
             <h2 className="heading-editorial-lg font-editorial text-[#0F172A] leading-tight">
@@ -234,20 +230,6 @@ export const AboutManifestoSection: React.FC = () => {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent pointer-events-none" />
-
-                {/* Campus Image Caption Banner */}
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Building2 className="w-4 h-4 text-[#A8D88E]" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#D9E8BE]">
-                      Campus Central & Planta Piloto
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-200 font-medium line-clamp-1">
-                    Centro neurálgico de biotecnología, desarrollo de prototipos y pruebas de reología cárnica.
-                  </p>
-                </div>
               </div>
             </div>
 
@@ -257,9 +239,6 @@ export const AboutManifestoSection: React.FC = () => {
               <div className="space-y-0.5">
                 <span className="text-base font-bold text-slate-900 italic font-serif block">
                   {t("quote", "“We listen, reach out and we deliver”")}
-                </span>
-                <span className="text-xs text-slate-500 uppercase tracking-wider font-sans font-semibold block">
-                  Filosofía de Servicio Global
                 </span>
               </div>
             </div>
@@ -283,7 +262,7 @@ export const AboutManifestoSection: React.FC = () => {
         </div>
 
         {/* Bottom Full-Width Differentiators: Prominent Cards with Photography and High Visual Weight */}
-        <div className="pt-10 border-t border-slate-200/80 space-y-6">
+        <div className="pt-10 space-y-6">
           <div ref={differentiatorsHeaderRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-[#2F591B] block mb-1">
@@ -338,7 +317,7 @@ export const AboutManifestoSection: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-[#2F591B] font-semibold opacity-90 group-hover:opacity-100">
+                    <div className="pt-3 flex items-center justify-between text-xs text-[#2F591B] font-semibold opacity-90 group-hover:opacity-100">
                       <span>Saber más</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>

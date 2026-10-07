@@ -6,10 +6,6 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "../atoms/Badge";
 import {
   Quote,
-  Clock,
-  Globe2,
-  FlaskConical,
-  ShieldCheck,
   ArrowRight
 } from "lucide-react";
 import gsap from "gsap";
@@ -20,30 +16,6 @@ export const AboutLeadershipSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const pillarsRef = useRef<HTMLDivElement>(null);
-
-  const leadershipPoints = [
-    {
-      title: "30+ Años de Trayectoria",
-      description: "Innovación continua en ingredientes funcionales desde nuestra fundación en 1995.",
-      icon: <Clock className="w-5 h-5 text-[#447D29]" />
-    },
-    {
-      title: "Presencia en 10+ Países",
-      description: "Equipos técnicos locales y soporte regulatorio directo en los principales centros industriales.",
-      icon: <Globe2 className="w-5 h-5 text-emerald-700" />
-    },
-    {
-      title: "Planta Piloto & 6 Labs",
-      description: "Evaluación sensorial, textura y reología aplicada in-situ para validar antes de escalar.",
-      icon: <FlaskConical className="w-5 h-5 text-sky-700" />
-    },
-    {
-      title: "Inocuidad Certificada",
-      description: "Estándares globales GFSI, BRCGS Grado A, Kosher y Halal con trazabilidad total.",
-      icon: <ShieldCheck className="w-5 h-5 text-amber-700" />
-    }
-  ];
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -91,26 +63,6 @@ export const AboutLeadershipSection: React.FC = () => {
           }
         );
       }
-
-      // 3. Pillars staggered arrival
-      if (pillarsRef.current) {
-        gsap.fromTo(
-          pillarsRef.current.children,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: pillarsRef.current,
-              start: "top 88%",
-              toggleActions: "play none none none"
-            }
-          }
-        );
-      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -138,30 +90,19 @@ export const AboutLeadershipSection: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
 
-              {/* Watermark brand seal inside the photo */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                <div>
-                  <h3 className="text-lg font-bold font-editorial text-white">
-                    {t("leader.name", "Mr. Wei")}
-                  </h3>
-                  <p className="text-xs text-slate-200">
-                    {t("leader.role", "Fundador & Presidente de Wenda Ingredients")}
-                  </p>
-                </div>
-                <div className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-serif italic font-medium">
-                  Trust in Food®
-                </div>
+              {/* Leader identity inside photo */}
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <h3 className="text-lg font-bold font-editorial text-white">
+                  {t("leader.name", "Mr. Wei")}
+                </h3>
+                <p className="text-xs text-slate-200">
+                  {t("leader.role", "Fundador & Presidente de Wenda Ingredients")}
+                </p>
               </div>
-            </div>
-
-            {/* Minimal Editorial Caption below portrait */}
-            <div className="mt-3.5 flex items-baseline justify-between border-t border-slate-200 pt-3 px-1 text-xs text-slate-500">
-              <span>Liderazgo técnico e institucional desde 1995</span>
-              <span className="font-semibold text-[#447D29]">Visión 2030</span>
             </div>
           </div>
 
-          {/* Right: Editorial Voice, Quote & Four Pillars */}
+          {/* Right: Editorial Voice, Quote */}
           <div className="lg:col-span-7 space-y-8">
             <div ref={contentRef} className="space-y-4">
               <Badge variant="wenda" size="md">
@@ -184,25 +125,6 @@ export const AboutLeadershipSection: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
-
-            {/* 4 Pillars of Institutional Trust in a clean 2x2 grid */}
-            <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pt-4 border-t border-slate-200">
-              {leadershipPoints.map((point, idx) => (
-                <div key={idx} className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-300">
-                  <div className="p-2 rounded-lg bg-[#F0F7ED] shrink-0 mt-0.5 group-hover:bg-[#E2F0DC] transition-colors">
-                    {point.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold text-slate-900 block mb-0.5 group-hover:text-[#447D29] transition-colors">
-                      {point.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {point.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </div>
 
             {/* Direct CTA */}

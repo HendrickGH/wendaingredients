@@ -10,8 +10,7 @@ import {
   FlaskConical,
   Award,
   Globe2,
-  Calendar,
-  Building2
+  Calendar
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -194,23 +193,6 @@ export const AboutInfrastructureSection: React.FC = () => {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
                 />
-                
-                {/* Gradient vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
-
-                {/* Clean caption */}
-                <div className="absolute bottom-5 left-5 right-5 text-white space-y-1">
-                  <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#D9E8BE]">
-                    <Building2 className="w-3.5 h-3.5" />
-                    <span>Red Internacional Wenda</span>
-                  </div>
-                  <h4 className="text-base sm:text-lg font-bold text-white font-editorial">
-                    Abastecimiento Internacional & Hubs Estratégicos
-                  </h4>
-                  <p className="text-xs text-slate-200 line-clamp-2 font-normal">
-                    Conectando origen, puertos y plantas industriales con rigor analítico y trazabilidad continua.
-                  </p>
-                </div>
               </div>
 
             </div>
