@@ -73,7 +73,7 @@ export const BrandCard: React.FC<BrandCardProps> = ({ brand, onOpenDetails }) =>
       </div>
 
       {/* Action Footer */}
-      <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#447D29] group-hover:text-[#2F591B] transition-colors">
+      <div className="pt-3 flex items-center justify-between text-xs font-bold text-[#447D29] group-hover:text-[#2F591B] transition-colors">
         <span>Consultar Ficha Técnica</span>
         <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
       </div>

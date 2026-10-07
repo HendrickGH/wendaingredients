@@ -7,7 +7,7 @@ import { Heading } from "../atoms/Heading";
 import { BrandCard } from "../molecules/BrandCard";
 import { BrandItem } from "@/data/siteContent";
 import { useSiteContent } from "@/i18n/useSiteContent";
-import { Lock, ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useEditorialCarousel } from "@/hooks/useEditorialCarousel";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -116,11 +116,11 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
     <section
       ref={sectionRef}
       id="marcas"
-      className="py-24 bg-[#F8FAF6] relative border-b border-slate-200 overflow-hidden"
+      className="py-24 bg-[#F8FAF6] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10">
-        {/* Header with strategic note representation */}
-        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
+        {/* Header without reserved note */}
+        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
             <Badge variant="wenda" size="md">
               {t("badge")}
@@ -131,18 +131,6 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
             <p className="text-sm sm:text-base text-slate-600 font-normal">
               {t("subtitle")}
             </p>
-          </div>
-
-          <div className="max-w-sm py-1 shrink-0 flex items-start gap-2.5">
-            <Lock className="w-4 h-4 text-[#447D29] shrink-0 mt-0.5" />
-            <div>
-              <span className="text-xs font-bold text-[#2F591B] block mb-0.5">
-                {t("reservedTitle")}
-              </span>
-              <p className="text-[11px] text-slate-600 leading-snug">
-                {t("reservedBody")}
-              </p>
-            </div>
           </div>
         </div>
 
@@ -167,7 +155,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
         </div>
 
         {/* Indicative Expanding Scroll Border and Navigation Arrows */}
-        <div className="flex items-center justify-between gap-6 pt-4 border-t border-slate-200">
+        <div className="flex items-center justify-between gap-6 pt-4">
           {/* Scroll progress line */}
           <div
             onClick={handleTrackClick}
@@ -217,7 +205,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
         <div ref={crossLinksRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
           <a
             href="#science"
-            className="group py-6 border-t border-slate-200 hover:border-[#447D29] transition-colors flex items-center justify-between"
+            className="group py-6 transition-colors flex items-center justify-between"
           >
             <div className="space-y-1">
               <span className="text-xs font-semibold text-emerald-800 tracking-wide">
@@ -235,7 +223,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onOpenBrandDetails
 
           <a
             href="#indent"
-            className="group py-6 border-t border-slate-200 hover:border-[#447D29] transition-colors flex items-center justify-between"
+            className="group py-6 transition-colors flex items-center justify-between"
           >
             <div className="space-y-1">
               <span className="text-xs font-semibold text-[#2F591B] tracking-wide">
