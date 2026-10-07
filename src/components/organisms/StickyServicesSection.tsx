@@ -261,18 +261,13 @@ export const StickyServicesSection: React.FC = () => {
                     setOverridePillar(null);
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="mb-3">
                     <span
-                      className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-                        isActive
-                          ? "bg-[#EBF4E5] text-[#2F591B]"
-                          : "bg-slate-100 text-slate-600"
+                      className={`text-xs font-bold uppercase tracking-wider ${
+                        isActive ? "text-[#2F591B]" : "text-slate-600"
                       }`}
                     >
                       {pillar.category}
-                    </span>
-                    <span className="text-xs text-slate-400 font-medium">
-                      0{idx + 1} / 0{PILLARS.length}
                     </span>
                   </div>
 
