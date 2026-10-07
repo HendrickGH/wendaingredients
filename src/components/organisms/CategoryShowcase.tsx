@@ -40,7 +40,6 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
   const shortName = (c: LocalizedCategory) => c.shortName || c.title;
   const [activeCategoryId, setActiveCategoryId] = useState<string>("meat-poultry");
   const [activeTab, setActiveTab] = useState<"benefits" | "applications" | "systems">("benefits");
-  const [activePillarIndex, setActivePillarIndex] = useState<number>(0);
   const [modalView, setModalView] = useState<"pillar" | "spectrum">("pillar");
   const [selectedColorFamily, setSelectedColorFamily] = useState<string>("all");
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -122,17 +121,17 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
     }
   ];
 
-  // Safe pillar index within bounds
-  const safePillarIndex = Math.min(activePillarIndex, currentCategory.pillars.length - 1);
-  const activePillar = currentCategory.pillars[safePillarIndex] || currentCategory.pillars[0];
-
   // Lock body scroll when modal is active (UX Heuristic: Control & Freedom / Modal Focus)
   useEffect(() => {
     if (isModalOpen) {
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
+      document.body.setAttribute("data-modal-open", "true");
+      window.dispatchEvent(new CustomEvent("wenda:modal-open"));
       return () => {
         document.body.style.overflow = originalOverflow;
+        document.body.removeAttribute("data-modal-open");
+        window.dispatchEvent(new CustomEvent("wenda:modal-close"));
       };
     }
   }, [isModalOpen]);
@@ -156,15 +155,11 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
 
   const handleSelectCategory = (categoryId: string) => {
     setActiveCategoryId(categoryId);
-    setActivePillarIndex(0);
     setModalView("pillar");
     setSelectedColorFamily("all");
   };
 
-  const handleOpenModal = (pillarIdx?: number, view: "pillar" | "spectrum" = "pillar") => {
-    if (typeof pillarIdx === "number") {
-      setActivePillarIndex(pillarIdx);
-    }
+  const handleOpenModal = (view: "pillar" | "spectrum" = "pillar") => {
     setModalView(view);
     setIsModalOpen(true);
   };
@@ -364,7 +359,7 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
             </div>
 
             {/* Primary Action Buttons (Triggers Modal or Consultation) */}
-            <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
+            <div className="pt-4 flex flex-col sm:flex-row gap-3">
               <button
                 type="button"
                 onClick={() => handleOpenModal()}
@@ -392,6 +387,7 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
         <div
           role="dialog"
           aria-modal="true"
+          data-modal="true"
           aria-labelledby="category-modal-title"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 animate-in fade-in duration-200"
         >
@@ -407,10 +403,6 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
             <div className="px-6 py-4 sm:px-8 sm:py-5 border-b border-slate-200 flex items-start justify-between gap-4 bg-white shrink-0">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <Badge variant="wenda" size="sm">
-                    {currentCategory.badge}
-                  </Badge>
-                  <span className="text-slate-300">·</span>
                   <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
                     {t("modal.eyebrow")}
                   </span>
@@ -423,188 +415,152 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
                 </p>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(false)}
-                aria-label={t("modal.closeAria")}
-                className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors cursor-pointer shrink-0"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Split Master-Detail Dossier Container */}
-            <div className="flex-1 flex flex-col md:flex-row overflow-hidden bg-white">
-              {/* Left Column: Technical Challenge & Catalog Index */}
-              <div className="w-full md:w-80 shrink-0 bg-white p-4 sm:p-5 flex flex-col gap-3 overflow-y-auto">
-                <div className="flex items-center justify-between pb-1">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                    {t("modal.dossierIndex", "Índice de Retos Técnicos")}
-                  </span>
-                </div>
-
-                <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible gap-1 pb-2 md:pb-0 scrollbar-none">
-                  {currentCategory.pillars.map((pillar, idx) => {
-                    const isPillarActive = modalView === "pillar" && idx === safePillarIndex;
-                    const shortTitle = (pillar as { title: string; shortTitle?: string }).shortTitle || pillar.title;
-                    return (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={() => {
-                          setActivePillarIndex(idx);
-                          setModalView("pillar");
-                        }}
-                        className={`w-full text-left p-3 rounded-xl transition-all cursor-pointer flex items-start gap-2.5 shrink-0 md:shrink ${
-                          isPillarActive
-                            ? "bg-emerald-50 text-emerald-950 font-bold"
-                            : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 font-medium"
-                        }`}
-                      >
-                        <div className="min-w-0 flex-1">
-                          <p className="text-xs leading-snug line-clamp-2">
-                            {shortTitle}
-                          </p>
-                        </div>
-                      </button>
-                    );
-                  })}
-
-                  {/* Botanical Color Catalog Tab (If From Nature) */}
-                  {currentCategory.id === "from-nature" && (
-                    <div className="pt-2 mt-1 w-full shrink-0 md:shrink">
-                      <button
-                        type="button"
-                        onClick={() => setModalView("spectrum")}
-                        className={`w-full text-left p-3 rounded-xl transition-all cursor-pointer flex items-center justify-between gap-2.5 ${
-                          modalView === "spectrum"
-                            ? "bg-[#447D29] text-white font-bold"
-                            : "bg-emerald-50/60 hover:bg-emerald-100/70 text-[#1E3E14] font-semibold"
-                        }`}
-                      >
-                        <div className="flex items-center gap-2 min-w-0">
-                          <Palette className="w-4 h-4 shrink-0" />
-                          <span className="text-xs leading-tight">
-                            {t("modal.dossierTabSpectrum", "Catálogo Cromático Botánico")}
-                          </span>
-                        </div>
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Right Column: Dossier Content Sheet */}
-              <div className="flex-1 bg-white p-6 sm:p-8 overflow-y-auto space-y-6">
-                {modalView === "pillar" ? (
-                  /* Pillar Technical Dossier */
-                  <div className="space-y-6 animate-in fade-in duration-200">
-                    {/* Header of Dossier */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-[#447D29] uppercase tracking-wider">
-                          {t("modal.focus", { n: safePillarIndex + 1 })}
-                        </span>
-                        <span className="text-slate-300">·</span>
-                        <span className="text-xs text-slate-500 font-medium">
-                          {shortName(currentCategory)}
-                        </span>
-                      </div>
-                      <h4 className="text-2xl sm:text-3xl font-bold text-slate-900 font-editorial tracking-tight">
-                        {activePillar.title}
-                      </h4>
-                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-1">
-                        {activePillar.description}
-                      </p>
-                    </div>
-
-                    {/* Technical Parameter Matrix (Clean Borderless List) */}
-                    <div className="space-y-3">
-                      <h5 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
-                        <FlaskConical className="w-4 h-4 text-[#447D29]" />
-                        {t("modal.params")}
-                      </h5>
-
-                      <div className="space-y-1.5">
-                        {activePillar.points.map((pt, pIdx) => (
-                          <div
-                            key={pIdx}
-                            className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50/80 transition-colors"
-                          >
-                            <div className="mt-0.5 w-5 h-5 rounded-full bg-[#EBF3E6] text-[#447D29] flex items-center justify-center shrink-0">
-                              <CheckCircle2 className="w-3.5 h-3.5" />
-                            </div>
-                            <div className="flex-1">
-                              <span className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-                                {pt}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  /* Botanical Color Spectrum View (High-End Catalog) */
-                  <div className="space-y-6 animate-in fade-in duration-200">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold uppercase tracking-wider text-[#447D29]">
-                            {t("modal.spectrumEyebrow")}
-                          </span>
-                          <span className="text-slate-300">·</span>
-                          <Badge variant="wenda" size="sm">
-                            {t("modal.cleanLabel")}
-                          </Badge>
-                        </div>
-                        <h4 className="text-2xl font-bold text-slate-900 font-editorial mt-1">
-                          {t("modal.spectrumTitle")}
-                        </h4>
-                        <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                          Pigmentos botánicos de alta pureza libres de números E y de colorantes sintéticos azoicos.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Chromatic Family Filter Pills */}
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      {[
-                        { id: "all", label: t("modal.filterAll", "Todos los Tonos") },
-                        { id: "red", label: t("modal.filterRed", "Rojos") },
-                        { id: "pink", label: t("modal.filterPink", "Rosas") },
-                        { id: "purple", label: t("modal.filterPurple", "Púrpuras") },
-                        { id: "blue", label: t("modal.filterBlue", "Azules") },
-                        { id: "yellow", label: t("modal.filterYellow", "Amarillos") },
-                        { id: "orange", label: t("modal.filterOrange", "Naranjas") }
-                      ].map((filter) => {
-                        const isSelected = selectedColorFamily === filter.id;
-                        return (
-                          <button
-                            key={filter.id}
-                            type="button"
-                            onClick={() => setSelectedColorFamily(filter.id)}
-                            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                              isSelected
-                                ? "bg-[#447D29] text-white shadow-2xs"
-                                : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
-                            }`}
-                          >
-                            {filter.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Enriched Botanical Swatches Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-                      {filteredColors.map((color) => (
-                        <NaturalColorSwatch key={color.name} color={color} />
-                      ))}
-                    </div>
+              <div className="flex items-center gap-2.5 shrink-0">
+                {currentCategory.id === "from-nature" && (
+                  <div className="inline-flex p-1 bg-slate-100 rounded-xl">
+                    <button
+                      type="button"
+                      onClick={() => setModalView("pillar")}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                        modalView === "pillar"
+                          ? "bg-white text-slate-900 shadow-2xs"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
+                    >
+                      {t("modal.dossierIndex", "Retos Técnicos")}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setModalView("spectrum")}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                        modalView === "spectrum"
+                          ? "bg-[#447D29] text-white shadow-2xs"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
+                    >
+                      <Palette className="w-3.5 h-3.5" />
+                      <span>{t("modal.dossierTabSpectrum", "Catálogo Cromático")}</span>
+                    </button>
                   </div>
                 )}
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  aria-label={t("modal.closeAria")}
+                  className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors cursor-pointer shrink-0"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
+            </div>
+
+            {/* Dossier Content Sheet */}
+            <div className="flex-1 bg-white p-6 sm:p-8 overflow-y-auto space-y-8">
+              {modalView === "pillar" ? (
+                /* All Pillars Technical Dossier */
+                <div className="space-y-8 animate-in fade-in duration-200">
+                  {currentCategory.pillars.map((pillar, pIdx) => (
+                    <div
+                      key={pIdx}
+                      className="space-y-4 pb-6 border-b border-slate-100 last:border-b-0 last:pb-0"
+                    >
+                      <div>
+                        <h4 className="text-xl sm:text-2xl font-bold text-slate-900 font-editorial tracking-tight">
+                          {pillar.title}
+                        </h4>
+                        <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-1">
+                          {pillar.description}
+                        </p>
+                      </div>
+
+                      {/* Technical Parameter Matrix */}
+                      <div className="space-y-3 pt-1">
+                        <h5 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+                          <FlaskConical className="w-4 h-4 text-[#447D29]" />
+                          {t("modal.params")}
+                        </h5>
+
+                        <div className="space-y-1.5">
+                          {pillar.points.map((pt, ptIdx) => (
+                            <div
+                              key={ptIdx}
+                              className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50/80 transition-colors"
+                            >
+                              <div className="mt-0.5 w-5 h-5 rounded-full bg-[#EBF3E6] text-[#447D29] flex items-center justify-center shrink-0">
+                                <CheckCircle2 className="w-3.5 h-3.5" />
+                              </div>
+                              <div className="flex-1">
+                                <span className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                                  {pt}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                /* Botanical Color Spectrum View (High-End Catalog) */
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold uppercase tracking-wider text-[#447D29]">
+                          {t("modal.spectrumEyebrow")}
+                        </span>
+                        <span className="text-slate-300">·</span>
+                        <Badge variant="wenda" size="sm">
+                          {t("modal.cleanLabel")}
+                        </Badge>
+                      </div>
+                      <h4 className="text-2xl font-bold text-slate-900 font-editorial mt-1">
+                        {t("modal.spectrumTitle")}
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                        Pigmentos botánicos de alta pureza libres de números E y de colorantes sintéticos azoicos.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Chromatic Family Filter Pills */}
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    {[
+                      { id: "all", label: t("modal.filterAll", "Todos los Tonos") },
+                      { id: "red", label: t("modal.filterRed", "Rojos") },
+                      { id: "pink", label: t("modal.filterPink", "Rosas") },
+                      { id: "purple", label: t("modal.filterPurple", "Púrpuras") },
+                      { id: "blue", label: t("modal.filterBlue", "Azules") },
+                      { id: "yellow", label: t("modal.filterYellow", "Amarillos") },
+                      { id: "orange", label: t("modal.filterOrange", "Naranjas") }
+                    ].map((filter) => {
+                      const isSelected = selectedColorFamily === filter.id;
+                      return (
+                        <button
+                          key={filter.id}
+                          type="button"
+                          onClick={() => setSelectedColorFamily(filter.id)}
+                          className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                            isSelected
+                              ? "bg-[#447D29] text-white shadow-2xs"
+                              : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                          }`}
+                        >
+                          {filter.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Enriched Botanical Swatches Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                    {filteredColors.map((color) => (
+                      <NaturalColorSwatch key={color.name} color={color} />
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Modal Bottom Footer (Fixed) */}
@@ -615,13 +571,6 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
               </div>
 
               <div className="flex items-center gap-3 shrink-0">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors cursor-pointer"
-                >
-                  {t("modal.close")}
-                </button>
                 <button
                   type="button"
                   onClick={() => {
