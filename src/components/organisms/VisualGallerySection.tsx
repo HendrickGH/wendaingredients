@@ -123,11 +123,11 @@ export const VisualGallerySection: React.FC = () => {
     <section
       ref={sectionRef}
       id="galeria-aplicaciones"
-      className="py-24 bg-[#FFFFFF] border-b border-slate-200 overflow-hidden"
+      className="py-24 bg-[#FFFFFF] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         {/* Section Header */}
-        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-100 pb-8">
+        <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8">
           <div className="space-y-3 max-w-2xl">
             <Badge variant="wenda" size="md" icon={<Camera className="w-3.5 h-3.5" />}>
               {t("badge")}
@@ -159,57 +159,59 @@ export const VisualGallerySection: React.FC = () => {
           {items.map((item, idx) => (
             <div
               key={idx}
-              className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start group flex flex-col justify-between"
+              className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start flex"
             >
-              <div>
-                {/* Image Container with pill badge and ↗ button */}
-                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-100 mb-4 border border-slate-200/80 group-hover:border-[#447D29]/40 transition-colors">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 640px) 85vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+              <div className="group relative p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#447D29] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full w-full">
+                <div>
+                  {/* Image Container with pill badge and ↗ button */}
+                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-slate-100 mb-4">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 640px) 85vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
 
-                  {/* Pill Tag bottom-left */}
-                  <div className="absolute bottom-3 left-3 bg-[#447D29]/90 text-white backdrop-blur-xs font-semibold text-xs px-3.5 py-1.5 rounded-full shadow-xs">
-                    {item.tag}
+                    {/* Pill Tag bottom-left */}
+                    <div className="absolute bottom-3 left-3 bg-[#447D29]/90 text-white backdrop-blur-xs font-semibold text-xs px-3.5 py-1.5 rounded-full shadow-xs">
+                      {item.tag}
+                    </div>
+
+                    {/* Circular Arrow Button top-right */}
+                    <a
+                      href="#contacto"
+                      aria-label={t("consultAria", { title: item.title })}
+                      className="absolute top-3 right-3 w-10 h-10 rounded-full bg-[#447D29] text-white flex items-center justify-center shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#2F591B] cursor-pointer"
+                    >
+                      <ArrowUpRight className="w-5 h-5" />
+                    </a>
                   </div>
 
-                  {/* Circular Arrow Button top-right */}
-                  <a
-                    href="#contacto"
-                    aria-label={t("consultAria", { title: item.title })}
-                    className="absolute top-3 right-3 w-10 h-10 rounded-full bg-[#447D29] text-white flex items-center justify-center shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#2F591B] cursor-pointer"
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </a>
+                  {/* Content Details */}
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#447D29] block mb-1">
+                    {item.category}
+                  </span>
+                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#447D29] transition-colors leading-snug line-clamp-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 mt-1.5 font-normal leading-relaxed">
+                    {item.claim}
+                  </p>
                 </div>
 
-                {/* Content Details */}
-                <span className="text-xs font-bold uppercase tracking-wider text-[#447D29] block mb-1">
-                  {item.category}
-                </span>
-                <h4 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#447D29] transition-colors leading-snug line-clamp-2">
-                  {item.title}
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 mt-1.5 font-normal leading-relaxed">
-                  {item.claim}
-                </p>
-              </div>
-
-              {/* Action Note */}
-              <div className="pt-3 mt-2 text-xs font-bold text-[#447D29] flex items-center gap-1.5 group-hover:text-[#2F591B] transition-colors">
-                <span>{t("viewFormulation")}</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                {/* Action Note */}
+                <div className="pt-3 mt-2 text-xs font-bold text-[#447D29] flex items-center gap-1.5 group-hover:text-[#2F591B] transition-colors">
+                  <span>{t("viewFormulation")}</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
             </div>
           ))}
         </div>
 
         {/* Indicative Expanding Scroll Border and Navigation Arrows */}
-        <div className="flex items-center justify-between gap-6 pt-4 border-t border-slate-100">
+        <div className="flex items-center justify-between gap-6 pt-4">
           {/* Scroll progress line */}
           <div
             onClick={handleTrackClick}
