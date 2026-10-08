@@ -20,8 +20,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://wendaingredients.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wendaingredients.com.mx"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Wenda Ingredients | Ingredientes Funcionales Especializados & Soluciones Alimentarias",
     template: "%s | Wenda Ingredients"
@@ -30,6 +32,7 @@ export const metadata: Metadata = {
     "Líder global en ingredientes funcionales e innovación técnica para la industria alimentaria: cárnicos, panificación y nutrición. Calidad certificada BRCGS Grado A.",
   keywords: [
     "Wenda Ingredients",
+    "wendaingredients.vercel.app",
     "wendaingredients.com.mx",
     "ingredientes funcionales",
     "industria cárnica",
@@ -51,7 +54,7 @@ export const metadata: Metadata = {
     "México",
     "BRCGS Grado A"
   ],
-  authors: [{ name: "Wenda Ingredients", url: "https://wendaingredients.com.mx" }],
+  authors: [{ name: "Wenda Ingredients", url: SITE_URL }],
   creator: "Wenda Ingredients",
   publisher: "Wenda Ingredients",
   applicationName: "Wenda Ingredients",
@@ -64,16 +67,16 @@ export const metadata: Metadata = {
     telephone: true
   },
   alternates: {
-    canonical: "https://wendaingredients.com.mx",
+    canonical: SITE_URL,
     languages: {
-      "es-MX": "https://wendaingredients.com.mx",
+      "es-MX": SITE_URL,
       "en-US": "https://wendaingredients.com"
     }
   },
   openGraph: {
     type: "website",
     locale: "es_MX",
-    url: "https://wendaingredients.com.mx",
+    url: SITE_URL,
     title: "Wenda Ingredients | Ingredientes que Hacen Más",
     description:
       "Ingredientes funcionales especializados y formulaciones a medida para cárnicos, panificación y nutrición. Calidad certificada BRCGS Grado A con presencia global.",
@@ -125,11 +128,11 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://wendaingredients.com.mx/#organization",
+      "@id": `${SITE_URL}/#organization`,
       "name": "Wenda Ingredients",
-      "url": "https://wendaingredients.com.mx",
-      "logo": "https://wendaingredients.com.mx/wenda.svg",
-      "image": "https://wendaingredients.com.mx/og-image.png",
+      "url": SITE_URL,
+      "logo": `${SITE_URL}/wenda.svg`,
+      "image": `${SITE_URL}/og-image.png`,
       "description":
         "Líder global en ingredientes funcionales e innovación técnica para la industria alimentaria.",
       "slogan": "Trust in Food®",
@@ -163,34 +166,34 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://wendaingredients.com.mx/#website",
-      "url": "https://wendaingredients.com.mx",
+      "@id": `${SITE_URL}/#website`,
+      "url": SITE_URL,
       "name": "Wenda Ingredients",
       "description":
         "Soluciones técnicas e ingredientes funcionales para la industria de alimentos y bebidas.",
       "inLanguage": "es-MX",
       "publisher": {
-        "@id": "https://wendaingredients.com.mx/#organization"
+        "@id": `${SITE_URL}/#organization`
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://wendaingredients.com.mx/#webpage",
-      "url": "https://wendaingredients.com.mx",
+      "@id": `${SITE_URL}/#webpage`,
+      "url": SITE_URL,
       "name": "Wenda Ingredients | Ingredientes Funcionales Especializados & Soluciones Alimentarias",
       "isPartOf": {
-        "@id": "https://wendaingredients.com.mx/#website"
+        "@id": `${SITE_URL}/#website`
       },
       "about": {
-        "@id": "https://wendaingredients.com.mx/#organization"
+        "@id": `${SITE_URL}/#organization`
       },
       "description":
         "Líder global en ingredientes funcionales e innovación técnica para la industria alimentaria: cárnicos, panificación y nutrición. Calidad certificada BRCGS Grado A.",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "@id": "https://wendaingredients.com.mx/#primaryimage",
-        "url": "https://wendaingredients.com.mx/og-image.png",
-        "contentUrl": "https://wendaingredients.com.mx/og-image.png",
+        "@id": `${SITE_URL}/#primaryimage`,
+        "url": `${SITE_URL}/og-image.png`,
+        "contentUrl": `${SITE_URL}/og-image.png`,
         "width": 1024,
         "height": 541,
         "caption": "Wenda Ingredients - Ingredientes que hacen más"

@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://wendaingredients.com.mx/sitemap.xml",
-    host: "https://wendaingredients.com.mx",
+    sitemap: "https://wendaingredients.vercel.app/sitemap.xml",
+    host: "https://wendaingredients.vercel.app",
   };
 }
