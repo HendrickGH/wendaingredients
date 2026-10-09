@@ -70,6 +70,7 @@ export interface IndentProcessStep {
   step: string;
   title: string;
   description: string;
+  deliverable?: string;
 }
 
 /**

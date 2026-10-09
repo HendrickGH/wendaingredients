@@ -149,9 +149,11 @@ const jsonLd = {
       },
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "MX",
-        "addressRegion": "Jalisco",
-        "addressLocality": "Zapopan"
+        "streetAddress": "Calz. Gral. Mariano Escobedo 543, Rincón del Bosque, Bosque de Chapultepec I Secc",
+        "addressLocality": "Miguel Hidalgo",
+        "addressRegion": "CDMX",
+        "postalCode": "11580",
+        "addressCountry": "MX"
       },
       "contactPoint": {
         "@type": "ContactPoint",

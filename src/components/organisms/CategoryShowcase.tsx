@@ -207,8 +207,8 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
             </button>
 
-            {/* Category Select Dropdown */}
-            <div className="relative inline-flex items-center w-full">
+            {/* Category Select Dropdown (Visible on Mobile / Small screens only) */}
+            <div className="md:hidden relative inline-flex items-center w-full">
               <span className="absolute left-3.5 text-[#447D29] pointer-events-none z-10">
                 {categoryIcons[activeCategoryId]}
               </span>
@@ -227,6 +227,30 @@ export const CategoryShowcase: React.FC<{ onConsultSolution: (categoryId: string
               <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3.5 pointer-events-none" />
             </div>
           </div>
+        </div>
+
+        {/* Category Pills Navigation (Visible on Desktop / Tablet for immediate exploration) */}
+        <div className="hidden md:flex flex-wrap items-center gap-2 pt-1 pb-1">
+          {CATEGORIES.map((cat) => {
+            const isSelected = cat.id === activeCategoryId;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => handleSelectCategory(cat.id)}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
+                  isSelected
+                    ? "bg-[#447D29] text-white shadow-sm ring-2 ring-[#447D29]/30 scale-[1.02]"
+                    : "bg-[#F8FAF6] text-slate-700 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 hover:border-slate-300"
+                }`}
+              >
+                <span className={isSelected ? "text-white" : "text-[#447D29]"}>
+                  {categoryIcons[cat.id]}
+                </span>
+                <span>{shortName(cat)}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Main Category Stage: Visual-Dominant Editorial Layout */}

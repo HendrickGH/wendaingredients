@@ -97,7 +97,7 @@ export const COUNTRIES: CountryMirror[] = [
     tagline: "Hub de operaciones técnicas, formulación local y centros cárnicos especializados",
     presenceText: "Sede central de Wenda Ingredients Latam en Guadalajara y Ciudad de México, con laboratorios de pruebas en corte, embutidos y panificación.",
     contactOffice: {
-      address: "Parque Industrial Zapopan Norte, Jalisco, México",
+      address: "Calz. Gral. Mariano Escobedo 543, Rincón del Bosque, Bosque de Chapultepec I Secc, Miguel Hidalgo, 11580 Ciudad de México, CDMX",
       phone: "+52 (33) 3818 9000",
       email: "contacto@wendaingredients.com.mx",
       focus: "Formulación cárnica, Clean Label, importación directa y soporte técnico local"
@@ -950,26 +950,31 @@ export const INDENT_PROCESS_STEPS = [
   {
     step: "01",
     title: "Entendemos tu necesidad",
-    description: "Analizamos tu formulación, restricciones de costo, perfil sensorial y objetivos comerciales específicos."
+    description: "Analizamos tu formulación, restricciones de costo, perfil sensorial y objetivos comerciales específicos.",
+    deliverable: "Brief técnico preliminar y perfil objetivo de formulación validado."
   },
   {
     step: "02",
     title: "Identificamos la solución",
-    description: "Seleccionamos la mejor alternativa entre nuestra red internacional de plantas y centros de I+D."
+    description: "Seleccionamos la mejor alternativa entre nuestra red internacional de plantas y centros de I+D.",
+    deliverable: "Muestras de planta y ficha técnica de especificación de lote."
   },
   {
     step: "03",
     title: "Validamos producto y proveedor",
-    description: "Auditoría documental estricta, certificados de análisis (CoA), pruebas piloto y confirmación de estándares internacionales."
+    description: "Auditoría documental estricta, certificados de análisis (CoA), pruebas piloto y confirmación de estándares internacionales.",
+    deliverable: "Certificado de Análisis (CoA), auditoría GFSI y lote piloto aprobado."
   },
   {
     step: "04",
     title: "Coordinamos los suministros",
-    description: "Gestión aduanal, logística multimodal y almacenamiento seguro para garantizar entregas puntuales."
+    description: "Gestión aduanal, logística multimodal y almacenamiento seguro para garantizar entregas puntuales.",
+    deliverable: "Despacho aduanal DDP y programa de entregas coordinadas in-situ."
   },
   {
     step: "05",
     title: "Damos seguimiento continuo",
-    description: "Acompañamiento en el escalamiento industrial en tu planta con soporte de nuestros ingenieros especialistas."
+    description: "Acompañamiento en el escalamiento industrial en tu planta con soporte de nuestros ingenieros especialistas.",
+    deliverable: "Soporte técnico de aplicación y reporte de rendimiento en línea."
   }
 ];

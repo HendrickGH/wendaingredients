@@ -209,7 +209,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onAskQuestion }) => {
             <div className="space-y-2.5 max-w-2xl">
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#2F591B]">
                 <MessageSquare className="w-4 h-4 text-[#2F591B]" />
-                <span>Canal Técnico Directo</span>
+                <span>{t("askBox.badge", "Canal Técnico Directo")}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 font-editorial">
                 {t("askBox.title")}

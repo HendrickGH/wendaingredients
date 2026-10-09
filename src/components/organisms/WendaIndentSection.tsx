@@ -309,7 +309,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
                           {t("deliverableLabel")}
                         </span>
                         <p className="text-[11px] font-medium text-slate-700 leading-tight">
-                          {stepItem.description}
+                          {stepItem.deliverable || stepItem.description}
                         </p>
                       </div>
 
@@ -380,7 +380,7 @@ export const WendaIndentSection: React.FC<WendaIndentSectionProps> = ({
                         {t("deliverableLabel")}
                       </span>
                       <p className="text-xs font-medium text-slate-700">
-                        {stepItem.description}
+                        {stepItem.deliverable || stepItem.description}
                       </p>
                     </div>
 

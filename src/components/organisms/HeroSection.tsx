@@ -129,8 +129,8 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Floating Video Controls in Bottom Right Corner (Only on desktop where video runs) */}
-      <div className="hidden md:flex absolute bottom-6 right-6 z-20 items-center gap-2">
+      {/* Floating Video Controls in Bottom Right Corner (Offset to avoid collision with seasonal floating widgets) */}
+      <div className="hidden md:flex absolute bottom-6 right-20 z-20 items-center gap-2">
         <button
           type="button"
           onClick={togglePlay}

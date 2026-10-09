@@ -1183,7 +1183,7 @@
           "tagline": "Hub de operaciones técnicas, formulación local y centros cárnicos especializados",
           "presenceText": "Sede central de Wenda Ingredients Latam en Guadalajara y Ciudad de México, con laboratorios de pruebas en corte, embutidos y panificación.",
           "contactOffice": {
-            "address": "Parque Industrial Zapopan Norte, Jalisco, México",
+            "address": "Calz. Gral. Mariano Escobedo 543, Rincón del Bosque, Bosque de Chapultepec I Secc, Miguel Hidalgo, 11580 Ciudad de México, CDMX",
             "focus": "Formulación cárnica, Clean Label, importación directa y soporte técnico local"
           }
         },
@@ -1232,7 +1232,7 @@
           "tagline": "Technical Operations Hub, Local Formulations & Meat Science Centers",
           "presenceText": "Latin America Headquarters in Guadalajara and Mexico City, with pilot testing labs for meat cuts, sausages, and baking.",
           "contactOffice": {
-            "address": "Zapopan Industrial Park, Jalisco, Mexico",
+            "address": "Calz. Gral. Mariano Escobedo 543, Bosque de Chapultepec, Miguel Hidalgo, 11580 Mexico City, CDMX",
             "focus": "Meat formulation, Clean Label, direct importation & local technical support"
           }
         },
@@ -1281,7 +1281,7 @@
           "tagline": "技术运营中心、本地化配方与肉类应用实验室",
           "presenceText": "拉美总部设于瓜达拉哈拉与墨西哥城，配备肉类分割、香肠加工与烘焙中试实验室。",
           "contactOffice": {
-            "address": "Parque Industrial Zapopan Norte, Jalisco, México",
+            "address": "Calz. Gral. Mariano Escobedo 543, Miguel Hidalgo, 11580 Ciudad de México, CDMX",
             "focus": "肉制品配方、清洁标签、原装进口与本地技术支持"
           }
         },
@@ -4009,27 +4009,32 @@
         {
           "step": "Requerimiento",
           "title": "Entendemos tu necesidad",
-          "description": "Analizamos tu formulación, restricciones de costo, perfil sensorial y objetivos comerciales específicos."
+          "description": "Analizamos tu formulación, restricciones de costo, perfil sensorial y objetivos comerciales específicos.",
+          "deliverable": "Brief técnico preliminar y perfil objetivo de formulación validado."
         },
         {
           "step": "Sourcing Global",
           "title": "Identificamos la solución",
-          "description": "Seleccionamos la mejor alternativa entre nuestra red internacional de plantas y centros de I+D."
+          "description": "Seleccionamos la mejor alternativa entre nuestra red internacional de plantas y centros de I+D.",
+          "deliverable": "Muestras de planta y ficha técnica de especificación de lote."
         },
         {
           "step": "Calidad & CoA",
           "title": "Validamos producto y proveedor",
-          "description": "Auditoría documental estricta, certificados de análisis (CoA), pruebas piloto y confirmación de estándares internacionales."
+          "description": "Auditoría documental estricta, certificados de análisis (CoA), pruebas piloto y confirmación de estándares internacionales.",
+          "deliverable": "Certificado de Análisis (CoA), auditoría GFSI y lote piloto aprobado."
         },
         {
           "step": "Logística Integral",
           "title": "Coordinamos los suministros",
-          "description": "Gestión aduanal, logística multimodal y almacenamiento seguro para garantizar entregas puntuales."
+          "description": "Gestión aduanal, logística multimodal y almacenamiento seguro para garantizar entregas puntuales.",
+          "deliverable": "Despacho aduanal DDP y programa de entregas coordinadas in-situ."
         },
         {
           "step": "Cima & Éxito",
           "title": "Damos seguimiento continuo",
-          "description": "Acompañamiento en el escalamiento industrial en tu planta con soporte de nuestros ingenieros especialistas."
+          "description": "Acompañamiento en el escalamiento industrial en tu planta con soporte de nuestros ingenieros especialistas.",
+          "deliverable": "Soporte técnico de aplicación y reporte de rendimiento en línea."
         }
       ]
     },
@@ -4038,27 +4043,32 @@
         {
           "step": "Requirement",
           "title": "We understand your need",
-          "description": "We analyze your formulation, cost constraints, sensory profile, and specific commercial targets."
+          "description": "We analyze your formulation, cost constraints, sensory profile, and specific commercial targets.",
+          "deliverable": "Preliminary technical brief and validated target formulation profile."
         },
         {
           "step": "Global Sourcing",
           "title": "We identify the solution",
-          "description": "We select the best option across our international network of synthesis plants and R&D centers."
+          "description": "We select the best option across our international network of synthesis plants and R&D centers.",
+          "deliverable": "Plant samples and lot specification technical data sheet."
         },
         {
           "step": "Quality & CoA",
           "title": "We validate product & supplier",
-          "description": "Strict document audit, Certificates of Analysis (CoA), pilot trials, and international compliance."
+          "description": "Strict document audit, Certificates of Analysis (CoA), pilot trials, and international compliance.",
+          "deliverable": "Certificate of Analysis (CoA), GFSI audit clearance, and pilot lot approval."
         },
         {
           "step": "Full Logistics",
           "title": "We coordinate supply & transit",
-          "description": "Customs brokerage, multimodal transit, and regulated storage for on-time deliveries."
+          "description": "Customs brokerage, multimodal transit, and regulated storage for on-time deliveries.",
+          "deliverable": "DDP customs clearance and scheduled on-site fulfillment schedule."
         },
         {
           "step": "Peak & Success",
           "title": "Continuous technical follow-up",
-          "description": "In-plant support during industrial scale-up guided by our specialized application engineers."
+          "description": "In-plant support during industrial scale-up guided by our specialized application engineers.",
+          "deliverable": "On-site application engineering support and batch yield report."
         }
       ]
     },
@@ -4067,27 +4077,32 @@
         {
           "step": "需求诊断",
           "title": "深入了解您的采购与工艺需求",
-          "description": "分析您的配方结构、成本限制、感官指标及具体的商业目标。"
+          "description": "分析您的配方结构、成本限制、感官指标及具体的商业目标。",
+          "deliverable": "初步技术诊断书与目标配方规格书。"
         },
         {
           "step": "全球寻源",
           "title": "匹配最佳原料与生产方案",
-          "description": "在文达全球合成工厂及研发中心网络中筛选最优产品与方案。"
+          "description": "在文达全球合成工厂及研发中心网络中筛选最优产品与方案。",
+          "deliverable": "工厂原样样品与逐批技术规格单。"
         },
         {
           "step": "质量与 CoA",
           "title": "严格验证产品与工厂资质",
-          "description": "严格的文件审计、逐批分析合格证 (CoA) 检测、中试验证及国际认证核验。"
+          "description": "严格的文件审计、逐批分析合格证 (CoA) 检测、中试验证及国际认证核验。",
+          "deliverable": "逐批分析证明 (CoA)、GFSI 审核凭证与中试放行报告。"
         },
         {
           "step": "综合物流",
           "title": "统筹跨国供应链与报关进口",
-          "description": "清关报关、多式联运及合规仓储管理，确保按时保质准时交付。"
+          "description": "清关报关、多式联运及合规仓储管理，确保按时保质准时交付。",
+          "deliverable": "DDP 完税清关与点对点现场准时交付排程。"
         },
         {
           "step": "上线成功",
           "title": "工厂上线全程跟踪与技术支持",
-          "description": "技术工程师亲临工厂指导工业化放大生产，保障平稳上线。"
+          "description": "技术工程师亲临工厂指导工业化放大生产，保障平稳上线。",
+          "deliverable": "现场应用工程技术支持与批次得率优化报告。"
         }
       ]
     }
@@ -4099,6 +4114,7 @@
       "title": "Dudas Frecuentes sobre Formulación, Muestras y Suministro",
       "subtitle": "Conoce cómo trabajamos con fabricantes de alimentos: desde la validación de muestras en planta piloto hasta el escalamiento industrial, certificaciones y logística internacional.",
       "askBox": {
+        "badge": "Canal Técnico Directo",
         "title": "¿Tienes un desafío de formulación no listado aquí?",
         "desc": "Envíanos tu consulta técnica o especificación requerida. Nuestros ingenieros responderán con recomendaciones directas en menos de 24 horas.",
         "button": "Desarrolla tu próxima formulación con nosotros"
@@ -4136,6 +4152,7 @@
       "title": "Common Questions on Formulation, Pilot Samples, and Global Supply",
       "subtitle": "Discover how we collaborate with food processors: from pilot sample validation to industrial scaling, international certifications, and direct supply chain management.",
       "askBox": {
+        "badge": "Direct Technical Channel",
         "title": "Have a specific formulation challenge not listed here?",
         "desc": "Send us your technical inquiry or required specification. Our application engineers will respond with actionable recommendations within 24 hours.",
         "button": "Develop your next formulation with our experts"
@@ -4173,6 +4190,7 @@
       "title": "关于配方、试验样品和全球供应的常见问题",
       "subtitle": "了解我们如何与食品加工商合作：从中试样品验证到工业放大、国际认证和全球直供管理。",
       "askBox": {
+        "badge": "直接技术通道",
         "title": "有未在此列出的具体配方挑战吗？",
         "desc": "直接向我们的应用工程师提交技术咨询，我们将在24小时内提供专业解决方案与建议。",
         "button": "与我们的专家一起开发您的配方"

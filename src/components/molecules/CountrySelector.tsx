@@ -51,7 +51,7 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
             className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-[calc(100vw-2rem)] max-w-sm rounded-2xl bg-white p-3 shadow-2xl z-50 border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
+          <div className="absolute right-0 mt-2 w-[calc(100vw-2rem)] sm:w-[400px] max-w-[calc(100vw-2rem)] rounded-2xl bg-white p-3.5 shadow-2xl z-50 border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
             <div className="px-3 py-2 border-b border-slate-100 mb-2">
               <div className="flex items-center gap-2 text-xs font-bold text-[#2F591B] uppercase tracking-wider">
                 <Globe className="w-3.5 h-3.5 text-[#447D29]" />
@@ -103,14 +103,14 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
                 <MapPin className="w-3.5 h-3.5 shrink-0 text-[#447D29]" />
                 <span>{t("activeHub", { name: currentCountry.name })}</span>
               </div>
-              <div className="space-y-0.5 text-slate-600 pl-5">
-                <p className="truncate font-medium">{currentCountry.contactOffice.address}</p>
-                <div className="flex items-center gap-3 pt-1 text-[11px]">
-                  <span className="flex items-center gap-1 text-slate-800 font-semibold">
+              <div className="space-y-1 text-slate-600 pl-5">
+                <p className="font-medium text-slate-800 leading-tight">{currentCountry.contactOffice.address}</p>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 pt-1 text-[11px]">
+                  <span className="flex items-center gap-1.5 text-slate-800 font-semibold shrink-0">
                     <Phone className="w-3 h-3 text-[#447D29]" /> {currentCountry.contactOffice.phone}
                   </span>
-                  <span className="flex items-center gap-1 text-slate-800 font-semibold truncate">
-                    <Mail className="w-3 h-3 text-[#447D29]" /> {currentCountry.contactOffice.email}
+                  <span className="flex items-center gap-1.5 text-slate-800 font-semibold truncate" title={currentCountry.contactOffice.email}>
+                    <Mail className="w-3 h-3 text-[#447D29] shrink-0" /> {currentCountry.contactOffice.email}
                   </span>
                 </div>
               </div>

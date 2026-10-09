@@ -16,7 +16,7 @@ export const Footer: React.FC<{
   onSelectCountry: (c: CountryMirror) => void;
 }> = ({ currentCountry, onSelectCountry }) => {
   const { t } = useTranslation("footer");
-  const { countries } = useSiteContent();
+  const { countries, categories, brands } = useSiteContent();
 
   const footerRef = useRef<HTMLElement>(null);
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -132,31 +132,13 @@ export const Footer: React.FC<{
               {t("cols.categories")}
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
-              <li>
-                <a href="#categorias" className="hover:text-white transition-colors">
-                  Meat & Poultry
-                </a>
-              </li>
-              <li>
-                <a href="#categorias" className="hover:text-white transition-colors">
-                  Bakery & Panificación
-                </a>
-              </li>
-              <li>
-                <a href="#categorias" className="hover:text-white transition-colors">
-                  Suplementos & Bienestar
-                </a>
-              </li>
-              <li>
-                <a href="#categorias" className="hover:text-white transition-colors">
-                  From Nature (Colores Botánicos)
-                </a>
-              </li>
-              <li>
-                <a href="#categorias" className="hover:text-white transition-colors">
-                  Tripas VICEL & Equipos RIBON
-                </a>
-              </li>
+              {categories.map((cat) => (
+                <li key={cat.id}>
+                  <a href="#categorias" className="hover:text-white transition-colors">
+                    {cat.shortName || cat.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -166,31 +148,13 @@ export const Footer: React.FC<{
               {t("cols.brands")}
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
-              <li>
-                <a href="#marcas" className="hover:text-white transition-colors">
-                  WBS® (Transglutaminasa)
-                </a>
-              </li>
-              <li>
-                <a href="#marcas" className="hover:text-white transition-colors">
-                  Wenda Phos® (Sistemas Fosfatos)
-                </a>
-              </li>
-              <li>
-                <a href="#marcas" className="hover:text-white transition-colors">
-                  SafePlate® (Bioprotección Clean Label)
-                </a>
-              </li>
-              <li>
-                <a href="#marcas" className="hover:text-white transition-colors">
-                  NatureBinde® & Koolgel®
-                </a>
-              </li>
-              <li>
-                <a href="#marcas" className="hover:text-white transition-colors">
-                  FreshGuard® Antioxidantes
-                </a>
-              </li>
+              {brands.map((brand) => (
+                <li key={brand.name}>
+                  <a href="#marcas" className="hover:text-white transition-colors">
+                    {brand.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

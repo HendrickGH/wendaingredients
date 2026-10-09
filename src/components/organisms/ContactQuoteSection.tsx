@@ -21,9 +21,8 @@ interface ContactQuoteSectionProps {
 // Language-neutral topic ids; their labels live in translations.json ("contact.topics")
 const TOPIC_IDS = ["meat", "bakery", "nature", "science", "vicel", "indent"];
 
-// Wenda Ingredients Mexico CDMX Headquarters map embed
-const CDMX_MAP_EMBED_URL =
-  "https://maps.google.com/maps?q=Mariano+Escobedo+543,+Bosque+de+Chapultepec+I+Secc,+Miguel+Hidalgo,+11580+Ciudad+de+M%C3%A9xico,+CDMX&t=&z=16&ie=UTF8&iwloc=&output=embed";
+const getMapEmbedUrl = (address: string) =>
+  `https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
 export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
   currentCountry,
@@ -338,17 +337,17 @@ export const ContactQuoteSection: React.FC<ContactQuoteSectionProps> = ({
             )}
           </div>
 
-          {/* Side 2: Google Maps of CDMX Office */}
+          {/* Side 2: Google Maps of selected regional office */}
           <div className="w-full min-h-[440px] lg:min-h-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 flex flex-col">
             <iframe
-              src={CDMX_MAP_EMBED_URL}
+              src={getMapEmbedUrl(currentCountry.contactOffice.address)}
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación de Wenda Ingredients Latam en Ciudad de México"
+              title={`Ubicación de sede Wenda Ingredients - ${currentCountry.name}`}
               className="w-full h-full min-h-[440px] flex-1"
             />
           </div>
